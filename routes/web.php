@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/* Route::get('/', function () {
     return view('welcome');
+}); */
+Route::get('/', function () {
+    return redirect('/login');
+});
+
+Route::prefix('login')->group(function () {
+    Route::get('/', [AuthController::class, 'login']);
+    Route::post('auth',[AuthController::class, 'auth']);
 });

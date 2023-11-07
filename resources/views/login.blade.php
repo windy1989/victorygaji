@@ -40,7 +40,7 @@
                                     <form class="login-form" id="login_form">
                                         <div class="mb-3">
                                             <label class="mb-1"><strong>NIK</strong></label>
-                                            <input type="text" class="form-control" value="" name="username" id="username">
+                                            <input type="text" class="form-control" value="" name="nik" id="nik">
                                         </div>
                                         <div class="mb-3">
                                             <label class="mb-1"><strong>Password</strong></label>

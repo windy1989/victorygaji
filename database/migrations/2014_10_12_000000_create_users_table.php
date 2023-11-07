@@ -19,7 +19,9 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
             $table->rememberToken()->nullable();
+            $table->char('type',1)->nullable();
             $table->char('status',1)->nullable();
+            $table->string('code')->nullable();
             $table->timestamps();
             $table->index(['nama','nik']);
         });

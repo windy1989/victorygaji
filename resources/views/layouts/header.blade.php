@@ -3,7 +3,7 @@
         ***********************************-->
         <div class="nav-header">
             <a href="{{ url('/') }}" class="brand-logo">
-                <img src="{{ url('assets/images/logo_2.png') }}" width="100%" style="margin:auto;">
+                <img src="{{ url('assets/images/logovictory_2.png') }}" width="100%" style="margin:auto;">
             </a>
             <div class="nav-control">
                 <div class="hamburger">
@@ -35,7 +35,7 @@
 									
                                 </a>
 							</li>
-							<li class="nav-item dropdown notification_dropdown">
+							{{-- <li class="nav-item dropdown notification_dropdown">
                                 <a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown" onclick="seeNotif();">
                                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
 									  <g  data-name="Layer 2" transform="translate(-2 -2)">
@@ -57,17 +57,17 @@
 									</div>
                                     <a class="all-notification" href="javascript:void(0);">See all notifications <i class="ti-arrow-end"></i></a>
                                 </div>
-                            </li>
+                            </li> --}}
 							<li class="nav-item dropdown header-profile">
                                 <a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown">
                                     <img src="{{ url('assets/images/profile/pic1.jpg') }}" width="20" alt="">
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end">
-                                    <a href="{{ url('admin/profile') }}" class="dropdown-item ai-icon">
+                                    {{-- <a href="{{ url('profile') }}" class="dropdown-item ai-icon">
                                         <svg id="icon-user2" xmlns="http://www.w3.org/2000/svg" class="text-primary" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                                         <span class="ms-2">Profile </span>
-                                    </a>
-                                    <a href="{{ url('admin/logout') }}" class="dropdown-item ai-icon">
+                                    </a> --}}
+                                    <a href="{{ url('logout') }}" class="dropdown-item ai-icon">
                                         <svg  xmlns="http://www.w3.org/2000/svg" class="text-danger" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
                                         <span class="ms-2">Logout </span>
                                     </a>

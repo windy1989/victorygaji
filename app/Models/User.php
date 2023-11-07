@@ -18,9 +18,15 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'nama',
+        'nik',
         'email',
+        'email_verified_at',
         'password',
+        'remember_token',
+        'type',
+        'status',
+        'code',
     ];
 
     /**
@@ -30,16 +36,25 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
-        'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-        'password' => 'hashed',
-    ];
+    public function status(){
+        $status = match ($this->status) {
+            '1' => 'Aktif',
+            '2' => 'Non-Aktif',
+            default => 'Invalid',
+        };
+
+        return $status;
+    }
+
+    public function type(){
+        $type = match ($this->type) {
+            '1' => 'Superadmin',
+            '2' => 'Karyawan',
+            default => 'Invalid',
+        };
+
+        return $type;
+    }
 }

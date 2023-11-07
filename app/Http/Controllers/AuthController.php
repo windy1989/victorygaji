@@ -28,13 +28,13 @@ class AuthController extends Controller
     }
 
     public function auth(Request $request){
-        $user = User::where('username', $request->username)->where('status','1')->first();
+        $user = User::where('nik', $request->nik)->where('status','1')->first();
 		if($user) {
             if(Hash::check($request->password, $user->password)) {
                 session([
                     'bo_id'             => $user->id,
-                    'bo_username'       => $user->username,
-                    'bo_name'           => $user->name,
+                    'bo_nik'            => $user->nik,
+                    'bo_nama'           => $user->nama,
                     'bo_type'           => $user->type,
                     'bo_typename'       => $user->type(),
                 ]);
@@ -62,7 +62,6 @@ class AuthController extends Controller
 
     public function logout(){
         session()->flush();
-        Auth::logout();
         return redirect('login');
     }
 }

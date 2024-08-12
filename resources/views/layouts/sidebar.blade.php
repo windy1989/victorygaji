@@ -43,6 +43,12 @@
 							<span class="nav-text">Proyek</span>
 						</a>
 					</li>
+					<li class="{{ Request::segment(2) == 'offering_letter' ? 'mm-active' : '' }}">
+                        <a href="{{ url('offering_letter') }}" class="{{ Request::segment(2) == 'offering_letter' ? 'mm-active' : '' }}" aria-expanded="false">
+							<i class="flaticon-381-bookmark-1"></i>
+							<span class="nav-text">Surat Penawaran</span>
+						</a>
+					</li>
                     <li class="{{ Request::segment(2) == 'payroll' ? 'mm-active' : '' }}">
                         <a href="{{ url('payroll') }}" class="{{ Request::segment(2) == 'payroll' ? 'mm-active' : '' }}" aria-expanded="false">
 							<i class="flaticon-381-file-1"></i>

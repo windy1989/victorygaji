@@ -39,7 +39,7 @@
 					@if(session('bo_type') == '1')
 					<li class="{{ Request::segment(2) == 'project' ? 'mm-active' : '' }}">
                         <a href="{{ url('project') }}" class="{{ Request::segment(2) == 'project' ? 'mm-active' : '' }}" aria-expanded="false">
-							<i class="fi fi-rr-legal"></i>
+							<i class="flaticon-381-notepad-1"></i>
 							<span class="nav-text">Proyek</span>
 						</a>
 					</li>

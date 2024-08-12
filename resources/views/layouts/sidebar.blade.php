@@ -64,13 +64,13 @@
 					<li class="{{ Request::segment(2) == 'kelengkapan_dokumen' ? 'mm-active' : '' }}">
                         <a href="{{ url('kelengkapan_dokumen') }}" class="{{ Request::segment(2) == 'kelengkapan_dokumen' ? 'mm-active' : '' }}" aria-expanded="false">
 							<i class="flaticon-381-list-1"></i>
-							<span class="nav-text">Kelengkapan Dokumen</span>
+							<span class="nav-text">Kelengkapan Dok.</span>
 						</a>
 					</li>
 					<li class="{{ Request::segment(2) == 'dokumen_andalalin' ? 'mm-active' : '' }}">
                         <a href="{{ url('dokumen_andalalin') }}" class="{{ Request::segment(2) == 'dokumen_andalalin' ? 'mm-active' : '' }}" aria-expanded="false">
 							<i class="flaticon-381-notebook-5"></i>
-							<span class="nav-text">Dokumen Andalalin</span>
+							<span class="nav-text">Dok. Andalalin</span>
 						</a>
 					</li>
 					<li class="{{ Request::segment(2) == 'sidang' ? 'mm-active' : '' }}">

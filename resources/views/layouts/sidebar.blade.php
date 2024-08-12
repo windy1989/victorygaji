@@ -51,7 +51,7 @@
 					</li>
 					<li class="{{ Request::segment(2) == 'spk' ? 'mm-active' : '' }}">
                         <a href="{{ url('spk') }}" class="{{ Request::segment(2) == 'spk' ? 'mm-active' : '' }}" aria-expanded="false">
-							<i class="flaticon-381-diploma"></i>
+							<i class="flaticon-381-list"></i>
 							<span class="nav-text">SPK</span>
 						</a>
 					</li>

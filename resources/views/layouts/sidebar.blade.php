@@ -37,6 +37,12 @@
                     </li>
 					
 					@if(session('bo_type') == '1')
+					<li class="{{ Request::segment(2) == 'project' ? 'mm-active' : '' }}">
+                        <a href="{{ url('project') }}" class="{{ Request::segment(2) == 'project' ? 'mm-active' : '' }}" aria-expanded="false">
+							<i class="fi fi-rr-legal"></i>
+							<span class="nav-text">Proyek</span>
+						</a>
+					</li>
                     <li class="{{ Request::segment(2) == 'payroll' ? 'mm-active' : '' }}">
                         <a href="{{ url('payroll') }}" class="{{ Request::segment(2) == 'payroll' ? 'mm-active' : '' }}" aria-expanded="false">
 							<i class="flaticon-381-file-1"></i>

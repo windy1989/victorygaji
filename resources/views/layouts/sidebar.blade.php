@@ -45,7 +45,7 @@
 					</li>
 					<li class="{{ Request::segment(2) == 'offering_letter' ? 'mm-active' : '' }}">
                         <a href="{{ url('offering_letter') }}" class="{{ Request::segment(2) == 'offering_letter' ? 'mm-active' : '' }}" aria-expanded="false">
-							<i class="flaticon-381-bookmark-1"></i>
+							<i class="flaticon-381-newspaper"></i>
 							<span class="nav-text">Surat Penawaran</span>
 						</a>
 					</li>

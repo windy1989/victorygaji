@@ -37,16 +37,52 @@
                     </li>
 					
 					@if(session('bo_type') == '1')
-					<li class="{{ Request::segment(2) == 'project' ? 'mm-active' : '' }}">
-                        <a href="{{ url('project') }}" class="{{ Request::segment(2) == 'project' ? 'mm-active' : '' }}" aria-expanded="false">
+					<li class="{{ Request::segment(2) == 'proyek' ? 'mm-active' : '' }}">
+                        <a href="{{ url('proyek') }}" class="{{ Request::segment(2) == 'proyek' ? 'mm-active' : '' }}" aria-expanded="false">
 							<i class="flaticon-381-notepad-1"></i>
 							<span class="nav-text">Proyek</span>
 						</a>
 					</li>
-					<li class="{{ Request::segment(2) == 'offering_letter' ? 'mm-active' : '' }}">
-                        <a href="{{ url('offering_letter') }}" class="{{ Request::segment(2) == 'offering_letter' ? 'mm-active' : '' }}" aria-expanded="false">
+					<li class="{{ Request::segment(2) == 'surat_penawaran' ? 'mm-active' : '' }}">
+                        <a href="{{ url('surat_penawaran') }}" class="{{ Request::segment(2) == 'surat_penawaran' ? 'mm-active' : '' }}" aria-expanded="false">
 							<i class="flaticon-381-newspaper"></i>
 							<span class="nav-text">Surat Penawaran</span>
+						</a>
+					</li>
+					<li class="{{ Request::segment(2) == 'spk' ? 'mm-active' : '' }}">
+                        <a href="{{ url('spk') }}" class="{{ Request::segment(2) == 'spk' ? 'mm-active' : '' }}" aria-expanded="false">
+							<i class="flaticon-381-diploma"></i>
+							<span class="nav-text">SPK</span>
+						</a>
+					</li>
+					<li class="{{ Request::segment(2) == 'invoice' ? 'mm-active' : '' }}">
+                        <a href="{{ url('invoice') }}" class="{{ Request::segment(2) == 'invoice' ? 'mm-active' : '' }}" aria-expanded="false">
+							<i class="flaticon-381-percentage"></i>
+							<span class="nav-text">Invoice</span>
+						</a>
+					</li>
+					<li class="{{ Request::segment(2) == 'kelengkapan_dokumen' ? 'mm-active' : '' }}">
+                        <a href="{{ url('kelengkapan_dokumen') }}" class="{{ Request::segment(2) == 'kelengkapan_dokumen' ? 'mm-active' : '' }}" aria-expanded="false">
+							<i class="flaticon-381-list-1"></i>
+							<span class="nav-text">Kelengkapan Dokumen</span>
+						</a>
+					</li>
+					<li class="{{ Request::segment(2) == 'dokumen_andalalin' ? 'mm-active' : '' }}">
+                        <a href="{{ url('dokumen_andalalin') }}" class="{{ Request::segment(2) == 'dokumen_andalalin' ? 'mm-active' : '' }}" aria-expanded="false">
+							<i class="flaticon-381-notebook-5"></i>
+							<span class="nav-text">Dokumen Andalalin</span>
+						</a>
+					</li>
+					<li class="{{ Request::segment(2) == 'sidang' ? 'mm-active' : '' }}">
+                        <a href="{{ url('sidang') }}" class="{{ Request::segment(2) == 'sidang' ? 'mm-active' : '' }}" aria-expanded="false">
+							<i class="flaticon-381-sunglasses"></i>
+							<span class="nav-text">Sidang</span>
+						</a>
+					</li>
+					<li class="{{ Request::segment(2) == 'revisi' ? 'mm-active' : '' }}">
+                        <a href="{{ url('revisi') }}" class="{{ Request::segment(2) == 'revisi' ? 'mm-active' : '' }}" aria-expanded="false">
+							<i class="flaticon-381-receive"></i>
+							<span class="nav-text">Revisi</span>
 						</a>
 					</li>
                     <li class="{{ Request::segment(2) == 'payroll' ? 'mm-active' : '' }}">

@@ -91,11 +91,16 @@
 							<span class="nav-text">Payroll</span>
 						</a>
 					</li>
-
+					<li class="{{ Request::segment(2) == 'customer' ? 'mm-active' : '' }}">
+                        <a href="{{ url('customer') }}" class="{{ Request::segment(2) == 'customer' ? 'mm-active' : '' }}" aria-expanded="false">
+							<i class="flaticon-381-id-card-1"></i>
+							<span class="nav-text">Customer</span>
+						</a>
+					</li>
 					<li class="{{ Request::segment(2) == 'user' ? 'mm-active' : '' }}">
                         <a href="{{ url('user') }}" class="{{ Request::segment(2) == 'user' ? 'mm-active' : '' }}" aria-expanded="false">
 							<i class="flaticon-381-user-9"></i>
-							<span class="nav-text">User Manager</span>
+							<span class="nav-text">User</span>
 						</a>
 					</li>
 					@endif

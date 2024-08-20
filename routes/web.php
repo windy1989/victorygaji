@@ -41,7 +41,7 @@ Route::middleware('login')->group(function () {
         Route::get('download/{code}',[DashboardController::class, 'download']);
     });
 
-    Route::prefix('payroll')->middleware('admin.auth')->group(function () {
+    Route::prefix('payroll')->middleware('admin.auth:1')->group(function () {
         Route::get('/',[PayrollController::class, 'index']);
         Route::get('datatable',[PayrollController::class, 'datatable']);
         Route::post('create',[PayrollController::class, 'create']);
@@ -49,7 +49,13 @@ Route::middleware('login')->group(function () {
         Route::post('history', [PayrollController::class, 'history']);
     });
 
-    Route::prefix('user')->middleware('admin.auth')->group(function () {
+    Route::prefix('customer')->middleware('admin.auth:1')->group(function () {
+        Route::get('/',[UserController::class, 'index']);
+        Route::get('datatable',[UserController::class, 'datatable']);
+        Route::post('update_password',[UserController::class, 'updatePassword']);
+    });
+
+    Route::prefix('user')->middleware('admin.auth:1')->group(function () {
         Route::get('/',[UserController::class, 'index']);
         Route::get('datatable',[UserController::class, 'datatable']);
         Route::post('update_password',[UserController::class, 'updatePassword']);

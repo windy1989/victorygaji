@@ -52,6 +52,12 @@ class User extends Authenticatable
         $type = match ($this->type) {
             '1' => 'Superadmin',
             '2' => 'Karyawan',
+            '3' => 'Dokumen',
+            '4' => 'Drafter',
+            '5' => 'Surveyor',
+            '6' => 'Manager',
+            '7' => 'Director',
+            '8' => 'Komisaris',
             default => 'Invalid',
         };
 

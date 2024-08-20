@@ -14,9 +14,31 @@ class AdminAuth
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle(Request $request, Closure $next)
+    public function handle(Request $request, Closure $next, $role1, $role2, $role3, $role4)
     {
-        if(session('bo_type') == '1'){
+        $passed = false;
+        $arrayAccess = ['1','2','3','4','5','6','7','8'];
+        if($role1){
+            if(in_array($role1,$arrayAccess)){
+                $passed = true;
+            }
+        }
+        if($role2){
+            if(in_array($role2,$arrayAccess)){
+                $passed = true;
+            }
+        }
+        if($role3){
+            if(in_array($role3,$arrayAccess)){
+                $passed = true;
+            }
+        }
+        if($role4){
+            if(in_array($role4,$arrayAccess)){
+                $passed = true;
+            }
+        }
+        if($passed){
             return $next($request);
         }else{
             abort(401);

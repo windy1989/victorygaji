@@ -3,7 +3,7 @@
         ***********************************-->
         <div class="footer">
             <div class="copyright">
-                <p>Copyright © Designed &amp; Developed by <a href="https://blessconbataringan.com" target="_blank">Superior Prima Sukses</a> 2023</p>
+                <p>Copyright © Designed &amp; Developed by <a href="#" target="_blank">Winciel</a> 2024</p>
             </div>
         </div>
         <!--**********************************

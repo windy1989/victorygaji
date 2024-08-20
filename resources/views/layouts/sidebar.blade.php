@@ -35,8 +35,6 @@
                             <span class="nav-text">Dashboard</span>
                         </a>
                     </li>
-					
-					@if(session('bo_type') == '1')
 					<li class="{{ Request::segment(2) == 'proyek' ? 'mm-active' : '' }}">
                         <a href="{{ url('proyek') }}" class="{{ Request::segment(2) == 'proyek' ? 'mm-active' : '' }}" aria-expanded="false">
 							<i class="flaticon-381-notepad-1"></i>
@@ -103,7 +101,6 @@
 							<span class="nav-text">User</span>
 						</a>
 					</li>
-					@endif
                 </ul>
 			</div>
         </div>

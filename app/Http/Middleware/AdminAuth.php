@@ -14,7 +14,7 @@ class AdminAuth
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle(Request $request, Closure $next, $role1, $role2, $role3, $role4)
+    public function handle(Request $request, Closure $next, $role1 = null, $role2 = null, $role3 = null, $role4 = null)
     {
         $passed = false;
         $arrayAccess = ['1','2','3','4','5','6','7','8'];

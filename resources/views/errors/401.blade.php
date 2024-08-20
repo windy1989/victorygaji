@@ -34,11 +34,11 @@
             <div class="row justify-content-center h-100 align-items-center">
                 <div class="col-md-5">
                     <div class="form-input-content text-center error-page">
-                        <h1 class="error-text fw-bold">400</h1>
-                        <h4><i class="fa fa-thumbs-down text-danger"></i> Bad Request</h4>
-                        <p>Your Request resulted in an error</p>
+                        <h1 class="error-text fw-bold">401</h1>
+                        <h4><i class="fa fa-thumbs-down text-danger"></i> Anda tidak memiliki akses</h4>
+                        <p>Silahkan hubungi owner untuk dibukakan akses</p>
 						<div>
-                            <a class="btn btn-primary" href="index.html">Back to Home</a>
+                            <a class="btn btn-primary" href="../dashboard">Kembali ke Dashboard</a>
                         </div>
                     </div>
                 </div>

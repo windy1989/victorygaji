@@ -14,7 +14,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
 	<!-- PAGE TITLE HERE -->
-	<title>{{ env('APP_NAME') }} | {{ $title }}</title>
+	<title>{{ env('APP_NAME') }} | 401</title>
 	
 	<!-- Favicon icon -->
 	<link rel="shortcut icon" type="image/ico" href="{{ url('assets/images/favicon.ico') }}">

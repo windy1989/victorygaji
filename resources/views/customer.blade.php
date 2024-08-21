@@ -77,7 +77,7 @@
                     </div>
                     <div class="modal-body">
                         <div id="validation_alert" style="display:none;margin-top:25px;"></div>
-                        <form>
+                        <form id="formData">
                             <div class="row">
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Kode Pelanggan</label>
@@ -114,45 +114,37 @@
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Kota</label>
-                                    <input type="text" class="form-control" placeholder="Alamat" id="city" name="city">
+                                    <input type="text" class="form-control" placeholder="Kota" id="city" name="city">
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Gender</label>
                                     <div class="mb-3 mb-0">
-                                        <label class="radio-inline me-3"><input type="radio" name="gender" class="form-check-input" value="1"> Laki-laki</label>
+                                        <label class="radio-inline me-3"><input type="radio" name="gender" class="form-check-input" value="1" checked> Laki-laki</label>
                                         <label class="radio-inline me-3"><input type="radio" name="gender" class="form-check-input" value="2"> Perempuan</label>
                                         <label class="radio-inline me-3"><input type="radio" name="gender" class="form-check-input" value="3"> Lain-lain</label>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
                                 <div class="mb-3 col-md-6">
-                                    <label class="form-label">State</label>
-                                    <select id="inputState" class="default-select form-control wide">
-                                        <option selected>Choose...</option>
-                                        <option>Option 1</option>
-                                        <option>Option 2</option>
-                                        <option>Option 3</option>
+                                    <label class="form-label">Telepon</label>
+                                    <input type="text" class="form-control" placeholder="081XXXXX" id="phone" name="phone">
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label class="form-label">Tipe Perusahaan</label>
+                                    <select id="type_body" name="type_body" class="default-select form-control wide">
+                                        <option value="1">PT</option>
+                                        <option value="2">CV</option>
+                                        <option value="3">Perorangan</option>
                                     </select>
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <label class="form-label">Zip</label>
-                                    <input type="text" class="form-control">
+                                    <textarea class="form-control" rows="8" id="comment"></textarea>
                                 </div>
                             </div>
-                            <div class="mb-3">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox">
-                                    <label class="form-check-label">
-                                        Check me out
-                                    </label>
-                                </div>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Sign in</button>
                         </form>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="save();">Simpan</button>
                     </div>
                 </div>
             </div>

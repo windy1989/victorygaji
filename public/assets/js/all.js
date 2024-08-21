@@ -529,6 +529,49 @@ function loadingClose(){
     jQuery('#preloader').hide();
 }
 
+function save(){
+    swal({
+        title: "Apakah anda yakin ingin simpan?",
+        text: "Silahkan cek kembali form, dan jika sudah yakin maka lanjutkan!",
+        icon: 'warning',
+        dangerMode: true,
+        buttons: {
+        cancel: 'Tidak, jangan!',
+        delete: 'Ya, lanjutkan!'
+        }
+    }).then(function (willDelete) {
+        if (willDelete) {
+            var formData = new FormData($('#formData')[0]);
+           $.ajax({
+                url: window.location.href + '/create',
+                type: 'POST',
+                dataType: 'JSON',
+                data: formData,
+                contentType: false,
+                processData: false,
+                cache: true,
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                beforeSend: function() {
+                    $('#validation_alert').hide();
+                    $('#validation_alert').html('');
+                },
+                success: function(response) {
+                    if(response.status == 200) {
+                        
+                    } else if(response.status == 422) {
+                        
+                    }
+                },
+                error: function() {
+
+                }
+            });
+        }
+    });
+}
+
 /* CUSTOMER */
 
 $(function() {

@@ -25,6 +25,9 @@
                         <div class="card mt-3">
                             <div class="card-header">
                                 <h4 class="card-title">Daftar {{ $title }}</h4>
+                                <div>	
+                                    <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#modalCreate">Tambah Baru</button>
+                                </div>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -72,7 +75,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal">
                         </button>
                     </div>
-                    <div class="modal-body" id="show-history">
+                    <div class="modal-body">
 					
                     </div>
                     <div class="modal-footer">

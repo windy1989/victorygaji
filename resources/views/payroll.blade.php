@@ -26,7 +26,7 @@
                             <div class="card-header">
                                 <h4 class="card-title">Daftar Notifikasi Gaji</h4>
                                 <div>	
-                                    <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#basicModal">Upload New</button>
+                                    <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#basicModal">Upload Baru</button>
                                 </div>
                             </div>
                             <div class="card-body">

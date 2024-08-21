@@ -531,18 +531,19 @@ function loadingClose(){
 
 function save(){
     swal({
-        title: "Apakah anda yakin ingin simpan?",
-        text: "Silahkan cek kembali form, dan jika sudah yakin maka lanjutkan!",
-        icon: 'warning',
-        dangerMode: true,
-        buttons: {
-        cancel: 'Tidak, jangan!',
-        delete: 'Ya, lanjutkan!'
-        }
+        title: "Are you sure to delete ?",
+        text: "You will not be able to recover this imaginary file !!",
+        type: "warning",
+        showCancelButton: !0,
+        confirmButtonColor: "#DD6B55",
+        confirmButtonText: "Yes, delete it !!",
+        cancelButtonText: "No, cancel it !!",
+        closeOnConfirm: !1,
+        closeOnCancel: !1
     }).then(function (willDelete) {
         if (willDelete) {
             var formData = new FormData($('#formData')[0]);
-           $.ajax({
+            $.ajax({
                 url: window.location.href + '/create',
                 type: 'POST',
                 dataType: 'JSON',

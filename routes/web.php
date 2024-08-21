@@ -5,6 +5,7 @@ use App\Http\Controllers\PayrollController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CustomerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,9 +51,9 @@ Route::middleware('login')->group(function () {
     });
 
     Route::prefix('customer')->middleware('admin.auth:1')->group(function () {
-        Route::get('/',[UserController::class, 'index']);
-        Route::get('datatable',[UserController::class, 'datatable']);
-        Route::post('update_password',[UserController::class, 'updatePassword']);
+        Route::get('/',[CustomerController::class, 'index']);
+        Route::get('datatable',[CustomerController::class, 'datatable']);
+        Route::post('create',[CustomerController::class, 'create']);
     });
 
     Route::prefix('user')->middleware('admin.auth:1')->group(function () {

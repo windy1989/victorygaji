@@ -116,11 +116,8 @@
                                     <label class="form-label">Kota</label>
                                     <input type="text" class="form-control" placeholder="Alamat" id="city" name="city">
                                 </div>
-                                <div class="mb-3 col-md-6">
-                                    <label class="form-label">Gender</label>
-                                    <input type="text" class="form-control" placeholder="Alamat" id="city" name="city">
-                                </div>
                                 <div class="mb-3 col-md-6 mb-0">
+                                    <label class="form-label">Gender</label>
                                     <label class="radio-inline me-3"><input type="radio" name="optradio" class="form-check-input"> Option 1</label>
                                     <label class="radio-inline me-3"><input type="radio" name="optradio" class="form-check-input"> Option 2</label>
                                     <label class="radio-inline me-3"><input type="radio" name="optradio" class="form-check-input"> Option 3</label>

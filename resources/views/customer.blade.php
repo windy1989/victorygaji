@@ -28,7 +28,7 @@
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table id="user-datatable" class="display nowrap" style="min-width: 100%">
+                                    <table id="customer-datatable" class="display nowrap" style="min-width: 100%">
                                         <thead>
                                             <tr>
                                                 <th>#</th>

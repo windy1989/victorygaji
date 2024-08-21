@@ -25,10 +25,20 @@ class CustomerController extends Controller
     public function datatable(Request $request){
         $column = [
             'id',
-            'nama',
-            'nik',
+            'code',
+            'name',
             'email',
-            'type',
+            'owner_name',
+            'pic',
+            'owner_id_card',
+            'company_name',
+            'document_no',
+            'address',
+            'city',
+            'gender',
+            'phone',
+            'type_body',
+            'note',
             'status',
         ];
 
@@ -42,9 +52,11 @@ class CustomerController extends Controller
         
         $query_data = Customer::where(function($query) use ($search, $request) {
                 if($search) {
-                    $query->where('nik', 'like', "%$search%")
-                        ->orWhere('nama','like',"%$search%")
-                        ->orWhere('email','like',"%$search%");
+                    $query->where('code', 'like', "%$search%")
+                        ->orWhere('name','like',"%$search%")
+                        ->orWhere('email','like',"%$search%")
+                        ->orWhere('owner_name','like',"%$search%")
+                        ->orWhere('pic','like',"%$search%");
                 }
             })
             ->offset($start)
@@ -54,9 +66,11 @@ class CustomerController extends Controller
 
         $total_filtered = Customer::where(function($query) use ($search, $request) {
                 if($search) {
-                    $query->where('nik', 'like', "%$search%")
-                        ->orWhere('nama','like',"%$search%")
-                        ->orWhere('email','like',"%$search%");
+                    $query->where('code', 'like', "%$search%")
+                        ->orWhere('name','like',"%$search%")
+                        ->orWhere('email','like',"%$search%")
+                        ->orWhere('owner_name','like',"%$search%")
+                        ->orWhere('pic','like',"%$search%");
                 }
             })
             ->count();
@@ -68,10 +82,20 @@ class CustomerController extends Controller
 				
                 $response['data'][] = [
                     $nomor,
-                    $val->nama,
-                    $val->nik,
+                    $val->code,
+                    $val->name,
                     $val->email,
-                    $val->type(),
+                    $val->owner_name,
+                    $val->pic,
+                    $val->owner_id_card,
+                    $val->company_name,
+                    $val->document_no,
+                    $val->address,
+                    $val->city,
+                    $val->gender(),
+                    $val->phone,
+                    $val->typeBody(),
+                    $val->note,
                     $val->status(),
                     '
 						<span style="font-size:25px;" data-toggle="tooltip" data-placement="top" title="Reset dan email password">

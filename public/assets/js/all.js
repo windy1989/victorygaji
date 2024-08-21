@@ -531,8 +531,8 @@ function loadingClose(){
 
 function save(){
     swal({
-        title: "Are you sure to delete ?",
-        text: "You will not be able to recover this imaginary file !!",
+        title: "Apakah yakin ingin simpan?",
+        text: "Silahkan cek kembali form anda.",
         type: "warning",
         showCancelButton: !0,
         confirmButtonColor: "#DD6B55",

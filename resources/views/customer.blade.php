@@ -90,7 +90,7 @@
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Email</label>
-                                    <input type="email" class="form-control" placeholder="Email" id="email" name="name">
+                                    <input type="email" class="form-control" placeholder="Email" id="email" name="email">
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Nama Pemilik</label>

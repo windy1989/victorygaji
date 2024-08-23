@@ -563,6 +563,11 @@ function save(){
                     loadingClose();
                     if(response.status == 200) {
                         successMessage(response.message);
+
+                        if($('#customer-datatable').length > 0){
+                            loadDataTableCustomer();
+                        }
+                        
                     } else if(response.status == 422) {
                         $('#validation_alert').show();
                         $.each(response.error, function(i, val) {
@@ -585,7 +590,9 @@ function save(){
 /* CUSTOMER */
 
 $(function() {
-
+    $('#modalCreate').on('hidden.bs.modal', function (e) {
+        $('#formData')[0].reset();
+    });
 });
 
 if($('#customer-datatable').length > 0){

@@ -536,8 +536,8 @@ function save(){
         type: "warning",
         showCancelButton: !0,
         confirmButtonColor: "#DD6B55",
-        confirmButtonText: "Yes, delete it !!",
-        cancelButtonText: "No, cancel it !!",
+        confirmButtonText: "Ya, simpan!",
+        cancelButtonText: "Batal",
         closeOnConfirm: !1,
         closeOnCancel: !1
     }).then(function (willDelete) {
@@ -560,9 +560,16 @@ function save(){
                 },
                 success: function(response) {
                     if(response.status == 200) {
-                        
+                        successMessage(response.message);
                     } else if(response.status == 422) {
-                        
+                        $('#validation_alert').show();
+                        $.each(response.error, function(i, val) {
+                            $('#validation_alert').append(`
+                                <div class="alert alert-danger solid alert-rounded ">
+                                    <p> Line <b>` + val.row + `</b> in column <b>` + val.attribute + `</b> : ` + val.errors[0] + `</p>
+                                </div>
+                            `);
+                        });
                     }
                 },
                 error: function() {

@@ -136,9 +136,6 @@
                                         <option value="3">Perorangan</option>
                                     </select>
                                 </div>
-                                <div class="mb-3 col-md-6">
-                                    <textarea class="form-control" rows="8" id="comment"></textarea>
-                                </div>
                             </div>
                         </form>
                     </div>

@@ -121,35 +121,10 @@ class CustomerController extends Controller
         return response()->json($response);
     }
 
-    public function updatePassword(Request $request){
-        $user = User::where('id',$request->id)->where('status','1')->first();
-
-        if($user){
-            $pass = Str::random(6);
-            $user->update([
-                'password'  => bcrypt($pass),
-                'code'      => base64_encode($pass),
-            ]);
-
-            $data = [
-                'subject'   => 'Reset Password',
-                'view'      => 'mail.reset',
-                'user'      => $user->toArray(),
-            ];
-
-            Mail::to($user->email)->send(new SendMail($data));
-
-            return response()->json([
-                'status'    => 200,
-                'message'   => 'Password berhasil dikirimkan!'
-            ]);
-        }else{
-            $response = [
-                'status' => 500,
-                'error'  => 'Data tidak ditemukan.'
-            ];
-        }
-
-        return response()->json($response);
+    public function create(Request $request){
+        return response()->json([
+            'status'    => 200,
+            'message'   => 'Data berhasil disimpan',
+        ]);
     }
 }

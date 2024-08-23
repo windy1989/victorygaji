@@ -634,8 +634,8 @@ function loadDataTableCustomer(){
             }
         },
         columns: [
-            { name: 'id', searchable: false, className: 'text-center alert alert-primary' },
-            { name: 'code', className: 'alert alert-primary' },
+            { name: 'id', searchable: false, className: 'text-center fixed-column' },
+            { name: 'code', className: 'fixed-column' },
             { name: 'name', className: '' },
             { name: 'email', className: '' },
 			{ name: 'owner', className: '' },

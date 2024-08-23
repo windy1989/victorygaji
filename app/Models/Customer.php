@@ -42,6 +42,15 @@ class Customer extends Model
         return $status;
     }
 
+    public function statusBadge(){
+        $status = match ($this->status) {
+            '1' => '<span class="badge badge-success">Success</span>',
+            default => '<span class="badge badge-danger">Danger</span>',
+        };
+
+        return $status;
+    }
+
     public function gender(){
         $gender = match ($this->gender) {
             '1' => 'Laki-laki',

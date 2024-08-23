@@ -100,7 +100,7 @@ class CustomerController extends Controller
                     $val->phone,
                     $val->typeBody(),
                     $val->note,
-                    $val->status(),
+                    $val->statusBadge(),
                     '
                         <a href="javascript:void(0);" class="btn btn-warning btn-sm content-icon" onclick="editCustomer(`'.CustomHelper::encrypt($val->code).'`)"><i class="fa fa-edit"></i></a>
                         <a href="javascript:void(0);" class="btn btn-danger btn-sm content-icon" onclick="delete(`'.CustomHelper::encrypt($val->code).'`)"><i class="fa fa-times"></i></a>

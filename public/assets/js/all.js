@@ -538,7 +538,6 @@ function save(){
         confirmButtonColor: "#DD6B55",
         confirmButtonText: "Ya, simpan!",
         cancelButtonText: "Batal",
-        closeOnConfirm: !1,
         closeOnCancel: !1
     }).then(function (willDelete) {
         if (willDelete) {
@@ -557,8 +556,10 @@ function save(){
                 beforeSend: function() {
                     $('#validation_alert').hide();
                     $('#validation_alert').html('');
+                    loadingOpen();
                 },
                 success: function(response) {
+                    loadingClose();
                     if(response.status == 200) {
                         successMessage(response.message);
                     } else if(response.status == 422) {
@@ -573,7 +574,7 @@ function save(){
                     }
                 },
                 error: function() {
-
+                    loadingClose();
                 }
             });
         }

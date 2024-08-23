@@ -568,6 +568,7 @@ function save(){
                             loadDataTableCustomer();
                         }
 
+                        $('#modalCreate').modal('toggle');
                     } else if(response.status == 422) {
                         $('#validation_alert').show();
                         $.each(response.error, function(i, val) {

@@ -1,3 +1,4 @@
 .fixed-column {
     background-color: #ffd8c7 !important;
+    z-index: -1;
 }

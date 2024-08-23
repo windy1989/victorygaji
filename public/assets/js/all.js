@@ -566,11 +566,11 @@ function save(){
                     } else if(response.status == 422) {
                         $('#validation_alert').show();
                         $.each(response.error, function(i, val) {
-                            $('#validation_alert').append(`
-                                <div class="alert alert-danger solid alert-rounded ">
-                                    <p> Line <b>` + val.row + `</b> in column <b>` + val.attribute + `</b> : ` + val.errors[0] + `</p>
-                                </div>
-                            `);
+                            $.each(val, function(j, val) {
+                                $('#validation_alert').append(`
+                                     <div class="alert alert-danger solid alert-rounded "> ` + val + `</div>
+                                `);
+                             });
                         });
                     }
                 },

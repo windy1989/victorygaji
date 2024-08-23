@@ -16,4 +16,19 @@ class CustomHelper {
             'note'          => $note,
         ]);
     }
+
+    public static function encrypt($string){
+        if($string == ''){
+			$val = "";
+		}else{
+			$val = strrev(implode('-',str_split(str_replace('=','',base64_encode($string)),5)));
+		}
+		
+		return $val;
+    }
+
+    public static function decrypt($string){
+		$val = base64_decode(str_replace('-','',strrev($string)));
+		return $val;
+	}
 }

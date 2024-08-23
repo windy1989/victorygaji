@@ -102,9 +102,8 @@ class CustomerController extends Controller
                     $val->note,
                     $val->status(),
                     '
-						<span style="font-size:25px;" data-toggle="tooltip" data-placement="top" title="Reset dan email password">
-							<a href="javascript:void(0);" onclick="updatePassword('.$val->id.')"><i class="fa fa-unlock text-info"></i></a>
-                        </span>
+                        <a href="javascript:void(0);" class="btn btn-warning btn-sm content-icon" onclick="editCustomer(`'.CustomHelper::encrypt($val->code).'`)"><i class="fa fa-edit"></i></a>
+                        <a href="javascript:void(0);" class="btn btn-danger btn-sm content-icon" onclick="delete(`'.CustomHelper::encrypt($val->code).'`)"><i class="fa fa-times"></i></a>
 					'
                 ];
 
@@ -126,8 +125,8 @@ class CustomerController extends Controller
     }
 
     public function create(Request $request){
-        /* DB::beginTransaction();
-        try { */
+        DB::beginTransaction();
+        try {
             $validation = Validator::make($request->all(), [
                 'name'              => 'required',
             ], [
@@ -191,10 +190,10 @@ class CustomerController extends Controller
                     ];
                 }
             }
-            /* DB::commit(); */
+            DB::commit();
 		    return response()->json($response);
-        /* }catch(\Exception $e){
+        }catch(\Exception $e){
             DB::rollback();
-        } */
+        }
     }
 }

@@ -101,6 +101,10 @@
                                     <input type="text" class="form-control" placeholder="Nama PIC" id="pic" name="pic">
                                 </div>
                                 <div class="mb-3 col-md-6">
+                                    <label class="form-label">KTP Pemilik</label>
+                                    <input type="text" class="form-control" placeholder="NIK/Identitas Pemilik" id="owner_id_card" name="owner_id_card">
+                                </div>
+                                <div class="mb-3 col-md-6">
                                     <label class="form-label">Perusahaan</label>
                                     <input type="text" class="form-control" placeholder="Perusahaan" id="company_name" name="company_name">
                                 </div>

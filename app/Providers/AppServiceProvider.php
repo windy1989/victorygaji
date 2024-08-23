@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -20,5 +21,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         date_default_timezone_set('Asia/Jakarta');
+        Relation::morphMap([
+            'customers'                     => 'App\Models\Customer',
+        ]);
     }
 }

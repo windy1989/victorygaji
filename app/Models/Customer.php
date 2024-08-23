@@ -63,4 +63,24 @@ class Customer extends Model
 
         return $type_body;
     }
+
+    public static function generateCode()
+    {
+        $prefix = 'P';
+
+        $query = Customer::withTrashed()->selectRaw('RIGHT(code, 6) as code')
+            ->orderByDesc('code')
+            ->limit(1)
+            ->get();
+
+        if($query->count() > 0) {
+            $code = intval($query[0]->code) + 1;
+        } else {
+            $code = '000001';
+        }
+
+        $no = str_pad($code, 6, 0, STR_PAD_LEFT);
+
+        return $prefix.$no;
+    }
 }

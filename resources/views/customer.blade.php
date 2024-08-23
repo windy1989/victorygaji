@@ -82,7 +82,7 @@
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Kode Pelanggan</label>
                                     <input type="hidden" id="temp" name="temp">
-                                    <input type="text" class="form-control" placeholder="Kode Pelanggan" id="code" name="code">
+                                    <input type="text" class="form-control" placeholder="Kosongi untuk auto generate" id="code" name="code">
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Nama</label>
@@ -135,6 +135,16 @@
                                         <option value="2">CV</option>
                                         <option value="3">Perorangan</option>
                                     </select>
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label class="form-label">Keterangan</label>
+                                    <input type="text" class="form-control" placeholder="Keterangan" id="note" name="note">
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <div class="form-check custom-checkbox mb-3 checkbox-success">
+                                        <input type="checkbox" class="form-check-input" checked="" id="status" name="status" required="">
+                                        <label class="form-check-label" for="status">Aktif</label>
+                                    </div>
                                 </div>
                             </div>
                         </form>

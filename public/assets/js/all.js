@@ -538,6 +538,7 @@ function save(){
         confirmButtonColor: "#DD6B55",
         confirmButtonText: "Ya, simpan!",
         cancelButtonText: "Batal",
+        closeOnConfirm: !1,
         closeOnCancel: !1
     }).then(function (willDelete) {
         if (willDelete) {

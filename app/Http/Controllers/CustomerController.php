@@ -8,7 +8,9 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class CustomerController extends Controller
 {
@@ -122,9 +124,59 @@ class CustomerController extends Controller
     }
 
     public function create(Request $request){
-        return response()->json([
-            'status'    => 200,
-            'message'   => 'Data berhasil disimpan',
-        ]);
+        DB::beginTransaction();
+        try {
+            $validation = Validator::make($request->all(), [
+                'code' 				=> $request->temp ? ['required', Rule::unique('types', 'code')->ignore($request->temp)] : 'required|unique:types,code',
+                'name'              => 'required',
+            ], [
+                'code.required' 	    => 'Kode tidak boleh kosong.',
+                'code.unique'           => 'Kode telah terpakai.',
+                'name.required'         => 'Nama tidak boleh kosong.',
+            ]);
+
+            if($validation->fails()) {
+                $response = [
+                    'status' => 422,
+                    'error'  => $validation->errors()
+                ];
+            } else {
+                if($request->temp){
+                    $query = Customer::find($request->temp);
+                    $query->code            = $request->code;
+                    $query->name	        = $request->name;
+                    $query->status          = $request->status ? $request->status : '2';
+                    $query->save();
+                }else{
+                    $query = Customer::create([
+                        'code'          => $request->code,
+                        'name'			=> $request->name,
+                        'status'        => $request->status ? $request->status : '2'
+                    ]);
+                }
+                
+                if($query) {
+                    activity()
+                        ->performedOn(new Type())
+                        ->causedBy(session('bo_id'))
+                        ->withProperties($query)
+                        ->log('Add / edit tipe.');
+
+                    $response = [
+                        'status'  => 200,
+                        'message' => 'Data successfully saved.'
+                    ];
+                } else {
+                    $response = [
+                        'status'  => 500,
+                        'message' => 'Data failed to save.'
+                    ];
+                }
+            }
+            DB::commit();
+		    return response()->json($response);
+        }catch(\Exception $e){
+            DB::rollback();
+        }
     }
 }

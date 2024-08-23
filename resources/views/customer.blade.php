@@ -141,6 +141,7 @@
                                     <input type="text" class="form-control" placeholder="Keterangan" id="note" name="note">
                                 </div>
                                 <div class="mb-3 col-md-6">
+                                    <label class="form-label">Status</label>
                                     <div class="form-check custom-checkbox mb-3 checkbox-success">
                                         <input type="checkbox" class="form-check-input" checked="" id="status" name="status" required="">
                                         <label class="form-check-label" for="status">Aktif</label>

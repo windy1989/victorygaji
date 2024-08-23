@@ -44,8 +44,8 @@ class Customer extends Model
 
     public function statusBadge(){
         $status = match ($this->status) {
-            '1' => '<span class="badge badge-success">Success</span>',
-            default => '<span class="badge badge-danger">Danger</span>',
+            '1' => '<span class="badge badge-success">Aktif</span>',
+            default => '<span class="badge badge-danger">Non-Aktif</span>',
         };
 
         return $status;

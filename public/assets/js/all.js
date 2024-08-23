@@ -634,8 +634,8 @@ function loadDataTableCustomer(){
             }
         },
         columns: [
-            { name: 'id', searchable: false, className: 'text-center fixed-column' },
-            { name: 'code', className: 'fixed-column' },
+            { name: 'id', searchable: false, className: 'text-center' },
+            { name: 'code', className: '' },
             { name: 'name', className: '' },
             { name: 'email', className: '' },
 			{ name: 'owner', className: '' },
@@ -650,7 +650,7 @@ function loadDataTableCustomer(){
             { name: 'type', className: '' },
             { name: 'note', className: '' },
             { name: 'status', className: 'text-center' },
-            { name: 'action', searchable: false, orderable: false, className: 'text-center fixed-column' },
+            { name: 'action', searchable: false, orderable: false, className: 'text-center' },
         ],
         createdRow: function ( row, data, index ) {
             $(row).addClass('selected')

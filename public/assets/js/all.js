@@ -567,7 +567,7 @@ function save(){
                         if($('#customer-datatable').length > 0){
                             loadDataTableCustomer();
                         }
-                        
+
                     } else if(response.status == 422) {
                         $('#validation_alert').show();
                         $.each(response.error, function(i, val) {
@@ -610,6 +610,10 @@ function loadDataTableCustomer(){
         "serverSide": true,
         "deferRender": true,
         "destroy": true,
+        "fixedColumns": {
+            left: 2,
+            right: 1
+        },
         "iDisplayInLength": 10,
         "order": [[0, 'asc']],
         ajax: {

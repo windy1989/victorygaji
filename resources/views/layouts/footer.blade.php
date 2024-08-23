@@ -31,6 +31,7 @@
 
     <!-- Datatable -->
     <script src="{{ url('assets/vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ url('assets/vendor/datatables/js/dataTables.fixedColumns.min.js') }}"></script>
     <script src="{{ url('assets/vendor/toastr/js/toastr.min.js') }}"></script>
     <script src="{{ url('assets/vendor/dropzone/dist/dropzone.js?v=0') }}"></script>
     <script src="{{ url('assets/vendor/sweetalert2/dist/sweetalert2.min.js') }}"></script>
@@ -41,7 +42,7 @@
 
     <script src="{{ url('assets/js/custom.min.js') }}"></script>
 	<script src="{{ url('assets/js/dlabnav-init.js') }}"></script>
-	<script src="{{ url('assets/js/all.js?v=28') }}"></script>
+	<script src="{{ url('assets/js/all.js?v=29') }}"></script>
   
 </body>
 </html>

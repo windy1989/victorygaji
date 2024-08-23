@@ -650,7 +650,7 @@ function loadDataTableCustomer(){
             { name: 'type', className: '' },
             { name: 'note', className: '' },
             { name: 'status', className: 'text-center' },
-            { name: 'action', searchable: false, orderable: false, className: 'text-center' },
+            { name: 'action', searchable: false, orderable: false, className: 'text-center fixed-column' },
         ],
         createdRow: function ( row, data, index ) {
             $(row).addClass('selected')

@@ -1,4 +1,4 @@
 .dataTables_scrollBody::-webkit-scrollbar-thumb {
     height: 10px;
-    background-color: #d5ac68;
+    background-color: #d5ac68 !important;
 }

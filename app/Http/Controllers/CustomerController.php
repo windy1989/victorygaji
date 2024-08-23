@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Helpers\CustomHelper;
 use App\Http\Controllers\Controller;
 use App\Mail\SendMail;
 use App\Models\Customer;
@@ -127,11 +129,8 @@ class CustomerController extends Controller
         DB::beginTransaction();
         try {
             $validation = Validator::make($request->all(), [
-                'code' 				=> $request->temp ? ['required', Rule::unique('types', 'code')->ignore($request->temp)] : 'required|unique:types,code',
                 'name'              => 'required',
             ], [
-                'code.required' 	    => 'Kode tidak boleh kosong.',
-                'code.unique'           => 'Kode telah terpakai.',
                 'name.required'         => 'Nama tidak boleh kosong.',
             ]);
 
@@ -143,33 +142,52 @@ class CustomerController extends Controller
             } else {
                 if($request->temp){
                     $query = Customer::find($request->temp);
-                    $query->code            = $request->code;
-                    $query->name	        = $request->name;
-                    $query->status          = $request->status ? $request->status : '2';
+                    $query->name            = $request->name;        
+                    $query->email           = $request->email;
+                    $query->owner_name      = $request->owner_name;
+                    $query->pic             = $request->pic;
+                    $query->owner_id_card   = $request->owner_id_card;
+                    $query->company_name    = $request->company_name;
+                    $query->document_no     = $request->document_no;
+                    $query->address         = $request->address;
+                    $query->city            = $request->city;
+                    $query->gender          = $request->gender;
+                    $query->phone           = $request->phone;
+                    $query->type_body       = $request->type_body;
+                    $query->note            = $request->note;
+                    $query->status          = $request->status ?? '2';
                     $query->save();
+                    CustomHelper::saveLog($query->getTable(),$query->id,'Update data customer '.$query->code,'Pengguna '.session('bo_name').' telah mengubah data pelanggan no '.$query->code);
                 }else{
                     $query = Customer::create([
-                        'code'          => $request->code,
-                        'name'			=> $request->name,
-                        'status'        => $request->status ? $request->status : '2'
+                        'code'              => $request->code ?? Customer::generateCode(),
+                        'name'              => $request->name,         
+                        'email'             => $request->email,
+                        'owner_name'        => $request->owner_name,
+                        'pic'               => $request->pic,
+                        'owner_id_card'     => $request->owner_id_card,
+                        'company_name'      => $request->company_name,
+                        'document_no'       => $request->document_no,
+                        'address'           => $request->address,
+                        'city'              => $request->city,
+                        'gender'            => $request->gender,
+                        'phone'             => $request->phone,
+                        'type_body'         => $request->type_body,
+                        'note'              => $request->note,
+                        'status'            => $request->status ?? '2',
                     ]);
+                    CustomHelper::saveLog($query->getTable(),$query->id,'Tambah baru data customer '.$query->code,'Pengguna '.session('bo_name').' telah manambahkan baru data pelanggan no '.$query->code);
                 }
                 
                 if($query) {
-                    activity()
-                        ->performedOn(new Type())
-                        ->causedBy(session('bo_id'))
-                        ->withProperties($query)
-                        ->log('Add / edit tipe.');
-
                     $response = [
                         'status'  => 200,
-                        'message' => 'Data successfully saved.'
+                        'message' => 'Data berhasil disimpan.'
                     ];
                 } else {
                     $response = [
                         'status'  => 500,
-                        'message' => 'Data failed to save.'
+                        'message' => 'Data gagal disimpan.'
                     ];
                 }
             }

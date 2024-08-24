@@ -49,6 +49,15 @@ class User extends Authenticatable
         return $status;
     }
 
+    public function statusBadge(){
+        $status = match ($this->status) {
+            '1' => '<span class="badge badge-success">Aktif</span>',
+            default => '<span class="badge badge-danger">Non-Aktif</span>',
+        };
+
+        return $status;
+    }
+
     public function type(){
         $type = match ($this->type) {
             '1' => 'Superadmin',

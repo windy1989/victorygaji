@@ -36,7 +36,6 @@ class CustomHelper {
         $authkey = env('KEYWA');
         $appkey = env('APPKEY');
         $curl = curl_init();
-
         curl_setopt_array($curl, array(
             CURLOPT_URL => 'https://app.saungwa.com/api/create-message',
             CURLOPT_RETURNTRANSFER => true,
@@ -47,11 +46,11 @@ class CustomHelper {
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'POST',
             CURLOPT_POSTFIELDS => array(
-                'appkey' => 'da458bb6-1747-4e0f-92c3-37d3cc09b06d',
-                'authkey' => 'dm4ogQxeIMibusoEVCpgkFTMCpPUwvY1OkNqGsbKbuLvFPfRZN',
-                'to' => $phone,
-                'message' => $message,
-                'sandbox' => 'false'
+                'appkey'    => $appkey,
+                'authkey'   => $authkey,
+                'to'        => $phone,
+                'message'   => $message,
+                'sandbox'   => 'false'
             ),
         ));
 

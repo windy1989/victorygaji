@@ -166,7 +166,7 @@ class UserController extends Controller
                 ];
             } else {
                 if($request->temp){
-                    $query = User::find(CustomHelper::decrypt($request->temp));
+                    $query = User::find($request->temp);
                     $query->nama            = $request->name;
                     $query->nik             = $request->nik;    
                     $query->email           = $request->email;

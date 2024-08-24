@@ -569,6 +569,20 @@ function edit(code){
                     }
                 }
 
+                /* JIKA FORM CUSTOMER */
+                if($('#user-datatable').length > 0){
+                    $('#name').val(response.data.nama);
+                    $('#nik').val(response.data.nik);
+                    $('#email').val(response.data.email);
+                    $('#type').val(response.data.type);
+                    $('#phone').val(response.data.phone);
+                    if(response.data.status == '1'){
+                        $('#status').prop( "checked", true);
+                    }else{
+                        $('#status').prop( "checked", false);
+                    }
+                }
+
                 $('#modalCreate').modal('toggle');
             }else{
                 errorMessage('Data tidak ditemukan.');

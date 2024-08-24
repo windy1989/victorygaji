@@ -91,7 +91,7 @@
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Kode Pelanggan</label>
                                     <input type="hidden" id="temp" name="temp">
-                                    <input type="text" class="form-control" placeholder="Kosongi untuk auto generate" id="code" name="code">
+                                    <input type="text" class="form-control" placeholder="Kosongi untuk auto generate" id="nik" name="nik">
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Nama</label>
@@ -102,56 +102,21 @@
                                     <input type="email" class="form-control" placeholder="Email" id="email" name="email">
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <label class="form-label">Nama Pemilik</label>
-                                    <input type="text" class="form-control" placeholder="Nama Pemilik" id="owner_name" name="owner_name">
-                                </div>
-                                <div class="mb-3 col-md-6">
-                                    <label class="form-label">Nama PIC</label>
-                                    <input type="text" class="form-control" placeholder="Nama PIC" id="pic" name="pic">
-                                </div>
-                                <div class="mb-3 col-md-6">
-                                    <label class="form-label">KTP Pemilik</label>
-                                    <input type="text" class="form-control" placeholder="NIK/Identitas Pemilik" id="owner_id_card" name="owner_id_card">
-                                </div>
-                                <div class="mb-3 col-md-6">
-                                    <label class="form-label">Perusahaan</label>
-                                    <input type="text" class="form-control" placeholder="Perusahaan" id="company_name" name="company_name">
-                                </div>
-                                <div class="mb-3 col-md-6">
-                                    <label class="form-label">No. Akta Pendirian</label>
-                                    <input type="text" class="form-control" placeholder="No. Akta Pendirian" id="document_no" name="document_no">
-                                </div>
-                                <div class="mb-3 col-md-6">
-                                    <label class="form-label">Alamat</label>
-                                    <input type="text" class="form-control" placeholder="Alamat" id="address" name="address">
-                                </div>
-                                <div class="mb-3 col-md-6">
-                                    <label class="form-label">Kota</label>
-                                    <input type="text" class="form-control" placeholder="Kota" id="city" name="city">
-                                </div>
-                                <div class="mb-3 col-md-6">
-                                    <label class="form-label">Gender</label>
-                                    <div class="mb-3 mb-0">
-                                        <label class="radio-inline me-3"><input type="radio" name="gender" class="form-check-input" value="1" checked> Laki-laki</label>
-                                        <label class="radio-inline me-3"><input type="radio" name="gender" class="form-check-input" value="2"> Perempuan</label>
-                                        <label class="radio-inline me-3"><input type="radio" name="gender" class="form-check-input" value="3"> Lain-lain</label>
-                                    </div>
-                                </div>
-                                <div class="mb-3 col-md-6">
                                     <label class="form-label">Telepon</label>
-                                    <input type="text" class="form-control" placeholder="081XXXXX" id="phone" name="phone">
+                                    <input type="text" class="form-control" placeholder="6281XXXXX" id="phone" name="phone">
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <label class="form-label">Tipe Perusahaan</label>
-                                    <select id="type_body" name="type_body" class="form-control wide">
-                                        <option value="1">PT</option>
-                                        <option value="2">CV</option>
-                                        <option value="3">Perorangan</option>
+                                    <label class="form-label">Tipe Pegawai & Hak Akses</label>
+                                    <select id="type" name="type" class="form-control wide">
+                                        <option value="1">Superadmin</option>
+                                        <option value="2">Karyawan</option>
+                                        <option value="3">Dokumen</option>
+                                        <option value="4">Drafter</option>
+                                        <option value="5">Surveyor</option>
+                                        <option value="6">Manager</option>
+                                        <option value="7">Director</option>
+                                        <option value="8">Komisaris</option>
                                     </select>
-                                </div>
-                                <div class="mb-3 col-md-6">
-                                    <label class="form-label">Keterangan</label>
-                                    <input type="text" class="form-control" placeholder="Keterangan" id="note" name="note">
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Status</label>

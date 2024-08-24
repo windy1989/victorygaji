@@ -137,7 +137,7 @@
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Telepon</label>
-                                    <input type="text" class="form-control" placeholder="081XXXXX" id="phone" name="phone">
+                                    <input type="text" class="form-control" placeholder="6281XXXXX" id="phone" name="phone">
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Tipe Perusahaan</label>

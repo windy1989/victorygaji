@@ -207,7 +207,7 @@ class CustomerController extends Controller
         }else{
             $response = [
                 'status'  => 500,
-                'message' => 'Data gagal disimpan.'
+                'message' => 'Data tidak ditemukan.'
             ];
         }
 

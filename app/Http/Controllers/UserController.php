@@ -77,8 +77,8 @@ class UserController extends Controller
                     $val->status(),
                     '
                         <a href="javascript:void(0);" class="btn btn-primary btn-sm content-icon" onclick="updatePassword('.$val->id.')"><i class="fa fa-unlock"></i></a>
-                        <a href="javascript:void(0);" class="btn btn-warning btn-sm content-icon" onclick="edit(`'.CustomHelper::encrypt($val->code).'`)"><i class="fa fa-edit"></i></a>
-                        <a href="javascript:void(0);" class="btn btn-danger btn-sm content-icon" onclick="destroy(`'.CustomHelper::encrypt($val->code).'`)"><i class="fa fa-times"></i></a>
+                        <a href="javascript:void(0);" class="btn btn-warning btn-sm content-icon" onclick="edit(`'.CustomHelper::encrypt($val->id).'`)"><i class="fa fa-edit"></i></a>
+                        <a href="javascript:void(0);" class="btn btn-danger btn-sm content-icon" onclick="destroy(`'.CustomHelper::encrypt($val->id).'`)"><i class="fa fa-times"></i></a>
 					'
                 ];
 
@@ -125,6 +125,23 @@ class UserController extends Controller
             $response = [
                 'status' => 500,
                 'error'  => 'Data tidak ditemukan.'
+            ];
+        }
+
+        return response()->json($response);
+    }
+
+    public function show(Request $request){
+        $data = User::find(CustomHelper::decrypt($request->code));
+        if($data){
+            $response = [
+                'status'    => 200,
+                'data'      => $data,
+            ];
+        }else{
+            $response = [
+                'status'  => 500,
+                'message' => 'Data tidak ditemukan.'
             ];
         }
 

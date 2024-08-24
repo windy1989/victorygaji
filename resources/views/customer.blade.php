@@ -134,7 +134,7 @@
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Tipe Perusahaan</label>
-                                    <select id="type_body" name="type_body" class="default-select form-control wide">
+                                    <select id="type_body" name="type_body" class="form-control wide">
                                         <option value="1">PT</option>
                                         <option value="2">CV</option>
                                         <option value="3">Perorangan</option>

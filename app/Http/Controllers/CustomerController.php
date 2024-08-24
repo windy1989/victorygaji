@@ -140,7 +140,7 @@ class CustomerController extends Controller
                 ];
             } else {
                 if($request->temp){
-                    $query = Customer::find($request->temp);
+                    $query = Customer::where('code',CustomHelper::decrypt($request->temp))->first();
                     $query->name            = $request->name;        
                     $query->email           = $request->email;
                     $query->owner_name      = $request->owner_name;

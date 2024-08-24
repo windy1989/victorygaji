@@ -76,9 +76,7 @@ class UserController extends Controller
                     $val->type(),
                     $val->status(),
                     '
-						<span style="font-size:25px;" data-toggle="tooltip" data-placement="top" title="Reset dan email password">
-							<a href="javascript:void(0);" onclick="updatePassword('.$val->id.')"><i class="fa fa-unlock text-info"></i></a>
-                        </span>
+                        <a href="javascript:void(0);" class="btn btn-primary btn-sm content-icon" onclick="updatePassword('.$val->id.')"><i class="fa fa-unlock"></i></a>
                         <a href="javascript:void(0);" class="btn btn-warning btn-sm content-icon" onclick="edit(`'.CustomHelper::encrypt($val->code).'`)"><i class="fa fa-edit"></i></a>
                         <a href="javascript:void(0);" class="btn btn-danger btn-sm content-icon" onclick="destroy(`'.CustomHelper::encrypt($val->code).'`)"><i class="fa fa-times"></i></a>
 					'

@@ -587,49 +587,38 @@ function edit(code){
 }
 
 function destroy(code){
-    swal({
-        title: "Apakah anda yakin?",
-        text: "Anda tidak bisa mengembalikan data yang terhapus!",
-        icon: 'warning',
-        dangerMode: true,
-        buttons: {
-            cancel: 'Tidak, jangan!',
-            delete: 'Ya, lanjutkan!'
-        }
-    }).then(function (gas) {
-        if (gas) {
-            $.ajax({
-                url: window.location.href + '/destroy',
-                type: 'POST',
-                dataType: 'JSON',
-                data: {
-                    code: code
-                },
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                beforeSend: function() {
-                    loadingOpen();
-                },
-                success: function(response) {
-                    if(response.status == 200){
-                        successMessage('Data berhasil dihapus');
-                    }else{
-                        errorMessage('Data tidak ditemukan.');
-                    }
-                    loadingClose();
-                },
-                error: function(response) {
-                    if(response.status == '403'){
-                        errorMessage('You have no access.');
-                    }else{
-                        errorConnection();
-                    }
-                    loadingClose();
+    if(confirm("Want to delete?")){
+        $.ajax({
+            url: window.location.href + '/destroy',
+            type: 'POST',
+            dataType: 'JSON',
+            data: {
+                code: code
+            },
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            beforeSend: function() {
+                loadingOpen();
+            },
+            success: function(response) {
+                if(response.status == 200){
+                    successMessage('Data berhasil dihapus');
+                }else{
+                    errorMessage('Data tidak ditemukan.');
                 }
-            });
-        }
-    });
+                loadingClose();
+            },
+            error: function(response) {
+                if(response.status == '403'){
+                    errorMessage('You have no access.');
+                }else{
+                    errorConnection();
+                }
+                loadingClose();
+            }
+        });
+    }
 }
 
 function save(){

@@ -631,6 +631,11 @@ function destroy(code){
                         if($('#customer-datatable').length > 0){
                             loadDataTableCustomer();
                         }
+
+                        /* JIKA FORM USER */
+                        if($('#user-datatable').length > 0){
+                            loadDataTableUser();
+                        }
                     }else{
                         errorMessage('Data tidak ditemukan.');
                     }

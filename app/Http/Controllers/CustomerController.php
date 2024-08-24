@@ -103,7 +103,7 @@ class CustomerController extends Controller
                     $val->statusBadge(),
                     '
                         <a href="javascript:void(0);" class="btn btn-warning btn-sm content-icon" onclick="edit(`'.CustomHelper::encrypt($val->code).'`)"><i class="fa fa-edit"></i></a>
-                        <a href="javascript:void(0);" class="btn btn-danger btn-sm content-icon" onclick="delete(`'.CustomHelper::encrypt($val->code).'`)"><i class="fa fa-times"></i></a>
+                        <a href="javascript:void(0);" class="btn btn-danger btn-sm content-icon" onclick="destroy(`'.CustomHelper::encrypt($val->code).'`)"><i class="fa fa-times"></i></a>
 					'
                 ];
 
@@ -208,6 +208,26 @@ class CustomerController extends Controller
             $response = [
                 'status'  => 500,
                 'message' => 'Data gagal disimpan.'
+            ];
+        }
+
+        return response()->json($response);
+    }
+
+    public function destroy(Request $request){
+        $query = Customer::find($request->id);
+		
+        if($query->delete()) {
+            CustomHelper::saveLog($query->getTable(),$query->id,'Delete data customer '.$query->code,'Pengguna '.session('bo_name').' telah menghapus data pelanggan no '.$query->code);
+
+            $response = [
+                'status'  => 200,
+                'message' => 'Data deleted successfully.'
+            ];
+        } else {
+            $response = [
+                'status'  => 500,
+                'message' => 'Data failed to delete.'
             ];
         }
 

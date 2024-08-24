@@ -586,6 +586,53 @@ function edit(code){
     });
 }
 
+function destroy(code){
+    swal({
+        title: "Apakah yakin ingin hapus?",
+        text: "Data yang dihapus tidak dapat dikembalikan.",
+        type: "warning",
+        showCancelButton: !0,
+        confirmButtonColor: "#DD6B55",
+        confirmButtonText: "Ya, simpan!",
+        cancelButtonText: "Batal",
+        closeOnConfirm: !1,
+        closeOnCancel: !1
+    }).then(function (willDelete) {
+        if (willDelete) {
+            $.ajax({
+                url: window.location.href + '/destroy',
+                type: 'POST',
+                dataType: 'JSON',
+                data: {
+                    code: code
+                },
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                beforeSend: function() {
+                    loadingOpen();
+                },
+                success: function(response) {
+                    if(response.status == 200){
+                        successMessage('Data berhasil dihapus');
+                    }else{
+                        errorMessage('Data tidak ditemukan.');
+                    }
+                    loadingClose();
+                },
+                error: function(response) {
+                    if(response.status == '403'){
+                        errorMessage('You have no access.');
+                    }else{
+                        errorConnection();
+                    }
+                    loadingClose();
+                }
+            });
+        }
+    });
+}
+
 function save(){
     swal({
         title: "Apakah yakin ingin simpan?",

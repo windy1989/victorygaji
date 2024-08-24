@@ -134,7 +134,7 @@ class UserController extends Controller
     }
 
     public function show(Request $request){
-        $data = User::find(CustomHelper::decrypt($request->code));
+        $data = User::where('nik',$request->code)->first();
         if($data){
             $response = [
                 'status'    => 200,

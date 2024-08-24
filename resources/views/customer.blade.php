@@ -33,6 +33,7 @@
                                 <h4 class="card-title">Daftar {{ $title }}</h4>
                                 <div>	
                                     <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#modalCreate">Tambah Baru</button>
+                                    <button type="button" class="btn btn-primary mb-2" onclick="loadDataTableCustomer();">Refresh</button>
                                 </div>
                             </div>
                             <div class="card-body">

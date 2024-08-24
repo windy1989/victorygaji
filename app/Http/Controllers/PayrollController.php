@@ -83,7 +83,7 @@ class PayrollController extends Controller
                 $response['data'][] = [
                     $nomor,
                     $val->nik,
-                    $val->user->nama,
+                    $val->user()->exists() ? $val->user->nama : '-',
                     $val->rekening_bca,
                     $val->bulan,
                     $val->jabatan,

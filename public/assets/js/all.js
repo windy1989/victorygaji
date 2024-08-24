@@ -588,19 +588,17 @@ function edit(code){
 
 function destroy(code){
     swal({
-        title: "Apakah yakin ingin hapus?",
-        text: "Data yang dihapus tidak dapat dikembalikan.",
-        type: "warning",
-        showCancelButton: !0,
-        confirmButtonColor: "#DD6B55",
-        confirmButtonText: "Gas! Hapus.",
-        cancelButtonText: "Batal",
-        closeOnConfirm: !1,
-        closeOnCancel: !1
+        title: "Apakah anda yakin?",
+        text: "Anda tidak bisa mengembalikan data yang terhapus!",
+        icon: 'warning',
+        dangerMode: true,
+        buttons: {
+            cancel: 'Tidak, jangan!',
+            delete: 'Ya, lanjutkan!'
+        }
     }).then(function (gas) {
         if (gas) {
-            alert('go');
-            /* $.ajax({
+            $.ajax({
                 url: window.location.href + '/destroy',
                 type: 'POST',
                 dataType: 'JSON',
@@ -629,9 +627,7 @@ function destroy(code){
                     }
                     loadingClose();
                 }
-            }); */
-        }else{
-            alert('asd');
+            });
         }
     });
 }

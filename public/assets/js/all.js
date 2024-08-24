@@ -573,7 +573,7 @@ function edit(code){
             }else{
                 errorMessage('Data tidak ditemukan.');
             }
-            
+            loadingClose();
         },
         error: function(response) {
             if(response.status == '403'){
@@ -581,6 +581,7 @@ function edit(code){
 			}else{
 				errorConnection();
 			}
+            loadingClose();
         }
     });
 }

@@ -689,6 +689,10 @@ function save(){
                             loadDataTableCustomer();
                         }
 
+                        if($('#user-datatable').length > 0){
+                            loadDataTableUser();
+                        }
+
                         $('#modalCreate').modal('toggle');
                     } else if(response.status == 422) {
                         $('#validation_alert').show();

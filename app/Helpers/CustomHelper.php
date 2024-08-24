@@ -33,8 +33,8 @@ class CustomHelper {
 	}
 
     public static function sendWhatsapp($phone,$message){
-        $authkey = env('KEYWA');
-        $appkey = env('APPKEY');
+        /* $authkey = env('KEYWA');
+        $appkey = env('APPKEY'); */
         $curl = curl_init();
         curl_setopt_array($curl, array(
             CURLOPT_URL => 'https://app.saungwa.com/api/create-message',
@@ -46,8 +46,8 @@ class CustomHelper {
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'POST',
             CURLOPT_POSTFIELDS => array(
-                'appkey'    => $appkey,
-                'authkey'   => $authkey,
+                'appkey'    => 'da458bb6-1747-4e0f-92c3-37d3cc09b06d',
+                'authkey'   => 'dm4ogQxeIMibusoEVCpgkFTMCpPUwvY1OkNqGsbKbuLvFPfRZN',
                 'to'        => $phone,
                 'message'   => $message,
                 'sandbox'   => 'false'

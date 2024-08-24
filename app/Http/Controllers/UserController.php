@@ -154,7 +154,7 @@ class UserController extends Controller
         /* DB::beginTransaction();
         try { */
             $validation = Validator::make($request->all(), [
-                'nik'		    => $request->nik ? ($request->temp ? [Rule::unique('users', 'nik')->ignore($request->temp),'required'] : 'unique:users,nik|required') : '',
+                'nik'		    => $request->temp ? [Rule::unique('users', 'nik')->ignore($request->temp),'required'] : 'unique:users,nik|required',
             ], [
                 'nik.unique'    => 'NIK telah terpakai.',
                 'nik.required'  => 'NIK tidak boleh kosong.',

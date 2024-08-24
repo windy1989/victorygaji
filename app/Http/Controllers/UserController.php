@@ -79,8 +79,8 @@ class UserController extends Controller
                     $val->status(),
                     '
                         <a href="javascript:void(0);" class="btn btn-primary btn-sm content-icon" onclick="updatePassword('.$val->id.')"><i class="fa fa-unlock"></i></a>
-                        <a href="javascript:void(0);" class="btn btn-warning btn-sm content-icon" onclick="edit(`'.$val->nik.'`)"><i class="fa fa-edit"></i></a>
-                        <a href="javascript:void(0);" class="btn btn-danger btn-sm content-icon" onclick="destroy(`'.$val->nik.'`)"><i class="fa fa-times"></i></a>
+                        <a href="javascript:void(0);" class="btn btn-warning btn-sm content-icon" onclick="edit('.$val->id.')"><i class="fa fa-edit"></i></a>
+                        <a href="javascript:void(0);" class="btn btn-danger btn-sm content-icon" onclick="destroy('.$val->id.')"><i class="fa fa-times"></i></a>
 					'
                 ];
 
@@ -154,7 +154,7 @@ class UserController extends Controller
         /* DB::beginTransaction();
         try { */
             $validation = Validator::make($request->all(), [
-                'nik'		    => $request->temp ? [Rule::unique('users', 'nik')->ignore($request->temp)] : 'unique:users,nik',
+                'nik'		    => $request->temp ? [Rule::unique('users', 'id')->ignore($request->temp)] : 'unique:users,nik',
             ], [
                 'nik.unique'    => 'NIK telah terpakai.',
             ]);

@@ -215,7 +215,7 @@ class CustomerController extends Controller
     }
 
     public function destroy(Request $request){
-        $query = Customer::find($request->id);
+        $query = Customer::where('code',$request->code)->first();
 		
         if($query->delete()) {
             CustomHelper::saveLog($query->getTable(),$query->id,'Delete data customer '.$query->code,'Pengguna '.session('bo_name').' telah menghapus data pelanggan no '.$query->code);

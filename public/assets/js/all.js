@@ -597,9 +597,10 @@ function destroy(code){
         cancelButtonText: "Batal",
         closeOnConfirm: !1,
         closeOnCancel: !1
-    }).then(function (willDelete) {
-        if (willDelete) {
-            $.ajax({
+    }).then(function (gas) {
+        if (gas) {
+            alert('go');
+            /* $.ajax({
                 url: window.location.href + '/destroy',
                 type: 'POST',
                 dataType: 'JSON',
@@ -628,7 +629,9 @@ function destroy(code){
                     }
                     loadingClose();
                 }
-            });
+            }); */
+        }else{
+            alert('asd');
         }
     });
 }

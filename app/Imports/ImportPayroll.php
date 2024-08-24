@@ -59,7 +59,7 @@ class ImportPayroll implements ToModel,WithHeadingRow, WithValidation,WithBatchI
         
         QueueMail::dispatch($row['email'],$row['nama'],$data);
         if($row['telepon']){
-            CustomHelper::sendWhatsapp($row['telepon'],'Selamat gaji anda telah ditransfer dan slip telah dikirimkan ke email anda. Pesan ini adalah pesan otomatis, jangan membalas atau mengirimkan pesan kembali. Terima kasih.');
+            CustomHelper::sendWhatsapp($row['telepon'],'Selamat gaji anda bulan '.$row['bulan'].' telah ditransfer dan slip telah dikirimkan ke email anda. Pesan ini adalah pesan otomatis, jangan membalas atau mengirimkan pesan kembali. Terima kasih.');
         }
     }
     public function rules(): array

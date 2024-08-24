@@ -8,7 +8,7 @@
 				overflow-y: auto;
 			}
             #customer-datatable td:nth-of-type(5) {
-                background-color:red;
+                background-color:red !important;
             }
 		</style>
 		<div class="content-body">

@@ -529,6 +529,62 @@ function loadingClose(){
     jQuery('#preloader').hide();
 }
 
+function edit(code){
+    $.ajax({
+        url: window.location.href + '/show',
+        type: 'POST',
+        dataType: 'JSON',
+        data: {
+            code: code
+        },
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        beforeSend: function() {
+            loadingOpen();
+        },
+        success: function(response) {
+            if(response.status == 200){
+                $('#temp').val(code);
+                /* JIKA FORM CUSTOMER */
+                if($('#customer-datatable').length > 0){
+                    $('#name').val(response.data.name);
+                    $('#code').val(response.data.code);
+                    $('#email').val(response.data.email);
+                    $('#owner_name').val(response.data.owner_name);
+                    $('#pic').val(response.data.pic);
+                    $('#owner_id_card').val(response.data.owner_id_card);
+                    $('#company_name').val(response.data.company_name);
+                    $('#document_no').val(response.data.document_no);
+                    $('#address').val(response.data.address);
+                    $('#city').val(response.data.city);
+                    $('input[name=gender][value="' + response.data.gender + '"]').attr('checked', 'checked');
+                    $('#phone').val(response.data.phone);
+                    $('#type_body').val(response.data.type_body);
+                    $('#note').val(response.data.note);
+                    if(response.data.status == '1'){
+                        $('#status').prop( "checked", true);
+                    }else{
+                        $('#status').prop( "checked", false);
+                    }
+                }
+
+                $('#modalCreate').modal('toggle');
+            }else{
+                errorMessage('Data tidak ditemukan.');
+            }
+            
+        },
+        error: function(response) {
+            if(response.status == '403'){
+				errorMessage('You have no access.');
+			}else{
+				errorConnection();
+			}
+        }
+    });
+}
+
 function save(){
     swal({
         title: "Apakah yakin ingin simpan?",

@@ -196,4 +196,21 @@ class CustomerController extends Controller
             DB::rollback();
         }
     }
+
+    public function show(Request $request){
+        $data = Customer::where('code',CustomHelper::decrypt($request->code))->first();
+        if($data){
+            $response = [
+                'status'    => 200,
+                'data'      => $data,
+            ];
+        }else{
+            $response = [
+                'status'  => 500,
+                'message' => 'Data gagal disimpan.'
+            ];
+        }
+
+        return response()->json($response);
+    }
 }

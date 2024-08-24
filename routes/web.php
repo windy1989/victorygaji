@@ -54,6 +54,7 @@ Route::middleware('login')->group(function () {
         Route::get('/',[CustomerController::class, 'index']);
         Route::get('datatable',[CustomerController::class, 'datatable']);
         Route::post('create',[CustomerController::class, 'create']);
+        Route::post('show',[CustomerController::class, 'show']);
     });
 
     Route::prefix('user')->middleware('admin.auth:1')->group(function () {

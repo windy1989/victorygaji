@@ -23,6 +23,7 @@ class AppServiceProvider extends ServiceProvider
         date_default_timezone_set('Asia/Jakarta');
         Relation::morphMap([
             'customers'                     => 'App\Models\Customer',
+            'users'                         => 'App\Models\User',
         ]);
     }
 }

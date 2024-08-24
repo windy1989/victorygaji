@@ -134,7 +134,7 @@ class UserController extends Controller
     }
 
     public function show(Request $request){
-        $data = User::where('nik',$request->code)->first();
+        $data = User::find($request->code);
         if($data){
             $response = [
                 'status'    => 200,

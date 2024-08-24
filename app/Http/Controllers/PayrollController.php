@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Helpers\CustomHelper;
 use App\Http\Controllers\Controller;
 use App\Imports\ImportPayroll;
 use App\Jobs\QueueMail;
@@ -189,6 +191,10 @@ class PayrollController extends Controller
                 ];
                 
                 QueueMail::dispatch($payroll->user->email,$payroll->user->nama,$data);
+
+                if($payroll->telepon){
+                    CustomHelper::sendWhatsapp($payroll->telepon,'Selamat gaji anda bulan '.$payroll->bulan.' telah ditransfer dan slip telah dikirimkan ke email anda. Pesan ini adalah pesan otomatis, jangan membalas atau mengirimkan pesan kembali. Terima kasih.');
+                }
                 
                 $response = [
                     'status'    => 200,

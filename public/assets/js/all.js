@@ -604,6 +604,11 @@ function destroy(code){
             success: function(response) {
                 if(response.status == 200){
                     successMessage('Data berhasil dihapus');
+
+                    /* JIKA FORM CUSTOMER */
+                    if($('#customer-datatable').length > 0){
+                        loadDataTableCustomer();
+                    }
                 }else{
                     errorMessage('Data tidak ditemukan.');
                 }
@@ -656,6 +661,7 @@ function save(){
                     if(response.status == 200) {
                         successMessage(response.message);
 
+                        /* JIKA FORM CUSTOMER */
                         if($('#customer-datatable').length > 0){
                             loadDataTableCustomer();
                         }

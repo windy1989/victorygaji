@@ -62,5 +62,8 @@ Route::middleware('login')->group(function () {
         Route::get('/',[UserController::class, 'index']);
         Route::get('datatable',[UserController::class, 'datatable']);
         Route::post('update_password',[UserController::class, 'updatePassword']);
+        Route::post('create',[UserController::class, 'create']);
+        Route::post('show',[UserController::class, 'show']);
+        Route::post('destroy',[UserController::class, 'destroy']);
     });
 });

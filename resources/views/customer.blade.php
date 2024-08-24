@@ -7,6 +7,9 @@
 				height: 75vh;
 				overflow-y: auto;
 			}
+            #customer-datatable td:nth-of-type(0) {
+                background-color:red;
+            }
 		</style>
 		<div class="content-body">
             <!-- container starts -->

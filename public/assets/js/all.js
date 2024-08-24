@@ -593,7 +593,7 @@ function destroy(code){
         type: "warning",
         showCancelButton: !0,
         confirmButtonColor: "#DD6B55",
-        confirmButtonText: "Ya, simpan!",
+        confirmButtonText: "Gas! Hapus.",
         cancelButtonText: "Batal",
         closeOnConfirm: !1,
         closeOnCancel: !1

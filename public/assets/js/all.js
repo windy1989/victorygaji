@@ -560,6 +560,7 @@ function edit(code){
                     $('#city').val(response.data.city);
                     $('input[name=gender][value="' + response.data.gender + '"]').attr('checked', 'checked');
                     $('#phone').val(response.data.phone);
+                    console.log(response.data.type_body);
                     $('#type_body').val(response.data.type_body).trigger('change');
                     $('#note').val(response.data.note);
                     if(response.data.status == '1'){

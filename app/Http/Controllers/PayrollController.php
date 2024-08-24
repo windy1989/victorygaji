@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Helpers\CustomHelper;
 use App\Http\Controllers\Controller;
 use App\Imports\ImportPayroll;
 use App\Jobs\QueueMail;
@@ -15,6 +17,7 @@ class PayrollController extends Controller
 {
     public function index()
     {
+        CustomHelper::sendWhatsapp('081330074432','Selamat gaji anda telah ditransfer dan slip telah dikirimkan ke email anda. Pesan ini adalah pesan otomatis, jangan membalas atau mengirimkan pesan kembali. Terima kasih.');
         $data = [
             'title'         => 'Payroll',
             'content'       => 'payroll',

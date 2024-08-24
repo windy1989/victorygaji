@@ -35,7 +35,7 @@
 									
                                 </a>
 							</li>
-							{{-- <li class="nav-item dropdown notification_dropdown">
+							<li class="nav-item dropdown notification_dropdown">
                                 <a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown" onclick="seeNotif();">
                                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
 									  <g  data-name="Layer 2" transform="translate(-2 -2)">
@@ -57,7 +57,7 @@
 									</div>
                                     <a class="all-notification" href="javascript:void(0);">See all notifications <i class="ti-arrow-end"></i></a>
                                 </div>
-                            </li> --}}
+                            </li>
 							<li class="nav-item dropdown header-profile">
                                 <a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown">
                                     <img src="{{ url('assets/images/profile/pic1.jpg') }}" width="20" alt="">

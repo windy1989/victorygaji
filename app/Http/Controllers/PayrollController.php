@@ -1,8 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Helpers\CustomHelper;
 use App\Http\Controllers\Controller;
 use App\Imports\ImportPayroll;
 use App\Jobs\QueueMail;
@@ -17,13 +15,12 @@ class PayrollController extends Controller
 {
     public function index()
     {
-        echo CustomHelper::sendWhatsapp('081330074432','Selamat gaji anda telah ditransfer dan slip telah dikirimkan ke email anda. Pesan ini adalah pesan otomatis, jangan membalas atau mengirimkan pesan kembali. Terima kasih.');
-        /* $data = [
+        $data = [
             'title'         => 'Payroll',
             'content'       => 'payroll',
         ];
 
-        return view('layouts.index', ['data' => $data]); */
+        return view('layouts.index', ['data' => $data]);
     }
 
     public function datatable(Request $request){

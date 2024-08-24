@@ -7,8 +7,11 @@
 				height: 75vh;
 				overflow-y: auto;
 			}
-            #customer-datatable td:nth-of-type(5) {
-                background-color:red !important;
+            #customer-datatable td:nth-of-type(1) {
+                background-color:rgb(255, 233, 173) !important;
+            }
+            #customer-datatable td:nth-of-type(2) {
+                background-color:rgb(255, 233, 173) !important;
             }
 		</style>
 		<div class="content-body">

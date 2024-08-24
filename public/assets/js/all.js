@@ -587,43 +587,52 @@ function edit(code){
 }
 
 function destroy(code){
-    if(confirm("Want to delete?")){
-        $.ajax({
-            url: window.location.href + '/destroy',
-            type: 'POST',
-            dataType: 'JSON',
-            data: {
-                code: code
-            },
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            beforeSend: function() {
-                loadingOpen();
-            },
-            success: function(response) {
-                if(response.status == 200){
-                    successMessage('Data berhasil dihapus');
+    swal.fire({
+        title: "Yakin ingin menghapus data?",
+        text: "Anda tidak bisa mengembalikan data yang dihapus.",
+        showCancelButton: true,
+        type: 'warning',
+        cancelButtonColor: '#d33',
+        confirmButtonColor: "#DD6B55",
+    }).then((res) => {
+        if(res.value){
+            $.ajax({
+                url: window.location.href + '/destroy',
+                type: 'POST',
+                dataType: 'JSON',
+                data: {
+                    code: code
+                },
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                beforeSend: function() {
+                    loadingOpen();
+                },
+                success: function(response) {
+                    if(response.status == 200){
+                        successMessage('Data berhasil dihapus');
 
-                    /* JIKA FORM CUSTOMER */
-                    if($('#customer-datatable').length > 0){
-                        loadDataTableCustomer();
+                        /* JIKA FORM CUSTOMER */
+                        if($('#customer-datatable').length > 0){
+                            loadDataTableCustomer();
+                        }
+                    }else{
+                        errorMessage('Data tidak ditemukan.');
                     }
-                }else{
-                    errorMessage('Data tidak ditemukan.');
+                    loadingClose();
+                },
+                error: function(response) {
+                    if(response.status == '403'){
+                        errorMessage('You have no access.');
+                    }else{
+                        errorConnection();
+                    }
+                    loadingClose();
                 }
-                loadingClose();
-            },
-            error: function(response) {
-                if(response.status == '403'){
-                    errorMessage('You have no access.');
-                }else{
-                    errorConnection();
-                }
-                loadingClose();
-            }
-        });
-    }
+            });
+        }
+    });
 }
 
 function save(){

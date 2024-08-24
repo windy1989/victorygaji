@@ -39,7 +39,7 @@ class Payroll extends Model
     ];
 
     public function user(){
-        return $this->belongsTo('App\Models\User','nik','nik');
+        return $this->belongsTo('App\Models\User','nik','nik')->withTrashed();
     }
 
     public function historyEmail()

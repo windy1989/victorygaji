@@ -661,7 +661,7 @@ function save(){
         closeOnConfirm: !1,
         closeOnCancel: !1
     }).then(function (willDelete) {
-        if (willDelete) {
+        if (willDelete.value) {
             var formData = new FormData($('#formData')[0]);
             $.ajax({
                 url: window.location.href + '/create',

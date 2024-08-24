@@ -151,8 +151,8 @@ class UserController extends Controller
     }
 
     public function create(Request $request){
-        DB::beginTransaction();
-        try {
+        /* DB::beginTransaction();
+        try { */
             $validation = Validator::make($request->all(), [
                 'nik'		    => $request->nik ? ($request->temp ? [Rule::unique('users', 'nik')->ignore($request->temp),'required'] : 'unique:users,nik|required') : '',
             ], [
@@ -200,10 +200,10 @@ class UserController extends Controller
                     ];
                 }
             }
-            DB::commit();
+            /* DB::commit(); */
 		    return response()->json($response);
-        }catch(\Exception $e){
+        /* }catch(\Exception $e){
             DB::rollback();
-        }
+        } */
     }
 }

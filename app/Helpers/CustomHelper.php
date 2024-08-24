@@ -31,4 +31,30 @@ class CustomHelper {
 		$val = base64_decode(str_replace('-','',strrev($string)));
 		return $val;
 	}
+
+    public static function sendWhatsapp($phone,$message){
+        $authkey = 'dm4ogQxeIMibusoEVCpgkFTMCpPUwvY1OkNqGsbKbuLvFPfRZN';
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => 'https://app.saungwa.com/api/create-message',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'POST',
+            CURLOPT_POSTFIELDS => array(
+                'appkey'    => 'e98095ab-363d-47a4-b3b6-af99d68ef2b8',
+                'authkey'   => $authkey,
+                'to'        => $phone,
+                'message'   => $message,
+                'sandbox'   => 'false'
+            ),
+        ));
+
+        $response = curl_exec($curl);
+
+        curl_close($curl);
+    }
 }

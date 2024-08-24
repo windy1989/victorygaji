@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Imports;
+
+use App\Helpers\CustomHelper;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Validator;
@@ -28,6 +30,7 @@ class ImportPayroll implements ToModel,WithHeadingRow, WithValidation,WithBatchI
             'rekening_bca'                  => $row['rekening_bca'],
             'bulan'                         => $row['bulan'],
             'jabatan'                       => $row['jabatan'],
+            'telepon'                       => $row['telepon'],
             'status'                        => $row['status'],
             'gaji_pokok'                    => $row['gaji_pokok'],
             'jumlah_lembur_senin_jumat'     => $row['jumlah_lembur_senin_jumat'],
@@ -55,6 +58,9 @@ class ImportPayroll implements ToModel,WithHeadingRow, WithValidation,WithBatchI
         ];
         
         QueueMail::dispatch($row['email'],$row['nama'],$data);
+        if($row['telepon']){
+            CustomHelper::sendWhatsapp($row['telepon'],'Selamat gaji anda telah ditransfer dan slip telah dikirimkan ke email anda. Pesan ini adalah pesan otomatis, jangan membalas atau mengirimkan pesan kembali. Terima kasih.');
+        }
     }
     public function rules(): array
     {

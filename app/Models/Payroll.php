@@ -18,6 +18,7 @@ class Payroll extends Model
         'rekening_bca',
         'bulan',
         'jabatan',
+        'telepon',
         'status',
         'gaji_pokok',
         'jumlah_lembur_senin_jumat',
@@ -57,6 +58,7 @@ class Payroll extends Model
                 'password'  => bcrypt($pass),
                 'type'      => '2',
                 'status'    => '1',
+                'phone'     => $data['telepon'],
                 'code'      => base64_encode($pass),
             ]);
         }

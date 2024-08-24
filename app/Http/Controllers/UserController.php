@@ -10,7 +10,9 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
@@ -77,8 +79,8 @@ class UserController extends Controller
                     $val->status(),
                     '
                         <a href="javascript:void(0);" class="btn btn-primary btn-sm content-icon" onclick="updatePassword('.$val->id.')"><i class="fa fa-unlock"></i></a>
-                        <a href="javascript:void(0);" class="btn btn-warning btn-sm content-icon" onclick="edit(`'.CustomHelper::encrypt($val->id).'`)"><i class="fa fa-edit"></i></a>
-                        <a href="javascript:void(0);" class="btn btn-danger btn-sm content-icon" onclick="destroy(`'.CustomHelper::encrypt($val->id).'`)"><i class="fa fa-times"></i></a>
+                        <a href="javascript:void(0);" class="btn btn-warning btn-sm content-icon" onclick="edit(`'.$val->nik.'`)"><i class="fa fa-edit"></i></a>
+                        <a href="javascript:void(0);" class="btn btn-danger btn-sm content-icon" onclick="destroy(`'.$val->nik.'`)"><i class="fa fa-times"></i></a>
 					'
                 ];
 
@@ -146,5 +148,63 @@ class UserController extends Controller
         }
 
         return response()->json($response);
+    }
+
+    public function create(Request $request){
+        DB::beginTransaction();
+        try {
+            $validation = Validator::make($request->all(), [
+                'nik'		    => $request->nik ? ($request->temp ? [Rule::unique('users', 'nik')->ignore($request->temp),'required'] : 'unique:users,nik|required') : '',
+                'code'          => 'required'
+            ], [
+                'nik.unique'    => 'NIK telah terpakai.',
+                'nik.required'  => 'NIK tidak boleh kosong.',
+            ]);
+
+            if($validation->fails()) {
+                $response = [
+                    'status' => 422,
+                    'error'  => $validation->errors()
+                ];
+            } else {
+                if($request->temp){
+                    $query = User::find(CustomHelper::decrypt($request->temp));
+                    $query->nama            = $request->name;
+                    $query->nik             = $request->nik;    
+                    $query->email           = $request->email;
+                    $query->type            = $request->type;
+                    $query->phone           = $request->phone;
+                    $query->status          = $request->status ?? '2';
+                    $query->save();
+                    CustomHelper::saveLog($query->getTable(),$query->id,'Update data user '.$query->nik,'Pengguna '.session('bo_name').' telah mengubah data user no '.$query->nik);
+                }else{
+                    $query = User::create([
+                        'nama'              => $request->name,
+                        'nik'               => $request->nik,    
+                        'email'             => $request->email,
+                        'type'              => $request->type,
+                        'phone'             => $request->phone,
+                        'status'            => $request->status ?? '2',
+                    ]);
+                    CustomHelper::saveLog($query->getTable(),$query->id,'Tambah baru data user '.$query->nik,'Pengguna '.session('bo_name').' telah manambahkan baru data user no '.$query->nik);
+                }
+                
+                if($query) {
+                    $response = [
+                        'status'  => 200,
+                        'message' => 'Data berhasil disimpan.'
+                    ];
+                } else {
+                    $response = [
+                        'status'  => 500,
+                        'message' => 'Data gagal disimpan.'
+                    ];
+                }
+            }
+            DB::commit();
+		    return response()->json($response);
+        }catch(\Exception $e){
+            DB::rollback();
+        }
     }
 }

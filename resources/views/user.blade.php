@@ -91,7 +91,7 @@
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Kode Pelanggan</label>
                                     <input type="hidden" id="temp" name="temp">
-                                    <input type="text" class="form-control" placeholder="Kosongi untuk auto generate" id="nik" name="nik">
+                                    <input type="text" class="form-control" placeholder="NIK" id="nik" name="nik">
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Nama</label>

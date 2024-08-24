@@ -205,4 +205,24 @@ class UserController extends Controller
             DB::rollback();
         } */
     }
+
+    public function destroy(Request $request){
+        $query = User::find($request->code);
+		
+        if($query->delete()) {
+            CustomHelper::saveLog($query->getTable(),$query->id,'Delete data user '.$query->code,'Pengguna '.session('bo_name').' telah menghapus data user no '.$query->code);
+
+            $response = [
+                'status'  => 200,
+                'message' => 'Data deleted successfully.'
+            ];
+        } else {
+            $response = [
+                'status'  => 500,
+                'message' => 'Data failed to delete.'
+            ];
+        }
+
+        return response()->json($response);
+    }
 }

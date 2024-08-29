@@ -708,6 +708,7 @@ function save(){
                                 `);
                              });
                         });
+                        $('.modal-content').scrollTop(0);
                     }
                 },
                 error: function() {

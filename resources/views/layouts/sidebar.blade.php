@@ -94,8 +94,8 @@
 							<i class="flaticon-045-heart"></i>
 							<span class="nav-text">Plugins</span>
 						</a>
-						<ul aria-expanded="true" class="{{ Request::segment(2) == 'customer' ? 'left mm-show' : '' }}">
-							<li><a href="uc-select2.html">Select 2</a></li>
+						<ul aria-expanded="false" class="{{ Request::segment(2) == 'customer' ? 'left mm-collapse mm-show' : '' }}">
+							<li class="{{ Request::segment(2) == 'customer' ? 'mm-active' : '' }}"><a href="uc-select2.html">Select 2</a></li>
 							<li><a href="uc-nestable.html">Nestedable</a></li>
 							<li><a href="uc-noui-slider.html">Noui Slider</a></li>
 							<li><a href="uc-sweetalert.html">Sweet Alert</a></li>

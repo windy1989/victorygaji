@@ -32,7 +32,7 @@
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table id="purpose-datatable" class="display nowrap" style="min-width: 100%">
+                                    <table id="project-type-datatable" class="display nowrap" style="min-width: 100%">
                                         <thead>
                                             <tr>
                                                 <th>#</th>

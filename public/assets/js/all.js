@@ -466,7 +466,7 @@ function loadDataTablePurpose(){
 }
 
 function loadDataTableProjectType(){
-    window.table = $('#purpose-datatable').DataTable({
+    window.table = $('#project-type-datatable').DataTable({
         "scrollCollapse": true,
         "scrollY": '400px',
 		"scrollX": true,

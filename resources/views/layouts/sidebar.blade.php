@@ -35,18 +35,6 @@
                             <span class="nav-text">Dashboard</span>
                         </a>
                     </li>
-					<li class="{{ Request::segment(2) == 'proyek' ? 'mm-active' : '' }}">
-                        <a href="{{ url('proyek') }}" class="{{ Request::segment(2) == 'proyek' ? 'mm-active' : '' }}" aria-expanded="false">
-							<i class="flaticon-381-notepad-1"></i>
-							<span class="nav-text">Proyek</span>
-						</a>
-					</li>
-					<li class="{{ Request::segment(2) == 'surat_penawaran' ? 'mm-active' : '' }}">
-                        <a href="{{ url('surat_penawaran') }}" class="{{ Request::segment(2) == 'surat_penawaran' ? 'mm-active' : '' }}" aria-expanded="false">
-							<i class="flaticon-381-newspaper"></i>
-							<span class="nav-text">Surat Penawaran</span>
-						</a>
-					</li>
 					<li class="{{ Request::segment(2) == 'spk' ? 'mm-active' : '' }}">
                         <a href="{{ url('spk') }}" class="{{ Request::segment(2) == 'spk' ? 'mm-active' : '' }}" aria-expanded="false">
 							<i class="flaticon-381-list"></i>
@@ -89,12 +77,23 @@
 							<span class="nav-text">Payroll</span>
 						</a>
 					</li>
-					<li class="{{ in_array(Request::segment(2),['customer','user']) ? 'mm-active' : '' }}">
+					<li class="{{ in_array(Request::segment(2),['proyek','surat_penawaran']) ? 'mm-active' : '' }}">
 						<a class="has-arrow " href="javascript:void()" aria-expanded="{{ Request::segment(2) == 'customer' ? 'true' : '' }}">
+							<i class="flaticon-381-notepad-1"></i>
+							<span class="nav-text">Proyek</span>
+						</a>
+						<ul aria-expanded="false" class="{{ Request::segment(2) == 'customer' ? 'left mm-collapse mm-show' : '' }}">
+							<li class="{{ Request::segment(2) == 'proyek' ? 'mm-active' : '' }}"><a href="{{ url('proyek') }}">Daftar</a></li>
+							<li class="{{ Request::segment(2) == 'surat_penawaran' ? 'mm-active' : '' }}"><a href="{{ url('surat_penawaran') }}">Surat Penawaran</a></li>
+							<li class="{{ Request::segment(2) == 'spk' ? 'mm-active' : '' }}"><a href="{{ url('spk') }}">Surat Penawaran</a></li>
+						</ul>
+					</li>
+					<li class="{{ in_array(Request::segment(2),['customer','user']) ? 'mm-active' : '' }}">
+						<a class="has-arrow " href="javascript:void()">
 							<i class="flaticon-381-folder-19"></i>
 							<span class="nav-text">Master Data</span>
 						</a>
-						<ul aria-expanded="false" class="{{ Request::segment(2) == 'customer' ? 'left mm-collapse mm-show' : '' }}">
+						<ul aria-expanded="false">
 							<li class="{{ Request::segment(2) == 'customer' ? 'mm-active' : '' }}"><a href="{{ url('customer') }}">Customer</a></li>
 							<li class="{{ Request::segment(2) == 'user' ? 'mm-active' : '' }}"><a href="{{ url('user') }}">User</a></li>
 						</ul>

@@ -790,7 +790,6 @@ $(function() {
     $('#modalCreate').on('hidden.bs.modal', function (e) {
         $('#formData')[0].reset();
         $('#temp').val('');
-        alert($('#validation_alert').html());
         $('#validation_alert').html('');
         $('#validation_alert').hide();
     });

@@ -104,7 +104,7 @@
 							<li><a href="uc-lightgallery.html">Light Gallery</a></li>
 						</ul>
 					</li>
-					<li class="{{ Request::segment(2) == 'customer' ? 'mm-active' : '' }}">
+					<li>
                         <a href="{{ url('customer') }}" class="{{ Request::segment(2) == 'customer' ? 'mm-active' : '' }}" aria-expanded="false">
 							<i class="flaticon-381-id-card-1"></i>
 							<span class="nav-text">Customer</span>

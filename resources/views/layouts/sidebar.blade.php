@@ -89,32 +89,15 @@
 							<span class="nav-text">Payroll</span>
 						</a>
 					</li>
-					<li class="{{ Request::segment(2) == 'customer' ? 'mm-active' : '' }}">
+					<li class="{{ in_array(Request::segment(2),['customer','user']) ? 'mm-active' : '' }}">
 						<a class="has-arrow " href="javascript:void()" aria-expanded="{{ Request::segment(2) == 'customer' ? 'true' : '' }}">
 							<i class="flaticon-045-heart"></i>
 							<span class="nav-text">Plugins</span>
 						</a>
 						<ul aria-expanded="false" class="{{ Request::segment(2) == 'customer' ? 'left mm-collapse mm-show' : '' }}">
-							<li class="{{ Request::segment(2) == 'customer' ? 'mm-active' : '' }}"><a href="uc-select2.html">Select 2</a></li>
-							<li><a href="uc-nestable.html">Nestedable</a></li>
-							<li><a href="uc-noui-slider.html">Noui Slider</a></li>
-							<li><a href="uc-sweetalert.html">Sweet Alert</a></li>
-							<li><a href="uc-toastr.html">Toastr</a></li>
-							<li><a href="map-jqvmap.html">Jqv Map</a></li>
-							<li><a href="uc-lightgallery.html">Light Gallery</a></li>
+							<li class="{{ Request::segment(2) == 'customer' ? 'mm-active' : '' }}"><a href="{{ url('customer') }}">Customer</a></li>
+							<li class="{{ Request::segment(2) == 'user' ? 'mm-active' : '' }}"><a href="{{ url('user') }}">User</a></li>
 						</ul>
-					</li>
-					<li class="{{ Request::segment(2) == 'customer' ? 'mm-active' : '' }}">
-                        <a href="{{ url('customer') }}" class="{{ Request::segment(2) == 'customer' ? 'mm-active' : '' }}" aria-expanded="false">
-							<i class="flaticon-381-id-card-1"></i>
-							<span class="nav-text">Customer</span>
-						</a>
-					</li>
-					<li class="{{ Request::segment(2) == 'user' ? 'mm-active' : '' }}">
-                        <a href="{{ url('user') }}" class="{{ Request::segment(2) == 'user' ? 'mm-active' : '' }}" aria-expanded="false">
-							<i class="flaticon-381-user-9"></i>
-							<span class="nav-text">User</span>
-						</a>
 					</li>
                 </ul>
 			</div>

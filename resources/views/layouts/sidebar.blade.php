@@ -91,8 +91,8 @@
 					</li>
 					<li class="{{ in_array(Request::segment(2),['customer','user']) ? 'mm-active' : '' }}">
 						<a class="has-arrow " href="javascript:void()" aria-expanded="{{ Request::segment(2) == 'customer' ? 'true' : '' }}">
-							<i class="flaticon-045-heart"></i>
-							<span class="nav-text">Plugins</span>
+							<i class="flaticon-381-folder-19"></i>
+							<span class="nav-text">Master Data</span>
 						</a>
 						<ul aria-expanded="false" class="{{ Request::segment(2) == 'customer' ? 'left mm-collapse mm-show' : '' }}">
 							<li class="{{ Request::segment(2) == 'customer' ? 'mm-active' : '' }}"><a href="{{ url('customer') }}">Customer</a></li>

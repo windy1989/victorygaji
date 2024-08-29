@@ -708,7 +708,7 @@ function save(){
                                 `);
                              });
                         });
-                        $('.modal-content').scrollTop(0);
+                        $('.modal-body').scrollTop(0);
                     }
                 },
                 error: function() {

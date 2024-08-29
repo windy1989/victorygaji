@@ -42,6 +42,12 @@ Route::middleware('login')->group(function () {
         Route::get('download/{code}',[DashboardController::class, 'download']);
     });
 
+    Route::prefix('proyek')->middleware('admin.auth:1')->group(function () {
+        Route::get('/',[ProjectController::class, 'index']);
+        Route::get('datatable',[ProjectController::class, 'datatable']);
+        Route::post('create',[ProjectController::class, 'create']);
+    });
+
     Route::prefix('payroll')->middleware('admin.auth:1')->group(function () {
         Route::get('/',[PayrollController::class, 'index']);
         Route::get('datatable',[PayrollController::class, 'datatable']);

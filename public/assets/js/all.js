@@ -694,6 +694,17 @@ function edit(code){
                     }
                 }
 
+                /* JIKA FORM JENIS PROYEK */
+                if($('#project-type-datatable').length > 0){
+                    $('#code').val(response.data.code);
+                    $('#name').val(response.data.name);
+                    if(response.data.status == '1'){
+                        $('#status').prop( "checked", true);
+                    }else{
+                        $('#status').prop( "checked", false);
+                    }
+                }
+
                 $('#modalCreate').modal('toggle');
             }else{
                 errorMessage('Data tidak ditemukan.');
@@ -811,6 +822,10 @@ function save(){
 
                         if($('#purpose-datatable').length > 0){
                             loadDataTablePurpose();
+                        }
+
+                        if($('#project-type-datatable').length > 0){
+                            loadDataTableProjectType();
                         }
 
                         $('#modalCreate').modal('toggle');

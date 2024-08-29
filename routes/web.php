@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\ProjectTypeController;
 use App\Http\Controllers\PurposeController;
 
 /*
@@ -81,5 +82,13 @@ Route::middleware('login')->group(function () {
         Route::post('create',[PurposeController::class, 'create']);
         Route::post('show',[PurposeController::class, 'show']);
         Route::post('destroy',[PurposeController::class, 'destroy']);
+    });
+
+    Route::prefix('jenis_proyek')->middleware('admin.auth:1')->group(function () {
+        Route::get('/',[ProjectTypeController::class, 'index']);
+        Route::get('datatable',[ProjectTypeController::class, 'datatable']);
+        Route::post('create',[ProjectTypeController::class, 'create']);
+        Route::post('show',[ProjectTypeController::class, 'show']);
+        Route::post('destroy',[ProjectTypeController::class, 'destroy']);
     });
 });

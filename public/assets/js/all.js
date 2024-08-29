@@ -789,6 +789,7 @@ function save(){
 $(function() {
     $('#modalCreate').on('hidden.bs.modal', function (e) {
         $('#formData')[0].reset();
+        $('#temp').val('');
     });
 });
 

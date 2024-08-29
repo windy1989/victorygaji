@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\PurposeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -72,5 +73,13 @@ Route::middleware('login')->group(function () {
         Route::post('create',[UserController::class, 'create']);
         Route::post('show',[UserController::class, 'show']);
         Route::post('destroy',[UserController::class, 'destroy']);
+    });
+
+    Route::prefix('peruntukan')->middleware('admin.auth:1')->group(function () {
+        Route::get('/',[PurposeController::class, 'index']);
+        Route::get('datatable',[PurposeController::class, 'datatable']);
+        Route::post('create',[PurposeController::class, 'create']);
+        Route::post('show',[PurposeController::class, 'show']);
+        Route::post('destroy',[PurposeController::class, 'destroy']);
     });
 });

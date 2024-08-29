@@ -68,6 +68,8 @@
 						<ul aria-expanded="false">
 							<li class="{{ Request::segment(2) == 'customer' ? 'mm-active' : '' }}"><a href="{{ url('customer') }}">Customer</a></li>
 							<li class="{{ Request::segment(2) == 'user' ? 'mm-active' : '' }}"><a href="{{ url('user') }}">User</a></li>
+							<li class="{{ Request::segment(2) == 'peruntukan' ? 'mm-active' : '' }}"><a href="{{ url('peruntukan') }}">Peruntukan</a></li>
+							<li class="{{ Request::segment(2) == 'jenis_proyek' ? 'mm-active' : '' }}"><a href="{{ url('jenis_proyek') }}">Jenis Proyek</a></li>
 						</ul>
 					</li>
                 </ul>

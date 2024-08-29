@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Helpers\CustomHelper;
 use App\Http\Controllers\Controller;
 use App\Mail\SendMail;
+use App\Models\Purpose;
 use App\Models\User;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
@@ -14,13 +15,13 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
-class UserController extends Controller
+class PurposeController extends Controller
 {
     public function index()
     {
         $data = [
-            'title'         => 'Pengguna',
-            'content'       => 'user',
+            'title'         => 'Peruntukan',
+            'content'       => 'purpose',
         ];
 
         return view('layouts.index', ['data' => $data]);
@@ -29,10 +30,7 @@ class UserController extends Controller
     public function datatable(Request $request){
         $column = [
             'id',
-            'nama',
-            'nik',
-            'email',
-            'type',
+            'code',
             'status',
         ];
 
@@ -42,13 +40,12 @@ class UserController extends Controller
         $dir    = $request->input('order.0.dir');
         $search = $request->input('search.value');
 
-        $total_data = User::count();
+        $total_data = Purpose::count();
         
-        $query_data = User::where(function($query) use ($search, $request) {
+        $query_data = Purpose::where(function($query) use ($search, $request) {
                 if($search) {
-                    $query->where('nik', 'like', "%$search%")
-                        ->orWhere('nama','like',"%$search%")
-                        ->orWhere('email','like',"%$search%");
+                    $query->where('code', 'like', "%$search%")
+                        ->orWhere('nama','like',"%$search%");
                 }
             })
             ->offset($start)
@@ -56,11 +53,10 @@ class UserController extends Controller
             ->orderBy($order, $dir)
             ->get();
 
-        $total_filtered = User::where(function($query) use ($search, $request) {
+        $total_filtered = Purpose::where(function($query) use ($search, $request) {
                 if($search) {
-                    $query->where('nik', 'like', "%$search%")
-                        ->orWhere('nama','like',"%$search%")
-                        ->orWhere('email','like',"%$search%");
+                    $query->where('code', 'like', "%$search%")
+                        ->orWhere('nama','like',"%$search%");
                 }
             })
             ->count();
@@ -72,10 +68,8 @@ class UserController extends Controller
 				
                 $response['data'][] = [
                     $nomor,
-                    $val->nama,
-                    $val->nik,
-                    $val->email,
-                    $val->type(),
+                    $val->code,
+                    $val->name,
                     $val->statusBadge(),
                     '
                         <a href="javascript:void(0);" class="btn btn-secondary btn-sm content-icon" onclick="updatePassword('.$val->id.')"><i class="fa fa-unlock"></i></a>
@@ -101,40 +95,8 @@ class UserController extends Controller
         return response()->json($response);
     }
 
-    public function updatePassword(Request $request){
-        $user = User::where('id',$request->id)->where('status','1')->first();
-
-        if($user){
-            $pass = Str::random(6);
-            $user->update([
-                'password'  => bcrypt($pass),
-                'code'      => base64_encode($pass),
-            ]);
-
-            $data = [
-                'subject'   => 'Reset Password',
-                'view'      => 'mail.reset',
-                'user'      => $user->toArray(),
-            ];
-
-            Mail::to($user->email)->send(new SendMail($data));
-
-            return response()->json([
-                'status'    => 200,
-                'message'   => 'Password berhasil dikirimkan!'
-            ]);
-        }else{
-            $response = [
-                'status' => 500,
-                'error'  => 'Data tidak ditemukan.'
-            ];
-        }
-
-        return response()->json($response);
-    }
-
     public function show(Request $request){
-        $data = User::find($request->code);
+        $data = Purpose::find($request->code);
         if($data){
             $response = [
                 'status'    => 200,
@@ -154,9 +116,11 @@ class UserController extends Controller
         DB::beginTransaction();
         try {
             $validation = Validator::make($request->all(), [
-                'nik'		    => $request->temp ? [Rule::unique('users', 'nik')->ignore($request->temp)] : 'unique:users,nik',
+                'code'		    => $request->temp ? [Rule::unique('purposes', 'code')->ignore($request->temp)] : 'unique:purposes,code',
+                'name'          => 'required',
             ], [
-                'nik.unique'    => 'NIK telah terpakai.',
+                'code.unique'   => 'Kode telah terpakai.',
+                'name.required' => 'Nama tidak boleh kosong.'
             ]);
 
             if($validation->fails()) {
@@ -166,25 +130,19 @@ class UserController extends Controller
                 ];
             } else {
                 if($request->temp){
-                    $query = User::find($request->temp);
-                    $query->nama            = $request->name;
-                    $query->nik             = $request->nik;    
-                    $query->email           = $request->email;
-                    $query->type            = $request->type;
-                    $query->phone           = $request->phone;
+                    $query = Purpose::find($request->temp);
+                    $query->code            = $request->code;
+                    $query->name            = $request->name;    
                     $query->status          = $request->status ?? NULL;
                     $query->save();
-                    CustomHelper::saveLog($query->getTable(),$query->id,'Update data user '.$query->nik,'Pengguna '.session('bo_name').' telah mengubah data user no '.$query->nik);
+                    CustomHelper::saveLog($query->getTable(),$query->id,'Update data peruntukan '.$query->code,'Pengguna '.session('bo_name').' telah mengubah data peruntukan no '.$query->code);
                 }else{
-                    $query = User::create([
-                        'nama'              => $request->name,
-                        'nik'               => $request->nik,    
-                        'email'             => $request->email,
-                        'type'              => $request->type,
-                        'phone'             => $request->phone,
-                        'status'            => $request->status ?? '2',
+                    $query = Purpose::create([
+                        'code'              => $request->code,
+                        'name'              => $request->name,    
+                        'status'            => $request->status ?? NULL,
                     ]);
-                    CustomHelper::saveLog($query->getTable(),$query->id,'Tambah baru data user '.$query->nik,'Pengguna '.session('bo_name').' telah manambahkan baru data user no '.$query->nik);
+                    CustomHelper::saveLog($query->getTable(),$query->id,'Tambah baru data peruntukan '.$query->code,'Pengguna '.session('bo_name').' telah manambahkan baru data peruntukan no '.$query->code);
                 }
                 
                 if($query) {
@@ -207,10 +165,10 @@ class UserController extends Controller
     }
 
     public function destroy(Request $request){
-        $query = User::find($request->code);
+        $query = Purpose::find($request->code);
 		
         if($query->delete()) {
-            CustomHelper::saveLog($query->getTable(),$query->id,'Delete data user '.$query->nik,'Pengguna '.session('bo_name').' telah menghapus data user no '.$query->nik);
+            CustomHelper::saveLog($query->getTable(),$query->id,'Delete data peruntukan '.$query->code,'Pengguna '.session('bo_name').' telah menghapus data peruntukan no '.$query->code);
 
             $response = [
                 'status'  => 200,

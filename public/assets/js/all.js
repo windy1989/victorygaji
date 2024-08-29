@@ -124,6 +124,10 @@ $(function() {
 		loadDataTableUser();
     }
 
+    if($('#purpose-datatable').length > 0){
+		loadDataTablePurpose();
+    }
+
     $('#payroll-datatable tbody').on('click', '.payroll-email', function() {
         let id = $(this).data('payroll');
         swal.fire({
@@ -411,6 +415,52 @@ function loadDataTableUser(){
     });
 }
 
+function loadDataTablePurpose(){
+    window.table = $('#purpose-datatable').DataTable({
+        "scrollCollapse": true,
+        "scrollY": '400px',
+		"scrollX": true,
+		"scroller": true,
+        "responsive": true,
+        "stateSave": true,
+        "serverSide": true,
+        "deferRender": true,
+        "destroy": true,
+        "iDisplayInLength": 10,
+        "order": [[0, 'asc']],
+        ajax: {
+            url: window.location.href + '/datatable',
+            type: 'GET',
+            data: {
+                
+            },
+            beforeSend: function() {
+            },
+            complete: function() {
+            },
+            error: function() {
+                errorConnection();
+            }
+        },
+        columns: [
+            { name: 'id', searchable: false, className: 'text-center' },
+            { name: 'code', className: '' },
+            { name: 'name', className: '' },
+			{ name: 'status', className: '' },
+            { name: 'action', searchable: false, orderable: false, className: 'text-center' },
+        ],
+        createdRow: function ( row, data, index ) {
+            $(row).addClass('selected')
+        },
+        language: {
+            paginate: {
+                next: '<i class="fa fa-angle-double-right" aria-hidden="true"></i>',
+                previous: '<i class="fa fa-angle-double-left" aria-hidden="true"></i>' 
+            }
+        }
+    });
+}
+
 function updatePassword(id){
     swal.fire({
         title: "Yakin ingin mereset password akun?",
@@ -583,6 +633,17 @@ function edit(code){
                     }
                 }
 
+                /* JIKA FORM PURPOSE */
+                if($('#purpose-datatable').length > 0){
+                    $('#code').val(response.data.code);
+                    $('#name').val(response.data.name);
+                    if(response.data.status == '1'){
+                        $('#status').prop( "checked", true);
+                    }else{
+                        $('#status').prop( "checked", false);
+                    }
+                }
+
                 $('#modalCreate').modal('toggle');
             }else{
                 errorMessage('Data tidak ditemukan.');
@@ -696,6 +757,10 @@ function save(){
 
                         if($('#user-datatable').length > 0){
                             loadDataTableUser();
+                        }
+
+                        if($('#purpose-datatable').length > 0){
+                            loadDataTablePurpose();
                         }
 
                         $('#modalCreate').modal('toggle');

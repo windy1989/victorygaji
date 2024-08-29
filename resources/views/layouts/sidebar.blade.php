@@ -90,7 +90,7 @@
 						</a>
 					</li>
 					<li class="{{ Request::segment(2) == 'customer' ? 'mm-active' : '' }}">
-						<a class="has-arrow " href="javascript:void()" aria-expanded="false">
+						<a class="has-arrow " href="javascript:void()" aria-expanded="{{ Request::segment(2) == 'customer' ? 'true' : '' }}">
 							<i class="flaticon-045-heart"></i>
 							<span class="nav-text">Plugins</span>
 						</a>

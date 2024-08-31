@@ -803,6 +803,7 @@ function save(){
         closeOnCancel: !1,
         focusCancel: true,
     }).then(function (willDelete) {
+        $('.swal2-confirm').focus();
         if (willDelete.value) {
             var formData = new FormData($('#formData')[0]);
             $.ajax({

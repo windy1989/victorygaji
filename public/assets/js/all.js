@@ -241,6 +241,14 @@ $(function() {
     setTimeout(function(){
         jQuery("#preloader").hide();
     },800);
+
+    $(document).on('keypress',function(e) {
+        if($('#modalCreate').hasClass('show')){
+            if(e.which == 13) {
+                alert('asd');
+            }
+        }
+    });
 });
 
 function errorConnection(){

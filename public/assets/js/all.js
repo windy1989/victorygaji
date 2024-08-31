@@ -255,6 +255,9 @@ $(function() {
             save();
         }
     } );
+    jQuery('#modalCreate').on('shown.bs.modal', function() {
+        jQuery(document).off('focusin.modal');
+    });
 });
 
 function errorConnection(){

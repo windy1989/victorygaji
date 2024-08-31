@@ -27,7 +27,7 @@
                                 <h4 class="card-title">Daftar Pengguna</h4>
                                 <div>	
                                     <button type="button" class="btn btn-secondary mb-2" style="margin-right:10px;" data-bs-toggle="modal" data-bs-target="#modalCreate">Tambah Baru</button>
-                                    <button type="button" class="btn btn-primary mb-2" onclick="loadDataTableUser();">Refresh</button>
+                                    <button type="button" class="btn btn-primary mb-2" onclick="loadDataTablePurpose();">Refresh</button>
                                 </div>
                             </div>
                             <div class="card-body">

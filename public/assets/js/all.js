@@ -775,6 +775,16 @@ function destroy(code){
                         if($('#user-datatable').length > 0){
                             loadDataTableUser();
                         }
+
+                        /* JIKA FORM TIPE PROYEK */
+                        if($('#project-type-datatable').length > 0){
+                            loadDataTableProjectType();
+                        }
+
+                        /* JIKA FORM PERUNTUKAN */
+                        if($('#purpose-datatable').length > 0){
+                            loadDataTablePurpose();
+                        }
                     }else{
                         errorMessage('Data tidak ditemukan.');
                     }

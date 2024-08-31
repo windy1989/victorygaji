@@ -242,13 +242,19 @@ $(function() {
         jQuery("#preloader").hide();
     },800);
 
-    $(document).on('keypress',function(e) {
+    /* $(document).on('keypress',function(e) {
         if($('#modalCreate').hasClass('show')){
             if(e.which == 13) {
                 save();
             }
         }
-    });
+    }); */
+    $('#modalCreate').on( 'keypress', function( e ) {
+        if( e.keyCode === 13 ) {
+            e.preventDefault();
+            save();
+        }
+    } );
 });
 
 function errorConnection(){

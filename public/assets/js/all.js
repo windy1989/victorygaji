@@ -245,7 +245,7 @@ $(function() {
     $(document).on('keypress',function(e) {
         if($('#modalCreate').hasClass('show')){
             if(e.which == 13) {
-                alert('asd');
+                save();
             }
         }
     });

@@ -67,7 +67,7 @@
                     </div>
                     <div class="modal-body">
                         <div id="validation_alert" style="display:none;margin-top:25px;"></div>
-                        <form id="formData">
+                        <form id="formData" onsubmit="save();">
                             <div class="row">
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Kode</label>

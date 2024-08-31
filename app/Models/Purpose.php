@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Purpose extends Model
 {
+    use HasFactory, Notifiable, SoftDeletes;
+    
     protected $table = 'purposes';
     protected $primaryKey = 'id';
     protected $dates = ['deleted_at'];

@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class ProjectType extends Model
 {
+    use HasFactory, Notifiable, SoftDeletes;
+
     protected $table = 'project_types';
     protected $primaryKey = 'id';
     protected $dates = ['deleted_at'];

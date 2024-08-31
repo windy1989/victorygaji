@@ -800,7 +800,8 @@ function save(){
         confirmButtonText: "Ya, simpan!",
         cancelButtonText: "Batal",
         closeOnConfirm: !1,
-        closeOnCancel: !1
+        closeOnCancel: !1,
+        focusCancel: !1,
     }).then(function (willDelete) {
         if (willDelete.value) {
             var formData = new FormData($('#formData')[0]);

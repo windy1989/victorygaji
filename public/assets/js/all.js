@@ -272,7 +272,6 @@ function select2ServerSide(selector, endpoint) {
 		allowClear: true,
 		cache: true,
 		width: '100%',
-		dropdownParent: $('#modalCreate'),
 		ajax: {
 			url: endpoint,
 			type: 'GET',

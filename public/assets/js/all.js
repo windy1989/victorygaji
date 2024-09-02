@@ -269,9 +269,9 @@ function select2ServerSide(selector, endpoint) {
 	$(selector).select2({
 		placeholder: '-- Pilih ya --',
 		minimumInputLength: 1,
-		allowClear: true,
 		cache: true,
 		width: '100%',
+		dropdownParent: $('#modalCreate'),
 		ajax: {
 			url: endpoint,
 			type: 'GET',

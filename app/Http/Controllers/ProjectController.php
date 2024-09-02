@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Imports\ImportPayroll;
 use App\Jobs\QueueMail;
 use App\Models\Payroll;
+use App\Models\Project;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -28,14 +29,26 @@ class ProjectController extends Controller
     public function datatable(Request $request){
         $column = [
             'id',
-            'nik',
+            'code',
+            'user_id',
+            'customer_id',
             'name',
-            'rekening_bca',
-            'bulan',
-            'jabatan',
-			'gaji_pokok',
-            'jumlah_transfer',
-            'updated_at',
+            'project_no',
+            'post_date',
+			'location',
+            'region_id',
+            'project_type_id',
+            'purpose_id',
+            'purpose_note',
+            'working_days',
+            'start_date',
+            'end_date',
+            'andalalin_document_no',
+            'power_letter_no',
+            'cost',
+            'termin',
+            'note',
+            'status',
         ];
 
         $start  = $request->start;
@@ -44,15 +57,18 @@ class ProjectController extends Controller
         $dir    = $request->input('order.0.dir');
         $search = $request->input('search.value');
 
-        $total_data = Payroll::count();
+        $total_data = Project::count();
         
-        $query_data = Payroll::where(function($query) use ($search, $request) {
+        $query_data = Project::where(function($query) use ($search, $request) {
                 if($search) {
                     $query->where(function($query) use ($search, $request) {
-                        $query->where('nik', 'like', "%$search%")
-							->orWhereHas('user', function($query) use ($search){
-								$query->where('nama','like',"%$search%")
-                                    ->orWhere('email','like',"%$search%");
+                        $query->where('code', 'like', "%$search%")
+                            ->orWhere('name', 'like', "%$search%")
+                            ->orWhere('project_no', 'like', "%$search%")
+                            ->orWhere('location', 'like', "%$search%")
+							->orWhereHas('customer', function($query) use ($search){
+								$query->where('code','like',"%$search%")
+                                    ->orWhere('name','like',"%$search%");
 							});
                     });
                 }
@@ -62,14 +78,17 @@ class ProjectController extends Controller
             ->orderBy($order, $dir)
             ->get();
 
-        $total_filtered = Payroll::where(function($query) use ($search, $request) {
+        $total_filtered = Project::where(function($query) use ($search, $request) {
                 if($search) {
                     $query->where(function($query) use ($search, $request) {
-                        $query->where('nik', 'like', "%$search%")
-                            ->orWhereHas('user', function($query) use ($search){
-                                $query->where('nama','like',"%$search%")
-                                    ->orWhere('email','like',"%$search%");
-                            });
+                        $query->where('code', 'like', "%$search%")
+                            ->orWhere('name', 'like', "%$search%")
+                            ->orWhere('project_no', 'like', "%$search%")
+                            ->orWhere('location', 'like', "%$search%")
+							->orWhereHas('customer', function($query) use ($search){
+								$query->where('code','like',"%$search%")
+                                    ->orWhere('name','like',"%$search%");
+							});
                     });
                 }
             })
@@ -82,21 +101,30 @@ class ProjectController extends Controller
 				
                 $response['data'][] = [
                     $nomor,
-                    $val->nik,
-                    $val->user()->exists() ? $val->user->nama : '-',
-                    $val->rekening_bca,
-                    $val->bulan,
-                    $val->jabatan,
-                    number_format($val->gaji_pokok,2,',','.'),
-                    number_format($val->jumlah_transfer,2,',','.'),
-                    date('d/m/y H:i:s',strtotime($val->updated_at)),
+                    $val->code,
+                    $val->user->nama,
+                    $val->customer->name,
+                    $val->name,
+                    $val->project_no,
+                    date('d/m/Y',strtotime($val->post_date)),
+                    $val->location,
+                    $val->region->name,
+                    $val->projectType->name,
+                    $val->purpose->name,
+                    $val->purpose_note,
+                    $val->working_days,
+                    date('d/m/Y',strtotime($val->start_date)),
+                    date('d/m/Y',strtotime($val->end_date)),
+                    $val->andalalin_document_no,
+                    $val->power_letter_no,
+                    number_format($val->cost,2,',','.'),
+                    $val->termin,
+                    $val->note,
+                    $val->status(),
                     '
-						<span style="font-size:25px;">
-							<a href="javascript:void(0);" onclick="history('.$val->id.')"><i class="fas fa-history text-info"></i></a>
-                        </span>
-                        <span style="font-size:25px;margin-left:10px;">
-							<a href="javascript:void(0);" class="payroll-email" data-payroll="'.$val->id.'"><i class="fas fa-envelope text-warning"></i></a>
-                        </span>
+                        <a href="javascript:void(0);" class="btn btn-warning btn-sm content-icon" onclick="edit(`'.CustomHelper::encrypt($val->code).'`)"><i class="fa fa-edit"></i></a>
+                        <a href="javascript:void(0);" class="btn btn-danger btn-sm content-icon" onclick="destroy(`'.CustomHelper::encrypt($val->code).'`)"><i class="fa fa-trash-o"></i></a>
+                        <a href="javascript:void(0);" class="btn btn-primary btn-sm content-icon" onclick="void(`'.CustomHelper::encrypt($val->code).'`)"><i class="fa fa-times"></i></a>
 					'
                 ];
 

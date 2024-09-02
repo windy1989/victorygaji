@@ -132,6 +132,10 @@ $(function() {
 		loadDataTableProjectType();
     }
 
+    if($('#project-datatable').length > 0){
+		loadDataTableProject();
+    }
+
     $('#payroll-datatable tbody').on('click', '.payroll-email', function() {
         let id = $(this).data('payroll');
         swal.fire({
@@ -961,3 +965,77 @@ function loadDataTableCustomer(){
 }
 
 /* CUSTOMER */
+
+/* PROJECT */
+
+function loadDataTableProject(){
+    window.table = $('#project-datatable').DataTable({
+        "scrollCollapse": true,
+        "scrollY": '400px',
+		"scrollX": true,
+		"scroller": true,
+        "responsive": true,
+        "stateSave": true,
+        "serverSide": true,
+        "deferRender": true,
+        "destroy": true,
+        "fixedColumns": {
+            left: 2,
+            right: 1
+        },
+        "iDisplayInLength": 10,
+        "order": [[0, 'asc']],
+        ajax: {
+            url: window.location.href + '/datatable',
+            type: 'GET',
+            data: {
+                
+            },
+            beforeSend: function() {
+                /* loadingOpen(); */
+            },
+            complete: function() {
+                /* loadingClose(); */
+            },
+            error: function() {
+                /* loadingClose(); */
+                errorConnection();
+            }
+        },
+        columns: [
+            { name: 'id', searchable: false, className: 'text-center' },
+            { name: 'code', className: '' },
+            { name: 'user_id', className: '' },
+            { name: 'customer_id', className: '' },
+			{ name: 'name', className: '' },
+            { name: 'project_no', className: '' },
+            { name: 'post_date', className: '' },
+            { name: 'location', className: '' },
+            { name: 'region_id', className: '' },
+            { name: 'project_type_id', className: '' },
+            { name: 'purpose_id', className: '' },
+            { name: 'purpose_note', className: '' },
+            { name: 'working_days', className: '' },
+            { name: 'start_date', className: '' },
+            { name: 'end_date', className: '' },
+            { name: 'andalalin_document_no', className: '' },
+            { name: 'power_letter_no', className: '' },
+            { name: 'cost', className: 'text-right' },
+            { name: 'termin', className: 'text-center' },
+            { name: 'note', className: '' },
+            { name: 'status', className: 'text-center' },
+            { name: 'action', searchable: false, orderable: false, className: 'text-center' },
+        ],
+        createdRow: function ( row, data, index ) {
+            $(row).addClass('selected')
+        },
+        language: {
+            paginate: {
+                next: '<i class="fa fa-angle-double-right" aria-hidden="true"></i>',
+                previous: '<i class="fa fa-angle-double-left" aria-hidden="true"></i>' 
+            }
+        }
+    });
+}
+
+/* PROJECT */

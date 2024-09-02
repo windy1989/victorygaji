@@ -261,8 +261,35 @@ $(function() {
     } );
     $('#modalCreate').on('shown.bs.modal', function() {
         $(document).off('focusin.modal');
+        select2ServerSide('#customer_id',window.location.href + '/customer');
     });
 });
+
+function select2ServerSide(selector, endpoint) {
+	$(selector).select2({
+		placeholder: '-- Pilih ya --',
+		minimumInputLength: 1,
+		allowClear: true,
+		cache: true,
+		width: 'resolve',
+		dropdownParent: $('body').parent(),
+		ajax: {
+			url: endpoint,
+			type: 'GET',
+			dataType: 'JSON',
+			data: function(params) {
+				return {
+					search: params.term
+				};
+			},
+			processResults: function(data) {
+				return {
+					results: data.items
+				}
+			}
+		}
+	});
+ }
 
 function errorConnection(){
     toastr.error("Check your internet connection!", "Ups...", {

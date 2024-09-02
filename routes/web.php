@@ -9,6 +9,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ProjectTypeController;
 use App\Http\Controllers\PurposeController;
+use App\Http\Controllers\Select2Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,10 @@ Route::prefix('logout')->group(function () {
 
 Route::middleware('login')->group(function () {
     
+    Route::prefix('select2')->group(function() {
+        Route::get('customer', [Select2Controller::class, 'customer']);
+    });
+
     Route::prefix('dashboard')->group(function () {
         Route::get('/', [DashboardController::class, 'index']);
         Route::get('datatable',[DashboardController::class, 'datatable']);

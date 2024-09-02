@@ -97,8 +97,15 @@
                                     <input type="text" class="form-control" placeholder="Auto generate" id="code" name="code" readonly>
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <label class="form-label">Nama</label>
-                                    <input type="text" class="form-control" placeholder="Nama" id="name" name="name">
+                                    <label class="form-label">Nama Proyek</label>
+                                    <input type="text" class="form-control" placeholder="Nama Proyek" id="name" name="name">
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label class="form-label">Customer</label>
+                                    <select id="customer_id" name="customer_id">
+                                        <option value="AL">Alabama</option>
+                                        <option value="WY">Wyoming</option>
+                                    </select>
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Email</label>

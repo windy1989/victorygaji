@@ -262,7 +262,7 @@ $(function() {
     $('#modalCreate').on('shown.bs.modal', function() {
         $(document).off('focusin.modal');
     });
-    select2ServerSide('#customer_id','customer');
+    select2ServerSide('#customer_id','select2/customer');
 });
 
 function select2ServerSide(selector, endpoint) {

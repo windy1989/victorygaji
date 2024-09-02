@@ -73,7 +73,7 @@ class PurposeController extends Controller
                     $val->statusBadge(),
                     '
                         <a href="javascript:void(0);" class="btn btn-warning btn-sm content-icon" onclick="edit('.$val->id.')"><i class="fa fa-edit"></i></a>
-                        <a href="javascript:void(0);" class="btn btn-danger btn-sm content-icon" onclick="destroy('.$val->id.')"><i class="fa fa-trash-o"></i></a>
+                        <a href="javascript:void(0);" class="btn btn-danger btn-sm content-icon" onclick="destroy('.$val->id.')"><i class="fa fa-trash"></i></a>
 					'
                 ];
 

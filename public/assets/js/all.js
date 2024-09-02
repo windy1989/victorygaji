@@ -261,7 +261,7 @@ $(function() {
     } );
     $('#modalCreate').on('shown.bs.modal', function() {
         $(document).off('focusin.modal');
-        select2ServerSide('#customer_id',window.location.hostname + '/customer');
+        select2ServerSide('#customer_id','customer');
     });
 });
 

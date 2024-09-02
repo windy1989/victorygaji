@@ -102,10 +102,7 @@
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Customer</label>
-                                    <select id="customer_id" name="customer_id">
-                                        <option value="AL">Alabama</option>
-                                        <option value="WY">Wyoming</option>
-                                    </select>
+                                    <select id="customer_id" name="customer_id"></select>
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Email</label>

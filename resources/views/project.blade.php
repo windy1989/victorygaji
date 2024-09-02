@@ -92,7 +92,7 @@
                         <form id="formData">
                             <div class="row">
                                 <div class="mb-3 col-md-6">
-                                    <label class="form-label">Kode Pelanggan</label>
+                                    <label class="form-label">Kode Dokumen</label>
                                     <input type="hidden" id="temp" name="temp">
                                     <input type="text" class="form-control" placeholder="Auto generate" id="code" name="code" readonly>
                                 </div>

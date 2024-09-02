@@ -262,6 +262,9 @@ $(function() {
     $('#modalCreate').on('shown.bs.modal', function() {
         $(document).off('focusin.modal');
     });
+    $(document).on('select2:open', () => {
+        document.querySelector('.select2-search__field').focus();
+    });
     select2ServerSide('#customer_id','select2/customer');
 });
 

@@ -91,7 +91,7 @@ class Project extends Model
 
     public static function generateCode()
     {
-        $prefix = 'PRJ';
+        $prefix = 'PRJ-';
 
         $query = Project::withTrashed()->selectRaw('RIGHT(code, 6) as code')
             ->orderByDesc('code')

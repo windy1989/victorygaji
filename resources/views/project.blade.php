@@ -134,7 +134,7 @@
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Lama Pengerjaan (Hari)</label>
-                                    <input type="number" class="form-control" id="working_days" name="working_days" value="0" min="0" step="1">
+                                    <input type="number" class="form-control" id="working_days" name="working_days" value="0" min="0" step="1" onchange="addDate();">
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Tgl.Mulai Pengerjaan</label>

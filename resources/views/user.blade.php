@@ -116,6 +116,7 @@
                                         <option value="6">Manager</option>
                                         <option value="7">Director</option>
                                         <option value="8">Komisaris</option>
+                                        <option value="9">Supervisor</option>
                                     </select>
                                 </div>
                                 <div class="mb-3 col-md-6">

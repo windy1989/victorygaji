@@ -71,6 +71,7 @@ class User extends Authenticatable
             '6' => 'Manager',
             '7' => 'Director',
             '8' => 'Komisaris',
+            '9' => 'Supervisor',
             default => 'Invalid',
         };
 

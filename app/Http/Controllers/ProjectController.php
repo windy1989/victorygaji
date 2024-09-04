@@ -188,6 +188,7 @@ class ProjectController extends Controller
             } else {
                 if($request->temp){
                     $query = Project::find($request->temp);
+                    $query->user_id         = session('bo_id');
                     $query->code            = $request->code;
                     $query->name            = $request->name;    
                     $query->customer_id     = $request->customer_id;
@@ -197,12 +198,14 @@ class ProjectController extends Controller
                     $query->region_id       = $request->region_id;
                     $query->project_type_id = $request->project_type_id;
                     $query->purpose_id      = $request->purpose_id;
+                    $query->purpose_note    = $request->purpose_note;
                     $query->working_days    = $request->working_days;
                     $query->start_date      = $request->start_date;
                     $query->end_date        = $request->end_date;
                     $query->andalalin_document_no = $request->andalalin_document_no;
                     $query->power_letter_no = $request->power_letter_no;
                     $query->cost            = str_replace(',','.',str_replace('.','',$request->cost));
+                    $query->termin          = $request->termin;
                     $query->note            = $request->note;
                     $query->status          = '1';
                     $query->save();
@@ -210,6 +213,7 @@ class ProjectController extends Controller
                 }else{
                     $query = Project::create([
                         'code'                  => Project::generateCode(),
+                        'user_id'               => session('bo_id'),
                         'name'                  => $request->name,
                         'customer_id'           => $request->customer_id,
                         'project_no'            => $request->project_no,
@@ -218,12 +222,14 @@ class ProjectController extends Controller
                         'region_id'             => $request->region_id,
                         'project_type_id'       => $request->project_type_id,
                         'purpose_id'            => $request->purpose_id,
+                        'purpose_note'          => $request->purpose_note,
                         'working_days'          => $request->working_days,
                         'start_date'            => $request->start_date,
                         'end_date'              => $request->end_date,
                         'andalalin_document_no' => $request->andalalin_document_no,
                         'power_letter_no'       => $request->power_letter_no,
                         'cost'                  => str_replace(',','.',str_replace('.','',$request->cost)),
+                        'termin'                => $request->termin,
                         'note'                  => $request->note,
                         'status'                => '1'
                     ]);

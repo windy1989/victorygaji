@@ -45,7 +45,7 @@ class Project extends Model
         return $this->belongsTo('App\Models\User','user_id','id')->withTrashed();
     }
 
-    public function city(){
+    public function region(){
         return $this->belongsTo('App\Models\Region','region_id','id')->withTrashed();
     }
 

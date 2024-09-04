@@ -922,6 +922,10 @@ function save(){
                             loadDataTableProjectType();
                         }
 
+                        if($('#project-datatable').length > 0){
+                            loadDataTableProject();
+                        }
+
                         $('#modalCreate').modal('toggle');
                     } else if(response.status == 422) {
                         $('#validation_alert').show();

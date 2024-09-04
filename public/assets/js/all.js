@@ -266,7 +266,37 @@ $(function() {
         document.querySelector('.select2-search__field').focus();
     });
     select2ServerSide('#customer_id','select2/customer');
+    select2ServerSide('#region_id','select2/region');
+    select2ServerSide('#project_type_id','select2/project_type');
+    select2ServerSide('#purpose_id','select2/purpose');
 });
+
+function addDate(){
+    if($('#start_date').val()){
+        var result = new Date($('#start_date').val());
+        result.setDate(result.getDate() + parseInt($('#working_days').val()));
+        $('#end_date').val(result.toISOString().split('T')[0]);
+    }else{
+        $('#end_date').val('');
+    }
+}
+
+function formatRupiahNoMinus(angka){
+	let val = angka.value ? angka.value : '';
+	var number_string = val.replace(/[^,\d]/g, '').toString(),
+	split   		= number_string.split(','),
+	sisa     		= parseFloat(split[0]).toString().length % 3,
+	rupiah     		= parseFloat(split[0]).toString().substring(0, sisa),
+	ribuan     		= parseFloat(split[0]).toString().substring(sisa).match(/\d{3}/gi);
+ 
+	if(ribuan){
+		separator = sisa ? '.' : '';
+		rupiah += separator + ribuan.join('.');
+	}
+ 
+	rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+	angka.value = rupiah;
+}
 
 function select2ServerSide(selector, endpoint) {
 	$(selector).select2({

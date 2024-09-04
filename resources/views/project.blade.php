@@ -105,67 +105,64 @@
                                     <select id="customer_id" name="customer_id"></select>
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <label class="form-label">Email</label>
-                                    <input type="email" class="form-control" placeholder="Email" id="email" name="email">
+                                    <label class="form-label">Nomor Proyek (Cetak)</label>
+                                    <input type="text" class="form-control" placeholder="Nomor Proyek" id="project_no" name="project_no">
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <label class="form-label">Nama Pemilik</label>
-                                    <input type="text" class="form-control" placeholder="Nama Pemilik" id="owner_name" name="owner_name">
+                                    <label class="form-label">Tgl.Pengajuan</label>
+                                    <input type="date" class="form-control" id="post_date" name="post_date" value="{{ date('Y-m-d') }}">
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <label class="form-label">Nama PIC</label>
-                                    <input type="text" class="form-control" placeholder="Nama PIC" id="pic" name="pic">
-                                </div>
-                                <div class="mb-3 col-md-6">
-                                    <label class="form-label">KTP Pemilik</label>
-                                    <input type="text" class="form-control" placeholder="NIK/Identitas Pemilik" id="owner_id_card" name="owner_id_card">
-                                </div>
-                                <div class="mb-3 col-md-6">
-                                    <label class="form-label">Perusahaan</label>
-                                    <input type="text" class="form-control" placeholder="Perusahaan" id="company_name" name="company_name">
-                                </div>
-                                <div class="mb-3 col-md-6">
-                                    <label class="form-label">No. Akta Pendirian</label>
-                                    <input type="text" class="form-control" placeholder="No. Akta Pendirian" id="document_no" name="document_no">
-                                </div>
-                                <div class="mb-3 col-md-6">
-                                    <label class="form-label">Alamat</label>
-                                    <input type="text" class="form-control" placeholder="Alamat" id="address" name="address">
+                                    <label class="form-label">Lokasi/Alamat</label>
+                                    <input type="text" class="form-control" placeholder="Lokasi / Alamat" id="location" name="location">
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Kota</label>
-                                    <input type="text" class="form-control" placeholder="Kota" id="city" name="city">
+                                    <select id="region_id" name="region_id"></select>
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <label class="form-label">Gender</label>
-                                    <div class="mb-3 mb-0">
-                                        <label class="radio-inline me-3"><input type="radio" name="gender" class="form-check-input" value="1" checked> Laki-laki</label>
-                                        <label class="radio-inline me-3"><input type="radio" name="gender" class="form-check-input" value="2"> Perempuan</label>
-                                        <label class="radio-inline me-3"><input type="radio" name="gender" class="form-check-input" value="3"> Lain-lain</label>
-                                    </div>
+                                    <label class="form-label">Jenis Proyek</label>
+                                    <select id="project_type_id" name="project_type_id"></select>
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <label class="form-label">Telepon</label>
-                                    <input type="text" class="form-control" placeholder="6281XXXXX" id="phone" name="phone">
+                                    <label class="form-label">Peruntukan</label>
+                                    <select id="purpose_id" name="purpose_id"></select>
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <label class="form-label">Tipe Perusahaan</label>
-                                    <select id="type_body" name="type_body" class="form-control wide">
-                                        <option value="1">PT</option>
-                                        <option value="2">CV</option>
-                                        <option value="3">Perorangan</option>
-                                    </select>
+                                    <label class="form-label">Keterangan Peruntukan</label>
+                                    <input type="text" class="form-control" placeholder="Keterangan Peruntukan" id="purpose_note" name="purpose_note">
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label class="form-label">Lama Pengerjaan (Hari)</label>
+                                    <input type="number" class="form-control" id="working_days" name="working_days" value="0" min="0" step="1">
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label class="form-label">Tgl.Mulai Pengerjaan</label>
+                                    <input type="date" class="form-control" id="start_date" name="start_date" value="{{ date('Y-m-d') }}" onchange="addDate();">
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label class="form-label">Tgl.Selesai Pengerjaan</label>
+                                    <input type="date" class="form-control" id="end_date" name="end_date">
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label class="form-label">No.Dokumen Andalalin</label>
+                                    <input type="text" class="form-control" placeholder="No.Dokumen Andalalin" id="andalalin_document_no" name="andalalin_document_no">
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label class="form-label">No.Surat Kuasa</label>
+                                    <input type="text" class="form-control" placeholder="No.Surat Kuasa" id="power_letter_no" name="power_letter_no">
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label class="form-label">Harga</label>
+                                    <input type="text" class="form-control" placeholder="Harga" id="cost" name="cost" onkeyup="formatRupiahNoMinus(this);" value="0,00">
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label class="form-label">Termin Pembayaran</label>
+                                    <input type="number" class="form-control" id="termin" name="termin" value="1" min="1" step="1">
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Keterangan</label>
                                     <input type="text" class="form-control" placeholder="Keterangan" id="note" name="note">
-                                </div>
-                                <div class="mb-3 col-md-6">
-                                    <label class="form-label">Status</label>
-                                    <div class="form-check custom-checkbox mb-3 checkbox-success">
-                                        <input type="checkbox" class="form-check-input" checked="" id="status" name="status" required="" value="1">
-                                        <label class="form-check-label" for="status">Aktif</label>
-                                    </div>
                                 </div>
                             </div>
                         </form>

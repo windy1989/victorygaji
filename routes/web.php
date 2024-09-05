@@ -57,13 +57,13 @@ Route::middleware('login')->group(function () {
         Route::get('/',[ProjectController::class, 'index']);
         Route::get('datatable',[ProjectController::class, 'datatable']);
         Route::post('create',[ProjectController::class, 'create']);
+        Route::post('show',[ProjectController::class, 'show']);
     });
 
     Route::prefix('payroll')->middleware('admin.auth:1')->group(function () {
         Route::get('/',[PayrollController::class, 'index']);
         Route::get('datatable',[PayrollController::class, 'datatable']);
         Route::post('create',[PayrollController::class, 'create']);
-        Route::post('show',[PayrollController::class, 'show']);
         Route::post('send_email',[PayrollController::class, 'sendEmail']);
         Route::post('history', [PayrollController::class, 'history']);
     });

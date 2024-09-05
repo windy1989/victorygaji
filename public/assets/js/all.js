@@ -785,6 +785,36 @@ function edit(code){
                     }
                 }
 
+                /* JIKA FORM  */
+                if($('#project-datatable').length > 0){
+                    $('#code').val(response.data.code);
+                    $('#name').val(response.data.name);
+                    $('#customer_id').empty().append(`
+                        <option value="` + response.data.customer_id + `">` + response.data.customer_info + `</option>
+                    `);
+                    $('#project_no').val(response.data.project_no);
+                    $('#post_date').val(response.data.post_date);
+                    $('#location').val(response.data.location);
+                    $('#region_id').empty().append(`
+                        <option value="` + response.data.region_id + `">` + response.data.region_info + `</option>
+                    `);
+                    $('#project_type_id').empty().append(`
+                        <option value="` + response.data.project_type_id + `">` + response.data.project_type_info + `</option>
+                    `);
+                    $('#purpose_id').empty().append(`
+                        <option value="` + response.data.purpose_id + `">` + response.data.purpose_info + `</option>
+                    `);
+                    $('#purpose_note').val(response.data.purpose_note);
+                    $('#working_days').val(response.data.working_days);
+                    $('#start_date').val(response.data.start_date);
+                    $('#end_date').val(response.data.end_date);
+                    $('#andalalin_document_no').val(response.data.andalalin_document_no);
+                    $('#power_letter_no').val(response.data.power_letter_no);
+                    $('#cost').val(response.data.cost);
+                    $('#termin').val(response.data.termin);
+                    $('#note').val(response.data.note);
+                }
+
                 $('#modalCreate').modal('toggle');
             }else{
                 errorMessage('Data tidak ditemukan.');

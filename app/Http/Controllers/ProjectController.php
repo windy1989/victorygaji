@@ -255,4 +255,26 @@ class ProjectController extends Controller
             DB::rollback();
         }
     }
+
+    public function show(Request $request){
+        $data = Project::find($request->code);
+        $data['customer_info'] = $data->customer->code.' - '.$data->customer->name;
+        $data['region_info'] = $data->region->name;
+        $data['project_type_info'] = $data->projectType->name;
+        $data['purpose_info'] = $data->purpose->name;
+        $data['cost'] = number_format($data->cost,2,',','.');
+        if($data){
+            $response = [
+                'status'    => 200,
+                'data'      => $data,
+            ];
+        }else{
+            $response = [
+                'status'  => 500,
+                'message' => 'Data tidak ditemukan.'
+            ];
+        }
+
+        return response()->json($response);
+    }
 }

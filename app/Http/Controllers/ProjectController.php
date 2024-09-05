@@ -257,7 +257,7 @@ class ProjectController extends Controller
     }
 
     public function show(Request $request){
-        $data = Project::find($request->code);
+        $data = Project::find(CustomHelper::decrypt($request->code));
         $data['customer_info'] = $data->customer->code.' - '.$data->customer->name;
         $data['region_info'] = $data->region->name;
         $data['project_type_info'] = $data->projectType->name;

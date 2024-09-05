@@ -63,6 +63,7 @@ Route::middleware('login')->group(function () {
         Route::get('/',[PayrollController::class, 'index']);
         Route::get('datatable',[PayrollController::class, 'datatable']);
         Route::post('create',[PayrollController::class, 'create']);
+        Route::post('show',[PayrollController::class, 'show']);
         Route::post('send_email',[PayrollController::class, 'sendEmail']);
         Route::post('history', [PayrollController::class, 'history']);
     });

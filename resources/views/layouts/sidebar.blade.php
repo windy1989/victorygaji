@@ -70,6 +70,7 @@
 							<li class="{{ Request::segment(2) == 'user' ? 'mm-active' : '' }}"><a href="{{ url('user') }}">User</a></li>
 							<li class="{{ Request::segment(2) == 'peruntukan' ? 'mm-active' : '' }}"><a href="{{ url('peruntukan') }}">Peruntukan</a></li>
 							<li class="{{ Request::segment(2) == 'jenis_proyek' ? 'mm-active' : '' }}"><a href="{{ url('jenis_proyek') }}">Jenis Proyek</a></li>
+							<li class="{{ Request::segment(2) == 'rekening_bank' ? 'mm-active' : '' }}"><a href="{{ url('rekening_bank') }}">Rekening Bank</a></li>
 						</ul>
 					</li>
                 </ul>

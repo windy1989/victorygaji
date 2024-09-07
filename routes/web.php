@@ -5,7 +5,9 @@ use App\Http\Controllers\PayrollController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BankController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ProjectTypeController;
 use App\Http\Controllers\PurposeController;
@@ -60,6 +62,13 @@ Route::middleware('login')->group(function () {
         Route::post('show',[ProjectController::class, 'show']);
     });
 
+    Route::prefix('invoice')->middleware('admin.auth:1')->group(function () {
+        Route::get('/',[InvoiceController::class, 'index']);
+        Route::get('datatable',[InvoiceController::class, 'datatable']);
+        Route::post('create',[InvoiceController::class, 'create']);
+        Route::post('show',[InvoiceController::class, 'show']);
+    });
+
     Route::prefix('payroll')->middleware('admin.auth:1')->group(function () {
         Route::get('/',[PayrollController::class, 'index']);
         Route::get('datatable',[PayrollController::class, 'datatable']);
@@ -99,5 +108,13 @@ Route::middleware('login')->group(function () {
         Route::post('create',[ProjectTypeController::class, 'create']);
         Route::post('show',[ProjectTypeController::class, 'show']);
         Route::post('destroy',[ProjectTypeController::class, 'destroy']);
+    });
+
+    Route::prefix('rekening_bank')->middleware('admin.auth:1')->group(function () {
+        Route::get('/',[BankController::class, 'index']);
+        Route::get('datatable',[BankController::class, 'datatable']);
+        Route::post('create',[BankController::class, 'create']);
+        Route::post('show',[BankController::class, 'show']);
+        Route::post('destroy',[BankController::class, 'destroy']);
     });
 });

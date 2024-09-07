@@ -136,6 +136,10 @@ $(function() {
 		loadDataTableProject();
     }
 
+    if($('#bank-datatable').length > 0){
+		loadDataTableBank();
+    }
+
     $('#payroll-datatable tbody').on('click', '.payroll-email', function() {
         let id = $(this).data('payroll');
         swal.fire({
@@ -638,7 +642,7 @@ function updatePassword(id){
     });
 }
 
-function history(code){
+/* function history(code){
     $.ajax({
         url: window.location.href + '/history',
         type: 'POST',
@@ -665,7 +669,7 @@ function history(code){
 			}
         }
     });
-}
+} */
 
 function history(id){
     $.ajax({
@@ -785,6 +789,20 @@ function edit(code){
                     }
                 }
 
+                /* JIKA FORM BANK */
+                if($('#bank-datatable').length > 0){
+                    $('#code').val(response.data.code);
+                    $('#name').val(response.data.name);
+                    $('#no').val(response.data.no);
+                    $('#bank').val(response.data.bank);
+                    $('#branch').val(response.data.branch);
+                    if(response.data.status == '1'){
+                        $('#status').prop( "checked", true);
+                    }else{
+                        $('#status').prop( "checked", false);
+                    }
+                }
+
                 /* JIKA FORM  */
                 if($('#project-datatable').length > 0){
                     $('#code').val(response.data.code);
@@ -878,6 +896,11 @@ function destroy(code){
                         if($('#purpose-datatable').length > 0){
                             loadDataTablePurpose();
                         }
+
+                        /* JIKA FORM BANK */
+                        if($('#bank-datatable').length > 0){
+                            loadDataTableBank();
+                        }
                     }else{
                         errorMessage('Data tidak ditemukan.');
                     }
@@ -954,6 +977,10 @@ function save(){
 
                         if($('#project-datatable').length > 0){
                             loadDataTableProject();
+                        }
+
+                        if($('#bank-datatable').length > 0){
+                            loadDataTableBank();
                         }
 
                         $('#modalCreate').modal('toggle');
@@ -1117,6 +1144,66 @@ function loadDataTableProject(){
             { name: 'cost', className: 'text-right' },
             { name: 'termin', className: 'text-center' },
             { name: 'note', className: '' },
+            { name: 'status', className: 'text-center' },
+            { name: 'action', searchable: false, orderable: false, className: 'text-center' },
+        ],
+        createdRow: function ( row, data, index ) {
+            $(row).addClass('selected')
+        },
+        language: {
+            paginate: {
+                next: '<i class="fa fa-angle-double-right" aria-hidden="true"></i>',
+                previous: '<i class="fa fa-angle-double-left" aria-hidden="true"></i>' 
+            }
+        }
+    });
+}
+
+/* PROJECT */
+
+/* BANK */
+
+function loadDataTableBank(){
+    window.table = $('#bank-datatable').DataTable({
+        "scrollCollapse": true,
+        "scrollY": '400px',
+		"scrollX": true,
+		"scroller": true,
+        "responsive": true,
+        "stateSave": true,
+        "serverSide": true,
+        "deferRender": true,
+        "destroy": true,
+        "fixedColumns": {
+            left: 2,
+            right: 1
+        },
+        "iDisplayInLength": 10,
+        "order": [[0, 'asc']],
+        ajax: {
+            url: window.location.href + '/datatable',
+            type: 'GET',
+            data: {
+                
+            },
+            beforeSend: function() {
+                /* loadingOpen(); */
+            },
+            complete: function() {
+                /* loadingClose(); */
+            },
+            error: function() {
+                /* loadingClose(); */
+                errorConnection();
+            }
+        },
+        columns: [
+            { name: 'id', searchable: false, className: 'text-center' },
+            { name: 'code', className: '' },
+            { name: 'name', className: '' },
+            { name: 'no', className: '' },
+			{ name: 'bank', className: '' },
+            { name: 'branch', className: '' },
             { name: 'status', className: 'text-center' },
             { name: 'action', searchable: false, orderable: false, className: 'text-center' },
         ],

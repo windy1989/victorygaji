@@ -175,7 +175,7 @@ class BankController extends Controller
                     ];
                 }
             }
-            DB::commit();
+            /* DB::commit(); */
 		    return response()->json($response);
         }catch(\Exception $e){
             DB::rollback();

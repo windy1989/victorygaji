@@ -119,14 +119,14 @@ class BankController extends Controller
     }
 
     public function create(Request $request){
-       /*  DB::beginTransaction();
-        try { */
+        DB::beginTransaction();
+        try {
             $validation = Validator::make($request->all(), [
                 'code'		    => $request->temp ? [Rule::unique('banks', 'code')->ignore($request->temp)] : 'unique:banks,code',
                 'name'          => 'required',
                 'no'            => 'required',
                 'bank'          => 'required',
-                'branch'        => 'requried',
+                'branch'        => 'required',
             ], [
                 'code.unique'       => 'Kode telah terpakai.',
                 'name.required'     => 'Nama tidak boleh kosong.',
@@ -175,11 +175,11 @@ class BankController extends Controller
                     ];
                 }
             }
-            /* DB::commit(); */
+            DB::commit();
 		    return response()->json($response);
-        /* }catch(\Exception $e){
+        }catch(\Exception $e){
             DB::rollback();
-        } */
+        }
     }
 
     public function destroy(Request $request){

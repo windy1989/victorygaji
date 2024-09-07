@@ -102,7 +102,7 @@ class BankController extends Controller
     }
 
     public function show(Request $request){
-        $data = ProjectType::find($request->code);
+        $data = Bank::find($request->code);
         if($data){
             $response = [
                 'status'    => 200,
@@ -122,11 +122,17 @@ class BankController extends Controller
         DB::beginTransaction();
         try {
             $validation = Validator::make($request->all(), [
-                'code'		    => $request->temp ? [Rule::unique('project_types', 'code')->ignore($request->temp)] : 'unique:project_types,code',
+                'code'		    => $request->temp ? [Rule::unique('banks', 'code')->ignore($request->temp)] : 'unique:banks,code',
                 'name'          => 'required',
+                'no'            => 'required',
+                'bank'          => 'required',
+                'branch'        => 'requried',
             ], [
-                'code.unique'   => 'Kode telah terpakai.',
-                'name.required' => 'Nama tidak boleh kosong.'
+                'code.unique'       => 'Kode telah terpakai.',
+                'name.required'     => 'Nama tidak boleh kosong.',
+                'no.required'       => 'Nomor rekening tidak boleh kosong.',
+                'bank.required'     => 'Bank tidak boleh kosong.',
+                'branch.required'   => 'Cabang tidak boleh kosong.',
             ]);
 
             if($validation->fails()) {
@@ -136,19 +142,25 @@ class BankController extends Controller
                 ];
             } else {
                 if($request->temp){
-                    $query = ProjectType::find($request->temp);
+                    $query = Bank::find($request->temp);
                     $query->code            = $request->code;
-                    $query->name            = $request->name;    
+                    $query->name            = $request->name;
+                    $query->no              = $request->no;
+                    $query->bank            = $request->bank;
+                    $query->branch          = $request->branch;
                     $query->status          = $request->status ?? NULL;
                     $query->save();
-                    CustomHelper::saveLog($query->getTable(),$query->id,'Update data jenis proyek '.$query->code,'Pengguna '.session('bo_name').' telah mengubah data jenis proyek no '.$query->code);
+                    CustomHelper::saveLog($query->getTable(),$query->id,'Update data bank '.$query->code,'Pengguna '.session('bo_name').' telah mengubah data bank no '.$query->code);
                 }else{
-                    $query = ProjectType::create([
+                    $query = Bank::create([
                         'code'              => $request->code,
-                        'name'              => $request->name,    
+                        'name'              => $request->name,
+                        'no'                => $request->no,
+                        'bank'              => $request->bank,
+                        'branch'            => $request->branch,
                         'status'            => $request->status ?? NULL,
                     ]);
-                    CustomHelper::saveLog($query->getTable(),$query->id,'Tambah baru data jenis proyek '.$query->code,'Pengguna '.session('bo_name').' telah manambahkan baru data jenis proyek no '.$query->code);
+                    CustomHelper::saveLog($query->getTable(),$query->id,'Tambah baru data bank '.$query->code,'Pengguna '.session('bo_name').' telah manambahkan baru data bank no '.$query->code);
                 }
                 
                 if($query) {
@@ -171,10 +183,10 @@ class BankController extends Controller
     }
 
     public function destroy(Request $request){
-        $query = ProjectType::find($request->code);
+        $query = Bank::find($request->code);
 		
         if($query->delete()) {
-            CustomHelper::saveLog($query->getTable(),$query->id,'Delete data jenis proyek '.$query->code,'Pengguna '.session('bo_name').' telah menghapus data jenis proyek no '.$query->code);
+            CustomHelper::saveLog($query->getTable(),$query->id,'Delete data bank '.$query->code,'Pengguna '.session('bo_name').' telah menghapus data bank no '.$query->code);
 
             $response = [
                 'status'  => 200,

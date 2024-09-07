@@ -119,8 +119,8 @@ class BankController extends Controller
     }
 
     public function create(Request $request){
-        DB::beginTransaction();
-        try {
+       /*  DB::beginTransaction();
+        try { */
             $validation = Validator::make($request->all(), [
                 'code'		    => $request->temp ? [Rule::unique('banks', 'code')->ignore($request->temp)] : 'unique:banks,code',
                 'name'          => 'required',
@@ -177,9 +177,9 @@ class BankController extends Controller
             }
             /* DB::commit(); */
 		    return response()->json($response);
-        }catch(\Exception $e){
+        /* }catch(\Exception $e){
             DB::rollback();
-        }
+        } */
     }
 
     public function destroy(Request $request){

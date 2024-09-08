@@ -132,37 +132,22 @@ class InvoiceController extends Controller
         DB::beginTransaction();
         try {
             $validation = Validator::make($request->all(), [
-                'name'                  => 'required',
-                'customer_id'           => 'required',
-                'project_no'            => 'required',
+                'code'		            => $request->temp ? ['required', Rule::unique('invoices', 'code')->ignore($request->temp)] : 'required|unique:invoices,code',
+                'receive_from'          => 'required',
+                'project_id'            => 'required',
+                'bank_id'               => 'required',
                 'post_date'             => 'required',
-                'location'              => 'required',
-                'region_id'             => 'required',
-                'project_type_id'       => 'required',
-                'purpose_id'            => 'required',
-                'working_days'          => 'required',
-                'start_date'            => 'required',
-                'end_date'              => 'required',
-                'andalalin_document_no' => 'required',
-                'power_letter_no'       => 'required',
-                'cost'                  => 'required',
-                'termin'                => 'required',
+                'nominal'               => 'required',
+                'termin_no'             => 'required',
             ], [
-                'name.required'                     => 'Nama tidak boleh kosong.',
-                'customer_id.required'              => 'Customer tidak boleh kosong.',
-                'project_no.required'               => 'Proyek tidak boleh kosong.',
-                'post_date.required'                => 'Tgl.Post tidak boleh kosong.',
-                'location.required'                 => 'Lokasi/Alamat tidak boleh kosong.',
-                'region_id.required'                => 'Kota tidak boleh kosong.',
-                'project_type_id.required'          => 'Tipe Proyek tidak boleh kosong.',
-                'purpose_id.required'               => 'Peruntukan tidak boleh kosong.',
-                'working_days.required'             => 'Lama Pengerjaan tidak boleh kosong.',
-                'start_date.required'               => 'Tgl.Mulai Pengerjaan tidak boleh kosong.',
-                'end_date.required'                 => 'Tgl.Selesai Pengerjaan tidak boleh kosong.',
-                'andalalin_document_no.required'    => 'Nomor andalalin tidak boleh kosong.',
-                'power_letter_no.required'          => 'Nomor surat kuasa tidak boleh kosong.',
-                'cost.required'                     => 'Biaya tidak boleh kosong.',
-                'termin.required'                   => 'Termin tidak boleh kosong.',
+                'code.required'             => 'Kode tidak boleh kosong.',
+                'code.unique'               => 'Kode telah dipakai.',
+                'receive_from.required'     => 'Identitas pengirim tidak boleh kosong.',
+                'project_id.required'       => 'Project tidak boleh kosong.',
+                'bank_id.required'          => 'Bank tidak boleh kosong.',
+                'post_date.required'        => 'Tgl. post tidak boleh kosong.',
+                'nominal.required'          => 'Nominal tidak boleh kosong.',
+                'termin_no.required'        => 'Termin pembayaran tidak boleh kosong.',
             ]);
 
             if($validation->fails()) {
@@ -172,53 +157,33 @@ class InvoiceController extends Controller
                 ];
             } else {
                 if($request->temp){
-                    $query = Project::find($request->temp);
+                    $query = Invoice::find($request->temp);
                     $query->user_id         = session('bo_id');
                     $query->code            = $request->code;
-                    $query->name            = $request->name;    
-                    $query->customer_id     = $request->customer_id;
-                    $query->project_no      = $request->project_no;
+                    $query->receive_from    = $request->receive_from;    
+                    $query->project_id      = $request->project_id;
+                    $query->bank_id         = $request->bank_id;
                     $query->post_date       = $request->post_date;
-                    $query->location        = $request->location;
-                    $query->region_id       = $request->region_id;
-                    $query->project_type_id = $request->project_type_id;
-                    $query->purpose_id      = $request->purpose_id;
-                    $query->purpose_note    = $request->purpose_note;
-                    $query->working_days    = $request->working_days;
-                    $query->start_date      = $request->start_date;
-                    $query->end_date        = $request->end_date;
-                    $query->andalalin_document_no = $request->andalalin_document_no;
-                    $query->power_letter_no = $request->power_letter_no;
-                    $query->cost            = str_replace(',','.',str_replace('.','',$request->cost));
-                    $query->termin          = $request->termin;
+                    $query->nominal         = str_replace(',','.',str_replace('.','',$request->nominal));
+                    $query->termin_no       = $request->termin_no;
                     $query->note            = $request->note;
                     $query->status          = '1';
                     $query->save();
-                    CustomHelper::saveLog($query->getTable(),$query->id,'Update data proyek '.$query->code,'Pengguna '.session('bo_name').' telah mengubah data proyek no '.$query->code);
+                    CustomHelper::saveLog($query->getTable(),$query->id,'Update data invoice '.$query->code,'Pengguna '.session('bo_name').' telah mengubah data invoice no '.$query->code);
                 }else{
                     $query = Project::create([
-                        'code'                  => Project::generateCode(),
-                        'user_id'               => session('bo_id'),
-                        'name'                  => $request->name,
-                        'customer_id'           => $request->customer_id,
-                        'project_no'            => $request->project_no,
-                        'post_date'             => $request->post_date,
-                        'location'              => $request->location,
-                        'region_id'             => $request->region_id,
-                        'project_type_id'       => $request->project_type_id,
-                        'purpose_id'            => $request->purpose_id,
-                        'purpose_note'          => $request->purpose_note,
-                        'working_days'          => $request->working_days,
-                        'start_date'            => $request->start_date,
-                        'end_date'              => $request->end_date,
-                        'andalalin_document_no' => $request->andalalin_document_no,
-                        'power_letter_no'       => $request->power_letter_no,
-                        'cost'                  => str_replace(',','.',str_replace('.','',$request->cost)),
-                        'termin'                => $request->termin,
-                        'note'                  => $request->note,
-                        'status'                => '1'
+                        'user_id'         => session('bo_id'),
+                        'code'            => $request->code,
+                        'receive_from'    => $request->receive_from,
+                        'project_id'      => $request->project_id,
+                        'bank_id'         => $request->bank_id,
+                        'post_date'       => $request->post_date,
+                        'nominal'         => str_replace(',','.',str_replace('.','',$request->nominal)),
+                        'termin_no'       => $request->termin_no,
+                        'note'            => $request->note,
+                        'status'          => '1',
                     ]);
-                    CustomHelper::saveLog($query->getTable(),$query->id,'Tambah baru data proyek '.$query->code,'Pengguna '.session('bo_name').' telah manambahkan baru data proyek no '.$query->code);
+                    CustomHelper::saveLog($query->getTable(),$query->id,'Tambah baru data invoice '.$query->code,'Pengguna '.session('bo_name').' telah manambahkan baru data invoice no '.$query->code);
                 }
                 
                 if($query) {

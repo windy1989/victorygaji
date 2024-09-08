@@ -122,12 +122,13 @@ class BankController extends Controller
         DB::beginTransaction();
         try {
             $validation = Validator::make($request->all(), [
-                'code'		    => $request->temp ? [Rule::unique('banks', 'code')->ignore($request->temp)] : 'unique:banks,code',
+                'code'		    => $request->temp ? ['required', Rule::unique('banks', 'code')->ignore($request->temp)] : 'required|unique:banks,code',
                 'name'          => 'required',
                 'no'            => 'required',
                 'bank'          => 'required',
                 'branch'        => 'required',
             ], [
+                'code.required'     => 'Kode tidak boleh kosong.',
                 'code.unique'       => 'Kode telah terpakai.',
                 'name.required'     => 'Nama tidak boleh kosong.',
                 'no.required'       => 'Nomor rekening tidak boleh kosong.',

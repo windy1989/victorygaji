@@ -102,6 +102,7 @@ class InvoiceController extends Controller
                     date('d/m/Y',strtotime($val->pay_date)),
                     number_format($val->nominal,2,',','.'),
                     $val->termin_no,
+                    $val->note,
                     $val->statusBadge(),
                     '
                         <a href="javascript:void(0);" class="btn btn-secondary btn-sm content-icon" onclick="recap(`'.CustomHelper::encrypt($val->code).'`)"><i class="fa fa-info-circle"></i></a>

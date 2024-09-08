@@ -38,7 +38,7 @@
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table id="project-datatable" class="display nowrap" style="min-width: 100%">
+                                    <table id="invoice-datatable" class="display nowrap" style="min-width: 100%">
                                         <thead>
                                             <tr>
                                                 <th>#</th>

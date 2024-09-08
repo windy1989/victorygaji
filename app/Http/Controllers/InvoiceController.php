@@ -129,8 +129,8 @@ class InvoiceController extends Controller
     }
 
     public function create(Request $request){
-        DB::beginTransaction();
-        try {
+        /* DB::beginTransaction();
+        try { */
             $validation = Validator::make($request->all(), [
                 'code'		            => $request->temp ? ['required', Rule::unique('invoices', 'code')->ignore($request->temp)] : 'required|unique:invoices,code',
                 'receive_from'          => 'required',
@@ -198,11 +198,11 @@ class InvoiceController extends Controller
                     ];
                 }
             }
-            DB::commit();
+            /* DB::commit(); */
 		    return response()->json($response);
-        }catch(\Exception $e){
+        /* }catch(\Exception $e){
             DB::rollback();
-        }
+        } */
     }
 
     public function show(Request $request){

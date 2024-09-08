@@ -158,7 +158,7 @@ class InvoiceController extends Controller
                 ];
             } else {
                 if($request->temp){
-                    $query = Invoice::find($request->temp);
+                    $query = Invoice::where('code',CustomHelper::decrypt($request->temp))->first();
                     $query->user_id         = session('bo_id');
                     $query->code            = $request->code;
                     $query->receive_from    = $request->receive_from;    

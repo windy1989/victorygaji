@@ -188,7 +188,7 @@ class ProjectController extends Controller
                 ];
             } else {
                 if($request->temp){
-                    $query = Project::find($request->temp);
+                    $query = Project::where('code',CustomHelper::decrypt($request->temp))->first();
                     $query->user_id         = session('bo_id');
                     $query->code            = $request->code;
                     $query->name            = $request->name;    

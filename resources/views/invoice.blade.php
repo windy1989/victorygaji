@@ -105,10 +105,6 @@
                                     <input type="date" class="form-control" id="post_date" name="post_date" value="{{ date('Y-m-d') }}">
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <label class="form-label">Tgl.Post</label>
-                                    <input type="date" class="form-control" id="post_date" name="post_date" value="{{ date('Y-m-d') }}">
-                                </div>
-                                <div class="mb-3 col-md-6">
                                     <label class="form-label">Nominal</label>
                                     <input type="text" class="form-control" placeholder="Nominal" id="nominal" name="nominal" onkeyup="formatRupiahNoMinus(this);" value="0,00">
                                 </div>

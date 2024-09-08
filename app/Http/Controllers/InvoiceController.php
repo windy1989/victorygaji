@@ -96,7 +96,7 @@ class InvoiceController extends Controller
                     $val->receipt_code ?? '-',
                     $val->user->nama,
                     $val->receive_from,
-                    $val->project->project_no,
+                    $val->project->project_no.' - '.$val->project->customer->name,
                     $val->bank->no.' - '.$val->bank->bank,
                     date('d/m/Y',strtotime($val->post_date)),
                     $val->pay_date ? date('d/m/Y',strtotime($val->pay_date)) : '-',

@@ -277,6 +277,8 @@ $(function() {
     select2ServerSide('#region_id','select2/region');
     select2ServerSide('#project_type_id','select2/project_type');
     select2ServerSide('#purpose_id','select2/purpose');
+    select2ServerSide('#project_id','select2/project');
+    select2ServerSide('#bank_id','select2/bank');
 });
 
 function addDate(){

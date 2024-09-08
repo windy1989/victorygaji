@@ -47,6 +47,8 @@ Route::middleware('login')->group(function () {
         Route::get('region', [Select2Controller::class, 'region']);
         Route::get('project_type', [Select2Controller::class, 'projectType']);
         Route::get('purpose', [Select2Controller::class, 'purpose']);
+        Route::get('project', [Select2Controller::class, 'project']);
+        Route::get('bank', [Select2Controller::class, 'bank']);
     });
 
     Route::prefix('dashboard')->group(function () {

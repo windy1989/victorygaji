@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\CustomHelper;
+use App\Models\Project;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Customer;
@@ -89,6 +90,33 @@ class Select2Controller extends Controller {
             $response[] = [
                 'id'   			=> $d->id,
                 'text' 			=> $d->name,
+            ];
+        }
+
+        return response()->json(['items' => $response]);
+    }
+
+    public function project(Request $request)
+    {
+        $response = [];
+        $search   = $request->search;
+        $data = Project::where(function($query)use($search){
+                    $query->where('code', 'like', "%$search%")
+                        ->orWhere('name', 'like', "%$search%")
+                        ->orWhere('project_no', 'like', "%$search%")
+                        ->orWhere('location', 'like', "%$search%")
+                        ->orWhereHas('customer', function($query) use ($search){
+                            $query->where('code','like',"%$search%")
+                                ->orWhere('name','like',"%$search%");
+                        });
+                })
+                ->where('status','2')
+                ->get();
+
+        foreach($data as $d) {
+            $response[] = [
+                'id'   			=> $d->id,
+                'text' 			=> $d->code.' - '.$d->name.' - '.$d->customer->name,
             ];
         }
 

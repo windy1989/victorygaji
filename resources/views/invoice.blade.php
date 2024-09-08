@@ -86,71 +86,35 @@
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Kode Dokumen</label>
                                     <input type="hidden" id="temp" name="temp">
-                                    <input type="text" class="form-control" placeholder="Auto generate" id="code" name="code" readonly>
+                                    <input type="text" class="form-control" placeholder="Kode Dokumen" id="code" name="code">
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <label class="form-label">Nama Proyek</label>
-                                    <input type="text" class="form-control" placeholder="Nama Proyek" id="name" name="name">
+                                    <label class="form-label">Ditujukan Kepada / Terima Dari</label>
+                                    <input type="text" class="form-control" placeholder="Ditujukan Kepada / Terima Dari" id="receive_from" name="receive_from">
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <label class="form-label">Customer</label>
-                                    <select id="customer_id" name="customer_id"></select>
+                                    <label class="form-label">Proyek</label>
+                                    <select id="project_id" name="project_id"></select>
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <label class="form-label">Nomor Proyek (Cetak)</label>
-                                    <input type="text" class="form-control" placeholder="Nomor Proyek" id="project_no" name="project_no">
+                                    <label class="form-label">Bank</label>
+                                    <select id="bank_id" name="bank_id"></select>
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <label class="form-label">Tgl.Pengajuan</label>
+                                    <label class="form-label">Tgl.Post</label>
                                     <input type="date" class="form-control" id="post_date" name="post_date" value="{{ date('Y-m-d') }}">
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <label class="form-label">Lokasi/Alamat</label>
-                                    <input type="text" class="form-control" placeholder="Lokasi / Alamat" id="location" name="location">
+                                    <label class="form-label">Tgl.Post</label>
+                                    <input type="date" class="form-control" id="post_date" name="post_date" value="{{ date('Y-m-d') }}">
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <label class="form-label">Kota</label>
-                                    <select id="region_id" name="region_id"></select>
+                                    <label class="form-label">Nominal</label>
+                                    <input type="text" class="form-control" placeholder="Nominal" id="nominal" name="nominal" onkeyup="formatRupiahNoMinus(this);" value="0,00">
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <label class="form-label">Jenis Proyek</label>
-                                    <select id="project_type_id" name="project_type_id"></select>
-                                </div>
-                                <div class="mb-3 col-md-6">
-                                    <label class="form-label">Peruntukan</label>
-                                    <select id="purpose_id" name="purpose_id"></select>
-                                </div>
-                                <div class="mb-3 col-md-6">
-                                    <label class="form-label">Keterangan Peruntukan</label>
-                                    <input type="text" class="form-control" placeholder="Keterangan Peruntukan" id="purpose_note" name="purpose_note">
-                                </div>
-                                <div class="mb-3 col-md-6">
-                                    <label class="form-label">Lama Pengerjaan (Hari)</label>
-                                    <input type="number" class="form-control" id="working_days" name="working_days" value="0" min="0" step="1" onchange="addDate();">
-                                </div>
-                                <div class="mb-3 col-md-6">
-                                    <label class="form-label">Tgl.Mulai Pengerjaan</label>
-                                    <input type="date" class="form-control" id="start_date" name="start_date" value="{{ date('Y-m-d') }}" onchange="addDate();">
-                                </div>
-                                <div class="mb-3 col-md-6">
-                                    <label class="form-label">Tgl.Selesai Pengerjaan</label>
-                                    <input type="date" class="form-control" id="end_date" name="end_date">
-                                </div>
-                                <div class="mb-3 col-md-6">
-                                    <label class="form-label">No.Dokumen Andalalin</label>
-                                    <input type="text" class="form-control" placeholder="No.Dokumen Andalalin" id="andalalin_document_no" name="andalalin_document_no">
-                                </div>
-                                <div class="mb-3 col-md-6">
-                                    <label class="form-label">No.Surat Kuasa</label>
-                                    <input type="text" class="form-control" placeholder="No.Surat Kuasa" id="power_letter_no" name="power_letter_no">
-                                </div>
-                                <div class="mb-3 col-md-6">
-                                    <label class="form-label">Harga</label>
-                                    <input type="text" class="form-control" placeholder="Harga" id="cost" name="cost" onkeyup="formatRupiahNoMinus(this);" value="0,00">
-                                </div>
-                                <div class="mb-3 col-md-6">
-                                    <label class="form-label">Termin Pembayaran</label>
-                                    <input type="number" class="form-control" id="termin" name="termin" value="1" min="1" step="1">
+                                    <label class="form-label">Pembayaran Ke</label>
+                                    <input type="number" class="form-control" id="termin_no" name="termin_no" value="1" min="1" step="1">
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Keterangan</label>

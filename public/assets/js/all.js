@@ -994,6 +994,10 @@ function save(){
                             loadDataTableBank();
                         }
 
+                        if($('#invoice-datatable').length > 0){
+                            loadDataTableInvoice();
+                        }
+
                         $('#modalCreate').modal('toggle');
                     } else if(response.status == 422) {
                         $('#validation_alert').show();

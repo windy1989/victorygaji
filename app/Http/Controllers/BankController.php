@@ -45,7 +45,7 @@ class BankController extends Controller
         $query_data = Bank::where(function($query) use ($search, $request) {
                 if($search) {
                     $query->where('code', 'like', "%$search%")
-                        ->orWhere('nama','like',"%$search%")
+                        ->orWhere('name','like',"%$search%")
                         ->orWhere('no','like',"%$search%")
                         ->orWhere('bank','like',"%$search%");
                 }
@@ -58,7 +58,7 @@ class BankController extends Controller
         $total_filtered = Bank::where(function($query) use ($search, $request) {
                 if($search) {
                     $query->where('code', 'like', "%$search%")
-                        ->orWhere('nama','like',"%$search%")
+                        ->orWhere('name','like',"%$search%")
                         ->orWhere('no','like',"%$search%")
                         ->orWhere('bank','like',"%$search%");
                 }

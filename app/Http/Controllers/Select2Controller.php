@@ -122,4 +122,27 @@ class Select2Controller extends Controller {
 
         return response()->json(['items' => $response]);
     }
+
+    public function bank(Request $request)
+    {
+        $response = [];
+        $search   = $request->search;
+        $data = Bank::where(function($query)use($search){
+                $query->where('code', 'like', "%$search%")
+                    ->orWhere('name','like',"%$search%")
+                    ->orWhere('no','like',"%$search%")
+                    ->orWhere('bank','like',"%$search%");
+            })
+            ->where('status','1')
+            ->get();
+
+        foreach($data as $d) {
+            $response[] = [
+                'id'   			=> $d->id,
+                'text' 			=> $d->name.' - '.$d->no.' - '.$d->bank,
+            ];
+        }
+
+        return response()->json(['items' => $response]);
+    }
 }

@@ -6,6 +6,7 @@ use App\Helpers\CustomHelper;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Bank;
 use App\Models\Customer;
 use App\Models\ProjectType;
 use App\Models\Purpose;

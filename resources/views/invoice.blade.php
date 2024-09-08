@@ -7,10 +7,10 @@
 				height: 75vh;
 				overflow-y: auto;
 			}
-            #project-datatable td:nth-of-type(1) {
+            #invoice-datatable td:nth-of-type(1) {
                 background-color:rgb(255, 233, 173) !important;
             }
-            #project-datatable td:nth-of-type(2) {
+            #invoice-datatable td:nth-of-type(2) {
                 background-color:rgb(255, 233, 173) !important;
             }
 		</style>

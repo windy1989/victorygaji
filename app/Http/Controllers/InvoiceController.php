@@ -171,7 +171,7 @@ class InvoiceController extends Controller
                     $query->save();
                     CustomHelper::saveLog($query->getTable(),$query->id,'Update data invoice '.$query->code,'Pengguna '.session('bo_name').' telah mengubah data invoice no '.$query->code);
                 }else{
-                    $query = Project::create([
+                    $query = Invoice::create([
                         'user_id'         => session('bo_id'),
                         'code'            => $request->code,
                         'receive_from'    => $request->receive_from,

@@ -1341,10 +1341,8 @@ function pay(code,code2){
 function checkFileReceiptMax(element){
     var file = element;
     var size = parseFloat(file.files[0].size);
-    var maxSizeKB = 1024; //Size in KB.
+    var maxSizeKB = 1024;
     var maxSize = maxSizeKB * 1024;
-    console.log(size);
-    console.log(maxSize);
     if (size > maxSize) {
         errorMessage('File upload bukti bayar ukuran maksimal adalah ' + maxSize + 'Kb.');
         file.value = "";

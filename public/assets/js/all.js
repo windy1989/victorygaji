@@ -1336,10 +1336,10 @@ function pay(code,code2){
     $('#modalReceipt').modal('toggle');
 }
 
-function checkFileReceiptMax(){
-    var file = document.getElementById("fileReceipt");
+function checkFileReceiptMax(element){
+    var file = element;
     var size = parseFloat(file.files[0].size);
-    var maxSizeKB = 1; //Size in KB.
+    var maxSizeKB = 1024; //Size in KB.
     var maxSize = maxSizeKB * 1024;
     console.log(size);
     console.log(maxSize);

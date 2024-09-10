@@ -1300,4 +1300,9 @@ function loadDataTableInvoice(){
     });
 }
 
+function pay(code){
+    $('#tempReceipt').val(code);
+    $('#modalReceipt').modal('toggle');
+}
+
 /* INVOICE */

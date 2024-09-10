@@ -123,3 +123,39 @@
                 </div>
             </div>
         </div>
+
+        <div class="modal fade" id="modalReceipt">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Form Kwitansi</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal">
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="validation_alert_receipt" style="display:none;margin-top:25px;"></div>
+                        <form id="formDataReceipt">
+                            <div class="row">
+                                <div class="mb-3 col-md-6">
+                                    <label class="form-label">Kode Kwitansi</label>
+                                    <input type="hidden" id="tempReceipt" name="tempReceipt">
+                                    <input type="text" class="form-control" placeholder="Kode Kwitansi" id="code_receipt" name="code_receipt">
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label class="form-label">Tgl.Bayar</label>
+                                    <input type="date" class="form-control" id="pay_date" name="pay_date" value="{{ date('Y-m-d') }}">
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label class="form-label">Bukti Bayar</label>
+                                    <input class="form-control" type="file" id="fileReceipt" name="fileReceipt">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="saveReceipt();">Simpan</button>
+                    </div>
+                </div>
+            </div>
+        </div>

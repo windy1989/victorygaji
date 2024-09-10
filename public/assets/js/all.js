@@ -279,6 +279,10 @@ $(function() {
     select2ServerSide('#purpose_id','select2/purpose');
     select2ServerSide('#project_id','select2/project');
     select2ServerSide('#bank_id','select2/bank');
+
+    $('#modalReceipt').on('hidden.bs.modal', function (e) {
+        $('#modal-receipt-title').text('');
+    });
 });
 
 function addDate(){
@@ -1300,7 +1304,8 @@ function loadDataTableInvoice(){
     });
 }
 
-function pay(code){
+function pay(code,code2){
+    $('#modal-receipt-title').text(code2);
     $('#tempReceipt').val(code);
     $('#modalReceipt').modal('toggle');
 }

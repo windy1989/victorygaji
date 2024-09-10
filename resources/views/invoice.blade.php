@@ -128,7 +128,7 @@
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Form Kwitansi</h5>
+                        <h5 class="modal-title">Form Kwitansi <b id="modal-receipt-title"></b></h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal">
                         </button>
                     </div>

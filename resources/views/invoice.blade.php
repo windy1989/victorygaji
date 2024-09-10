@@ -147,7 +147,7 @@
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Bukti Bayar</label>
-                                    <input class="form-control" type="file" id="fileReceipt" name="fileReceipt">
+                                    <input class="form-control" type="file" id="fileReceipt" name="fileReceipt" accept="image/png, image/jpeg, image/jpg">
                                 </div>
                                 <div class="mb-3 col-md-12">
                                     <label class="form-label">Preview File</label>

@@ -45,13 +45,11 @@
 							<li class="{{ Request::segment(2) == 'surat_penawaran' ? 'mm-active' : '' }}"><a href="{{ url('surat_penawaran') }}">Surat Penawaran</a></li>
 							<li class="{{ Request::segment(2) == 'spk' ? 'mm-active' : '' }}"><a href="{{ url('spk') }}">SPK</a></li>
 							<li class="{{ Request::segment(2) == 'invoice' ? 'mm-active' : '' }}"><a href="{{ url('invoice') }}">Invoice</a></li>
-							<li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Error</a>
+							<li class="{{ in_array(Request::segment(2),['hasil_survei','item_survei','dokumentasi_survei']) ? 'mm-active' : '' }}"><a class="has-arrow" href="javascript:void()" aria-expanded="false">Surveyor</a>
                                 <ul aria-expanded="false">
-                                    <li><a href="page-error-400.html">Error 400</a></li>
-                                    <li><a href="page-error-403.html">Error 403</a></li>
-                                    <li><a href="page-error-404.html">Error 404</a></li>
-                                    <li><a href="page-error-500.html">Error 500</a></li>
-                                    <li><a href="page-error-503.html">Error 503</a></li>
+                                    <li class="{{ Request::segment(2) == 'hasil_survei' ? 'mm-active' : '' }}"><a href="{{ url('hasil_survei') }}">Hasil survei</a></li>
+                                    <li class="{{ Request::segment(2) == 'item_survei' ? 'mm-active' : '' }}"><a href="{{ url('item_survei') }}">Item survei</a></li>
+                                    <li class="{{ Request::segment(2) == 'dokumentasi_survei' ? 'mm-active' : '' }}"><a href="{{ url('dokumentasi_survei') }}">Dokumentasi survei</a></li>
                                 </ul>
                             </li>
 							<li class="{{ Request::segment(2) == 'kelengkapan_dokumen' ? 'mm-active' : '' }}"><a href="{{ url('kelengkapan_dokumen') }}">Kelengkapan Dok.</a></li>

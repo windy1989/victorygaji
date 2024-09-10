@@ -1336,4 +1336,68 @@ function pay(code,code2){
     $('#modalReceipt').modal('toggle');
 }
 
+function saveReceipt(){
+    swal({
+        title: "Apakah yakin ingin simpan?",
+        text: "Silahkan cek kembali form anda.",
+        type: "warning",
+        showCancelButton: !0,
+        confirmButtonColor: "#DD6B55",
+        confirmButtonText: "Ya, simpan!",
+        cancelButtonText: "Batal",
+        closeOnConfirm: !1,
+        closeOnCancel: !1,
+        focusCancel: true,
+    }).then(function (willDelete) {
+        setTimeout(function () {
+            $('.swal2-confirm').focus();
+        }, 100);
+        if (willDelete.value) {
+            var formData = new FormData($('#formDataReceipt')[0]);
+            $.ajax({
+                url: window.location.href + '/create_receipt',
+                type: 'POST',
+                dataType: 'JSON',
+                data: formData,
+                contentType: false,
+                processData: false,
+                cache: true,
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                beforeSend: function() {
+                    $('#validation_alert_receipt').hide();
+                    $('#validation_alert_receipt').html('');
+                    loadingOpen();
+                },
+                success: function(response) {
+                    loadingClose();
+                    if(response.status == 200) {
+                        successMessage(response.message);
+
+                        if($('#invoice-datatable').length > 0){
+                            loadDataTableInvoice();
+                        }
+
+                        $('#modalReceipt').modal('toggle');
+                    } else if(response.status == 422) {
+                        $('#validation_alert_receipt').show();
+                        $.each(response.error, function(i, val) {
+                            $.each(val, function(j, val) {
+                                $('#validation_alert_receipt').append(`
+                                     <div class="alert alert-danger solid alert-rounded "> ` + val + `</div>
+                                `);
+                             });
+                        });
+                        $('.modal-body').scrollTop(0);
+                    }
+                },
+                error: function() {
+                    loadingClose();
+                }
+            });
+        }
+    });
+}
+
 /* INVOICE */

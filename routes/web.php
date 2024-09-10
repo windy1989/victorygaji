@@ -68,6 +68,7 @@ Route::middleware('login')->group(function () {
         Route::get('/',[InvoiceController::class, 'index']);
         Route::get('datatable',[InvoiceController::class, 'datatable']);
         Route::post('create',[InvoiceController::class, 'create']);
+        Route::post('create_receipt',[InvoiceController::class, 'createReceipt']);
         Route::post('show',[InvoiceController::class, 'show']);
     });
 

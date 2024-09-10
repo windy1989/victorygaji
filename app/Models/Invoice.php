@@ -7,6 +7,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Storage;
 
 class Invoice extends Model
 {
@@ -24,6 +25,7 @@ class Invoice extends Model
         'bank_id',
         'post_date',
         'pay_date',
+        'document',
         'nominal',
         'termin_no',
         'note',
@@ -36,6 +38,23 @@ class Invoice extends Model
     public function user(){
         return $this->belongsTo('App\Models\User','user_id','id')->withTrashed();
     }
+
+    public function attachment() 
+    {
+        if($this->document !== NULL && Storage::exists($this->document)) {
+            $document = asset(Storage::url($this->document));
+        } else {
+            $document = asset('website/empty.png');
+        }
+
+        return $document;
+    }
+
+    public function deleteFile(){
+		if(Storage::exists($this->document)) {
+            Storage::delete($this->document);
+        }
+	}
 
     public function project(){
         return $this->belongsTo('App\Models\Project','project_id','id')->withTrashed();

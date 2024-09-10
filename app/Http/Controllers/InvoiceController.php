@@ -132,8 +132,8 @@ class InvoiceController extends Controller
     }
 
     public function create(Request $request){
-        /* DB::beginTransaction();
-        try { */
+        DB::beginTransaction();
+        try {
             $validation = Validator::make($request->all(), [
                 'code'		            => $request->temp ? ['required', Rule::unique('invoices', 'code')->ignore($request->temp)] : 'required|unique:invoices,code',
                 'receive_from'          => 'required',
@@ -201,11 +201,82 @@ class InvoiceController extends Controller
                     ];
                 }
             }
-            /* DB::commit(); */
+            DB::commit();
 		    return response()->json($response);
-        /* }catch(\Exception $e){
+        }catch(\Exception $e){
             DB::rollback();
-        } */
+        }
+    }
+
+    public function createReceipt(Request $request){
+        DB::beginTransaction();
+        try {
+            $validation = Validator::make($request->all(), [
+                'code_receipt'		    => 'required|unique:invoices,receipt_code',
+                'pay_date'              => 'required',
+                'fileReceipt'           => 'required|mimes:jpg,png,jpeg|max:128',
+            ], [
+                'code.required'             => 'Kode kwitansi tidak boleh kosong.',
+                'code.unique'               => 'Kode kwitansi telah dipakai.',
+                'pay_date.required'         => 'Tgl. bayar tidak boleh kosong.',
+                'fileReceipt.required'      => 'File bukti bayar tidak boleh kosong.',
+                'fileReceipt.mimes'         => 'File bukti bayar harus berupa jpeg, png atau jpg.',
+                'fileReceipt.max'           => 'File bukti bayar ukuran maksimal 128Kb',
+            ]);
+
+            if($validation->fails()) {
+                $response = [
+                    'status' => 422,
+                    'error'  => $validation->errors()
+                ];
+            } else {
+                /* if($request->temp){
+                    $query = Invoice::where('code',CustomHelper::decrypt($request->temp))->first();
+                    $query->user_id         = session('bo_id');
+                    $query->code            = $request->code;
+                    $query->receive_from    = $request->receive_from;    
+                    $query->project_id      = $request->project_id;
+                    $query->bank_id         = $request->bank_id;
+                    $query->post_date       = $request->post_date;
+                    $query->nominal         = str_replace(',','.',str_replace('.','',$request->nominal));
+                    $query->termin_no       = $request->termin_no;
+                    $query->note            = $request->note;
+                    $query->status          = '1';
+                    $query->save();
+                    CustomHelper::saveLog($query->getTable(),$query->id,'Update data invoice '.$query->code,'Pengguna '.session('bo_name').' telah mengubah data invoice no '.$query->code);
+                }else{
+                    $query = Invoice::create([
+                        'user_id'         => session('bo_id'),
+                        'code'            => $request->code,
+                        'receive_from'    => $request->receive_from,
+                        'project_id'      => $request->project_id,
+                        'bank_id'         => $request->bank_id,
+                        'post_date'       => $request->post_date,
+                        'nominal'         => str_replace(',','.',str_replace('.','',$request->nominal)),
+                        'termin_no'       => $request->termin_no,
+                        'note'            => $request->note,
+                        'status'          => '1',
+                    ]);
+                    CustomHelper::saveLog($query->getTable(),$query->id,'Tambah baru data invoice '.$query->code,'Pengguna '.session('bo_name').' telah manambahkan baru data invoice no '.$query->code);
+                }
+                
+                if($query) {
+                    $response = [
+                        'status'  => 200,
+                        'message' => 'Data berhasil disimpan.'
+                    ];
+                } else {
+                    $response = [
+                        'status'  => 500,
+                        'message' => 'Data gagal disimpan.'
+                    ];
+                } */
+            }
+            DB::commit();
+		    return response()->json($response);
+        }catch(\Exception $e){
+            DB::rollback();
+        }
     }
 
     public function show(Request $request){

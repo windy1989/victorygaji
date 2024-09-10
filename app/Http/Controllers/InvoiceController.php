@@ -216,8 +216,8 @@ class InvoiceController extends Controller
                 'pay_date'              => 'required',
                 'fileReceipt'           => 'required|mimes:jpg,png,jpeg|max:128',
             ], [
-                'code.required'             => 'Kode kwitansi tidak boleh kosong.',
-                'code.unique'               => 'Kode kwitansi telah dipakai.',
+                'code_receipt.required'     => 'Kode kwitansi tidak boleh kosong.',
+                'code_receipt.unique'       => 'Kode kwitansi telah dipakai.',
                 'pay_date.required'         => 'Tgl. bayar tidak boleh kosong.',
                 'fileReceipt.required'      => 'File bukti bayar tidak boleh kosong.',
                 'fileReceipt.mimes'         => 'File bukti bayar harus berupa jpeg, png atau jpg.',

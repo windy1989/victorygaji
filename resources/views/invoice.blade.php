@@ -150,7 +150,7 @@
                                     <input class="form-control" type="file" id="fileReceipt" name="fileReceipt">
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <h5>Preview File</h5>
+                                    <label class="form-label">Preview File</label>
                                     <div id="previewFileReceipt"></div>
                                 </div>
                             </div>

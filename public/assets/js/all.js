@@ -1339,10 +1339,10 @@ function pay(code,code2){
 function checkFileReceiptMax(){
     var file = document.getElementById("fileReceipt");
     var size = parseFloat(file.files[0].size);
-    var maxSizeKB = 128; //Size in KB.
-    var maxSize = maxSizeKB * 1;
+    var maxSizeKB = 1; //Size in KB.
+    var maxSize = maxSizeKB * 1024;
     if (size > maxSize) {
-        errorMessage('File upload bukti bayar ukuran maksimal adalah 128Kb.');
+        errorMessage('File upload bukti bayar ukuran maksimal adalah ' + maxSize + 'Kb.');
         file.value = "";
     }
 }

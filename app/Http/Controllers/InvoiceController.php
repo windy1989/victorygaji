@@ -214,14 +214,14 @@ class InvoiceController extends Controller
             $validation = Validator::make($request->all(), [
                 'code_receipt'		    => 'required|unique:invoices,receipt_code',
                 'pay_date'              => 'required',
-                'fileReceipt'           => 'required|mimes:jpg,png,jpeg|max:128',
+                'fileReceipt'           => 'required|mimes:jpg,png,jpeg|max:1024',
             ], [
                 'code_receipt.required'     => 'Kode kwitansi tidak boleh kosong.',
                 'code_receipt.unique'       => 'Kode kwitansi telah dipakai.',
                 'pay_date.required'         => 'Tgl. bayar tidak boleh kosong.',
                 'fileReceipt.required'      => 'File bukti bayar tidak boleh kosong.',
                 'fileReceipt.mimes'         => 'File bukti bayar harus berupa jpeg, png atau jpg.',
-                'fileReceipt.max'           => 'File bukti bayar ukuran maksimal 128Kb',
+                'fileReceipt.max'           => 'File bukti bayar ukuran maksimal 1024Kb',
             ]);
 
             if($validation->fails()) {

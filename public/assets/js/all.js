@@ -1336,6 +1336,17 @@ function pay(code,code2){
     $('#modalReceipt').modal('toggle');
 }
 
+function checkFileReceiptMax(){
+    var file = document.getElementById("fileReceipt");
+    var size = parseFloat(file.files[0].size);
+    var maxSizeKB = 128; //Size in KB.
+    var maxSize = maxSizeKB * 1;
+    if (size > maxSize) {
+        errorMessage('File upload bukti bayar ukuran maksimal adalah 128Kb.');
+        file.value = "";
+    }
+}
+
 function saveReceipt(){
     swal({
         title: "Apakah yakin ingin simpan?",

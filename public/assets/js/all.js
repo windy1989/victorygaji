@@ -296,7 +296,7 @@ $(function() {
                     $("<img />", {
                         "src": e.target.result,
                         "class": "thumb-image",
-                        "width": "300px"
+                        "width": "100%"
                     }).appendTo(image_holder);
                 };
                 image_holder.show();

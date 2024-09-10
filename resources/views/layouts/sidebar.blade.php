@@ -45,6 +45,15 @@
 							<li class="{{ Request::segment(2) == 'surat_penawaran' ? 'mm-active' : '' }}"><a href="{{ url('surat_penawaran') }}">Surat Penawaran</a></li>
 							<li class="{{ Request::segment(2) == 'spk' ? 'mm-active' : '' }}"><a href="{{ url('spk') }}">SPK</a></li>
 							<li class="{{ Request::segment(2) == 'invoice' ? 'mm-active' : '' }}"><a href="{{ url('invoice') }}">Invoice</a></li>
+							<li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Error</a>
+                                <ul aria-expanded="false">
+                                    <li><a href="page-error-400.html">Error 400</a></li>
+                                    <li><a href="page-error-403.html">Error 403</a></li>
+                                    <li><a href="page-error-404.html">Error 404</a></li>
+                                    <li><a href="page-error-500.html">Error 500</a></li>
+                                    <li><a href="page-error-503.html">Error 503</a></li>
+                                </ul>
+                            </li>
 							<li class="{{ Request::segment(2) == 'kelengkapan_dokumen' ? 'mm-active' : '' }}"><a href="{{ url('kelengkapan_dokumen') }}">Kelengkapan Dok.</a></li>
 							<li class="{{ Request::segment(2) == 'dokumen_andalalin' ? 'mm-active' : '' }}"><a href="{{ url('dokumen_andalalin') }}">Dok. Andalalin</a></li>
 							<li class="{{ Request::segment(2) == 'sidang' ? 'mm-active' : '' }}"><a href="{{ url('sidang') }}">Sidang</a></li>

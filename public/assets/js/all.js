@@ -282,6 +282,7 @@ $(function() {
 
     /*INVOICE*/
     $('#modalReceipt').on('hidden.bs.modal', function (e) {
+        $('#tempReceipt').val('');
         $('#formDataReceipt')[0].reset();
         $('#modal-receipt-title').text('');
         $('#previewFileReceipt').html('');

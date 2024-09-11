@@ -133,7 +133,8 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <div id="validation_alert_receipt" style="display:none;margin-top:25px;"></div>
+                        <div class="alert alert-info solid alert-square "><strong>Info!</strong> Hati-hati, informasi akan menimpa data yang sudah ada..</div>
+                        <div id="validation_alert_receipt" style="display:none;margin-top:15px;"></div>
                         <form id="formDataReceipt">
                             <div class="row">
                                 <div class="mb-3 col-md-6">

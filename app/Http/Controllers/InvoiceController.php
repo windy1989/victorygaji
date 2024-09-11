@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Str;
 use Process;
+use Illuminate\Support\Facades\Storage;
 
 class InvoiceController extends Controller
 {
@@ -235,6 +236,12 @@ class InvoiceController extends Controller
             } else {
 
                 $query = Invoice::where('code',CustomHelper::decrypt($request->tempReceipt))->first();
+
+                if($query->document){
+                    if(Storage::exists($query->document)){
+                        Storage::delete($query->document);
+                    }
+                }
 
                 $imageName = Str::random(35).'.png';
                 $path =storage_path('app/public/invoice/'.$imageName);

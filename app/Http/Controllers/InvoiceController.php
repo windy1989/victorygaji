@@ -242,7 +242,7 @@ class InvoiceController extends Controller
                 $basePath = storage_path('app');
                 $desiredPath = explode($basePath.'/', $newFile)[1];
 
-                $query->receipt_code    = $request->code;
+                $query->receipt_code    = $request->code_receipt;
                 $query->pay_date        = $request->pay_date;
                 $query->document        = $desiredPath;
                 $query->status          = '1';

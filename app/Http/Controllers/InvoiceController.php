@@ -238,7 +238,7 @@ class InvoiceController extends Controller
 
                 $imageName = Str::random(35).'.png';
                 $path =storage_path('app/public/invoice/'.$imageName);
-                $newFile = CustomHelper::compress($request->fileReceipt,$path,30);
+                $newFile = CustomHelper::compress($request->fileReceipt,$path,50);
                 $basePath = storage_path('app');
                 $desiredPath = explode($basePath.'/', $newFile)[1];
 

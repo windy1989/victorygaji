@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Str;
 use Process;
 
 class InvoiceController extends Controller
@@ -214,11 +215,13 @@ class InvoiceController extends Controller
             $validation = Validator::make($request->all(), [
                 'code_receipt'		    => 'required|unique:invoices,receipt_code',
                 'pay_date'              => 'required',
+                'tempReceipt'           => 'required',
                 'fileReceipt'           => 'required|mimes:jpg,png,jpeg|max:1024',
             ], [
                 'code_receipt.required'     => 'Kode kwitansi tidak boleh kosong.',
                 'code_receipt.unique'       => 'Kode kwitansi telah dipakai.',
                 'pay_date.required'         => 'Tgl. bayar tidak boleh kosong.',
+                'tempReceipt.required'      => 'Bukti invoice tidak boleh kosong.',
                 'fileReceipt.required'      => 'File bukti bayar tidak boleh kosong.',
                 'fileReceipt.mimes'         => 'File bukti bayar harus berupa jpeg, png atau jpg.',
                 'fileReceipt.max'           => 'File bukti bayar ukuran maksimal 1024Kb',
@@ -230,35 +233,21 @@ class InvoiceController extends Controller
                     'error'  => $validation->errors()
                 ];
             } else {
-                /* if($request->temp){
-                    $query = Invoice::where('code',CustomHelper::decrypt($request->temp))->first();
-                    $query->user_id         = session('bo_id');
-                    $query->code            = $request->code;
-                    $query->receive_from    = $request->receive_from;    
-                    $query->project_id      = $request->project_id;
-                    $query->bank_id         = $request->bank_id;
-                    $query->post_date       = $request->post_date;
-                    $query->nominal         = str_replace(',','.',str_replace('.','',$request->nominal));
-                    $query->termin_no       = $request->termin_no;
-                    $query->note            = $request->note;
-                    $query->status          = '1';
-                    $query->save();
-                    CustomHelper::saveLog($query->getTable(),$query->id,'Update data invoice '.$query->code,'Pengguna '.session('bo_name').' telah mengubah data invoice no '.$query->code);
-                }else{
-                    $query = Invoice::create([
-                        'user_id'         => session('bo_id'),
-                        'code'            => $request->code,
-                        'receive_from'    => $request->receive_from,
-                        'project_id'      => $request->project_id,
-                        'bank_id'         => $request->bank_id,
-                        'post_date'       => $request->post_date,
-                        'nominal'         => str_replace(',','.',str_replace('.','',$request->nominal)),
-                        'termin_no'       => $request->termin_no,
-                        'note'            => $request->note,
-                        'status'          => '1',
-                    ]);
-                    CustomHelper::saveLog($query->getTable(),$query->id,'Tambah baru data invoice '.$query->code,'Pengguna '.session('bo_name').' telah manambahkan baru data invoice no '.$query->code);
-                }
+
+                $query = Invoice::where('code',CustomHelper::decrypt($request->tempReceipt))->first();
+
+                $imageName = Str::random(35).'.png';
+                $path =storage_path('app/public/invoice/'.$imageName);
+                $newFile = CustomHelper::compress($request->fileReceipt,$path,30);
+                $basePath = storage_path('app');
+                $desiredPath = explode($basePath.'/', $newFile)[1];
+
+                $query->receipt_code    = $request->code;
+                $query->pay_date        = $request->pay_date;
+                $query->document        = $desiredPath;
+                $query->status          = '1';
+                $query->save();
+                CustomHelper::saveLog($query->getTable(),$query->id,'Update pembayaran data invoice '.$query->code,'Pengguna '.session('bo_name').' telah mengubah data invoice no '.$query->code);
                 
                 if($query) {
                     $response = [
@@ -270,7 +259,7 @@ class InvoiceController extends Controller
                         'status'  => 500,
                         'message' => 'Data gagal disimpan.'
                     ];
-                } */
+                }
             }
             DB::commit();
 		    return response()->json($response);

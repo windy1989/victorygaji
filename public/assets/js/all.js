@@ -1492,9 +1492,7 @@ function cekApproval(){
         url: location.protocol + '//' + location.host + '/persetujuan/get_count_approval',
         type: 'POST',
         dataType: 'JSON',
-        data: {
-            code: code
-        },
+        data: { },
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },

@@ -22,7 +22,7 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table id="approval-datatable" class="display" style="min-width: 845px">
+                            <table id="approval-datatable" class="display nowrap" style="min-width: 100%">
                                 <thead>
                                     <tr>
                                         <th>#</th>

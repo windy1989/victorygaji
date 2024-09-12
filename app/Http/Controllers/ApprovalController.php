@@ -13,7 +13,7 @@ class ApprovalController extends Controller
     {
         $data = [
             'title'         => 'Persetujuan',
-            'content'       => 'main',
+            'content'       => 'approval',
         ];
 
         return view('layouts.index', ['data' => $data]);
@@ -22,6 +22,7 @@ class ApprovalController extends Controller
     public function datatable(Request $request){
         $column = [
             'id',
+            'created_at',
             'from_user_id',
             'approve_note',
             'approve_status',
@@ -73,11 +74,13 @@ class ApprovalController extends Controller
 				
                 $response['data'][] = [
                     $nomor,
+                    date('d/m/y H:i:s',strtotime($val->created_at)),
                     $val->fromUser->nama,
                     $val->approve_note,
                     $val->approveStatus(),
                     $val->approve_level,
                     $val->approve_date ? date('d/m/y H:i:s',strtotime($val->approve_date)) : '-',
+                    $val->lookable->code,
                     '
                         <span style="font-size:25px;margin-left:10px;">
 							<a href="#"><i class="fas fa-download text-warning"></i></a>

@@ -104,4 +104,9 @@ class ApprovalController extends Controller
 
         return response()->json($response);
     }
+
+    public function getCountApproval(Request $request){
+        $count = Approval::where('to_user_id',session('bo_id'))->where('status','1')->count();
+        return response()->json($count);
+    }
 }

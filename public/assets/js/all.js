@@ -315,6 +315,12 @@ $(function() {
         });
     }
     /*INVOICE*/
+
+    cekApproval();
+
+    setInterval(function () {
+        cekApproval();
+    },60000);
 });
 
 function addDate(){
@@ -1479,3 +1485,25 @@ function saveReceipt(){
 }
 
 /* INVOICE */
+
+
+function cekApproval(){
+	$.ajax({
+        url: location.protocol + '//' + location.host + '/persetujuan/get_count_approval',
+        type: 'POST',
+        dataType: 'JSON',
+        data: {
+            code: code
+        },
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        beforeSend: function() {
+
+        },
+        success: function(response) {
+            $('#countApproval').text(response);
+            console.log(response);
+        }
+    });
+}

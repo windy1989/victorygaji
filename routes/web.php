@@ -61,6 +61,7 @@ Route::middleware('login')->group(function () {
     Route::prefix('persetujuan')->group(function () {
         Route::get('/', [ApprovalController::class, 'index']);
         Route::get('datatable',[ApprovalController::class, 'datatable']);
+        Route::post('get_count_approval',[ApprovalController::class, 'getCountApproval']);
     });
 
     Route::prefix('proyek')->middleware('admin.auth:1')->group(function () {

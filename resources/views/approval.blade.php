@@ -17,7 +17,7 @@
             <div class="col-xl-12">
                 <div class="card">
                     <div class="card-header d-block">
-                        <h4 class="card-title">Daftar Payroll Anda</h4>
+                        <h4 class="card-title">Daftar {{ $title }}</h4>
                         <p class="m-0 subtitle">Silahkan tekan tombol download untuk mengunduh dalam bentuk PDF.</p>
                     </div>
                     <div class="card-body">

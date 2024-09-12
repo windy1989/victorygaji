@@ -320,7 +320,7 @@ $(function() {
 
     setInterval(function () {
         cekApproval();
-    },60000);
+    },25000);
 });
 
 function addDate(){

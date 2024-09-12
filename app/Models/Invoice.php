@@ -111,4 +111,8 @@ class Invoice extends Model
 
         return $prefix.$no;
     }
+
+    public function approval(){
+        return $this->hasMany('App\Models\Approval', 'lookable_id', 'id')->where('lookable_type',$this->table);
+    }
 }

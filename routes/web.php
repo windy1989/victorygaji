@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApprovalController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PayrollController;
 use App\Http\Controllers\UserController;
@@ -57,6 +58,11 @@ Route::middleware('login')->group(function () {
         Route::get('download/{code}',[DashboardController::class, 'download']);
     });
 
+    Route::prefix('persetujuan')->group(function () {
+        Route::get('/', [ApprovalController::class, 'index']);
+        Route::get('datatable',[ApprovalController::class, 'datatable']);
+    });
+
     Route::prefix('proyek')->middleware('admin.auth:1')->group(function () {
         Route::get('/',[ProjectController::class, 'index']);
         Route::get('datatable',[ProjectController::class, 'datatable']);
@@ -70,6 +76,7 @@ Route::middleware('login')->group(function () {
         Route::post('create',[InvoiceController::class, 'create']);
         Route::post('create_receipt',[InvoiceController::class, 'createReceipt']);
         Route::post('show',[InvoiceController::class, 'show']);
+        Route::get('persetujuan/{id}',[InvoiceController::class, 'approval'])->middleware('admin.auth:1,7,8');
     });
 
     Route::prefix('payroll')->middleware('admin.auth:1')->group(function () {

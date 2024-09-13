@@ -58,7 +58,7 @@
                                     <a class="all-notification" href="javascript:void(0);">See all notifications <i class="ti-arrow-end"></i></a>
                                 </div>
                             </li>
-                            <li class="nav-item dropdown">
+                            <li class="nav-item dropdown notification_dropdown">
                                 <a class="nav-link " href="{{ url('persetujuan') }}">
 									<span class="badge light text-white bg-primary rounded-circle" id="countApproval">0</span>
                                 </a>

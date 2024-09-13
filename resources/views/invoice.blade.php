@@ -51,6 +51,7 @@
                                                 <th>Termin Ke</th>
                                                 <th>Keterangan/Catatan</th>
                                                 <th>Status</th>
+                                                <th>Bukti Bayar</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>

@@ -107,6 +107,7 @@ class InvoiceController extends Controller
                     $val->termin_no,
                     $val->note,
                     $val->statusBadge(),
+                    $val->document ? '<a href="'.$val->attachment().'" target="_blank"><i class="flaticon-381-link"></i></a>' : 'Belum diunggah',
                     '
                         <a href="javascript:void(0);" class="btn btn-secondary btn-sm content-icon" onclick="recap(`'.CustomHelper::encrypt($val->code).'`)"><i class="fa fa-info-circle"></i></a>
                         <a href="javascript:void(0);" class="btn btn-success btn-sm content-icon" onclick="pay(`'.CustomHelper::encrypt($val->code).'`,`'.$val->code.'`)"><i class="fa fa-credit-card-alt"></i></a>

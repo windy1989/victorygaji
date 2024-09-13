@@ -1389,6 +1389,7 @@ function loadDataTableInvoice(){
             { name: 'termin_no', className: 'text-center' },
             { name: 'note', className: '' },
             { name: 'status', className: 'text-center' },
+            { name: 'document', searchable: false, orderable: false, className: 'text-center' },
             { name: 'action', searchable: false, orderable: false, className: 'text-center' },
         ],
         createdRow: function ( row, data, index ) {

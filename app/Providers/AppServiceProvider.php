@@ -24,6 +24,7 @@ class AppServiceProvider extends ServiceProvider
         Relation::morphMap([
             'customers'                     => 'App\Models\Customer',
             'users'                         => 'App\Models\User',
+            'invoices'                      => 'App\Models\Invoice',
         ]);
     }
 }

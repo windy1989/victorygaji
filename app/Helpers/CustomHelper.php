@@ -3,6 +3,8 @@
 namespace App\Helpers;
 
 use App\Models\Activity;
+use App\Models\Approval;
+use App\Models\User;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
@@ -78,4 +80,33 @@ class CustomHelper {
 	
 		return $destination;
 	}
+
+    public static function sendApproval($table_name = null,$table_id = null,$url = null){
+        Approval::where('lookable_type',$table_name)->where('lookable_id',$table_id)->delete();
+        $userlevel1 = User::where('status','1')->where('type','7')->get();
+        $userlevel2 = User::where('status','1')->where('type','8')->get();
+        foreach($userlevel1 as $row1){
+            Approval::create([
+                'code'              => strtoupper(Str::random(15)),
+                'from_user_id'      => session('bo_id'),
+                'to_user_id'        => $row1->id,
+                'lookable_type'     => $table_name,
+                'lookable_id'       => $table_id,
+                'url'               => $url,
+                'approve_status'    => '1'
+            ]);
+        }
+
+        foreach($userlevel2 as $row2){
+            Approval::create([
+                'code'              => strtoupper(Str::random(15)),
+                'from_user_id'      => session('bo_id'),
+                'to_user_id'        => $row2->id,
+                'lookable_type'     => $table_name,
+                'lookable_id'       => $table_id,
+                'url'               => $url,
+                'approve_status'    => NULL,
+            ]);
+        }
+    }
 }

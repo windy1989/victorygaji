@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Helpers\CustomHelper;
 use App\Http\Controllers\Controller;
+use App\Models\Customer;
 use App\Models\Invoice;
 use App\Models\Project;
 use GuzzleHttp\Psr7\Query;
@@ -254,9 +255,11 @@ class InvoiceController extends Controller
                 $query->document        = $desiredPath;
                 $query->status          = '1';
                 $query->save();
-                CustomHelper::saveLog($query->getTable(),$query->id,'Update pembayaran data invoice '.$query->code,'Pengguna '.session('bo_name').' telah mengubah data invoice no '.$query->code);
                 
                 if($query) {
+                    CustomHelper::saveLog($query->getTable(),$query->id,'Update pembayaran data invoice '.$query->code,'Pengguna '.session('bo_name').' telah mengubah data invoice no '.$query->code);
+                    CustomHelper::sendApproval($query->getTable(),$query->id,'invoice');
+
                     $response = [
                         'status'  => 200,
                         'message' => 'Data berhasil disimpan.'
@@ -271,6 +274,7 @@ class InvoiceController extends Controller
             DB::commit();
 		    return response()->json($response);
         }catch(\Exception $e){
+            info($e->getMessage());
             DB::rollback();
         }
     }

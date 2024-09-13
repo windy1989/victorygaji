@@ -83,7 +83,7 @@ class ApprovalController extends Controller
                     $val->lookable->code,
                     '
                         <span style="font-size:25px;margin-left:10px;">
-							<a href="#"><i class="fas fa-download text-warning"></i></a>
+							<a href="#"><i class="flaticon-381-focus text-warning"></i></a>
                         </span>
 					'
                 ];

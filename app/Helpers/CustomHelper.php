@@ -93,7 +93,8 @@ class CustomHelper {
                 'lookable_type'     => $table_name,
                 'lookable_id'       => $table_id,
                 'url'               => $url,
-                'approve_status'    => '1'
+                'approve_status'    => '1',
+                'approve_level'     => 1,
             ]);
         }
 
@@ -106,6 +107,7 @@ class CustomHelper {
                 'lookable_id'       => $table_id,
                 'url'               => $url,
                 'approve_status'    => NULL,
+                'approve_level'     => 2,
             ]);
         }
     }

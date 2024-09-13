@@ -32,7 +32,6 @@
                                 <a class="nav-link bell dz-theme-mode p-0" href="javascript:void(0);">
 									<i id="icon-light" class="fas fa-sun"></i>
                                     <i id="icon-dark" class="fas fa-moon"></i>
-									
                                 </a>
 							</li>
 							<li class="nav-item dropdown notification_dropdown">
@@ -60,6 +59,7 @@
                             </li>
                             <li class="nav-item dropdown notification_dropdown">
                                 <a class="nav-link " href="{{ url('persetujuan') }}">
+									<i class="flaticon-381-like"></i>
 									<span class="badge light text-white bg-primary rounded-circle" id="countApproval">0</span>
                                 </a>
 							</li>

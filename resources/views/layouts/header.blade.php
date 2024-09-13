@@ -59,10 +59,7 @@
                                 </div>
                             </li>
                             <li class="nav-item dropdown notification_dropdown">
-                                <a class="nav-link " href="{{ url('persetujuan') }}">
-									<i class="flaticon-381-like"></i>
-									<span class="badge light text-white bg-primary rounded-circle" id="countApproval">0</span>
-                                </a>
+                                
 							</li>
 							<li class="nav-item dropdown header-profile">
                                 <a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown">

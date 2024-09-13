@@ -28,7 +28,7 @@
                             </div>
                         </div>
                         <ul class="navbar-nav header-right">
-														<li class="nav-item dropdown notification_dropdown">
+							<li class="nav-item dropdown notification_dropdown">
                                 <a class="nav-link bell dz-theme-mode p-0" href="javascript:void(0);">
 									<i id="icon-light" class="fas fa-sun"></i>
                                     <i id="icon-dark" class="fas fa-moon"></i>
@@ -58,8 +58,10 @@
                                     <a class="all-notification" href="javascript:void(0);">See all notifications <i class="ti-arrow-end"></i></a>
                                 </div>
                             </li>
-                            <li class="nav-item dropdown notification_dropdown">
-                                
+                            <li class="nav-item dropdown">
+                                <a class="nav-link " href="{{ url('persetujuan') }}">
+									<span class="badge light text-white bg-primary rounded-circle" id="countApproval">0</span>
+                                </a>
 							</li>
 							<li class="nav-item dropdown header-profile">
                                 <a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown">

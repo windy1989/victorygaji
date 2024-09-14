@@ -111,7 +111,7 @@ class ApprovalController extends Controller
     }
 
     public function detail(Request $request,$code){
-        $data = Approval::where('code',$code)->where('to_user_id',session('bo_id'))->first();
+        $data = Approval::where('code',$code)->first();
         if($data){
             
         }else{

@@ -38,7 +38,7 @@
                         <h4><i class="fa fa-thumbs-down text-danger"></i> Server mengalami kendala</h4>
                         <p>Silahkan tunggu beberapa saat</p>
 						<div>
-                            <a class="btn btn-primary" href="../dashboard">Kembali ke Dashboard</a>
+                            <a class="btn btn-primary" href="{{ env('APP_URL').'/dashboard' }}">Kembali ke Dashboard</a>
                         </div>
                     </div>
                 </div>

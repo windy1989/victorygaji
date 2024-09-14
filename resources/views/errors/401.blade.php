@@ -38,7 +38,7 @@
                         <h4><i class="fa fa-thumbs-down text-danger"></i> Anda tidak memiliki akses</h4>
                         <p>Silahkan hubungi owner untuk dibukakan akses</p>
 						<div>
-                            <a class="btn btn-primary" href="../dashboard">Kembali ke Dashboard</a>
+                            <a class="btn btn-primary" href="{{ env('APP_URL').'/dashboard' }}">Kembali ke Dashboard</a>
                         </div>
                     </div>
                 </div>

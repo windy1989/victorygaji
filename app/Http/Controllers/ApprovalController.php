@@ -82,9 +82,7 @@ class ApprovalController extends Controller
                     $val->approve_date ? date('d/m/y H:i:s',strtotime($val->approve_date)) : '-',
                     $val->lookable->code,
                     '
-                        <span style="font-size:25px;margin-left:10px;">
-							<a href="#"><i class="flaticon-381-focus text-warning"></i></a>
-                        </span>
+                    <a href="javascript:void(0);" class="btn btn-success btn-sm content-icon" onclick="approve(`'.CustomHelper::encrypt($val->code).'`)"><i class="fa fa-credit-card-alt"></i></a>
 					'
                 ];
 

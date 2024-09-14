@@ -6,6 +6,7 @@ use App\Models\Activity;
 use App\Models\Approval;
 use App\Models\User;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 class CustomHelper {
@@ -85,8 +86,16 @@ class CustomHelper {
         Approval::where('lookable_type',$table_name)->where('lookable_id',$table_id)->delete();
         $userlevel1 = User::where('status','1')->where('type','7')->get();
         $userlevel2 = User::where('status','1')->where('type','8')->get();
+        $message = '';
+        
+        $data = DB::table($table_name)->where('id',$table_id)->first();
+
+        if($url == 'invoice'){
+            $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Invoice No. '.$data->code.' telah dibayarkan dengan nomor kwitansi : '.$data->receipt_code.', mohon persetujuannya dengan menekan link terlampir : ';
+        }
+
         foreach($userlevel1 as $row1){
-            Approval::create([
+            $dataaprove = Approval::create([
                 'code'              => strtoupper(Str::random(15)),
                 'from_user_id'      => session('bo_id'),
                 'to_user_id'        => $row1->id,
@@ -96,10 +105,13 @@ class CustomHelper {
                 'approve_status'    => '1',
                 'approve_level'     => 1,
             ]);
+            if($row1->phone && $message){
+                self::sendWhatsapp($row1->phone,$message.' '.env('APP_URL').'/persetujuan/'.$dataaprove->code);
+            }
         }
 
         foreach($userlevel2 as $row2){
-            Approval::create([
+            $dataaprove = Approval::create([
                 'code'              => strtoupper(Str::random(15)),
                 'from_user_id'      => session('bo_id'),
                 'to_user_id'        => $row2->id,

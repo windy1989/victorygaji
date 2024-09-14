@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Helpers\CustomHelper;
 use App\Http\Controllers\Controller;
 use App\Models\Approval;
+use App\Models\Customer;
 use Illuminate\Http\Request;
+use Svg\Tag\Rect;
 
 class ApprovalController extends Controller
 {
@@ -106,5 +108,14 @@ class ApprovalController extends Controller
     public function getCountApproval(Request $request){
         $count = Approval::where('to_user_id',session('bo_id'))->where('approve_status','1')->count();
         return response()->json($count);
+    }
+
+    public function detail(Request $request,$code){
+        $data = Approval::where('code',CustomHelper::decrypt($code))->first();
+        if($data){
+            
+        }else{
+            abort(404);
+        }
     }
 }

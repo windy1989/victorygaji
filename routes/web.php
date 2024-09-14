@@ -62,6 +62,7 @@ Route::middleware('login')->group(function () {
         Route::get('/', [ApprovalController::class, 'index']);
         Route::get('datatable',[ApprovalController::class, 'datatable']);
         Route::post('get_count_approval',[ApprovalController::class, 'getCountApproval']);
+        Route::get('detail/{id}',[ApprovalController::class, 'detail']);
     });
 
     Route::prefix('proyek')->middleware('admin.auth:1')->group(function () {
@@ -77,7 +78,6 @@ Route::middleware('login')->group(function () {
         Route::post('create',[InvoiceController::class, 'create']);
         Route::post('create_receipt',[InvoiceController::class, 'createReceipt']);
         Route::post('show',[InvoiceController::class, 'show']);
-        Route::get('persetujuan/{id}',[InvoiceController::class, 'approval'])->middleware('admin.auth:1,7,8');
     });
 
     Route::prefix('payroll')->middleware('admin.auth:1')->group(function () {

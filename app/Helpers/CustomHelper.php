@@ -106,7 +106,7 @@ class CustomHelper {
                 'approve_level'     => 1,
             ]);
             if($row1->phone && $message){
-                self::sendWhatsapp($row1->phone,$message.' '.env('APP_URL').'/persetujuan/'.$dataaprove->code);
+                self::sendWhatsapp($row1->phone,$message.' '.env('APP_URL').'/persetujuan/'.self::encrypt($dataaprove->code));
             }
         }
 

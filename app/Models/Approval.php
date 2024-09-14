@@ -14,6 +14,7 @@ class Approval extends Model
 
     protected $table = 'approvals';
     protected $primaryKey = 'id';
+    protected $dates = ['deleted_at'];
     protected $fillable = [
         'code',
         'from_user_id',

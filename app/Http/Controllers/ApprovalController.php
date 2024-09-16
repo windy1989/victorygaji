@@ -129,6 +129,42 @@ class ApprovalController extends Controller
     public function approve(Request $request){
         $data = Approval::where('code',$request->code)->where('approve_status','1')->first();
         if($data){
+            if($request->type == 'agree'){
+                $data->update([
+                    'approve_status'    => '2'
+                ]);
+                $nextlevel = $data->approve_level + 1;
+                $data2 = Approval::where('lookable_type',$data->looklookable_type)->where('lookable_id',$data->lookable_id)->whereNull('approve_status')->where('approve_level',$nextlevel)->get();
+                if($data2){
+                    $message = '';
+                    if($data->url == 'invoice'){
+                        $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Invoice No. '.$data->code.' telah dibayarkan dengan nomor kwitansi : '.$data->receipt_code.', mohon persetujuannya dengan menekan link terlampir : ';
+                    }
+                    foreach($data2 as $row){
+                        $row->update([
+                            'approve_status'    => '1'
+                        ]);
+                        if($row->toUser()->exists()){
+                            if($row->toUser->phone){
+                                CustomHelper::sendWhatsapp($row->toUser->phone,$message.' '.env('APP_URL').'/persetujuan/detail/'.$row->code);
+                            }
+                        }
+                    }
+                }else{
+                    $data->lookable->update([
+                        'status'    => '3'
+                    ]);
+                }
+            }else{
+                $data->lookable->update([
+                    'status'    => '5'
+                ]);
+                $data->update([
+                    'approve_status'    => '3'
+                ]);
+            }
+            
+
             $response = [
                 'status'    => 200,
                 'data'      => $data,

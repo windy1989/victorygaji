@@ -74,6 +74,7 @@ class Invoice extends Model
             '2' => 'Proses',
             '3' => 'Selesai',
             '4' => 'Dibatalkan',
+            '5' => 'Revisi/Ditolak',
             default => 'Invalid',
         };
 
@@ -86,6 +87,7 @@ class Invoice extends Model
             '2' => '<span class="badge badge-secondary">Proses</span>',
             '3' => '<span class="badge badge-success">Selesai</span>',
             '4' => '<span class="badge badge-danger">Dibatalkan</span>',
+            '5' => '<span class="badge badge-warning">Revisi/Ditolak</span>',
             default => '<span class="badge badge-danger">Invalid</span>',
         };
 

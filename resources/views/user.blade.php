@@ -40,6 +40,7 @@
                                                 <th>NIK</th>
                                                 <th>Email</th>
                                                 <th>Tipe</th>
+                                                <th>Telepon</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
                                             </tr>

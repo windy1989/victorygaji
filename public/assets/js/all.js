@@ -536,6 +536,7 @@ function loadDataTableUser(){
             { name: 'nik', className: '' },
             { name: 'email', className: '' },
             { name: 'tipe', className: '' },
+            { name: 'phone', className: '' },
 			{ name: 'status', className: '' },
             { name: 'action', searchable: false, orderable: false, className: 'text-center' },
         ],

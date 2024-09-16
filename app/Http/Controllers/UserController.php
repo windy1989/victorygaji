@@ -76,6 +76,7 @@ class UserController extends Controller
                     $val->nik,
                     $val->email,
                     $val->type(),
+                    $val->phone ?? 'Belum diset',
                     $val->statusBadge(),
                     '
                         <a href="javascript:void(0);" class="btn btn-secondary btn-sm content-icon" onclick="updatePassword('.$val->id.')"><i class="fa fa-unlock"></i></a>

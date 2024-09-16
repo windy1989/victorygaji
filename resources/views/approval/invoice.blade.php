@@ -43,8 +43,8 @@
                                 <h4 class="card-title">Setuju/Tidak</h4>
                             </div>
                             <div class="card-body">
-                                <button class="btn btn-primary me-2"><span class="me-2"><i class="fa fa-heart"></i></span>Like</button>
-                                <button class="btn btn-secondary"  data-bs-toggle="modal" data-bs-target="#replyModal"><span class="me-2"><i class="fa fa-reply"></i></span>Reply</button>
+                                <button class="btn btn-success me-2"><span class="me-2"><i class="fa fa-check-circle-o"></i></span>Setuju</button>
+                                <button class="btn btn-primary"><span class="me-2"><i class="fa fa-times-circle-o"></i></span>Tidak</button>
                             </div>
                         </div>
                         

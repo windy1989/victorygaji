@@ -54,7 +54,7 @@
                                         </div>
                                     @else
                                     <div class="col-md-12">
-                                        Dokumen ini telah {{ $data->approveStatus() }} oleh anda, pada tanggal {{ date('d/m/Y H:i:s',strtotime($data->approve_date)) }} dengan catatan : {{ $data->approve_note }}.
+                                        Dokumen ini telah <b>{{ $data->approveStatus() }}</b> oleh anda, pada tanggal <b>{{ date('d/m/Y H:i:s',strtotime($data->approve_date)) }}</b> dengan catatan : <b>{{ $data->approve_note }}</b>.
                                     </div>
                                     @endif
                                 </div>

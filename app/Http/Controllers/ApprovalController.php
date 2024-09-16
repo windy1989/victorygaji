@@ -127,7 +127,7 @@ class ApprovalController extends Controller
     }
 
     public function approve(Request $request){
-        $data = Approval::where('code',$request->code)->where('status','1')->first();
+        $data = Approval::where('code',$request->code)->where('approve_status','1')->first();
         if($data){
             $response = [
                 'status'    => 200,

@@ -48,8 +48,8 @@
                                         <textarea type="text" class="form-control" placeholder="Keterangan Setuju/Tidak" id="note" name="note"></textarea>
                                     </div>
                                     <div class="col-md-12 text-center mt-2">
-                                        <button class="btn btn-success me-2"><span class="me-2"><i class="fa fa-check-circle-o"></i></span>Setuju</button>
-                                        <button class="btn btn-primary"><span class="me-2"><i class="fa fa-times-circle-o"></i></span>Tidak</button>
+                                        <button class="btn btn-success me-2"><span class="me-2"><i class="fa fa-check"></i></span>Setuju</button>
+                                        <button class="btn btn-primary"><span class="me-2"><i class="fa fa-times"></i></span>Tidak</button>
                                     </div>
                                 </div>
                             </div>

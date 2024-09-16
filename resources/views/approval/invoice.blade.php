@@ -31,7 +31,7 @@
                             </div>
                             <div class="card-body">
                                 <div class="profile-uoloaded-post border-bottom-1 pb-5">
-                                    <img src="images/profile/8.jpg" alt="" class="img-fluid w-100 rounded">
+                                    <img src="{{ $data->lookable->attachment() }}" alt="" class="img-fluid w-100 rounded">
                                     <h3 class="text-black">Collection of textile samples lay spread</h3>
                                     <button class="btn btn-primary me-2"><span class="me-2"><i class="fa fa-heart"></i></span>Like</button>
                                     <button class="btn btn-secondary"  data-bs-toggle="modal" data-bs-target="#replyModal"><span class="me-2"><i class="fa fa-reply"></i></span>Reply</button>

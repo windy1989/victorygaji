@@ -33,6 +33,7 @@ class UserController extends Controller
             'nik',
             'email',
             'type',
+            'phone',
             'status',
         ];
 

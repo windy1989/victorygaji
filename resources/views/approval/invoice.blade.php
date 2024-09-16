@@ -60,7 +60,7 @@
                                     @php
                                         $anotherApprover = $data->approvalExceptMe(session('bo_id'));
                                     @endphp
-                                    @if($anotherApprover)
+                                    @if(count($anotherApprover) > 0)
                                         <div class="col-md-12">
                                             List approver lainnya : 
                                             <ol>

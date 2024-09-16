@@ -52,7 +52,7 @@ class Approval extends Model
     }
 
     public function approvalExceptMe($id){
-        $data = Approval::where('lookable_type',$this->lookable_type)->where('lookable_id',$this->lookable_id)->whereIn('approve_status',['2','3'])->where('to_user_id',$id)->get();
+        $data = Approval::where('lookable_type',$this->lookable_type)->where('lookable_id',$this->lookable_id)->whereIn('approve_status',['2','3'])->where('to_user_id','!=',$id)->get();
         return $data;
     }
 }

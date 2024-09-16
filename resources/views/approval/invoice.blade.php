@@ -38,8 +38,16 @@
                         </div>
                     </div>
                     <div class="col-xl-6">
-                        <button class="btn btn-primary me-2"><span class="me-2"><i class="fa fa-heart"></i></span>Like</button>
-                        <button class="btn btn-secondary"  data-bs-toggle="modal" data-bs-target="#replyModal"><span class="me-2"><i class="fa fa-reply"></i></span>Reply</button>
+                        <div class="card mt-3">
+                            <div class="card-header">
+                                <h4 class="card-title">Setuju/Tidak</h4>
+                            </div>
+                            <div class="card-body">
+                                <button class="btn btn-primary me-2"><span class="me-2"><i class="fa fa-heart"></i></span>Like</button>
+                                <button class="btn btn-secondary"  data-bs-toggle="modal" data-bs-target="#replyModal"><span class="me-2"><i class="fa fa-reply"></i></span>Reply</button>
+                            </div>
+                        </div>
+                        
                     </div>
                     <!-- Column ends -->
                 </div>

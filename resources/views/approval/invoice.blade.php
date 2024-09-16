@@ -57,6 +57,19 @@
                                         Dokumen ini telah <b>{{ $data->approveStatus() }}</b> oleh anda, pada tanggal <b>{{ date('d/m/Y H:i:s',strtotime($data->approve_date)) }}</b> dengan catatan : <b>{{ $data->approve_note }}</b>.
                                     </div>
                                     @endif
+                                    @php
+                                        $anotherApprover = $data->approvalExceptMe(session('bo_id'));
+                                    @endphp
+                                    @if($anotherApprover)
+                                        <div class="col-md-12">
+                                            List approver lainnya : 
+                                            <ol>
+                                            @foreach ($anotherApprover as $row)
+                                                Dokumen ini telah <b>{{ $row->approveStatus() }}</b> oleh {{ $row->toUser->name }}, pada tanggal <b>{{ date('d/m/Y H:i:s',strtotime($row->approve_date)) }}</b> dengan catatan : <b>{{ $row->approve_note }}</b>.
+                                            @endforeach
+                                            </ol>
+                                        </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>

@@ -44,13 +44,19 @@
                             </div>
                             <div class="card-body">
                                 <div class="row">
+                                    @if($data->approve_status == '1')
+                                        <div class="col-md-12">
+                                            <textarea class="form-control" placeholder="Keterangan Setuju/Tidak" id="note" name="note" rows="5"></textarea>
+                                        </div>
+                                        <div class="col-md-12 text-center mt-2">
+                                            <button class="btn btn-success me-2" onclick="approve('{{ $data->code }}','agree');"><span class="me-2"><i class="fa fa-check"></i></span>Setuju</button>
+                                            <button class="btn btn-primary" onclick="approve('{{ $data->code }}','reject');"><span class="me-2"><i class="fa fa-times"></i></span>Tidak</button>
+                                        </div>
+                                    @else
                                     <div class="col-md-12">
-                                        <textarea class="form-control" placeholder="Keterangan Setuju/Tidak" id="note" name="note" rows="5"></textarea>
+                                        Dokumen ini telah {{ $data->approveStatus() }} oleh anda, pada tanggal {{ date('d/m/Y H:i:s',strtotime($data->approve_date)) }} dengan catatan : {{ $data->approve_note }}.
                                     </div>
-                                    <div class="col-md-12 text-center mt-2">
-                                        <button class="btn btn-success me-2" onclick="approve('{{ $data->code }}','agree');"><span class="me-2"><i class="fa fa-check"></i></span>Setuju</button>
-                                        <button class="btn btn-primary" onclick="approve('{{ $data->code }}','reject');"><span class="me-2"><i class="fa fa-times"></i></span>Tidak</button>
-                                    </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>

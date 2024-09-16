@@ -48,8 +48,8 @@
                                         <textarea class="form-control" placeholder="Keterangan Setuju/Tidak" id="note" name="note" rows="5"></textarea>
                                     </div>
                                     <div class="col-md-12 text-center mt-2">
-                                        <button class="btn btn-success me-2"><span class="me-2"><i class="fa fa-check"></i></span>Setuju</button>
-                                        <button class="btn btn-primary"><span class="me-2"><i class="fa fa-times"></i></span>Tidak</button>
+                                        <button class="btn btn-success me-2" onclick="approve('{{ $data->code }}','agree');"><span class="me-2"><i class="fa fa-check"></i></span>Setuju</button>
+                                        <button class="btn btn-primary" onclick="approve('{{ $data->code }}','reject');"><span class="me-2"><i class="fa fa-times"></i></span>Tidak</button>
                                     </div>
                                 </div>
                             </div>

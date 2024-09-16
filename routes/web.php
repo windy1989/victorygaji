@@ -62,6 +62,7 @@ Route::middleware('login')->group(function () {
         Route::get('/', [ApprovalController::class, 'index']);
         Route::get('datatable',[ApprovalController::class, 'datatable']);
         Route::post('get_count_approval',[ApprovalController::class, 'getCountApproval']);
+        Route::post('approve',[ApprovalController::class, 'approve']);
         Route::get('detail/{id}',[ApprovalController::class, 'detail']);
     });
 

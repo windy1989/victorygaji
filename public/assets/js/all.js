@@ -1488,7 +1488,7 @@ function saveReceipt(){
 
 /* INVOICE */
 
-
+/* APPROVAL */
 function cekApproval(){
 	$.ajax({
         url: location.protocol + '//' + location.host + '/persetujuan/get_count_approval',
@@ -1507,3 +1507,65 @@ function cekApproval(){
         }
     });
 }
+
+function approve(code,type){
+    swal({
+        title: "Apakah yakin ingin simpan persetujuan?",
+        text: "Silahkan cek kembali form anda.",
+        type: "warning",
+        showCancelButton: !0,
+        confirmButtonColor: "#DD6B55",
+        confirmButtonText: "Ya, simpan!",
+        cancelButtonText: "Batal",
+        closeOnConfirm: !1,
+        closeOnCancel: !1,
+        focusCancel: true,
+    }).then(function (willDelete) {
+        if (willDelete.value) {
+            $.ajax({
+                url: location.protocol + '//' + location.host + '/persetujuan/approve',
+                type: 'POST',
+                dataType: 'JSON',
+                data: {
+                    code: code,
+                    note: $('#note').val(),
+                    type: type,
+                },
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                beforeSend: function() {
+                    loadingOpen();
+                },
+                success: function(response) {
+                    loadingClose();
+                    if(response.status == 200){
+                        toastr.success(response.message, "Success", {
+                            positionClass: "toast-top-right",
+                            timeOut: 1e3,
+                            closeButton: !0,
+                            debug: !1,
+                            newestOnTop: !0,
+                            progressBar: !0,
+                            onclick: null,
+                            showDuration: "300",
+                            hideDuration: "1000",
+                            extendedTimeOut: "1000",
+                            showEasing: "swing",
+                            hideEasing: "linear",
+                            showMethod: "fadeIn",
+                            hideMethod: "fadeOut",
+                            onHidden: function() {
+                                location.reload();
+                            }
+                        });
+                    }else{
+                        errorMessage(response.message);
+                    }
+                }
+            });
+        }
+    });
+}
+
+/* APPROVAL */

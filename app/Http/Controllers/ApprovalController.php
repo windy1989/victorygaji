@@ -125,4 +125,21 @@ class ApprovalController extends Controller
             abort(404);
         }
     }
+
+    public function approve(Request $request){
+        $data = Approval::where('code',$request->code)->where('status','1')->first();
+        if($data){
+            $response = [
+                'status'    => 200,
+                'data'      => $data,
+                'message'   => 'Data berhasil disimpan, halaman akan dimuat ulang.'
+            ];
+        }else{
+            $response = [
+                'status'    => 500,
+                'message'   => 'Mohon maaf, data approval tidak ditemukan.'
+            ];
+        }
+        return response()->json($response);
+    }
 }

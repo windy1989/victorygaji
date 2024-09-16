@@ -65,7 +65,7 @@
                                             List approver lainnya : 
                                             <ol>
                                             @foreach ($anotherApprover as $row)
-                                                Dokumen ini telah <b>{{ $row->approveStatus() }}</b> oleh {{ $row->toUser->nama }}, pada tanggal <b>{{ date('d/m/Y H:i:s',strtotime($row->approve_date)) }}</b> dengan catatan : <b>{{ $row->approve_note }}</b>.
+                                                Dokumen ini telah <b>{{ $row->approveStatus() }}</b> oleh <b>{{ $row->toUser->nama }}</b>, pada tanggal <b>{{ date('d/m/Y H:i:s',strtotime($row->approve_date)) }}</b> dengan catatan : <b>{{ $row->approve_note }}</b>.
                                             @endforeach
                                             </ol>
                                         </div>

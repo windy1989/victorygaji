@@ -43,6 +43,12 @@
                                 <h4 class="card-title">Setuju/Tidak</h4>
                             </div>
                             <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label class="form-label">Keterangan Setuju/Tidak</label>
+                                        <input type="text" class="form-control" placeholder="Keterangan Setuju/Tidak" id="note" name="note">
+                                    </div>
+                                </div>
                                 <button class="btn btn-success me-2"><span class="me-2"><i class="fa fa-check-circle-o"></i></span>Setuju</button>
                                 <button class="btn btn-primary"><span class="me-2"><i class="fa fa-times-circle-o"></i></span>Tidak</button>
                             </div>

@@ -24,7 +24,7 @@
                 <!-- Row starts -->
                 <div class="row">
                     <!-- Column starts -->
-                    <div class="col-xl-12">
+                    <div class="col-xl-6">
                         <div class="card mt-3">
                             <div class="card-header">
                                 <h4 class="card-title">Daftar {{ $title }}</h4>

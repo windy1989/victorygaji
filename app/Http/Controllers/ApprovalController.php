@@ -131,14 +131,16 @@ class ApprovalController extends Controller
         if($data){
             if($request->type == 'agree'){
                 $data->update([
-                    'approve_status'    => '2'
+                    'approve_status'    => '2',
+                    'approve_date'      => now(),
+                    'approve_note'      => $request->note,
                 ]);
                 $nextlevel = $data->approve_level + 1;
                 $data2 = Approval::where('lookable_type',$data->lookable_type)->where('lookable_id',$data->lookable_id)->whereNull('approve_status')->where('approve_level',$nextlevel)->get();
                 if($data2){
                     $message = '';
                     if($data->url == 'invoice'){
-                        $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Invoice No. '.$data->code.' telah dibayarkan dengan nomor kwitansi : '.$data->receipt_code.', mohon persetujuannya dengan menekan link terlampir : ';
+                        $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Invoice No. '.$data->code.' telah dibayarkan dengan nomor kwitansi : '.$data->lookable->receipt_code.', mohon persetujuannya dengan menekan link terlampir : ';
                     }
                     foreach($data2 as $row){
                         $row->update([
@@ -161,7 +163,9 @@ class ApprovalController extends Controller
                     'status'    => '5'
                 ]);
                 $data->update([
-                    'approve_status'    => '3'
+                    'approve_status'    => '3',
+                    'approve_date'      => now(),
+                    'approve_note'      => $request->note,
                 ]);
                 CustomHelper::saveLog($data->lookable_type,$data->lookable_id,'Data dokumen no '.$data->lookable->code.' telah ditolak/revisi.','Pengguna '.session('bo_name').' telah menolak/revisi data dokumen no '.$data->lookable->code);
             }

@@ -45,7 +45,7 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <textarea type="text" class="form-control" placeholder="Keterangan Setuju/Tidak" id="note" name="note"></textarea>
+                                        <textarea class="form-control" placeholder="Keterangan Setuju/Tidak" id="note" name="note"></textarea>
                                     </div>
                                     <div class="col-md-12 text-center mt-2">
                                         <button class="btn btn-success me-2"><span class="me-2"><i class="fa fa-check"></i></span>Setuju</button>

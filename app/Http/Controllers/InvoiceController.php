@@ -21,7 +21,7 @@ class InvoiceController extends Controller
     public function index()
     {
         $data = [
-            'title'         => 'Proyek',
+            'title'         => 'Invoice',
             'content'       => 'invoice',
         ];
 

@@ -1086,7 +1086,7 @@ $(function() {
         $('#temp').val('');
         $('#validation_alert').html('');
         $('#validation_alert').hide();
-        $('#customer_id,#project_type_id,#purpose_id,#region_id').empty();
+        $('#customer_id,#project_type_id,#purpose_id,#region_id,#project_id,#bank_id').empty();
     });
 });
 

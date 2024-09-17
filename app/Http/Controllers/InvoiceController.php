@@ -331,7 +331,7 @@ class InvoiceController extends Controller
             }else{
                 $response = [
                     'status'    => 500,
-                    'message'   => 'Ups. Hanya dokumen MENUNGGU yang bisa dihapus.',
+                    'message'   => 'Hanya dokumen MENUNGGU yang bisa dihapus.',
                 ];
             }
         }else{

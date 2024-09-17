@@ -1476,6 +1476,8 @@ function saveReceipt(){
                              });
                         });
                         $('.modal-body').scrollTop(0);
+                    }else{
+                        errorMessage(response.message);
                     }
                 },
                 error: function() {
@@ -1503,7 +1505,6 @@ function cekApproval(){
         },
         success: function(response) {
             $('#countApproval').text(response);
-            console.log(response);
         }
     });
 }

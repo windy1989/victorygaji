@@ -81,6 +81,7 @@ Route::middleware('login')->group(function () {
         Route::post('create_receipt',[InvoiceController::class, 'createReceipt']);
         Route::post('show',[InvoiceController::class, 'show']);
         Route::post('destroy',[InvoiceController::class, 'destroy']);
+        Route::get('print/{id}',[InvoiceController::class, 'print']);
     });
 
     Route::prefix('payroll')->middleware('admin.auth:1')->group(function () {

@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Customer;
 use App\Models\Invoice;
 use App\Models\Project;
+use Barryvdh\DomPDF\Facade\Pdf;
 use GuzzleHttp\Psr7\Query;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -341,5 +342,21 @@ class InvoiceController extends Controller
         }
 
         return response()->json($response);
+    }
+
+    public function detail(Request $request,$id){
+        $data = Invoice::where('code',CustomHelper::decrypt($id))->first();
+        if($data){
+
+            $data = [
+                'title'         => 'Invoice '.$data->code,
+                'data'          => $data,
+            ];
+    
+            $pdf = Pdf::loadView('pdf.invoice', $data);
+            return $pdf->download('invoice.pdf');
+        }else{
+            abort(404);
+        }
     }
 }

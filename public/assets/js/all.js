@@ -852,7 +852,7 @@ function edit(code){
                     }
                 }
 
-                /* JIKA FORM  */
+                /* JIKA FORM PROJECT */
                 if($('#project-datatable').length > 0){
                     $('#code').val(response.data.code);
                     $('#name').val(response.data.name);
@@ -879,6 +879,22 @@ function edit(code){
                     $('#power_letter_no').val(response.data.power_letter_no);
                     $('#cost').val(response.data.cost);
                     $('#termin').val(response.data.termin);
+                    $('#note').val(response.data.note);
+                }
+
+                /* JIKA FORM INVOICE */
+                if($('#project-datatable').length > 0){
+                    $('#code').val(response.data.code);
+                    $('#receive_from').val(response.data.receive_from);
+                    $('#project_id').empty().append(`
+                        <option value="` + response.data.project_type_id + `">` + response.data.project_code + `</option>
+                    `);
+                    $('#bank_id').empty().append(`
+                        <option value="` + response.data.bank_id + `">` + response.data.bank_code + `</option>
+                    `);
+                    $('#post_date').val(response.data.post_date);
+                    $('#nominal').val(response.data.nominal);
+                    $('#termin_no').val(response.data.termin_no);
                     $('#note').val(response.data.note);
                 }
 

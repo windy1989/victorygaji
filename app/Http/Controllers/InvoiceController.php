@@ -296,13 +296,11 @@ class InvoiceController extends Controller
     }
 
     public function show(Request $request){
-        $data = Project::where('code',CustomHelper::decrypt($request->code))->first();
+        $data = Invoice::where('code',CustomHelper::decrypt($request->code))->first();
         if($data){
-            $data['customer_info'] = $data->customer->code.' - '.$data->customer->name;
-            $data['region_info'] = $data->region->name;
-            $data['project_type_info'] = $data->projectType->name;
-            $data['purpose_info'] = $data->purpose->name;
-            $data['cost'] = number_format($data->cost,2,',','.');
+            $data['project_code'] = $data->project->code.' - '.$data->project->name.' - '.$data->project->customer->name;
+            $data['bank_code'] = $data->bank->name.' - '.$data->bank->no.' - '.$data->bank->bank;
+            $data['nominal'] = number_format($data->nominal,2,',','.');
             $response = [
                 'status'    => 200,
                 'data'      => $data,

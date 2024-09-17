@@ -165,6 +165,14 @@ class InvoiceController extends Controller
             } else {
                 if($request->temp){
                     $query = Invoice::where('code',CustomHelper::decrypt($request->temp))->first();
+
+                    if($query->status == '3'){
+                        return response()->json([
+                            'status'    => 500,
+                            'message'   => 'Ups. Invoice telah SELESAI, anda tidak bisa melakukan perubahan.'
+                        ]);
+                    }
+
                     $query->user_id         = session('bo_id');
                     $query->code            = $request->code;
                     $query->receive_from    = $request->receive_from;    
@@ -238,6 +246,13 @@ class InvoiceController extends Controller
             } else {
 
                 $query = Invoice::where('code',CustomHelper::decrypt($request->tempReceipt))->first();
+
+                if($query->status == '3'){
+                    return response()->json([
+                        'status'    => 500,
+                        'message'   => 'Ups. Invoice telah SELESAI, anda tidak bisa melakukan perubahan.'
+                    ]);
+                }
 
                 if($query->document){
                     if(Storage::exists($query->document)){

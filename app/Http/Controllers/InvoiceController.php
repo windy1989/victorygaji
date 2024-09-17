@@ -314,4 +314,33 @@ class InvoiceController extends Controller
 
         return response()->json($response);
     }
+
+    public function destroy(Request $request){
+        $query = Invoice::where('code',CustomHelper::decrypt($request->code))->first();
+        if($query){
+            if($query->status == '1'){
+                CustomHelper::saveLog($query->getTable(),$query->id,'Invoice nomor '.$query->code.' telah dihapus.','Pengguna '.session('bo_name').' telah menghapus data invoice no '.$query->code);
+
+                $query->approval()->delete();
+                $query->delete();
+
+                $response = [
+                    'status'    => 200,
+                    'message'   => 'Data berhasil dihapus.',
+                ];
+            }else{
+                $response = [
+                    'status'    => 500,
+                    'message'   => 'Ups. Hanya dokumen MENUNGGU yang bisa dihapus.',
+                ];
+            }
+        }else{
+            $response = [
+                'status'  => 500,
+                'message' => 'Data tidak ditemukan.'
+            ];
+        }
+
+        return response()->json($response);
+    }
 }

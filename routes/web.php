@@ -71,6 +71,7 @@ Route::middleware('login')->group(function () {
         Route::get('datatable',[ProjectController::class, 'datatable']);
         Route::post('create',[ProjectController::class, 'create']);
         Route::post('show',[ProjectController::class, 'show']);
+        Route::post('destroy',[ProjectController::class, 'destroy']);
     });
 
     Route::prefix('invoice')->middleware('admin.auth:1')->group(function () {
@@ -79,6 +80,7 @@ Route::middleware('login')->group(function () {
         Route::post('create',[InvoiceController::class, 'create']);
         Route::post('create_receipt',[InvoiceController::class, 'createReceipt']);
         Route::post('show',[InvoiceController::class, 'show']);
+        Route::post('destroy',[InvoiceController::class, 'destroy']);
     });
 
     Route::prefix('payroll')->middleware('admin.auth:1')->group(function () {

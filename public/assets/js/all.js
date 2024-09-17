@@ -883,7 +883,7 @@ function edit(code){
                 }
 
                 /* JIKA FORM INVOICE */
-                if($('#project-datatable').length > 0){
+                if($('#invoice-datatable').length > 0){
                     $('#code').val(response.data.code);
                     $('#receive_from').val(response.data.receive_from);
                     $('#project_id').empty().append(`

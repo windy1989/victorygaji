@@ -137,7 +137,7 @@ class ApprovalController extends Controller
                 ]);
                 $nextlevel = $data->approve_level + 1;
                 $data2 = Approval::where('lookable_type',$data->lookable_type)->where('lookable_id',$data->lookable_id)->whereNull('approve_status')->where('approve_level',$nextlevel)->get();
-                if($data2){
+                if(count($data2)>0){
                     $message = '';
                     if($data->url == 'invoice'){
                         $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Invoice No. '.$data->code.' telah dibayarkan dengan nomor kwitansi : '.$data->lookable->receipt_code.', mohon persetujuannya dengan menekan link terlampir : ';

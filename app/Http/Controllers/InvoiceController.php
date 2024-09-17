@@ -344,7 +344,7 @@ class InvoiceController extends Controller
         return response()->json($response);
     }
 
-    public function detail(Request $request,$id){
+    public function print(Request $request,$id){
         $data = Invoice::where('code',CustomHelper::decrypt($id))->first();
         if($data){
 

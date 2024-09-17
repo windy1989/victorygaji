@@ -972,7 +972,7 @@ function destroy(code){
                             loadDataTableInvoice();
                         }
                     }else{
-                        errorMessage('Data tidak ditemukan.');
+                        errorMessage(response.message);
                     }
                     loadingClose();
                 },

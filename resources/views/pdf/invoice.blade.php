@@ -7,6 +7,7 @@
 		<style>
 			body {
 				font-family:"Calibri", sans-serif;
+                font-size:12px;
             }
             @page { margin: 1cm; }
 		</style>
@@ -15,7 +16,7 @@
 		<div class="invoice-box">
 			<table cellpadding="0" cellspacing="0" width="100%">
 				<tr>
-                    <td style="align:right;" width="25%" rowspan="4">
+                    <td width="25%" rowspan="4">
                         <img src="{{ public_path('assets/images/square_logo.png') }}" width="100px" height="auto">
                     </td>
                     <td width="50%" colspan="2">
@@ -38,7 +39,7 @@
                 <tr>
                     <td>Email</td>
                     <td>: victorykonsultan@gmail.com</td>
-                    <td>INVOICE</td>
+                    <td><h3>INVOICE</h3></td>
                 </tr>
 			</table>
 		</div>

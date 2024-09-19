@@ -18,7 +18,7 @@
 						<table>
 							<tr>
 								<td style="text-align:center;">
-									<img src="{{ public_path('assets/images/square_logo.png') }}" width="auto" height="75px">
+									<img src="{{ public_path('assets/images/square_logo.png') }}" width="100px" height="auto">
 								</td>
 							</tr>
                             <tr>

@@ -22,8 +22,8 @@
                     <td width="55%" colspan="2">
                         CV. VICTORY KONSULTAN
                     </td>
-                    <td width="25%" rowspan="4" style="vertical-align:bottom;">
-                        <h3>INVOICE</h3>
+                    <td width="25%" rowspan="4">
+                        <h3 style="bottom:0px;">INVOICE</h3>
                     </td>
                 </tr>
                 <tr>

@@ -34,16 +34,16 @@
                     </td>
                 </tr>
                 <tr>
-                    <td width="10%">Kantor</td>
-                    <td width="45%">: Perum. Graha Kota D 12 No. 20 Suko - Sidoarjo</td>
-                </tr>
-                <tr>
-                    <td>Telp/Fax</td>
-                    <td>: 031-51517878</td>
-                </tr>
-                <tr>
-                    <td>Email</td>
-                    <td>: victorykonsultan@gmail.com</td>
+                    <td width="10%" rowspan="3">
+                        Kantor<br>
+                        Telp/Fax<br>
+                        Email
+                    </td>
+                    <td width="45%" rowspan="3">
+                        : Perum. Graha Kota D 12 No. 20 Suko - Sidoarjo<br>
+                        : 031-51517878<br>
+                        : victorykonsultan@gmail.com
+                    </td>
                 </tr>
 			</table>
 		</div>

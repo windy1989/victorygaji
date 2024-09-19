@@ -13,7 +13,7 @@
                 padding: 10px 0px 10px 0px;
                 border-collapse:collapse;
             }
-            @page { margin: 0.5cm; }
+            /* @page { margin: 0.5cm; } */
 		</style>
 	</head>
 	<body>

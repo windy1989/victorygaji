@@ -12,7 +12,6 @@
 
             #table-header{
                 margin-top:-15px;
-                font-weight: 600;
             }
 
             table {
@@ -33,7 +32,7 @@
                         <img src="{{ public_path('assets/images/square_logo.png') }}" width="80px" height="auto" style="margin-left:50px;position:absolute;margin-top:10px;">
                     </td>
                     <td width="55%" colspan="2">
-                        CV. VICTORY KONSULTAN
+                        <b>CV. VICTORY KONSULTAN</b>
                     </td>
                     <td width="25%" rowspan="2">
                         <h2 style="margin-top:30px;">INVOICE</h2>

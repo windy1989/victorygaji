@@ -14,7 +14,7 @@
 	</head>
 	<body>
 		<div class="invoice-box">
-			<table cellpadding="0" cellspacing="0" width="100%">
+			<table cellpadding="0" cellspacing="0" width="100%" border="1">
 				<tr>
                     <td align="right" width="20%" rowspan="4">
                         <img src="{{ public_path('assets/images/square_logo.png') }}" width="80px" height="auto" style="margin-right:10px;">

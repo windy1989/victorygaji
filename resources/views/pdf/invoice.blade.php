@@ -12,7 +12,7 @@
 
             #table-header{
                 margin-top:-20px;
-                font-weight: 700;
+                font-weight: 600;
             }
 
             table {
@@ -40,12 +40,12 @@
                     </td>
                 </tr>
                 <tr>
-                    <td width="10%">
-                        Kantor<br>
+                    <td width="15%">
+                        Kantor Pusat<br>
                         Telp/Fax<br>
                         Email
                     </td>
-                    <td width="45%">
+                    <td width="40%">
                         : Perum. Graha Kota D 12 No. 20 Suko - Sidoarjo<br>
                         : 031-51517878<br>
                         : victorykonsultan@gmail.com

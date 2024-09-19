@@ -9,6 +9,11 @@
 				font-family:"Calibri", sans-serif;
                 font-size:12px;
             }
+
+            #table-header{
+                margin-top:-10px;
+            }
+
             table {
                 border-collapse:collapse;
             }
@@ -21,7 +26,7 @@
 	</head>
 	<body>
 		<div class="invoice-box">
-			<table cellpadding="0" cellspacing="0" width="100%">
+			<table id="table-header" cellpadding="0" cellspacing="0" width="100%">
 				<tr>
                     <td align="right" width="20%" rowspan="2">
                         <img src="{{ public_path('assets/images/square_logo.png') }}" width="80px" height="auto" style="margin-left:50px;position:absolute;">

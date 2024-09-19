@@ -9,6 +9,9 @@
 				font-family:"Calibri", sans-serif;
                 font-size:12px;
             }
+            th, td {
+                padding: 0px;
+            }
             @page { margin: 0.5cm; }
 		</style>
 	</head>
@@ -23,7 +26,7 @@
                         CV. VICTORY KONSULTAN
                     </td>
                     <td width="25%" rowspan="4">
-                        <h3 style="margin-top:75px;">INVOICE</h3>
+                        <h1 style="margin-top:75px;">INVOICE</h1>
                     </td>
                 </tr>
                 <tr>

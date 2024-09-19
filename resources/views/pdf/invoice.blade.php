@@ -21,10 +21,10 @@
 	</head>
 	<body>
 		<div class="invoice-box">
-			<table cellpadding="0" cellspacing="0" width="100%" border="1">
+			<table cellpadding="0" cellspacing="0" width="100%">
 				<tr>
                     <td align="right" width="20%" rowspan="2">
-                        <img src="{{ public_path('assets/images/square_logo.png') }}" width="80px" height="auto" style="margin-right:10px;position:absolute;">
+                        <img src="{{ public_path('assets/images/square_logo.png') }}" width="80px" height="auto" style="margin-left:50px;position:absolute;">
                     </td>
                     <td width="55%" colspan="2">
                         CV. VICTORY KONSULTAN

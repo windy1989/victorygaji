@@ -16,8 +16,8 @@
 		<div class="invoice-box">
 			<table cellpadding="0" cellspacing="0" width="100%">
 				<tr>
-                    <td width="25%" rowspan="4">
-                        <img src="{{ public_path('assets/images/square_logo.png') }}" width="100px" height="auto">
+                    <td align="right" width="25%" rowspan="4">
+                        <img src="{{ public_path('assets/images/square_logo.png') }}" width="75px" height="auto">
                     </td>
                     <td width="50%" colspan="2">
                         CV. VICTORY KONSULTAN

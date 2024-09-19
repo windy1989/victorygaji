@@ -9,8 +9,8 @@
 				font-family:"Calibri", sans-serif;
                 font-size:12px;
             }
-            th, td {
-                padding: -5px !important;
+            table {
+                padding: 10px 0px 10px 0px;
             }
             @page { margin: 0.5cm; }
 		</style>
@@ -26,7 +26,7 @@
                         CV. VICTORY KONSULTAN
                     </td>
                     <td width="25%" rowspan="4">
-                        <h1 style="margin-top:75px;">INVOICE</h1>
+                        <h2 style="margin-top:75px;">INVOICE</h2>
                     </td>
                 </tr>
                 <tr>

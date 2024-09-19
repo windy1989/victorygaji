@@ -7,28 +7,39 @@
 		<style>
 			body {
 				font-family:"Calibri", sans-serif;
-			}			
+            }
+            @page { margin: 1cm; }
 		</style>
 	</head>
 	<body>
 		<div class="invoice-box">
 			<table cellpadding="0" cellspacing="0" width="100%">
 				<tr>
-					<td>
-						<table>
-							<tr>
-								<td style="text-align:center;">
-									<img src="{{ public_path('assets/images/square_logo.png') }}" width="100px" height="auto">
-								</td>
-							</tr>
-                            <tr>
-								<td style="text-align:center;">
-									<h3>{{ $title }}</h3>
-								</td>
-							</tr>
-						</table>
-					</td>
-				</tr>
+                    <td style="align:right;" width="25%" rowspan="4">
+                        <img src="{{ public_path('assets/images/square_logo.png') }}" width="100px" height="auto">
+                    </td>
+                    <td width="50%" colspan="2">
+                        CV. VICTORY KONSULTAN
+                    </td>
+                    <td width="25%">
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td>Kantor</td>
+                    <td>: Perum. Graha Kota D 12 No. 20 Suko - Sidoarjo</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Telp/Fax</td>
+                    <td>: 031-51517878</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>: victorykonsultan@gmail.com</td>
+                    <td>INVOICE</td>
+                </tr>
 			</table>
 		</div>
 	</body>

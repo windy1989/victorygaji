@@ -27,7 +27,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Kantor</td>
+                    <td width="25%">Kantor</td>
                     <td>: Perum. Graha Kota D 12 No. 20 Suko - Sidoarjo</td>
                     <td></td>
                 </tr>

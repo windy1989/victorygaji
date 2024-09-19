@@ -22,24 +22,21 @@
                     <td width="55%" colspan="2">
                         CV. VICTORY KONSULTAN
                     </td>
-                    <td width="25%">
-                        
+                    <td width="25%" rowspan="4">
+                        <h3>INVOICE</h3>
                     </td>
                 </tr>
                 <tr>
-                    <td width="20%">Kantor</td>
-                    <td width="35%">: Perum. Graha Kota D 12 No. 20 Suko - Sidoarjo</td>
-                    <td width="25%"></td>
+                    <td width="10%">Kantor</td>
+                    <td width="45%">: Perum. Graha Kota D 12 No. 20 Suko - Sidoarjo</td>
                 </tr>
                 <tr>
                     <td>Telp/Fax</td>
                     <td>: 031-51517878</td>
-                    <td></td>
                 </tr>
                 <tr>
                     <td>Email</td>
                     <td>: victorykonsultan@gmail.com</td>
-                    <td><h3>INVOICE</h3></td>
                 </tr>
 			</table>
 		</div>

@@ -348,13 +348,13 @@ class InvoiceController extends Controller
         $data = Invoice::where('code',CustomHelper::decrypt($id))->first();
         if($data){
 
-            $data = [
+            $result = [
                 'title'         => 'Invoice '.$data->code,
                 'data'          => $data,
             ];
     
-            $pdf = Pdf::loadView('pdf.invoice', $data);
-            return $pdf->stream('invoice.pdf');
+            $pdf = Pdf::loadView('pdf.invoice', $result);
+            return $pdf->stream('invoice_'.$data->code.'.pdf');
             /* return $pdf->download('invoice.pdf'); */
         }else{
             abort(404);

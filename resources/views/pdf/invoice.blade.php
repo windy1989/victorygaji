@@ -10,7 +10,7 @@
                 font-size:12px;
             }
             th, td {
-                padding: 0px !important;
+                padding: -5px !important;
             }
             @page { margin: 0.5cm; }
 		</style>

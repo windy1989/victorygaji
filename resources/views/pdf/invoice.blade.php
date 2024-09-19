@@ -23,7 +23,7 @@
                         CV. VICTORY KONSULTAN
                     </td>
                     <td width="25%" rowspan="4">
-                        <h3 style="bottom:0px;">INVOICE</h3>
+                        <h3 style="margin-top:75px;">INVOICE</h3>
                     </td>
                 </tr>
                 <tr>

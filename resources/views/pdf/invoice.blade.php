@@ -14,8 +14,7 @@
             }
 
             td {
-                padding: 0px 0px 0px 0px;
-                border:1px solid red;
+                padding: 0px !important;
             }
             @page { margin: 0.5cm; }
 		</style>

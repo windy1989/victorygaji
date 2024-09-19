@@ -24,7 +24,7 @@
 			<table cellpadding="0" cellspacing="0" width="100%">
 				<tr>
                     <td align="right" width="20%" rowspan="4">
-                        <img src="{{ public_path('assets/images/square_logo.png') }}" width="80px" height="auto" style="margin-right:10px;">
+                        <img src="{{ public_path('assets/images/square_logo.png') }}" width="60px" height="auto" style="margin-right:10px;">
                     </td>
                     <td width="55%" colspan="2">
                         CV. VICTORY KONSULTAN

@@ -9,17 +9,17 @@
 				font-family:"Calibri", sans-serif;
                 font-size:12px;
             }
-            @page { margin: 1cm; }
+            @page { margin: 0.5cm; }
 		</style>
 	</head>
 	<body>
 		<div class="invoice-box">
 			<table cellpadding="0" cellspacing="0" width="100%">
 				<tr>
-                    <td align="right" width="25%" rowspan="4">
-                        <img src="{{ public_path('assets/images/square_logo.png') }}" width="75px" height="auto">
+                    <td align="right" width="20%" rowspan="4">
+                        <img src="{{ public_path('assets/images/square_logo.png') }}" width="80px" height="auto" style="margin-right:10px;">
                     </td>
-                    <td width="50%" colspan="2">
+                    <td width="55%" colspan="2">
                         CV. VICTORY KONSULTAN
                     </td>
                     <td width="25%">

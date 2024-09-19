@@ -11,7 +11,8 @@
             }
 
             #table-header{
-                margin-top:-10px;
+                margin-top:-20px;
+                font-weight: 700;
             }
 
             table {
@@ -29,7 +30,7 @@
 			<table id="table-header" cellpadding="0" cellspacing="0" width="100%">
 				<tr>
                     <td align="right" width="20%" rowspan="2">
-                        <img src="{{ public_path('assets/images/square_logo.png') }}" width="80px" height="auto" style="margin-left:50px;position:absolute;">
+                        <img src="{{ public_path('assets/images/square_logo.png') }}" width="80px" height="auto" style="margin-left:50px;position:absolute;margin-top:10px;">
                     </td>
                     <td width="55%" colspan="2">
                         CV. VICTORY KONSULTAN

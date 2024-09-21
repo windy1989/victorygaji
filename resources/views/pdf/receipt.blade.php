@@ -8,76 +8,38 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<title>{{ $title }}</title>
 		<style>
-            table > tr > td {
-                padding:0px !important;
-            }
-            table.table-bordered{
-                border:1px solid black !important;
-                margin-top:20px;
-            }
-            table.table-bordered > thead > tr > th{
-                border:1px solid black !important;
-            }
-            table.table-bordered > tbody > tr > td{
-                border:1px solid black !important;
+            body {
+				font-family:"Calibri", sans-serif;
+                font-size:12px;
             }
 
-			#atas tr td {
-                padding:0px !important;
+            #table-header{
+                margin-top:-15px;
             }
-            table.table-bordered{
-                border:1px solid black;
-                margin-top:20px;
+
+            table {
+                border-collapse:collapse;
             }
-            table.table-bordered > thead > tr > th{
-                border:1px solid black;
+
+            td {
+                padding: 0px !important;
             }
-            table.table-bordered > tbody > tr > td{
-                border:1px solid black;
+            @page { margin: 0.5cm; }
+            hr {
+                background-color: black;
+                border:none;
             }
-            .bg {
-                position: absolute;
-                z-index: 99;
-                top: -50px;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                background: url(dist/images/logo.png) center center no-repeat;
-                opacity: .15;
-                width: 100%;
-                height: 100%;
+            
+            .table-content {
+                font-size:14px;
             }
-            .ttd {
-                background: url(dist/images/ttd.jpg) center center no-repeat;
-                background-size: 80%;
-                background-position:
-                    -20px 20px,
-                    100%,
-                    20px 20px,
-                    50%,
-                    0 90%;
+
+            #table-detail th {
+                padding:5px;
             }
-            .kwitansi {
-                position: absolute;
-                z-index: 99;
-                top: -350px;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                width: 100%;
-                height: 100%;
-                writing-mode: tb-rl;
-                transform: rotate(-180deg);
-                font-size:50px;
-                background: -webkit-linear-gradient(#eee, #333);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                -webkit-text-stroke: 1px black;
-                //text-shadow: -3px -3px black;
-                letter-spacing: 5px;
-            }
-            .borderless td, .borderless th {
-                border: none;
+
+            #table-detail > tbody > tr > td {
+                padding:25px 5px 25px 5px !important;
             }
 		</style>
 	</head>

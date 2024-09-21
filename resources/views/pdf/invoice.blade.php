@@ -161,9 +161,26 @@
                 Keterangan :
                 <p>
                     Adapun pembayaran mohon di transfer ke nomor rekening berikut :<br>
-                    {{ $data->bank->bank.' Cab. '.$data->bank->branch.' No. Rekening '.$data->bank->no.' A.n. : '.$data->bank->name }}
+                    {!! $data->bank->bank.' Cab. '.$data->bank->branch.' No. Rekening <b>'.$data->bank->no.'</b> A.n. : <b>'.$data->bank->name.'</b>' !!}
                 </p>
             </div>
+            <br>
+            <br>
+            <table class="table-content" id="table-detail" cellpadding="0" cellspacing="0" width="90%"style="margin:auto;">
+                <tbody>
+                    <tr>
+                        <td align="center" width="60%">
+                            
+                        </td>
+                        <td align="center" width="40%">
+                            CV. VICTORY KONSULTAN
+                            <br><br><br><br><br>
+                            <u>.DEDDY CHRISTIANTO., S.T.</u>
+                            Direktur
+                        </td>
+                    </tr>
+                </tbody>
+			</table>
 		</div>
 	</body>
 </html>

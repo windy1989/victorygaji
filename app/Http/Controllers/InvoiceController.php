@@ -110,7 +110,7 @@ class InvoiceController extends Controller
                     $val->statusBadge(),
                     $val->document ? '<a href="'.$val->attachment().'" target="_blank"><i class="flaticon-381-link"></i></a>' : 'Belum diunggah',
                     '
-                        <a href="javascript:void(0);" class="btn btn-secondary btn-sm content-icon" onclick="recap(`'.CustomHelper::encrypt($val->code).'`)"><i class="fa fa-info-circle"></i></a>
+                        <a href="javascript:void(0);" class="btn btn-secondary btn-sm content-icon" onclick="detail(`'.CustomHelper::encrypt($val->code).'`)"><i class="fa fa-info-circle"></i></a>
                         <a href="javascript:void(0);" class="btn btn-success btn-sm content-icon" onclick="pay(`'.CustomHelper::encrypt($val->code).'`,`'.$val->code.'`)"><i class="fa fa-credit-card-alt"></i></a>
                         <a href="'.env('APP_URL').'/invoice/print/'.CustomHelper::encrypt($val->code).'" class="btn btn-info btn-sm content-icon" data-toggle="tooltip" data-placement="top" title="Cetak Invoice"><i class="fa fa-print"></i></a>
                         <a href="'.env('APP_URL').'/invoice/print_receipt/'.CustomHelper::encrypt($val->code).'" class="btn btn-light btn-sm content-icon" data-toggle="tooltip" data-placement="top" title="Cetak Kwitansi"><i class="fa fa-print"></i></a>
@@ -306,6 +306,24 @@ class InvoiceController extends Controller
             $response = [
                 'status'    => 200,
                 'data'      => $data,
+            ];
+        }else{
+            $response = [
+                'status'  => 500,
+                'message' => 'Data tidak ditemukan.'
+            ];
+        }
+
+        return response()->json($response);
+    }
+
+    public function detail(Request $request){
+        $data = Invoice::where('code',CustomHelper::decrypt($request->code))->first();
+        if($data){
+            $response = [
+                'status'    => 200,
+                'data'      => $data,
+                'html'      => '',
             ];
         }else{
             $response = [

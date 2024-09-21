@@ -80,6 +80,7 @@ Route::middleware('login')->group(function () {
         Route::post('create',[InvoiceController::class, 'create']);
         Route::post('create_receipt',[InvoiceController::class, 'createReceipt']);
         Route::post('show',[InvoiceController::class, 'show']);
+        Route::post('detail',[InvoiceController::class, 'detail']);
         Route::post('destroy',[InvoiceController::class, 'destroy']);
         Route::get('print/{id}',[InvoiceController::class, 'print']);
         Route::get('print_receipt/{id}',[InvoiceController::class, 'printReceipt']);

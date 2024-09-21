@@ -916,6 +916,42 @@ function edit(code){
     });
 }
 
+function detail(code){
+    $.ajax({
+        url: window.location.href + '/detail',
+        type: 'POST',
+        dataType: 'JSON',
+        data: {
+            code: code
+        },
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        beforeSend: function() {
+            loadingOpen();
+        },
+        success: function(response) {
+            if(response.status == 200){
+                $('#modal-detail-title').text(response.data.code);
+                $('#modal-detail-body').text(response.data.html);
+
+                $('#modalDetail').modal('toggle');
+            }else{
+                errorMessage('Data tidak ditemukan.');
+            }
+            loadingClose();
+        },
+        error: function(response) {
+            if(response.status == '403'){
+				errorMessage('You have no access.');
+			}else{
+				errorConnection();
+			}
+            loadingClose();
+        }
+    });
+}
+
 function destroy(code){
     swal.fire({
         title: "Yakin ingin menghapus data?",
@@ -1089,6 +1125,10 @@ $(function() {
         $('#validation_alert').hide();
         $('#customer_id,#project_type_id,#purpose_id,#region_id,#project_id,#bank_id').empty();
         $('#nominal_project').text('0,00');
+    });
+
+    $('#modalDetail').on('hidden.bs.modal', function (e) {
+        $('#modal-detail-title,#modal-detail-body').text('');
     });
 });
 

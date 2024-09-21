@@ -35,8 +35,8 @@
                 padding:5px;
             }
 
-            #table-detail td {
-                padding:25px 0px 25px 0px;
+            #table-detail > tbody > td {
+                padding:25px 0px 25px 0px !important;
             }
 		</style>
 	</head>

@@ -151,11 +151,19 @@
                     </tr>
                     <tr>
                         <th colspan="5">
-                            Terbilang : {{ CustomHelper::terbilangWithKoma($data->nominal) }}
+                            <i>Terbilang : {{ CustomHelper::terbilangWithKoma($data->nominal) }}</i>
                         </th>
                     </tr>
                 </tfoot>
 			</table>
+            <br>
+            <div>
+                Keterangan :
+                <p>
+                    Adapun pembayaran mohon di transfer ke nomor rekening berikut :<br>
+                    {{ $data->bank->bank.' Cab. '.$data->bank->branch.' No. Rekening '.$data->bank->no.' A.n. : '.$data->bank->name }}
+                </p>
+            </div>
 		</div>
 	</body>
 </html>

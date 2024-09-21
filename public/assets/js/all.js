@@ -896,7 +896,7 @@ function edit(code){
                     $('#nominal').val(response.data.nominal);
                     $('#termin_no').val(response.data.termin_no);
                     $('#note').val(response.data.note);
-                    $('#nominal_project').text(response.nominal_project);
+                    $('#nominal_project').text(response.data.nominal_project);
                 }
 
                 $('#modalCreate').modal('toggle');

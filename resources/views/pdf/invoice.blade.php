@@ -53,8 +53,8 @@
                     <td width="55%" colspan="2">
                         <b>CV. VICTORY KONSULTAN</b>
                     </td>
-                    <td width="25%" rowspan="2">
-                        <h2 style="margin-top:30px;">INVOICE</h2>
+                    <td width="25%" rowspan="2" align="center">
+                        <h2 style="margin-top:50px;">INVOICE</h2>
                     </td>
                 </tr>
                 <tr>

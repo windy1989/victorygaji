@@ -61,7 +61,7 @@
             <table id="table-content" cellpadding="0" cellspacing="0" width="100%">
 				<tr>
                     <td width="50%" style="border:1px solid black;">
-                        <h2>Ditujukan Kepada Yth:</h2>
+                        <h3>Ditujukan Kepada Yth:</h3>
                         <div>
                             {{ $data->receive_from }}
                         </div>

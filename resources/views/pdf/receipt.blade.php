@@ -45,66 +45,35 @@
 	</head>
 	<body>
 		<div class="invoice-box">
-            <table border="0" width="100%">
-                <tr>
-                    <td width="15%">
-                        <h2 class="page-header">
-                          <img src="{{ public_path('assets/images/square_logo.png') }}" width="100px" height="100%" style="margin-left:30px;">
-                        </h2>
+            <table id="table-header" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+                    <td align="right" width="20%" rowspan="2">
+                        <img src="{{ public_path('assets/images/square_logo.png') }}" width="80px" height="auto" style="margin-left:50px;position:absolute;margin-top:10px;">
                     </td>
-                    <td width="40%" style="font-size:13px !important;">
-                        <table border="0" width="100%" id="atas">
-                            <tr>
-                                <td colspan=2><b><u>CV. VICTORY KONSULTAN</u></b></td>
-                            </tr>
-                            <tr>
-                                <td colspan=2><b>STUDY KELAYAKAN, REKAYASA, EVALUASI, DAN MANAJEMEN</b></td>
-                            </tr>
-                            <tr>
-                                <td width="20%">Alamat</td>
-                                <td width="80%">: Perum. Graha Kota D 12 No. 20 Suko - Sidoarjo</td>
-                            </tr>
-                            <tr>
-                                <td width="20%">Telp/Fax</td>
-                                <td width="80%">: 031-51517878</td>
-                            </tr>
-                            <tr>
-                                <td width="20%">Email</td>
-                                <td width="80%">: victorykonsultan@gmail.com</td>
-                            </tr>
-                            <tr>
-                                <td width="20%">Web</td>
-                                <td width="80%">: victorykonsultan.co.id</td>
-                            </tr>
-                        </table>
+                    <td width="55%" colspan="2">
+                        <b>CV. VICTORY KONSULTAN</b>
                     </td>
-                    <td width="45%">
-                        <table border="0" width="100%">
-                            <tr>
-                                <td width="20%" style="padding:0px !important;">
-                                Tanggal
-                                </td>
-                                <td width="50%" style="padding:0px !important;">
-                                    : {{ date('d/m/Y',strtotime($data->pay_date)) }}
-                                </td>
-                                <td rowspan="2" width="30%" class="text-center" style="padding:0px !important;">
-                                    <img src="" alt="" id="image" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td width="20%" style="padding:0px !important;">
-                                Invoice No
-                                </td>
-                                <td width="50%" style="padding:0px !important;">
-                                    : {{ $data->code }}
-                                </td>
-                            </tr>
-                        </table>
+                    <td width="25%" rowspan="2" align="center">
+                        <h2 style="margin-top:30px;">INVOICE</h2>
+                        <img src="data:image/png;base64,{{ DNS1D::getBarcodePNG($data->code, 'C128') }}" alt="barcode" style="top:50px;" height="35px" width="100%"/>
                     </td>
                 </tr>
-            </table>
+                <tr>
+                    <td width="15%">
+                        Kantor Pusat<br>
+                        Telp/Fax<br>
+                        Email
+                    </td>
+                    <td width="40%">
+                        : Perum. Graha Kota D 12 No. 20 Suko - Sidoarjo<br>
+                        : 031-51517878<br>
+                        : victorykonsultan@gmail.com
+                    </td>
+                </tr>
+			</table>
             <br>
-            <br>
+            <hr style="height: 5px;">
+            <hr style="height: 1px;">
             <table class="table borderless">
                 <tbody>
                     <tr>

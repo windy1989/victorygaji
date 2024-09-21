@@ -362,4 +362,21 @@ class InvoiceController extends Controller
             abort(404);
         }
     }
+
+    public function printReceipt(Request $request,$id){
+        $data = Invoice::where('code',CustomHelper::decrypt($id))->whereNotNull('receipt_code')->first();
+        if($data){
+
+            $result = [
+                'title'         => 'Kwitansi '.$data->receipt_code,
+                'data'          => $data,
+            ];
+    
+            $pdf = Pdf::loadView('pdf.receipt', $result);
+            return $pdf->stream('receipt_'.$data->receipt_code.'.pdf');
+            /* return $pdf->download('invoice.pdf'); */
+        }else{
+            abort(404);
+        }
+    }
 }

@@ -36,7 +36,7 @@
             }
 
             #table-detail > tbody > tr > td {
-                padding:25px 0px 25px 0px !important;
+                padding:25px 5px 25px 5px !important;
             }
 		</style>
 	</head>

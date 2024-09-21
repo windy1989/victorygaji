@@ -31,8 +31,12 @@
                 font-size:14px;
             }
 
-            #table-detail th, td {
+            #table-detail th {
                 padding:5px;
+            }
+
+            #table-detail td {
+                padding:25px 0px 25px 0px;
             }
 		</style>
 	</head>

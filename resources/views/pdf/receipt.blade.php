@@ -43,7 +43,7 @@
             }
 
             #table-receipt > tbody > tr > td {
-                padding:25px 5px 25px 5px !important;
+                padding:10px 5px 10px 5px !important;
             }
 		</style>
 	</head>

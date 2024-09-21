@@ -75,8 +75,8 @@
             <hr style="height: 1px;">
             <table class="table-content" cellpadding="0" cellspacing="0" width="90%" style="margin:auto;">
 				<tr>
-                    <td width="50%" style="border:1px solid black;padding:25px 5px 25px 5px !important;" valign="top">
-                        <h3>Ditujukan Kepada Yth:</h3>
+                    <td width="50%" style="border:1px solid black;padding:25px 5px 25px 5px !important;">
+                        <h3 style="top:0px;">Ditujukan Kepada Yth:</h3>
                         <div>
                             {{ $data->receive_from }}
                         </div>

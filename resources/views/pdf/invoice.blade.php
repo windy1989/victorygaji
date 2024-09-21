@@ -120,13 +120,13 @@
                             Pembayaran Pertama (DP) untuk Pekerjaan Dokumen Andalalin Pembangunan {{ $data->project->name }} di {{ $data->project->location }} dengan status Jalan ......................
                         </td>
                         <td align="right">
-                            Rp {{ number_format($data->project->cost,',','.') }}
+                            Rp {{ number_format($data->project->cost,2,',','.') }}
                         </td>
                         <td align="center">
-                            {{ number_format(round($data->nominal / $data->project->cost,2),',','.') }}%
+                            {{ number_format(round($data->nominal / $data->project->cost,2),2,',','.') }}%
                         </td>
                         <td align="right">
-                            Rp {{ number_format($data->nominal,',','.') }}
+                            Rp {{ number_format($data->nominal,2,',','.') }}
                         </td>
                     </tr>
                 </tbody>

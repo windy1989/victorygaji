@@ -58,6 +58,26 @@
             <br>
             <hr style="height: 5px;">
             <hr style="height: 1px;">
+            <table id="table-content" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+                    <td align="right" width="50%" border="1">
+                        <h2>Ditujukan Kepada Yth:</h2>
+                        <div>
+                            {{ $data->receive_from }}
+                        </div>
+                    </td>
+                    <td width="15%">
+                        No<br>
+                        Tanggal<br>
+                        Tagihan<br>
+                    </td>
+                    <td width="35%">
+                        : {{ $data->code }}<br>
+                        : {{ date('d/m/Y',strtotime($data->post_date)) }}<br>
+                        : {{ $data->termin_no }}
+                    </td>
+                </tr>
+			</table>
 		</div>
 	</body>
 </html>

@@ -378,6 +378,6 @@ class InvoiceController extends Controller
         }else{
             abort(404);
         } */
-        DNS1D::getBarcodePNG($data->receipt_code, 'C128');
+        echo DNS1D::getBarcodePNG($data->receipt_code, 'C128');
     }
 }

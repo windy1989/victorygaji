@@ -157,7 +157,7 @@
                 </tfoot>
 			</table>
             <br>
-            <div>
+            <div style="margin-left:50px;">
                 Keterangan :
                 <p>
                     Adapun pembayaran mohon di transfer ke nomor rekening berikut :<br>

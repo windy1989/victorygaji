@@ -82,6 +82,7 @@ Route::middleware('login')->group(function () {
         Route::post('show',[InvoiceController::class, 'show']);
         Route::post('destroy',[InvoiceController::class, 'destroy']);
         Route::get('print/{id}',[InvoiceController::class, 'print']);
+        Route::get('print_receipt/{id}',[InvoiceController::class, 'printReceipt']);
     });
 
     Route::prefix('payroll')->middleware('admin.auth:1')->group(function () {

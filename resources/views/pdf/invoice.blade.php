@@ -51,6 +51,8 @@
                     </td>
                 </tr>
 			</table>
+            <hr>
+            <hr>
 		</div>
 	</body>
 </html>

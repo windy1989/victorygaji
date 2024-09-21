@@ -35,6 +35,20 @@ class Invoice extends Model
         'void_date',
     ];
 
+    public function paymentNoText(){
+        $text = '';
+        if($this->termin_no == 1){
+            $text = 'Pertama (DP)';
+        }elseif($this->termin_no == 2){
+            $text = 'Kedua';
+        }elseif($this->termin_no == 3){
+            $text = 'Ketiga';
+        }elseif($this->termin_no == 3){
+            $text = 'Keempat';
+        }
+        return $text;
+    }
+
     public function user(){
         return $this->belongsTo('App\Models\User','user_id','id')->withTrashed();
     }

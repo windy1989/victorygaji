@@ -31,7 +31,7 @@
                 font-size:14px;
             }
 
-            #table-detail > th {
+            #table-detail th {
                 padding:5px;
             }
 		</style>
@@ -93,24 +93,43 @@
             <br>
             <table class="table-content" id="table-detail" cellpadding="0" cellspacing="0" width="90%" border="1" style="border:1px solid black;margin:auto;">
                 <thead>
-				<tr>
-                    <th width="5%">
-                        No
-                    </th>
-                    <th width="35%">
-                        Diskripsi
-                    </th>
-                    <th width="20%">
-                        Total Nilai
-                    </th>
-                    <th width="20%">
-                        Persentase
-                    </th>
-                    <th width="20%">
-                        Jumlah
-                    </th>
-                </tr>
+                    <tr>
+                        <th width="5%">
+                            No
+                        </th>
+                        <th width="35%">
+                            Diskripsi
+                        </th>
+                        <th width="20%">
+                            Total Nilai
+                        </th>
+                        <th width="20%">
+                            Persentase
+                        </th>
+                        <th width="20%">
+                            Jumlah
+                        </th>
+                    </tr>
                 </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            1.
+                        </td>
+                        <td>
+                            Pembayaran Pertama (DP) untuk Pekerjaan Dokumen Andalalin Pembangunan {{ $data->project->name }} di {{ $data->project->location }} dengan status Jalan ......................
+                        </td>
+                        <td align="right">
+                            Rp {{ number_format($data->project->cost,',','.') }}
+                        </td>
+                        <td align="center">
+                            {{ number_format(round($data->nominal / $data->project->cost,2),',','.') }}%
+                        </td>
+                        <td align="right">
+                            Rp {{ number_format($data->nominal,',','.') }}
+                        </td>
+                    </tr>
+                </tbody>
 			</table>
 		</div>
 	</body>

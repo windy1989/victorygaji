@@ -34,6 +34,10 @@
                 font-size:14px;
             }
 
+            .table-content td {
+                padding: 25px 5px 25px 5px;
+            }
+
             #table-detail th {
                 padding:5px;
             }

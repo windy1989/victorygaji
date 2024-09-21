@@ -102,15 +102,7 @@
                       <td style="border: 1px solid black;"><b><i>{{ CustomHelper::terbilangWithKoma($data->nominal) }} Rupiah</i></b></td>
                     </tr>
                 </tbody>
-              </table>
-            <br>
-            <div style="margin-left:50px;font-size:14px;">
-                Keterangan :
-                <p>
-                    Adapun pembayaran mohon di transfer ke nomor rekening berikut :<br>
-                    {!! $data->bank->bank.' Cab. '.$data->bank->branch.' No. Rekening <b>'.$data->bank->no.'</b> A.n. : <b>'.$data->bank->name.'</b>' !!}
-                </p>
-            </div>
+            </table>
             <br>
             <br>
             <table class="table-content" id="table-detail" cellpadding="0" cellspacing="0" width="90%"style="margin:auto;font-weight:700;">

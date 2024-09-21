@@ -27,7 +27,7 @@
                 border:none;
             }
             
-            #table-content {
+            .table-content {
                 font-size:14px;
             }
 		</style>
@@ -62,7 +62,7 @@
             <br>
             <hr style="height: 5px;">
             <hr style="height: 1px;">
-            <table id="table-content" cellpadding="0" cellspacing="0" width="100%">
+            <table class="table-content" cellpadding="0" cellspacing="0" width="100%">
 				<tr>
                     <td width="50%" style="border:1px solid black;">
                         <h3>Ditujukan Kepada Yth:</h3>
@@ -70,7 +70,7 @@
                             {{ $data->receive_from }}
                         </div>
                     </td>
-                    <td width="15%">
+                    <td width="15%" style="padding-left:5px;">
                         No<br>
                         Tanggal<br>
                         Tagihan<br>

@@ -34,6 +34,8 @@
                                 </div>
                             </div>
                             <div class="card-body">
+                                <div class="alert alert-secondary solid alert-square"><a href="#" class="btn btn-info btn-sm content-icon"><i class="fa fa-print"></i></a> : tombol untuk cetak Invoice.</div>
+                                <div class="alert alert-info solid alert-square"><a href="#" class="btn btn-light btn-sm content-icon"><i class="fa fa-print"></i></a> : tombol untuk cetak Kwitansi.</div>
                                 <div class="table-responsive">
                                     <table id="invoice-datatable" class="display nowrap" style="min-width: 100%">
                                         <thead>

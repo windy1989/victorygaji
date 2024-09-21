@@ -26,6 +26,10 @@
                 background-color: black;
                 border:none;
             }
+            
+            #table-content {
+                font-size:14px;
+            }
 		</style>
 	</head>
 	<body>

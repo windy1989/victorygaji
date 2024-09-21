@@ -92,7 +92,7 @@
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Proyek</label>
-                                    <select id="project_id" name="project_id"></select>
+                                    <select id="project_id" name="project_id" onchange="getProjectInfo();"></select>
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Bank</label>
@@ -113,6 +113,10 @@
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Keterangan</label>
                                     <input type="text" class="form-control" placeholder="Keterangan" id="note" name="note">
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label class="form-label">Nominal Proyek</label>
+                                    <b id="nominal_project">0,00</b>
                                 </div>
                             </div>
                         </form>

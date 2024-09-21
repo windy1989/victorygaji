@@ -1087,6 +1087,7 @@ $(function() {
         $('#validation_alert').html('');
         $('#validation_alert').hide();
         $('#customer_id,#project_type_id,#purpose_id,#region_id,#project_id,#bank_id').empty();
+        $('#nominal_project').text('0,00');
     });
 });
 
@@ -1502,6 +1503,13 @@ function saveReceipt(){
             });
         }
     });
+}
+
+function getProjectInfo(){
+    $('#nominal_project').text('0,00');
+    if($('#project_id').val()){
+        alert($('#project_id').select2('data')[0].total_project);
+    }
 }
 
 /* INVOICE */

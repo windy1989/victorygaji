@@ -66,7 +66,7 @@
 				<tr>
                     <td width="50%" style="border:1px solid black;vertical-align:top;">
                         <h3>Ditujukan Kepada Yth:</h3>
-                        <div>
+                        <div style="padding-left:5px;">
                             {{ $data->receive_from }}
                         </div>
                     </td>
@@ -83,6 +83,26 @@
                             : {{ date('d/m/Y',strtotime($data->post_date)) }}<br>
                             : {{ $data->termin_no }}
                         </div>
+                    </td>
+                </tr>
+			</table>
+            <br>
+            <table class="table-content" cellpadding="0" cellspacing="0" width="90%" style="margin:auto;">
+				<tr>
+                    <td width="5%">
+                        No
+                    </td>
+                    <td width="35%">
+                        Diskripsi
+                    </td>
+                    <td width="20%">
+                        Total Nilai
+                    </td>
+                    <td width="20%">
+                        Persentase
+                    </td>
+                    <td width="20%">
+                        Jumlah
                     </td>
                 </tr>
 			</table>

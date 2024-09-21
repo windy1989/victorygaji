@@ -118,6 +118,7 @@ class Select2Controller extends Controller {
             $response[] = [
                 'id'   			=> $d->id,
                 'text' 			=> $d->code.' - '.$d->name.' - '.$d->customer->name,
+                'total_project' => number_format($d->cost,2,',','.'),
             ];
         }
 

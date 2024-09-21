@@ -35,7 +35,7 @@
                 padding:5px;
             }
 
-            #table-detail > tbody > td {
+            #table-detail > tbody > tr > td {
                 padding:25px 0px 25px 0px !important;
             }
 		</style>

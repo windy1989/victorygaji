@@ -34,7 +34,7 @@
                 font-size:14px;
             }
 
-            .table-content td {
+            .table-content > tbody > tr > td {
                 padding: 25px 5px 25px 5px;
             }
 

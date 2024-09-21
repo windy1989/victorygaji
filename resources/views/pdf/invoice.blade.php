@@ -113,10 +113,10 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>
+                        <td align="center">
                             1.
                         </td>
-                        <td align="center">
+                        <td>
                             Pembayaran Pertama (DP) untuk Pekerjaan Dokumen Andalalin Pembangunan {{ $data->project->name }} di {{ $data->project->location }} dengan status Jalan ......................
                         </td>
                         <td align="right">

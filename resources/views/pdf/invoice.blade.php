@@ -51,8 +51,9 @@
                     </td>
                 </tr>
 			</table>
-            <hr>
-            <hr>
+            <br><br>
+            <hr style="height: 5px;">
+            <hr style="height: 1px;">
 		</div>
 	</body>
 </html>

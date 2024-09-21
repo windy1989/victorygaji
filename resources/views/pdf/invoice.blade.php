@@ -22,6 +22,10 @@
                 padding: 0px !important;
             }
             @page { margin: 0.5cm; }
+            hr {
+                background-color: black;
+                border:none;
+            }
 		</style>
 	</head>
 	<body>

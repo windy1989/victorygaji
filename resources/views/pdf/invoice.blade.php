@@ -87,7 +87,7 @@
                 </tr>
 			</table>
             <br>
-            <table class="table-content" cellpadding="0" cellspacing="0" width="90%" style="margin:auto;" border="1">
+            <table class="table-content" cellpadding="0" cellspacing="0" width="90%" style="margin:auto;" style="border:1px solid black;">
 				<tr>
                     <td width="5%">
                         No

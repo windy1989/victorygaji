@@ -60,7 +60,7 @@
             <hr style="height: 1px;">
             <table id="table-content" cellpadding="0" cellspacing="0" width="100%">
 				<tr>
-                    <td align="right" width="50%" border="1">
+                    <td width="50%" style="border:1px solid black;">
                         <h2>Ditujukan Kepada Yth:</h2>
                         <div>
                             {{ $data->receive_from }}

@@ -933,7 +933,7 @@ function detail(code){
         success: function(response) {
             if(response.status == 200){
                 $('#modal-detail-title').text(response.data.code);
-                $('#modal-detail-body').text(response.data.html);
+                $('#modal-detail-body').text(response.html);
 
                 $('#modalDetail').modal('toggle');
             }else{

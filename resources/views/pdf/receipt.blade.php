@@ -55,7 +55,7 @@
                     </td>
                     <td width="25%" rowspan="2" align="center">
                         <h2 style="margin-top:30px;">KWITANSI</h2>
-                        <img src="data:image/png;base64,{{ DNS1D::getBarcodePNG($data->code, 'C128') }}" alt="barcode" style="top:50px;" height="35px" width="100%"/>
+                        <img src="data:image/png;base64,{{ DNS1D::getBarcodePNG($data->receipt_code, 'C128') }}" alt="barcode" style="top:50px;" height="35px" width="100%"/>
                     </td>
                 </tr>
                 <tr>
@@ -74,7 +74,7 @@
             <br>
             <hr style="height: 5px;">
             <hr style="height: 1px;">
-            <table class="table borderless">
+            <table class="table-content" cellpadding="0" cellspacing="0" width="100%">
                 <tbody>
                     <tr>
                       <td width="25%">KWITANSI</td>

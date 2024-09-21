@@ -124,16 +124,34 @@
                             Pembayaran Pertama (DP) untuk Pekerjaan Dokumen Andalalin Pembangunan {{ $data->project->name }} di {{ $data->project->location }} dengan status Jalan ......................
                         </td>
                         <td align="right">
-                            Rp {{ number_format($data->project->cost,2,',','.') }}
+                            Rp {{ number_format($data->project->cost,0,',','.') }},-
                         </td>
                         <td align="center">
-                            {{ number_format(round($data->nominal / $data->project->cost,2),2,',','.') }}%
+                            {{ number_format(round(($data->nominal / $data->project->cost) * 100,2),0,',','.') }}%
                         </td>
                         <td align="right">
-                            Rp {{ number_format($data->nominal,2,',','.') }}
+                            Rp {{ number_format($data->nominal,0,',','.') }},-
                         </td>
                     </tr>
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th align="center">
+                            TOTAL
+                        </th>
+                        <th align="right">
+                            Rp {{ number_format($data->nominal,0,',','.') }},-
+                        </th>
+                    </tr>
+                    <tr>
+                        <th colspan="5">
+                            Terbilang : {{ CustomHelper::terbilangWithKoma($data->nominal) }}
+                        </th>
+                    </tr>
+                </tfoot>
 			</table>
 		</div>
 	</body>

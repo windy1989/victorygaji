@@ -123,4 +123,107 @@ class CustomHelper {
             ]);
         }
     }
+
+    public static function terbilangWithKoma($angka){
+		$arr = explode('.',strval(round($angka,2)));
+		$angka=intval($arr[0]);
+		$sen = '';
+		if(count($arr) > 1){
+			$sen = self::tkoma($arr[1]);
+		}
+
+		$terbilang = self::terbilang($angka).(count($arr) > 1 ? ' Koma '.$sen : '');
+
+		return $terbilang;
+	}
+
+	public static function terbilang($angka) {
+		$angka = strval($angka);
+		
+		$baca = array("nol", "satu", "dua", "tiga", "empat", "lima", "enam", "tujuh", "delapan", "sembilan", "sepuluh", "sebelas");
+	  
+		$terbilang="";
+		 if ($angka < 12){
+			 $terbilang= " " . $baca[$angka];
+		 }
+		 else if ($angka < 20){
+			 $terbilang= self::terbilangSen($angka - 10) . " belas";
+		 }
+		 else if ($angka < 100){
+			 $terbilang= self::terbilangSen($angka / 10) . " puluh" . self::terbilangSen($angka % 10);
+		 }
+		 else if ($angka < 200){
+			 $terbilang= " seratus" . self::terbilangSen($angka - 100);
+		 }
+		 else if ($angka < 1000){
+			 $terbilang= self::terbilangSen($angka / 100) . " ratus" . self::terbilangSen($angka % 100);
+		 }
+		 else if ($angka < 2000){
+			 $terbilang= " seribu" . self::terbilangSen($angka - 1000);
+		 }
+		 else if ($angka < 1000000){
+			 $terbilang= self::terbilangSen($angka / 1000) . " ribu" . self::terbilangSen($angka % 1000);
+		 }
+		 else if ($angka < 1000000000){
+			$terbilang= self::terbilangSen($angka / 1000000) . " juta" . self::terbilangSen($angka % 1000000);
+		 }
+		 else if ($angka < 1000000000000){
+			$terbilang= self::terbilangSen($angka / 1000000000) . " miliar" . self::terbilangSen($angka % 1000000000);
+		 }
+		 
+		 return ucwords($terbilang);
+	 }
+
+	public static function tkoma($angka){
+		$baca =array("nol", "satu", "dua", "tiga", "empat", "lima", "enam", "tujuh", "delapan", "sembilan");
+
+		$temp = "";
+		$pjg = strlen($angka);
+		$pos = 0;
+
+		while($pos < $pjg){
+			$char =	 substr($angka,$pos,1);
+			$pos++;
+			$temp	.= " ".$baca[$char];
+		}
+
+		return ucwords($temp);
+	}	
+
+	 public static function terbilangSen($angka) {
+		$angka=abs($angka);
+		
+		$baca =array("", "satu", "dua", "tiga", "empat", "lima", "enam", "tujuh", "delapan", "sembilan", "sepuluh", "sebelas");
+	  
+		$terbilang="";
+		 if ($angka < 12){
+			 $terbilang= " " . $baca[$angka];
+		 }
+		 else if ($angka < 20){
+			 $terbilang= self::terbilangSen($angka - 10) . " belas";
+		 }
+		 else if ($angka < 100){
+			 $terbilang= self::terbilangSen($angka / 10) . " puluh" . self::terbilangSen($angka % 10);
+		 }
+		 else if ($angka < 200){
+			 $terbilang= " seratus" . self::terbilangSen($angka - 100);
+		 }
+		 else if ($angka < 1000){
+			 $terbilang= self::terbilangSen($angka / 100) . " ratus" . self::terbilangSen($angka % 100);
+		 }
+		 else if ($angka < 2000){
+			 $terbilang= " seribu" . self::terbilangSen($angka - 1000);
+		 }
+		 else if ($angka < 1000000){
+			 $terbilang= self::terbilangSen($angka / 1000) . " ribu" . self::terbilangSen($angka % 1000);
+		 }
+		 else if ($angka < 1000000000){
+			$terbilang= self::terbilangSen($angka / 1000000) . " juta" . self::terbilangSen($angka % 1000000);
+		 }
+		 else if ($angka < 1000000000000){
+			$terbilang= self::terbilangSen($angka / 1000000000) . " miliar" . self::terbilangSen($angka % 1000000000);
+		 }
+		 
+		 return ucwords($terbilang);
+	 }
 }

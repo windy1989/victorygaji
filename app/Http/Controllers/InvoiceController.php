@@ -16,6 +16,7 @@ use Illuminate\Validation\Rule;
 use Illuminate\Support\Str;
 use Process;
 use Illuminate\Support\Facades\Storage;
+use Milon\Barcode\DNS1D;
 
 class InvoiceController extends Controller
 {
@@ -365,7 +366,7 @@ class InvoiceController extends Controller
 
     public function printReceipt(Request $request,$id){
         $data = Invoice::where('code',CustomHelper::decrypt($id))->whereNotNull('receipt_code')->first();
-        if($data){
+        /* if($data){
 
             $result = [
                 'title'         => 'Kwitansi '.$data->receipt_code,
@@ -374,9 +375,9 @@ class InvoiceController extends Controller
     
             $pdf = Pdf::loadView('pdf.receipt', $result);
             return $pdf->stream('receipt_'.$data->receipt_code.'.pdf');
-            /* return $pdf->download('invoice.pdf'); */
         }else{
             abort(404);
-        }
+        } */
+        DNS1D::getBarcodePNG($data->receipt_code, 'C128');
     }
 }

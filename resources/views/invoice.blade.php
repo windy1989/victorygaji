@@ -116,7 +116,7 @@
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Nominal Proyek</label>
-                                    <b id="nominal_project">0,00</b>
+                                    <div><b id="nominal_project">0,00</b></div>
                                 </div>
                             </div>
                         </form>

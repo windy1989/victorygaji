@@ -301,6 +301,7 @@ class InvoiceController extends Controller
             $data['project_code'] = $data->project->code.' - '.$data->project->name.' - '.$data->project->customer->name;
             $data['bank_code'] = $data->bank->name.' - '.$data->bank->no.' - '.$data->bank->bank;
             $data['nominal'] = number_format($data->nominal,2,',','.');
+            $data['nominal_project'] = number_format($data->project->cost,2,',','.');
             $response = [
                 'status'    => 200,
                 'data'      => $data,

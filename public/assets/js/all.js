@@ -896,6 +896,7 @@ function edit(code){
                     $('#nominal').val(response.data.nominal);
                     $('#termin_no').val(response.data.termin_no);
                     $('#note').val(response.data.note);
+                    $('#nominal_project').text(response.nominal_project);
                 }
 
                 $('#modalCreate').modal('toggle');
@@ -1508,7 +1509,7 @@ function saveReceipt(){
 function getProjectInfo(){
     $('#nominal_project').text('0,00');
     if($('#project_id').val()){
-        alert($('#project_id').select2('data')[0].total_project);
+        $('#nominal_project').text($('#project_id').select2('data')[0].total_project);
     }
 }
 

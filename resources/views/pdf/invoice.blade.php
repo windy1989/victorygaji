@@ -151,7 +151,7 @@
                     </tr>
                     <tr>
                         <th colspan="5">
-                            <i>Terbilang : {{ CustomHelper::terbilangWithKoma($data->nominal) }}</i>
+                            <i>Terbilang : {{ CustomHelper::terbilangWithKoma($data->nominal) }} Rupiah</i>
                         </th>
                     </tr>
                 </tfoot>
@@ -166,7 +166,7 @@
             </div>
             <br>
             <br>
-            <table class="table-content" id="table-detail" cellpadding="0" cellspacing="0" width="90%"style="margin:auto;">
+            <table class="table-content" id="table-detail" cellpadding="0" cellspacing="0" width="90%"style="margin:auto;font-weight:700;">
                 <tbody>
                     <tr>
                         <td align="center" width="60%">

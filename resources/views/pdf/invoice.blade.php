@@ -31,7 +31,7 @@
                 font-size:14px;
             }
 
-            #table-detail th {
+            #table-detail > th {
                 padding:5px;
             }
 		</style>
@@ -92,23 +92,25 @@
 			</table>
             <br>
             <table class="table-content" id="table-detail" cellpadding="0" cellspacing="0" width="90%" border="1" style="border:1px solid black;margin:auto;">
+                <thead>
 				<tr>
-                    <td width="5%">
+                    <th width="5%">
                         No
-                    </td>
-                    <td width="35%">
+                    </th>
+                    <th width="35%">
                         Diskripsi
-                    </td>
-                    <td width="20%">
+                    </th>
+                    <th width="20%">
                         Total Nilai
-                    </td>
-                    <td width="20%">
+                    </th>
+                    <th width="20%">
                         Persentase
-                    </td>
-                    <td width="20%">
+                    </th>
+                    <th width="20%">
                         Jumlah
-                    </td>
+                    </th>
                 </tr>
+                </thead>
 			</table>
 		</div>
 	</body>

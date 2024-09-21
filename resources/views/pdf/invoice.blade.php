@@ -176,7 +176,7 @@
                             CV. VICTORY KONSULTAN
                             <br><br><br><br><br>
                             <u>.DEDDY CHRISTIANTO., S.T.</u>
-                            Direktur
+                            <br>Direktur
                         </td>
                     </tr>
                 </tbody>

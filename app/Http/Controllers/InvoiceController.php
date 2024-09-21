@@ -17,6 +17,7 @@ use Illuminate\Support\Str;
 use Process;
 use Illuminate\Support\Facades\Storage;
 use Milon\Barcode\DNS1D;
+use Milon\Barcode\Facades\DNS1DFacade;
 
 class InvoiceController extends Controller
 {
@@ -378,6 +379,6 @@ class InvoiceController extends Controller
         }else{
             abort(404);
         } */
-        echo '<img src="data:image/png;base64,'.DNS1D::getBarcodePNG($data->code, 'C128').'" alt="barcode" style="position: absolute; top:50px;width:100px;right:75px;" height="10%" />';
+        echo '<img src="data:image/png;base64,'.DNS1DFacade::getBarcodePNG($data->code, 'C128').'" alt="barcode" style="position: absolute; top:50px;width:100px;right:75px;" height="10%" />';
     }
 }

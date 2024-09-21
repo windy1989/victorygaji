@@ -55,7 +55,7 @@
                     </td>
                     <td width="25%" rowspan="2" align="center">
                         <h2 style="margin-top:30px;">INVOICE</h2>
-                        <img src="data:image/png;base64,{{ DNS1D::getBarcodePNG($data->code, 'C128') }}" alt="barcode" style="top:50px;width:100px;" height="25px" />
+                        <img src="data:image/png;base64,{{ DNS1D::getBarcodePNG($data->code, 'C128') }}" alt="barcode" style="top:50px;" height="25px" width="100%"/>
                     </td>
                 </tr>
                 <tr>

@@ -30,6 +30,10 @@
             .table-content {
                 font-size:14px;
             }
+
+            #table-detail th {
+                padding:5px;
+            }
 		</style>
 	</head>
 	<body>
@@ -87,7 +91,7 @@
                 </tr>
 			</table>
             <br>
-            <table class="table-content" cellpadding="0" cellspacing="0" width="90%" border="1" style="border:1px solid black;margin:auto;">
+            <table class="table-content" id="table-detail" cellpadding="0" cellspacing="0" width="90%" border="1" style="border:1px solid black;margin:auto;">
 				<tr>
                     <td width="5%">
                         No

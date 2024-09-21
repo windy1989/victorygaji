@@ -34,15 +34,15 @@
                 font-size:14px;
             }
 
-            .table-content > tbody > tr > td {
-                padding: 25px 5px 25px 5px;
-            }
-
             #table-detail th {
                 padding:5px;
             }
 
             #table-detail > tbody > tr > td {
+                padding:25px 5px 25px 5px !important;
+            }
+
+            #table-receipt > tbody > tr > td {
                 padding:25px 5px 25px 5px !important;
             }
 		</style>
@@ -78,7 +78,7 @@
             <br>
             <hr style="height: 5px;">
             <hr style="height: 1px;">
-            <table class="table-content" cellpadding="0" cellspacing="0" width="100%">
+            <table class="table-content" id="table-receipt" cellpadding="0" cellspacing="0" width="100%">
                 <tbody>
                     <tr>
                       <td width="25%">KWITANSI</td>

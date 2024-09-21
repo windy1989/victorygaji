@@ -54,7 +54,7 @@
                         <b>CV. VICTORY KONSULTAN</b>
                     </td>
                     <td width="25%" rowspan="2" align="center">
-                        <h2 style="margin-top:30px;">INVOICE</h2>
+                        <h2 style="margin-top:30px;">KWITANSI</h2>
                         <img src="data:image/png;base64,{{ DNS1D::getBarcodePNG($data->code, 'C128') }}" alt="barcode" style="top:50px;" height="35px" width="100%"/>
                     </td>
                 </tr>

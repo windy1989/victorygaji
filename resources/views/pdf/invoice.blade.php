@@ -70,15 +70,19 @@
                             {{ $data->receive_from }}
                         </div>
                     </td>
-                    <td width="15%" style="padding-left:5px;">
-                        No<br>
-                        Tanggal<br>
-                        Tagihan<br>
+                    <td width="15%">
+                        <div style="padding-left:5px;">
+                            No<br>
+                            Tanggal<br>
+                            Tagihan<br>
+                        </div>
                     </td>
                     <td width="35%">
-                        : {{ $data->code }}<br>
-                        : {{ date('d/m/Y',strtotime($data->post_date)) }}<br>
-                        : {{ $data->termin_no }}
+                        <div>
+                            : {{ $data->code }}<br>
+                            : {{ date('d/m/Y',strtotime($data->post_date)) }}<br>
+                            : {{ $data->termin_no }}
+                        </div>
                     </td>
                 </tr>
 			</table>

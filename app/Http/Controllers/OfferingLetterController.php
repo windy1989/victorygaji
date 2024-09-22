@@ -189,7 +189,7 @@ class OfferingLetterController extends Controller
                     $query->save();
                     CustomHelper::saveLog($query->getTable(),$query->id,'Update data surat penawaran '.$query->code,'Pengguna '.session('bo_name').' telah mengubah data surat penawaran no '.$query->code);
                 }else{
-                    $query = Invoice::create([
+                    $query = OfferingLetter::create([
                         'user_id'               => session('bo_id'),
                         'code'                  => $request->code,
                         'project_id'            => $request->project_id,

@@ -1685,6 +1685,7 @@ function loadDataTableOfferingLetter(){
             { name: 'code', className: '' },
             { name: 'user_id', className: '' },
             { name: 'project_id', className: '' },
+            { name: 'post_date', className: '' },
             { name: 'to_name', className: '' },
             { name: 'type_building', className: '' },
             { name: 'location_building', className: '' },

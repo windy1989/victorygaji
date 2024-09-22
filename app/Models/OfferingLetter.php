@@ -9,77 +9,32 @@ use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Storage;
 
-class Invoice extends Model
+class OfferingLetter extends Model
 {
     use HasFactory, Notifiable, SoftDeletes;
 
-    protected $table = 'invoices';
+    protected $table = 'offering_letters';
     protected $primaryKey = 'id';
     protected $dates = ['deleted_at'];
     protected $fillable = [
         'code',
-        'receipt_code',
         'user_id',
-        'receive_from',
         'project_id',
-        'bank_id',
         'post_date',
-        'pay_date',
-        'document',
-        'nominal',
-        'termin_no',
+        'to_name',
+        'type_building',
+        'location_building',
+        'type_road',
         'note',
         'status',
-        'void_id',
-        'void_note',
-        'void_date',
     ];
-
-    public function paymentNoText(){
-        $text = '';
-        if($this->termin_no == 1){
-            $text = 'Pertama (DP)';
-        }elseif($this->termin_no == 2){
-            $text = 'Kedua';
-        }elseif($this->termin_no == 3){
-            $text = 'Ketiga';
-        }elseif($this->termin_no == 3){
-            $text = 'Keempat';
-        }
-        return $text;
-    }
 
     public function user(){
         return $this->belongsTo('App\Models\User','user_id','id')->withTrashed();
     }
 
-    public function attachment() 
-    {
-        if($this->document !== NULL && Storage::exists($this->document)) {
-            $document = asset(Storage::url($this->document));
-        } else {
-            $document = asset('website/empty.png');
-        }
-
-        return $document;
-    }
-
-    public function deleteFile(){
-		if(Storage::exists($this->document)) {
-            Storage::delete($this->document);
-        }
-	}
-
     public function project(){
         return $this->belongsTo('App\Models\Project','project_id','id')->withTrashed();
-    }
-
-    public function bank(){
-        return $this->belongsTo('App\Models\Bank','bank_id','id')->withTrashed();
-    }
-
-    public function voidUser(){
-        return $this->belongsTo('App\Models\User','void_id','id')->withTrashed();
     }
 
     public function status(){

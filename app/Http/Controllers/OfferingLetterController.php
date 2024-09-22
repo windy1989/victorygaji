@@ -6,6 +6,7 @@ use App\Helpers\CustomHelper;
 use App\Http\Controllers\Controller;
 use App\Models\Customer;
 use App\Models\Invoice;
+use App\Models\OfferingLetter;
 use App\Models\Project;
 use Barryvdh\DomPDF\Facade\Pdf;
 use GuzzleHttp\Psr7\Query;
@@ -17,13 +18,13 @@ use Illuminate\Support\Str;
 use Process;
 use Illuminate\Support\Facades\Storage;
 
-class InvoiceController extends Controller
+class OfferingLetterController extends Controller
 {
     public function index()
     {
         $data = [
-            'title'         => 'Invoice',
-            'content'       => 'invoice',
+            'title'         => 'Surat Penawaran',
+            'content'       => 'offering_letter',
         ];
 
         return view('layouts.index', ['data' => $data]);
@@ -33,15 +34,13 @@ class InvoiceController extends Controller
         $column = [
             'id',
             'code',
-            'receipt_code',
             'user_id',
-            'receive_from',
             'project_id',
-            'bank_id',
 			'post_date',
-            'pay_date',
-            'nominal',
-            'termin_no',
+            'to_name',
+            'type_building',
+            'location_building',
+            'type_road',
             'note',
             'status',
         ];
@@ -52,16 +51,18 @@ class InvoiceController extends Controller
         $dir    = $request->input('order.0.dir');
         $search = $request->input('search.value');
 
-        $total_data = Invoice::count();
+        $total_data = OfferingLetter::count();
         
-        $query_data = Invoice::where(function($query) use ($search, $request) {
+        $query_data = OfferingLetter::where(function($query) use ($search, $request) {
                 if($search) {
                     $query->where(function($query) use ($search, $request) {
                         $query->where('code', 'like', "%$search%")
-                            ->orWhere('receipt_code', 'like', "%$search%")
-                            ->orWhere('receive_from', 'like', "%$search%")
+                            ->orWhere('to_name', 'like', "%$search%")
+                            ->orWhere('type_building', 'like', "%$search%")
+                            ->orWhere('location_building', 'like', "%$search%")
+                            ->orWhere('type_road', 'like', "%$search%")
                             ->orWhere('note', 'like', "%$search%")
-                            ->orWhereHas('project',function($query) use ($search){
+							->orWhereHas('project',function($query) use ($search){
                                 $query->whereHas('customer', function($query) use ($search){
                                     $query->where('code','like',"%$search%")
                                         ->orWhere('name','like',"%$search%");
@@ -75,14 +76,16 @@ class InvoiceController extends Controller
             ->orderBy($order, $dir)
             ->get();
 
-        $total_filtered = Invoice::where(function($query) use ($search, $request) {
+        $total_filtered = OfferingLetter::where(function($query) use ($search, $request) {
                 if($search) {
                     $query->where(function($query) use ($search, $request) {
                         $query->where('code', 'like', "%$search%")
-                            ->orWhere('receipt_code', 'like', "%$search%")
-                            ->orWhere('receive_from', 'like', "%$search%")
+                            ->orWhere('to_name', 'like', "%$search%")
+                            ->orWhere('type_building', 'like', "%$search%")
+                            ->orWhere('location_building', 'like', "%$search%")
+                            ->orWhere('type_road', 'like', "%$search%")
                             ->orWhere('note', 'like', "%$search%")
-                            ->orWhereHas('project',function($query) use ($search){
+							->orWhereHas('project',function($query) use ($search){
                                 $query->whereHas('customer', function($query) use ($search){
                                     $query->where('code','like',"%$search%")
                                         ->orWhere('name','like',"%$search%");
@@ -101,18 +104,15 @@ class InvoiceController extends Controller
                 $response['data'][] = [
                     $nomor,
                     $val->code,
-                    $val->receipt_code ?? '-',
                     $val->user->nama,
-                    $val->receive_from,
                     $val->project->project_no.' - '.$val->project->customer->name,
-                    $val->bank->no.' - '.$val->bank->bank,
                     date('d/m/Y',strtotime($val->post_date)),
-                    $val->pay_date ? date('d/m/Y',strtotime($val->pay_date)) : '-',
-                    number_format($val->nominal,2,',','.'),
-                    $val->termin_no,
+                    $val->to_name,
+                    $val->type_building,
+                    $val->location_building,
+                    $val->type_road,
                     $val->note,
                     $val->statusBadge(),
-                    $val->document ? '<a href="'.$val->attachment().'" target="_blank"><i class="flaticon-381-link"></i></a>' : 'Belum diunggah',
                     '
                         <a href="javascript:void(0);" class="btn btn-secondary btn-sm content-icon" onclick="detail(`'.CustomHelper::encrypt($val->code).'`)"><i class="fa fa-info-circle"></i></a>
                         <a href="javascript:void(0);" class="btn btn-success btn-sm content-icon" onclick="pay(`'.CustomHelper::encrypt($val->code).'`,`'.$val->code.'`)"><i class="fa fa-credit-card-alt"></i></a>
@@ -225,81 +225,6 @@ class InvoiceController extends Controller
         }
     }
 
-    public function createReceipt(Request $request){
-        DB::beginTransaction();
-        try {
-            $validation = Validator::make($request->all(), [
-                'code_receipt'		    => 'required|unique:invoices,receipt_code',
-                'pay_date'              => 'required',
-                'tempReceipt'           => 'required',
-                'fileReceipt'           => 'required|mimes:jpg,png,jpeg|max:1024',
-            ], [
-                'code_receipt.required'     => 'Kode kwitansi tidak boleh kosong.',
-                'code_receipt.unique'       => 'Kode kwitansi telah dipakai.',
-                'pay_date.required'         => 'Tgl. bayar tidak boleh kosong.',
-                'tempReceipt.required'      => 'Bukti invoice tidak boleh kosong.',
-                'fileReceipt.required'      => 'File bukti bayar tidak boleh kosong.',
-                'fileReceipt.mimes'         => 'File bukti bayar harus berupa jpeg, png atau jpg.',
-                'fileReceipt.max'           => 'File bukti bayar ukuran maksimal 1024Kb',
-            ]);
-
-            if($validation->fails()) {
-                $response = [
-                    'status' => 422,
-                    'error'  => $validation->errors()
-                ];
-            } else {
-
-                $query = Invoice::where('code',CustomHelper::decrypt($request->tempReceipt))->first();
-
-                if($query->status == '3'){
-                    return response()->json([
-                        'status'    => 500,
-                        'message'   => 'Ups. Invoice telah SELESAI, anda tidak bisa melakukan perubahan.'
-                    ]);
-                }
-
-                if($query->document){
-                    if(Storage::exists($query->document)){
-                        Storage::delete($query->document);
-                    }
-                }
-
-                $imageName = Str::random(35).'.png';
-                $path =storage_path('app/public/invoice/'.$imageName);
-                $newFile = CustomHelper::compress($request->fileReceipt,$path,50);
-                $basePath = storage_path('app');
-                $desiredPath = explode($basePath.'/', $newFile)[1];
-
-                $query->receipt_code    = $request->code_receipt;
-                $query->pay_date        = $request->pay_date;
-                $query->document        = $desiredPath;
-                $query->status          = '1';
-                $query->save();
-                
-                if($query) {
-                    CustomHelper::saveLog($query->getTable(),$query->id,'Update pembayaran data invoice '.$query->code,'Pengguna '.session('bo_name').' telah mengubah data invoice no '.$query->code);
-                    CustomHelper::sendApproval($query->getTable(),$query->id,'invoice');
-
-                    $response = [
-                        'status'  => 200,
-                        'message' => 'Data berhasil disimpan.'
-                    ];
-                } else {
-                    $response = [
-                        'status'  => 500,
-                        'message' => 'Data gagal disimpan.'
-                    ];
-                }
-            }
-            DB::commit();
-		    return response()->json($response);
-        }catch(\Exception $e){
-            info($e->getMessage());
-            DB::rollback();
-        }
-    }
-
     public function show(Request $request){
         $data = Invoice::where('code',CustomHelper::decrypt($request->code))->first();
         if($data){
@@ -407,23 +332,6 @@ class InvoiceController extends Controller
     
             $pdf = Pdf::loadView('pdf.invoice', $result);
             return $pdf->stream('invoice_'.$data->code.'.pdf');
-            /* return $pdf->download('invoice.pdf'); */
-        }else{
-            abort(404);
-        }
-    }
-
-    public function printReceipt(Request $request,$id){
-        $data = Invoice::where('code',CustomHelper::decrypt($id))->whereNotNull('receipt_code')->first();
-        if($data){
-
-            $result = [
-                'title'         => 'Kwitansi '.$data->receipt_code,
-                'data'          => $data,
-            ];
-    
-            $pdf = Pdf::loadView('pdf.receipt', $result);
-            return $pdf->stream('receipt_'.$data->receipt_code.'.pdf');
             /* return $pdf->download('invoice.pdf'); */
         }else{
             abort(404);

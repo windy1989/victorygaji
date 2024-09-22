@@ -9,10 +9,12 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BankController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\OfferingLetterController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ProjectTypeController;
 use App\Http\Controllers\PurposeController;
 use App\Http\Controllers\Select2Controller;
+use App\Models\OfferingLetter;
 
 /*
 |--------------------------------------------------------------------------
@@ -72,6 +74,16 @@ Route::middleware('login')->group(function () {
         Route::post('create',[ProjectController::class, 'create']);
         Route::post('show',[ProjectController::class, 'show']);
         Route::post('destroy',[ProjectController::class, 'destroy']);
+    });
+
+    Route::prefix('surat_penawaran')->middleware('admin.auth:1')->group(function () {
+        Route::get('/',[OfferingLetterController::class, 'index']);
+        Route::get('datatable',[OfferingLetterController::class, 'datatable']);
+        Route::post('create',[OfferingLetterController::class, 'create']);
+        Route::post('show',[OfferingLetterController::class, 'show']);
+        Route::post('detail',[OfferingLetterController::class, 'detail']);
+        Route::post('destroy',[OfferingLetterController::class, 'destroy']);
+        Route::get('print/{id}',[OfferingLetterController::class, 'print']);
     });
 
     Route::prefix('invoice')->middleware('admin.auth:1')->group(function () {

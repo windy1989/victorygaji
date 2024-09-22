@@ -144,6 +144,10 @@ $(function() {
 		loadDataTableInvoice();
     }
 
+    if($('#offering-letter-datatable').length > 0){
+		loadDataTableOfferingLetter();
+    }
+
     if($('#approval-datatable').length > 0){
         loadDataTableApproval();
     }
@@ -1639,3 +1643,66 @@ function approve(code,type){
 }
 
 /* APPROVAL */
+
+/* SURAT PENAWARAN */
+
+function loadDataTableOfferingLetter(){
+    window.table = $('#offering-letter-datatable').DataTable({
+        "scrollCollapse": true,
+        "scrollY": '400px',
+		"scrollX": true,
+		"scroller": true,
+        "responsive": true,
+        "stateSave": true,
+        "serverSide": true,
+        "deferRender": true,
+        "destroy": true,
+        "fixedColumns": {
+            left: 2,
+            right: 1
+        },
+        "iDisplayInLength": 10,
+        "order": [[0, 'asc']],
+        ajax: {
+            url: window.location.href + '/datatable',
+            type: 'GET',
+            data: {
+                
+            },
+            beforeSend: function() {
+                /* loadingOpen(); */
+            },
+            complete: function() {
+                /* loadingClose(); */
+            },
+            error: function() {
+                /* loadingClose(); */
+                errorConnection();
+            }
+        },
+        columns: [
+            { name: 'id', searchable: false, className: 'text-center' },
+            { name: 'code', className: '' },
+            { name: 'user_id', className: '' },
+            { name: 'project_id', className: '' },
+            { name: 'to_name', className: '' },
+            { name: 'type_building', className: '' },
+            { name: 'location_building', className: '' },
+            { name: 'type_road', className: 'text-right' },
+            { name: 'note', className: '' },
+            { name: 'status', className: 'text-center' },
+            { name: 'action', searchable: false, orderable: false, className: 'text-center' },
+        ],
+        createdRow: function ( row, data, index ) {
+            $(row).addClass('selected')
+        },
+        language: {
+            paginate: {
+                next: '<i class="fa fa-angle-double-right" aria-hidden="true"></i>',
+                previous: '<i class="fa fa-angle-double-left" aria-hidden="true"></i>' 
+            }
+        }
+    });
+}
+
+/* SURAT PENAWARAN */

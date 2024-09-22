@@ -84,36 +84,32 @@
                                     <input type="text" class="form-control" placeholder="Kode Dokumen" id="code" name="code">
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <label class="form-label">Ditujukan Kepada / Terima Dari</label>
-                                    <input type="text" class="form-control" placeholder="Ditujukan Kepada / Terima Dari" id="receive_from" name="receive_from">
+                                    <label class="form-label">Ditujukan Kepada</label>
+                                    <input type="text" class="form-control" placeholder="Muncul saat cetak" id="to_name" name="to_name">
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Proyek</label>
-                                    <select id="project_id" name="project_id" onchange="getProjectInfo();"></select>
-                                </div>
-                                <div class="mb-3 col-md-6">
-                                    <label class="form-label">Bank</label>
-                                    <select id="bank_id" name="bank_id"></select>
+                                    <select id="project_id" name="project_id"></select>
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Tgl.Post</label>
                                     <input type="date" class="form-control" id="post_date" name="post_date" value="{{ date('Y-m-d') }}">
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <label class="form-label">Nominal</label>
-                                    <input type="text" class="form-control" placeholder="Nominal" id="nominal" name="nominal" onkeyup="formatRupiahNoMinus(this);" value="0,00">
+                                    <label class="form-label">Tipe Bangunan</label>
+                                    <input type="text" class="form-control" placeholder="Muncul saat cetak" id="type_building" name="type_building">
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <label class="form-label">Pembayaran Ke</label>
-                                    <input type="number" class="form-control" id="termin_no" name="termin_no" value="1" min="1" step="1">
+                                    <label class="form-label">Lokasi Bangunan</label>
+                                    <input type="text" class="form-control" placeholder="Muncul saat cetak" id="location_building" name="location_building">
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <label class="form-label">Keterangan</label>
+                                    <label class="form-label">Tipe Jalan</label>
+                                    <input type="text" class="form-control" placeholder="Muncul saat cetak" id="type_road" name="type_road">
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label class="form-label">Keterangan (Internal)</label>
                                     <input type="text" class="form-control" placeholder="Keterangan" id="note" name="note">
-                                </div>
-                                <div class="mb-3 col-md-6">
-                                    <label class="form-label">Nominal Proyek</label>
-                                    <div><b id="nominal_project">0,00</b></div>
                                 </div>
                             </div>
                         </form>

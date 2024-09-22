@@ -142,22 +142,22 @@ class OfferingLetterController extends Controller
         DB::beginTransaction();
         try {
             $validation = Validator::make($request->all(), [
-                'code'		            => $request->temp ? ['required', Rule::unique('invoices', 'code')->ignore($request->temp)] : 'required|unique:invoices,code',
-                'receive_from'          => 'required',
+                'code'		            => $request->temp ? ['required', Rule::unique('offering_letters', 'code')->ignore($request->temp)] : 'required|unique:offering_letters,code',
+                'to_name'               => 'required',
                 'project_id'            => 'required',
-                'bank_id'               => 'required',
                 'post_date'             => 'required',
-                'nominal'               => 'required',
-                'termin_no'             => 'required',
+                'type_building'         => 'required',
+                'location_building'     => 'required',
+                'type_road'             => 'required',
             ], [
                 'code.required'             => 'Kode tidak boleh kosong.',
                 'code.unique'               => 'Kode telah dipakai.',
-                'receive_from.required'     => 'Identitas pengirim tidak boleh kosong.',
+                'to_name.required'          => 'Ditujukan kepada tidak boleh kosong.',
                 'project_id.required'       => 'Project tidak boleh kosong.',
-                'bank_id.required'          => 'Bank tidak boleh kosong.',
                 'post_date.required'        => 'Tgl. post tidak boleh kosong.',
-                'nominal.required'          => 'Nominal tidak boleh kosong.',
-                'termin_no.required'        => 'Termin pembayaran tidak boleh kosong.',
+                'type_building.required'    => 'Tipe Bangunan tidak boleh kosong.',
+                'location_building.required'=> 'Lokasi gedung tidak boleh kosong.',
+                'type_road.required'        => 'Tipe Jalan tidak boleh kosong.',
             ]);
 
             if($validation->fails()) {
@@ -167,7 +167,7 @@ class OfferingLetterController extends Controller
                 ];
             } else {
                 if($request->temp){
-                    $query = Invoice::where('code',CustomHelper::decrypt($request->temp))->first();
+                    $query = OfferingLetter::where('code',CustomHelper::decrypt($request->temp))->first();
 
                     if($query->status == '3'){
                         return response()->json([
@@ -176,32 +176,32 @@ class OfferingLetterController extends Controller
                         ]);
                     }
 
-                    $query->user_id         = session('bo_id');
-                    $query->code            = $request->code;
-                    $query->receive_from    = $request->receive_from;    
-                    $query->project_id      = $request->project_id;
-                    $query->bank_id         = $request->bank_id;
-                    $query->post_date       = $request->post_date;
-                    $query->nominal         = str_replace(',','.',str_replace('.','',$request->nominal));
-                    $query->termin_no       = $request->termin_no;
-                    $query->note            = $request->note;
-                    $query->status          = '1';
+                    $query->user_id             = session('bo_id');
+                    $query->code                = $request->code;
+                    $query->project_id          = $request->project_id;
+                    $query->post_date           = $request->post_date;
+                    $query->to_name             = $request->to_name;
+                    $query->type_building       = $request->type_building;
+                    $query->location_building   = $request->location_building;
+                    $query->type_road           = $request->type_road;
+                    $query->note                = $request->note;
+                    $query->status              = '1';
                     $query->save();
-                    CustomHelper::saveLog($query->getTable(),$query->id,'Update data invoice '.$query->code,'Pengguna '.session('bo_name').' telah mengubah data invoice no '.$query->code);
+                    CustomHelper::saveLog($query->getTable(),$query->id,'Update data surat penawaran '.$query->code,'Pengguna '.session('bo_name').' telah mengubah data surat penawaran no '.$query->code);
                 }else{
                     $query = Invoice::create([
-                        'user_id'         => session('bo_id'),
-                        'code'            => $request->code,
-                        'receive_from'    => $request->receive_from,
-                        'project_id'      => $request->project_id,
-                        'bank_id'         => $request->bank_id,
-                        'post_date'       => $request->post_date,
-                        'nominal'         => str_replace(',','.',str_replace('.','',$request->nominal)),
-                        'termin_no'       => $request->termin_no,
-                        'note'            => $request->note,
-                        'status'          => '1',
+                        'user_id'               => session('bo_id'),
+                        'code'                  => $request->code,
+                        'project_id'            => $request->project_id,
+                        'post_date'             => $request->post_date,
+                        'to_name'               => $request->to_name,
+                        'type_building'         => $request->type_building,
+                        'location_building'     => $request->location_building,
+                        'type_road'             => $request->type_road,
+                        'note'                  => $request->note,
+                        'status'                => '1',
                     ]);
-                    CustomHelper::saveLog($query->getTable(),$query->id,'Tambah baru data invoice '.$query->code,'Pengguna '.session('bo_name').' telah manambahkan baru data invoice no '.$query->code);
+                    CustomHelper::saveLog($query->getTable(),$query->id,'Tambah baru data surat penawaran '.$query->code,'Pengguna '.session('bo_name').' telah manambahkan baru data surat penawaran no '.$query->code);
                 }
                 
                 if($query) {

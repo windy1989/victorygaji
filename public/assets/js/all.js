@@ -1098,6 +1098,10 @@ function save(){
                             loadDataTableInvoice();
                         }
 
+                        if($('#offering-letter-datatable').length > 0){
+                            loadDataTableOfferingLetter();
+                        }
+
                         $('#modalCreate').modal('toggle');
                     } else if(response.status == 422) {
                         $('#validation_alert').show();

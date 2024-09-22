@@ -84,12 +84,12 @@
                                     <input type="text" class="form-control" placeholder="Kode Dokumen" id="code" name="code">
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <label class="form-label">Ditujukan Kepada</label>
-                                    <input type="text" class="form-control" placeholder="Muncul saat cetak" id="to_name" name="to_name">
-                                </div>
-                                <div class="mb-3 col-md-6">
                                     <label class="form-label">Proyek</label>
                                     <select id="project_id" name="project_id"></select>
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label class="form-label">Ditujukan Kepada</label>
+                                    <input type="text" class="form-control" placeholder="Muncul saat cetak" id="to_name" name="to_name">
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Tgl.Post</label>

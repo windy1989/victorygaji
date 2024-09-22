@@ -7,7 +7,7 @@
 				height: 75vh;
 				overflow-y: auto;
 			}
-            #invoice-datatable td:nth-of-type(1), #invoice-datatable td:nth-of-type(2), #invoice-datatable td:nth-last-of-type(1) {
+            #offering-letter-datatable td:nth-of-type(1), #offering-letter-datatable td:nth-of-type(2), #offering-letter-datatable td:nth-last-of-type(1) {
                 background-color:rgb(255, 233, 173) !important;
             }
 		</style>

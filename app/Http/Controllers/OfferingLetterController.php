@@ -185,7 +185,7 @@ class OfferingLetterController extends Controller
                     $query->location_building   = $request->location_building;
                     $query->type_road           = $request->type_road;
                     $query->note                = $request->note;
-                    $query->status              = '1';
+                    $query->status              = '3';
                     $query->save();
                     CustomHelper::saveLog($query->getTable(),$query->id,'Update data surat penawaran '.$query->code,'Pengguna '.session('bo_name').' telah mengubah data surat penawaran no '.$query->code);
                 }else{
@@ -199,7 +199,7 @@ class OfferingLetterController extends Controller
                         'location_building'     => $request->location_building,
                         'type_road'             => $request->type_road,
                         'note'                  => $request->note,
-                        'status'                => '1',
+                        'status'                => '3',
                     ]);
                     CustomHelper::saveLog($query->getTable(),$query->id,'Tambah baru data surat penawaran '.$query->code,'Pengguna '.session('bo_name').' telah manambahkan baru data surat penawaran no '.$query->code);
                 }

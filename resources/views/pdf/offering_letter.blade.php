@@ -33,7 +33,6 @@
             
             .table-content {
                 font-size:14px;
-                vertical-align: top;
             }
 
             #table-detail th {
@@ -71,14 +70,14 @@
                     <td width="60%">
                         <table class="table-content" cellpadding="0" cellspacing="0" width="100%">
                             <tr>
-                                <td width="30%">Nomor</td>
-                                <td width="1%">:</td>
-                                <td width="69%">{{ $data->code }}</td>
+                                <td width="30%" style="vertical-align: top;">Nomor</td>
+                                <td width="1%" style="vertical-align: top;">:</td>
+                                <td width="69%" style="vertical-align: top;">{{ $data->code }}</td>
                             </tr>
                             <tr>
-                                <td>Perihal</td>
-                                <td>:</td>
-                                <td>Penawaran Penyusunan Andalalin Jalan {{ $data->type_road }}</td>
+                                <td style="vertical-align: top;">Perihal</td>
+                                <td style="vertical-align: top;">:</td>
+                                <td style="vertical-align: top;">Penawaran Penyusunan Andalalin Jalan {{ $data->type_road }}</td>
                             </tr>
                         </table>
                     </td>

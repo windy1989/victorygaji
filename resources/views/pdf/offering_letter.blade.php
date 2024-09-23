@@ -14,7 +14,7 @@
             }
 
             #table-header{
-                margin-top:-15px;
+                margin-top:25px;
             }
 
             table {

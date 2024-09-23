@@ -88,9 +88,28 @@
                         <br>
                         {{ $data->to_name }}
                         <br>
-                        <div align="left" style="margin-left:30px;">Di -</div>
+                        <div align="left" style="margin-left:50px;">Di -</div>
                         <br>
                         <b><u>tempat</u></b>
+                    </td>
+                </tr>
+			</table>
+            <br>
+            <table class="table-content" cellpadding="0" cellspacing="0" width="90%" style="margin:auto;">
+				<tr>
+                    <td>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dengan Hormat,
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bedasarkan Undang-undang nomor 22 tahun 2009 tentang Lalu Lintas dan Angkutan
+                        Jalan, dan Peraturan Menteri nomor 17 Tahun 2021 tentang Penyelenggaraan Analisis Dampak
+                        Lalu Lintas (ANDALALIN), dan kebutuhan untuk perijinan ANDALALIN, maka bersama ini kami
+                        sampaikan penawaran pekerjaan penyusunan laporan Andalalin untuk jenis bangunan
+                        ................ yang terletak di ................................. yang merupakan Jalan ........................
+                        Kami mengusulkan biaya sebesar Rp .........................,- ( .......................... ), include
+                        PNBP, Exclude Pajak dengan rincian pekerjaan sebagai berikut :
                     </td>
                 </tr>
 			</table>

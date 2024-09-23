@@ -118,7 +118,51 @@
                         PNBP, Exclude Pajak dengan rincian pekerjaan sebagai berikut :
                     </td>
                 </tr>
+                <tr>
+                    <td>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <ol>
+                            <li>Biaya Survey Lapangan Tata Guna lahan dan Pemetaan (Mapping dan Planologi Wilayah dengan Menggunakan Drone)</li>
+                            <li>Biaya Survey Lalu lintas yang terdiri dari Persimpangan dan Ruas Jalan.</li>
+                            <li>Biaya Survey Angkutan Umum angkutan jalan.</li>
+                            <li>Biaya Survey Kecepatan Kendaraan dan Tingkat Kebisingan Lalu Lintas.</li>
+                            <li>Biaya Rekapitulasi hasil Survey.</li>
+                            <li>Biaya Analisis dan Evaluasi Data ( Analisis dan Simulasi Manajemen dan Rekayasa Lalu Lintas ).</li>
+                            <li>Biaya Gambar 3D beserta simulasi Gerak sirkulasi lalu lintas dan perambuan lalu lintas.</li>
+                            <li>Biaya Pembuatan Laporan dan Dokumentasi.</li>
+                            <li>Biaya Tinjau Lapang.</li>
+                            <li>Biaya Penggandaan Laporan.</li>
+                            <li>Surat Rekomendasi Andalalin.</li>
+                        </ol>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Adapun mekanisme pembayarannya adalah sebagai berikut :
+                        <ol>
+                            <li>DP sebesar 30% sejak Surat perintah kerja (SPK) diterbitkan,</li>
+                            <li>Tahap 2 sebesar 50% ketika laporan sudah selesai dan siap untuk disidangkan</li>
+                            <li>Tahap 3 sebesar 20% ketika surat Rekomendasi sudah keluar dan diturunkan.</li>
+                        </ol>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Waktu Pelaksanaan Pekerjaan penyusunan dokumen hingga siap untuk disahkan (sampai dokumen siap di ajukan ke Instansi Terkait) adalah 60 (anam puluh) hari kerja sejak kami menerima DP dan berkas-berkas persyaratan Andalalin dengan lengkap, yaitu Akta Pendirian, Akta Perubahan (jika ada), Ijin Lokasi/SKRK/PKKPR, KTP, NPWP, Akta tanah/bukti kepemilikan/penguasaan lahan dan gambar siteplan.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Untuk informasi lebih lanjut, dapat menghubungi/Whatsapp ke nomor 08113000902 (Deddy) atau ke nomor 081330212393 (Chichi).
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Demikian penawaran dari kami, Semoga kita dapat bekerjasama dengan baik dan atas perhatian serta kerjasamanya kami ucapkan Terima kasih.
+                    </td>
+                </tr>
 			</table>
+            <br>
             <br>
             <table class="table-content" id="table-detail" cellpadding="0" cellspacing="0" width="90%"style="margin:auto;font-weight:700;">
                 <tbody>

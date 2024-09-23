@@ -89,7 +89,7 @@
                         <br>
                         {{ $data->to_name }}
                         <br>
-                        <div align="left">Di -</div>
+                        <div align="left" style="margin-left:30px;">Di -</div>
                         <br>
                         <b><u>tempat</u></b>
                     </td>

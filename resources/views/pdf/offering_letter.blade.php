@@ -25,7 +25,9 @@
             td {
                 padding: 0px !important;
             }
-            @page { margin: 0.5cm; }
+
+            @page { margin: 3cm 0cm 3cm 0cm; }
+            
             hr {
                 background-color: black;
                 border:none;

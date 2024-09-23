@@ -36,6 +36,12 @@
                 line-height: 1.8;
             }
 
+            .table-content-body {
+                font-size:15px;
+                line-height: 1.8;
+                text-align: justify;
+            }
+
             #table-detail th {
                 padding:5px;
             }
@@ -71,9 +77,9 @@
                     <td width="60%">
                         <table class="table-content" cellpadding="0" cellspacing="0" width="100%">
                             <tr>
-                                <td width="30%" style="vertical-align: top;">Nomor</td>
+                                <td width="25%" style="vertical-align: top;">Nomor</td>
                                 <td width="1%" style="vertical-align: top;">:</td>
-                                <td width="69%" style="vertical-align: top;">{{ $data->code }}</td>
+                                <td width="74%" style="vertical-align: top;">{{ $data->code }}</td>
                             </tr>
                             <tr>
                                 <td style="vertical-align: top;">Perihal</td>
@@ -84,19 +90,18 @@
                     </td>
                     <td width="40%" align="center">
                         Sidoarjo, {{ CustomHelper::tgl_indo($data->post_date) }}
-                        <br><br>
+                        <br>
                         Kepada Yth,
                         <br>
                         {{ $data->to_name }}
                         <br>
                         <div align="left" style="margin-left:50px;">Di -</div>
-                        <br>
                         <b><u>tempat</u></b>
                     </td>
                 </tr>
 			</table>
             <br>
-            <table class="table-content" cellpadding="0" cellspacing="0" width="75%" style="margin:auto;">
+            <table class="table-content-body" cellpadding="0" cellspacing="0" width="75%" style="margin:auto;">
 				<tr>
                     <td>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dengan Hormat,
@@ -123,7 +128,7 @@
                         </td>
                         <td align="center" width="40%">
                             CV. VICTORY KONSULTAN
-                            <br><br><br><br><br><br><br>
+                            <br><br><br><br><br>
                             <u>.DEDDY CHRISTIANTO., S.T.</u>
                             <br>Direktur
                         </td>

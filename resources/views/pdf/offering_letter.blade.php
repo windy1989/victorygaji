@@ -113,8 +113,8 @@
                         Jalan, dan Peraturan Menteri nomor 17 Tahun 2021 tentang Penyelenggaraan Analisis Dampak
                         Lalu Lintas (ANDALALIN), dan kebutuhan untuk perijinan ANDALALIN, maka bersama ini kami
                         sampaikan penawaran pekerjaan penyusunan laporan Andalalin untuk jenis bangunan
-                        ................ yang terletak di ................................. yang merupakan Jalan ........................
-                        Kami mengusulkan biaya sebesar Rp .........................,- ( .......................... ), include
+                        {{ $data->type_building }} yang terletak di {{ $data->location_building }} yang merupakan Jalan {{ $data->type_road }}
+                        Kami mengusulkan biaya sebesar Rp {{ number_format($data->project->cost,0,',','.') }},- ( {{ CustomHelper::terbilangWithKoma($data->project->cost) }} Rupiah ), include
                         PNBP, Exclude Pajak dengan rincian pekerjaan sebagai berikut :
                     </td>
                 </tr>

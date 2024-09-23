@@ -33,6 +33,7 @@
             
             .table-content {
                 font-size:14px;
+                vertical-align: top;
             }
 
             #table-detail th {

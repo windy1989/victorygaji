@@ -15,6 +15,7 @@
 
             #table-header{
                 margin-top:25px;
+                font-weight: 700;
             }
 
             table {

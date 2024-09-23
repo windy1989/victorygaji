@@ -33,6 +33,7 @@
             
             .table-content {
                 font-size:15px;
+                line-height: 1.8;
             }
 
             #table-detail th {
@@ -95,15 +96,15 @@
                 </tr>
 			</table>
             <br>
-            <table class="table-content" cellpadding="0" cellspacing="0" width="90%" style="margin:auto;">
+            <table class="table-content" cellpadding="0" cellspacing="0" width="75%" style="margin:auto;">
 				<tr>
                     <td>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dengan Hormat,
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dengan Hormat,
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bedasarkan Undang-undang nomor 22 tahun 2009 tentang Lalu Lintas dan Angkutan
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bedasarkan Undang-undang nomor 22 tahun 2009 tentang Lalu Lintas dan Angkutan
                         Jalan, dan Peraturan Menteri nomor 17 Tahun 2021 tentang Penyelenggaraan Analisis Dampak
                         Lalu Lintas (ANDALALIN), dan kebutuhan untuk perijinan ANDALALIN, maka bersama ini kami
                         sampaikan penawaran pekerjaan penyusunan laporan Andalalin untuk jenis bangunan

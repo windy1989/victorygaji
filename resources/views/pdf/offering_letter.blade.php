@@ -15,7 +15,7 @@
 
             #table-header{
                 margin-top:25px;
-                font-weight: 700;
+                font-weight: 800;
                 font-size: 18px;
             }
 

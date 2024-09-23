@@ -32,7 +32,7 @@
             }
             
             .table-content {
-                font-size:14px;
+                font-size:15px;
             }
 
             #table-detail th {

@@ -320,16 +320,16 @@ class OfferingLetterController extends Controller
     }
 
     public function print(Request $request,$id){
-        $data = Invoice::where('code',CustomHelper::decrypt($id))->first();
+        $data = OfferingLetter::where('code',CustomHelper::decrypt($id))->first();
         if($data){
 
             $result = [
-                'title'         => 'Invoice '.$data->code,
+                'title'         => 'Surat Penawaran '.$data->code,
                 'data'          => $data,
             ];
     
-            $pdf = Pdf::loadView('pdf.invoice', $result);
-            return $pdf->stream('invoice_'.$data->code.'.pdf');
+            $pdf = Pdf::loadView('pdf.offering_letter', $result);
+            return $pdf->stream('offering_letter_'.$data->code.'.pdf');
             /* return $pdf->download('invoice.pdf'); */
         }else{
             abort(404);

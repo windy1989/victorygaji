@@ -81,13 +81,13 @@
                     </td>
                     <td width="40%" align="center">
                         Sidoarjo, {{ CustomHelper::tgl_indo($data->post_date) }}
-                        <br>
+                        <br><br>
                         Kepada Yth,
-                        <br>
+                        <br><br>
                         {{ $data->to_name }}
-                        <br>
+                        <br><br>
                         Di -
-                        <br>
+                        <br><br>
                         <b><u>tempat</u></b>
                     </td>
                 </tr>

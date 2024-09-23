@@ -71,11 +71,13 @@
                         <table class="table-content" cellpadding="0" cellspacing="0" width="100%">
                             <tr>
                                 <td width="30%">Nomor</td>
-                                <td width="70%">: {{ $data->code }}</td>
+                                <td width="1%">:</td>
+                                <td width="69%">{{ $data->code }}</td>
                             </tr>
                             <tr>
-                                <td width="30%">Perihal</td>
-                                <td width="70%">: Penawaran Penyusunan Andalalin Jalan {{ $data->type_road }}</td>
+                                <td>Perihal</td>
+                                <td>:</td>
+                                <td>Penawaran Penyusunan Andalalin Jalan {{ $data->type_road }}</td>
                             </tr>
                         </table>
                     </td>

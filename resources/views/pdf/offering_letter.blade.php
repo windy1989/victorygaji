@@ -48,10 +48,10 @@
 		<div class="invoice-box">
 			<table id="table-header" cellpadding="0" cellspacing="0" width="100%">
 				<tr>
-                    <td align="right" width="20%" rowspan="2">
+                    <td align="right" width="25%" rowspan="2">
                         <img src="{{ public_path('assets/images/square_logo.png') }}" width="125px" height="auto" style="margin-left:65px;position:absolute;">
                     </td>
-                    <td width="80%" colspan="2">
+                    <td width="75%" colspan="2">
                         <div style="font-size:25px;">CV. VICTORY KONSULTAN</div>
                         <div style="font-size:13px;">
                             <br>STUDY KELAYAKAN, REKAYASA, EVALUASI DAN MANAJEMEN

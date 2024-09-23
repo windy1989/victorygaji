@@ -48,10 +48,10 @@
 		<div class="invoice-box">
 			<table id="table-header" cellpadding="0" cellspacing="0" width="100%">
 				<tr>
-                    <td align="right" width="25%" rowspan="2">
+                    <td align="right" width="25%">
                         <img src="{{ public_path('assets/images/square_logo.png') }}" width="125px" height="auto" style="margin-left:65px;position:absolute;">
                     </td>
-                    <td width="75%" colspan="2">
+                    <td width="75%">
                         <div style="font-size:25px;">CV. VICTORY KONSULTAN</div>
                         <div style="font-size:13px;">
                             <br>STUDY KELAYAKAN, REKAYASA, EVALUASI DAN MANAJEMEN
@@ -65,6 +65,16 @@
 			</table>
             <br>
             <br>
+            <table class="table-content" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+                    <td width="60%">
+                        
+                    </td>
+                    <td width="40%">
+                        Sidoarjo, {{ CustomHelper::tgl_indo($data->post_date) }}
+                    </td>
+                </tr>
+			</table>
             <br>
             <table class="table-content" id="table-detail" cellpadding="0" cellspacing="0" width="90%"style="margin:auto;font-weight:700;">
                 <tbody>

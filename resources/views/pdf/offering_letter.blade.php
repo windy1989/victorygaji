@@ -53,19 +53,12 @@
                         <img src="{{ public_path('assets/images/square_logo.png') }}" width="100px" height="auto" style="margin-left:80px;position:absolute;">
                     </td>
                     <td width="80%" colspan="2">
-                        <b>CV. VICTORY KONSULTAN</b>
-                    </td>
-                </tr>
-                <tr>
-                    <td width="15%">
-                        Kantor Pusat<br>
-                        Telp/Fax<br>
-                        Email
-                    </td>
-                    <td width="40%">
-                        : Perum. Graha Kota D 12 No. 20 Suko - Sidoarjo<br>
-                        : 031-51517878<br>
-                        : victorykonsultan@gmail.com
+                        CV. VICTORY KONSULTAN
+                        <br>STUDY KELAYAKAN, REKAYASA, EVALUASI DAN MANAJEMEN
+                        <br>KANTOR PUSAT : PERUM. GRAHA KOTA D 12 NO. 20 SUKO - SIDOARJO
+                        <br>Telp.Fax : 031 - 51517878
+                        <br>Email : victorykonsultan@gmail.com
+                        <br>Web : victorykonsultan.com
                     </td>
                 </tr>
 			</table>

@@ -50,12 +50,8 @@
                     <td align="right" width="20%" rowspan="2">
                         <img src="{{ public_path('assets/images/square_logo.png') }}" width="80px" height="auto" style="margin-left:50px;position:absolute;margin-top:10px;">
                     </td>
-                    <td width="55%" colspan="2">
+                    <td width="80%" colspan="2">
                         <b>CV. VICTORY KONSULTAN</b>
-                    </td>
-                    <td width="25%" rowspan="2" align="center">
-                        <h2 style="margin-top:30px;">INVOICE</h2>
-                        <img src="data:image/png;base64,{{ DNS1D::getBarcodePNG($data->code, 'C128') }}" alt="barcode" style="top:50px;" height="35px" width="100%"/>
                     </td>
                 </tr>
                 <tr>

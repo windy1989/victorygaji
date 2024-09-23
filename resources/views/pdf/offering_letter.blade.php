@@ -65,7 +65,7 @@
 			</table>
             <br>
             <br>
-            <table class="table-content" cellpadding="0" cellspacing="0" width="100%">
+            <table class="table-content" cellpadding="0" cellspacing="0" width="90%" style="margin:auto;">
 				<tr>
                     <td width="60%">
                         <table class="table-content" cellpadding="0" cellspacing="0" width="100%">

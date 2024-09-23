@@ -26,7 +26,7 @@
                 padding: 0px !important;
             }
 
-            @page { margin: 3cm 0cm 3cm 0cm; }
+            @page { margin: 1cm 0cm 1cm 0cm; }
             
             hr {
                 background-color: black;

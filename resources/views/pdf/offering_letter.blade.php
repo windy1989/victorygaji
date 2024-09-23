@@ -54,11 +54,13 @@
                     </td>
                     <td width="80%" colspan="2">
                         CV. VICTORY KONSULTAN
-                        <br>STUDY KELAYAKAN, REKAYASA, EVALUASI DAN MANAJEMEN
-                        <br>KANTOR PUSAT : PERUM. GRAHA KOTA D 12 NO. 20 SUKO - SIDOARJO
-                        <br>Telp.Fax : 031 - 51517878
-                        <br>Email : victorykonsultan@gmail.com
-                        <br>Web : victorykonsultan.com
+                        <div style="font-size:13px;">
+                            <br>STUDY KELAYAKAN, REKAYASA, EVALUASI DAN MANAJEMEN
+                            <br>KANTOR PUSAT : PERUM. GRAHA KOTA D 12 NO. 20 SUKO - SIDOARJO
+                            <br>Telp.Fax : 031 - 51517878
+                            <br>Email : victorykonsultan@gmail.com
+                            <br>Web : victorykonsultan.com
+                        </div>
                     </td>
                 </tr>
 			</table>

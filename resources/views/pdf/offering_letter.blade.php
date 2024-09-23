@@ -68,10 +68,27 @@
             <table class="table-content" cellpadding="0" cellspacing="0" width="100%">
 				<tr>
                     <td width="60%">
-                        
+                        <table class="table-content" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td width="30%">Nomor</td>
+                                <td width="70%">: {{ $data->code }}</td>
+                            </tr>
+                            <tr>
+                                <td width="30%">Perihal</td>
+                                <td width="70%">: Penawaran Penyusunan Andalalin Jalan {{ $data->type_road }}</td>
+                            </tr>
+                        </table>
                     </td>
-                    <td width="40%">
+                    <td width="40%" align="center">
                         Sidoarjo, {{ CustomHelper::tgl_indo($data->post_date) }}
+                        <br>
+                        Kepada Yth,
+                        <br>
+                        {{ $data->to_name }}
+                        <br>
+                        Di -
+                        <br>
+                        <b><u>tempat</u></b>
                     </td>
                 </tr>
 			</table>

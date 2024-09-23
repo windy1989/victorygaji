@@ -16,7 +16,6 @@
             #table-header{
                 margin-top:25px;
                 font-weight: 800;
-                font-size: 18px;
             }
 
             table {
@@ -50,10 +49,10 @@
 			<table id="table-header" cellpadding="0" cellspacing="0" width="100%">
 				<tr>
                     <td align="right" width="20%" rowspan="2">
-                        <img src="{{ public_path('assets/images/square_logo.png') }}" width="100px" height="auto" style="margin-left:80px;position:absolute;">
+                        <img src="{{ public_path('assets/images/square_logo.png') }}" width="150px" height="auto" style="margin-left:50px;position:absolute;">
                     </td>
                     <td width="80%" colspan="2">
-                        CV. VICTORY KONSULTAN
+                        <div style="font-size:20px;">CV. VICTORY KONSULTAN</div>
                         <div style="font-size:13px;">
                             <br>STUDY KELAYAKAN, REKAYASA, EVALUASI DAN MANAJEMEN
                             <br>KANTOR PUSAT : PERUM. GRAHA KOTA D 12 NO. 20 SUKO - SIDOARJO

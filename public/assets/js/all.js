@@ -903,6 +903,20 @@ function edit(code){
                     $('#nominal_project').text(response.data.nominal_project);
                 }
 
+                /* JIKA FORM SURAT PENAWARAN */
+                if($('#offering-letter-datatable').length > 0){
+                    $('#code').val(response.data.code);
+                    $('#to_name').val(response.data.to_name);
+                    $('#project_id').empty().append(`
+                        <option value="` + response.data.project_type_id + `">` + response.data.project_code + `</option>
+                    `);
+                    $('#post_date').val(response.data.post_date);
+                    $('#type_building').val(response.data.type_building);
+                    $('#location_building').val(response.data.location_building);
+                    $('#type_road').val(response.data.type_road);
+                    $('#note').val(response.data.note);
+                }
+
                 $('#modalCreate').modal('toggle');
             }else{
                 errorMessage('Data tidak ditemukan.');

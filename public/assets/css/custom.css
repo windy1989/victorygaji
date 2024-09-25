@@ -6,3 +6,7 @@
 /* table.dataTable thead th {
     padding: 1.2rem 1.5rem !important;
 } */
+
+.dtfc-fixed-right, .dtfc-fixed-left {
+    position:relative;
+}

@@ -25,7 +25,7 @@
     <link href="{{ url('assets/vendor/dropzone/dist/dropzone.css') }}" rel="stylesheet">
     <link href="{{ url('assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}" rel="stylesheet">
     <link href="{{ url('assets/css/style.css?v=9') }}" rel="stylesheet">
-    <link href="{{ url('assets/css/custom.css?v=7') }}" rel="stylesheet">
+    <link href="{{ url('assets/css/custom.css?v=8') }}" rel="stylesheet">
 </head>
 
 <body>

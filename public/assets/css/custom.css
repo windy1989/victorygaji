@@ -9,6 +9,6 @@
 
 @media (max-width: 500px){
     .dtfc-fixed-right, .dtfc-fixed-left {
-        position:relative;
+        position:relative !important;
     }
 }

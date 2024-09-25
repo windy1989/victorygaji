@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Helpers\CustomHelper;
 use App\Http\Controllers\Controller;
 use App\Models\Customer;
-use App\Models\Invoice;
 use App\Models\OfferingLetter;
 use App\Models\Project;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -114,7 +113,7 @@ class OfferingLetterController extends Controller
                     $val->note,
                     $val->statusBadge(),
                     '
-                        <a href="javascript:void(0);" class="btn btn-secondary btn-sm content-icon" onclick="detail(`'.CustomHelper::encrypt($val->code).'`)"><i class="fa fa-info-circle"></i></a>
+                        <!-- <a href="javascript:void(0);" class="btn btn-secondary btn-sm content-icon" onclick="detail(`'.CustomHelper::encrypt($val->code).'`)"><i class="fa fa-info-circle"></i></a> -->
                         <a href="'.env('APP_URL').'/surat_penawaran/print/'.CustomHelper::encrypt($val->code).'" class="btn btn-info btn-sm content-icon" data-toggle="tooltip" data-placement="top" title="Cetak Invoice"><i class="fa fa-print"></i></a>
                         <a href="javascript:void(0);" class="btn btn-warning btn-sm content-icon" onclick="edit(`'.CustomHelper::encrypt($val->code).'`)"><i class="fa fa-edit"></i></a>
                         <a href="javascript:void(0);" class="btn btn-danger btn-sm content-icon" onclick="destroy(`'.CustomHelper::encrypt($val->code).'`)"><i class="fa fa-trash"></i></a>
@@ -172,7 +171,7 @@ class OfferingLetterController extends Controller
                     if($query->status == '3'){
                         return response()->json([
                             'status'    => 500,
-                            'message'   => 'Ups. Invoice telah SELESAI, anda tidak bisa melakukan perubahan.'
+                            'message'   => 'Ups. Surat Penawaran telah SELESAI, anda tidak bisa melakukan perubahan.'
                         ]);
                     }
 
@@ -224,7 +223,7 @@ class OfferingLetterController extends Controller
     }
 
     public function show(Request $request){
-        $data = Invoice::where('code',CustomHelper::decrypt($request->code))->first();
+        $data = OfferingLetter::where('code',CustomHelper::decrypt($request->code))->first();
         if($data){
             $data['project_code'] = $data->project->code.' - '.$data->project->name.' - '.$data->project->customer->name;
             $data['bank_code'] = $data->bank->name.' - '.$data->bank->no.' - '.$data->bank->bank;
@@ -245,7 +244,7 @@ class OfferingLetterController extends Controller
     }
 
     public function detail(Request $request){
-        $data = Invoice::where('code',CustomHelper::decrypt($request->code))->first();
+        $data = OfferingLetter::where('code',CustomHelper::decrypt($request->code))->first();
         if($data){
 
             $html = '';
@@ -291,10 +290,10 @@ class OfferingLetterController extends Controller
     }
 
     public function destroy(Request $request){
-        $query = Invoice::where('code',CustomHelper::decrypt($request->code))->first();
+        $query = OfferingLetter::where('code',CustomHelper::decrypt($request->code))->first();
         if($query){
             if($query->status == '1'){
-                CustomHelper::saveLog($query->getTable(),$query->id,'Invoice nomor '.$query->code.' telah dihapus.','Pengguna '.session('bo_name').' telah menghapus data invoice no '.$query->code);
+                CustomHelper::saveLog($query->getTable(),$query->id,'Surat Penawaran nomor '.$query->code.' telah dihapus.','Pengguna '.session('bo_name').' telah menghapus data Surat Penawaran no '.$query->code);
 
                 $query->approval()->delete();
                 $query->delete();

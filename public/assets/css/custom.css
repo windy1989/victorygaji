@@ -7,6 +7,8 @@
     padding: 1.2rem 1.5rem !important;
 } */
 
-.dtfc-fixed-right, .dtfc-fixed-left {
-    position:relative;
+@media (max-width: 500px){
+    .dtfc-fixed-right, .dtfc-fixed-left {
+        position:relative;
+    }
 }

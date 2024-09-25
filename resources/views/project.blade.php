@@ -7,8 +7,10 @@
 				height: 75vh;
 				overflow-y: auto;
 			}
-            #project-datatable td:nth-of-type(1), #project-datatable td:nth-of-type(2), #project-datatable td:nth-last-of-type(1) {
-                background-color:rgb(255, 233, 173) !important;
+            @media (min-width: 500px){
+                #project-datatable td:nth-of-type(1), #project-datatable td:nth-of-type(2), #project-datatable td:nth-last-of-type(1) {
+                    background-color:rgb(255, 233, 173) !important;
+                }
             }
 		</style>
 		<div class="content-body">

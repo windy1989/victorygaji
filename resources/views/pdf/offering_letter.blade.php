@@ -172,7 +172,8 @@
                         <td align="center" width="60%">
                             
                         </td>
-                        <td align="center" width="40%" style="background-image: url('{{ asset(Storage::url('public/sign/sign_and_logo.png')) }}')">
+                        <td align="center" width="40%">
+                            <img src="{{ asset(Storage::url('public/sign/sign_and_logo.png')) }}" width="125px" height="auto" style="margin-left:65px;position:absolute;">
                             CV. VICTORY KONSULTAN
                             <br><br><br><br><br>
                             <u>.DEDDY CHRISTIANTO., S.T.</u>

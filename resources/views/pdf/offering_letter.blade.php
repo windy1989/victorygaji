@@ -173,7 +173,7 @@
                             
                         </td>
                         <td align="center" width="40%">
-                            <img src="{{ public_path('storage/sign/sign_and_logo.png') }}" width="125px" height="auto" style="margin-left:65px;position:absolute;">
+                            <img src="{{ public_path('storage/sign/sign_and_logo.png') }}" width="250px" height="auto" style="margin-left:65px;position:absolute;z-index:-1;">
                             CV. VICTORY KONSULTAN
                             <br><br><br><br><br>
                             <u>.DEDDY CHRISTIANTO., S.T.</u>

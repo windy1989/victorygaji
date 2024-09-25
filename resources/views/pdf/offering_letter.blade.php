@@ -184,6 +184,6 @@
                 </tbody>
 			</table>
 		</div>
-        <img src="{{ public_path('storage/promotion/offering.png') }}" width="80%" height="auto" style="margin-left:50px;">
+        <img src="{{ public_path('storage/promotion/offering.png') }}" width="80%" height="auto" style="margin-left:75px;">
 	</body>
 </html>

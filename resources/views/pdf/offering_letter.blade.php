@@ -55,7 +55,7 @@
 	</head>
 	<body>
 		<div class="invoice-box">
-            <img src="{{ public_path('storage/sign/footer.png') }}" width="100%" height="auto" style="position:fixed;bottom:30px;margin:auto;">
+            <img src="{{ public_path('storage/sign/footer.png') }}" width="50px" height="auto" style="position:fixed;bottom:30px;margin:auto;">
 			<table id="table-header" cellpadding="0" cellspacing="0" width="100%">
 				<tr>
                     <td align="right" width="25%">

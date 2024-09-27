@@ -70,7 +70,7 @@
                     </div>
                     <div class="modal-body">
                         <p>
-                            Silahkan download template <b style="font-weight:800;"><a href="{{ url('assets/format/format_import_gaji.xlsx?v=0') }}">disini</a></b> dan pastikan tidak ada format accounting pada nilai nominal. Lihat contoh yang ada.
+                            Silahkan download template <b style="font-weight:800;"><a href="{{ url('assets/format/format_import_gaji.xlsx?v=1') }}">disini</a></b> dan pastikan tidak ada format accounting pada nilai nominal. Lihat contoh yang ada.
                         </p>
                         <form action="{{ Request::url() }}/create" class="dropzone mt-3" id="dropzone-multiple">
                             @csrf

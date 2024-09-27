@@ -212,65 +212,53 @@
                         <td align="center">1.</td>
                         <td align="left">Gaji Pokok</td>
                         <td align="center">1</td>
-                        <td align="right">{{ number_format($data['gaji_pokok'],'2',',','.') }}</td>
+                        <td align="right">{{ number_format($data['result']['gaji_pokok'],'2',',','.') }}</td>
                       </tr>
                       <tr style="background-color:#d1f3dd;">
                         <td align="center">2.</td>
-                        <td align="left">Lembur Senin-Jumat</td>
-                        <td align="center">{{ number_format($data['jumlah_lembur_senin_jumat'],'2',',','.') }}</td>
-                        <td align="right">{{ number_format($data['total_lembur_senin_jumat'],'2',',','.') }}</td>
+                        <td align="left">Lembur</td>
+                        <td align="center">{{ number_format($data['result']['jumlah_lembur'],'2',',','.') }}</td>
+                        <td align="right">{{ number_format($data['result']['total_lembur'],'2',',','.') }}</td>
                       </tr>
-                      <tr style="background-color:#d1f3dd;">
+                      <tr style="background-color:#fcd0bb;">
                         <td align="center">3.</td>
-                        <td align="left">Lembur Sabtu-Minggu</td>
-                        <td align="center">{{ number_format($data['jumlah_lembur_sabtu_minggu'],'2',',','.') }}</td>
-                        <td align="right">{{ number_format($data['total_lembur_sabtu_minggu'],'2',',','.') }}</td>
+                        <td align="left">Potongan Terlambat</td>
+                        <td align="center">{{ number_format($data['result']['jumlah_potongan_terlambat'],'2',',','.') }}</td>
+                        <td align="right">{{ number_format($data['result']['total_potongan_terlambat'],'2',',','.') }}</td>
                       </tr>
-                      <tr style="background-color:#d1f3dd;">
+                      <tr style="background-color:#fcd0bb;">
                         <td align="center">4.</td>
-                        <td align="left">Lembur Inap-Efektif</td>
-                        <td align="center">{{ number_format($data['jumlah_lembur_inap_efektif'],'2',',','.') }}</td>
-                        <td align="right">{{ number_format($data['total_lembur_inap_efektif'],'2',',','.') }}</td>
+                        <td align="left">Potongan Kehadiran</td>
+                        <td align="center">-</td>
+                        <td align="right">{{ number_format($data['result']['total_potongan_kehadiran'],'2',',','.') }}</td>
                       </tr>
-                      <tr style="background-color:#d1f3dd;">
+                      <tr style="background-color:#fcd0bb;">
                         <td align="center">5.</td>
-                        <td align="left">Lembur Inap-Weekend</td>
-                        <td align="center">{{ number_format($data['jumlah_lembur_inap_weekend'],'2',',','.') }}</td>
-                        <td align="right">{{ number_format($data['total_lembur_inap_weekend'],'2',',','.') }}</td>
+                        <td align="left">Potongan Pinjaman</td>
+                        <td align="center">-</td>
+                        <td align="right">{{ number_format($data['result']['total_potongan_pinjaman'],'2',',','.') }}</td>
                       </tr>
                       <tr style="background-color:#fcd0bb;">
                         <td align="center">6.</td>
-                        <td align="left">Potongan Terlambat</td>
-                        <td align="center">{{ number_format($data['jumlah_potongan_terlambat'],'2',',','.') }}</td>
-                        <td align="right">{{ number_format($data['total_potongan_terlambat'],'2',',','.') }}</td>
+                        <td align="left">Potongan Denda</td>
+                        <td align="center">-</td>
+                        <td align="right">{{ number_format($data['result']['total_potongan_denda'],'2',',','.') }}</td>
                       </tr>
                       <tr style="background-color:#fcd0bb;">
                         <td align="center">7.</td>
-                        <td align="left">Potongan Kehadiran</td>
-                        <td align="center">-</td>
-                        <td align="right">{{ number_format($data['total_potongan_kehadiran'],'2',',','.') }}</td>
-                      </tr>
-                      <tr style="background-color:#fcd0bb;">
-                        <td align="center">8.</td>
-                        <td align="left">Potongan Pinjaman</td>
-                        <td align="center">-</td>
-                        <td align="right">{{ number_format($data['total_potongan_pinjaman'],'2',',','.') }}</td>
-                      </tr>
-                      <tr style="background-color:#fcd0bb;">
-                        <td align="center">9.</td>
-                        <td align="left">Potongan Denda</td>
-                        <td align="center">-</td>
-                        <td align="right">{{ number_format($data['total_potongan_denda'],'2',',','.') }}</td>
-                      </tr>
-                      <tr style="background-color:#fcd0bb;">
-                        <td align="center">10.</td>
                         <td align="left">Potongan BPJS</td>
                         <td align="center">-</td>
-                        <td align="right">{{ number_format($data['total_potongan_bpjs'],'2',',','.') }}</td>
+                        <td align="right">{{ number_format($data['result']['total_potongan_bpjs'],'2',',','.') }}</td>
                       </tr>
-                      <tr style="font-size:20px !important;font-weight:800 !important;">
+                      <tr style="background-color:#d1f3dd;">
+                        <td align="center">8.</td>
+                        <td align="left">Tunjangan Pengganti</td>
+                        <td align="center">-</td>
+                        <td align="right">{{ number_format($data['result']['tunjangan_pengganti'],'2',',','.') }}</td>
+                      </tr>
+                      <tr style="font-size:15px !important;font-weight:800 !important;">
                         <td align="right" colspan="3">JUMLAH TRANSFER</td>
-                        <td align="right">{{ number_format($data['jumlah_transfer'],'2',',','.') }}</td>
+                        <td align="right">{{ number_format($data['result']['jumlah_transfer'],'2',',','.') }}</td>
                       </tr>
                     </table>
                   </td>

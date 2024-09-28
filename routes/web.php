@@ -9,11 +9,13 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BankController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\LetterAgreementController;
 use App\Http\Controllers\OfferingLetterController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ProjectTypeController;
 use App\Http\Controllers\PurposeController;
 use App\Http\Controllers\Select2Controller;
+use App\Models\LetterAgreement;
 use App\Models\OfferingLetter;
 
 /*
@@ -84,6 +86,16 @@ Route::middleware('login')->group(function () {
         Route::post('detail',[OfferingLetterController::class, 'detail']);
         Route::post('destroy',[OfferingLetterController::class, 'destroy']);
         Route::get('print/{id}',[OfferingLetterController::class, 'print']);
+    });
+
+    Route::prefix('spk')->middleware('admin.auth:1')->group(function () {
+        Route::get('/',[LetterAgreementController::class, 'index']);
+        Route::get('datatable',[LetterAgreementController::class, 'datatable']);
+        Route::post('create',[LetterAgreementController::class, 'create']);
+        Route::post('show',[LetterAgreementController::class, 'show']);
+        Route::post('detail',[LetterAgreementController::class, 'detail']);
+        Route::post('destroy',[LetterAgreementController::class, 'destroy']);
+        Route::get('print/{id}',[LetterAgreementController::class, 'print']);
     });
 
     Route::prefix('invoice')->middleware('admin.auth:1')->group(function () {

@@ -357,7 +357,7 @@ function formatRupiahNoMinus(angka){
 function select2ServerSide(selector, endpoint) {
 	$(selector).select2({
 		placeholder: '-- Pilih ya --',
-		minimumInputLength: 1,
+		minimumInputLength: 4,
 		cache: true,
 		width: '100%',
 		dropdownParent: $('#modalCreate'),
@@ -1725,3 +1725,83 @@ function loadDataTableOfferingLetter(){
 }
 
 /* SURAT PENAWARAN */
+
+/* SPK */
+
+function loadDataTableLetterAgreement(){
+    window.table = $('#letter-agreement-datatable').DataTable({
+        "scrollCollapse": true,
+        "scrollY": '400px',
+		"scrollX": true,
+		"scroller": true,
+        "responsive": true,
+        "stateSave": true,
+        "serverSide": true,
+        "deferRender": true,
+        "destroy": true,
+        "fixedColumns": {
+            left: 2,
+            right: 1
+        },
+        "iDisplayInLength": 10,
+        "order": [[0, 'asc']],
+        ajax: {
+            url: window.location.href + '/datatable',
+            type: 'GET',
+            data: {
+                
+            },
+            beforeSend: function() {
+                /* loadingOpen(); */
+            },
+            complete: function() {
+                /* loadingClose(); */
+            },
+            error: function() {
+                /* loadingClose(); */
+                errorConnection();
+            }
+        },
+        columns: [
+            { name: 'id', searchable: false, className: 'text-center' },
+            { name: 'code', className: '' },
+            { name: 'user_id', className: '' },
+            { name: 'project_id', className: '' },
+            { name: 'post_date', className: '' },
+            { name: 'name', className: '' },
+            { name: 'address', className: '' },
+            { name: 'position', className: '' },
+            { name: 'phone', className: '' },
+            { name: 'name_ref', className: '' },
+            { name: 'type_building', className: '' },
+            { name: 'name_builder', className: '' },
+            { name: 'persil_location', className: '' },
+            { name: 'land_area', className: '' },
+            { name: 'building_area', className: '' },
+            { name: 'subdistrict', className: '' },
+            { name: 'district', className: '' },
+            { name: 'city', className: '' },
+            { name: 'province', className: '' },
+            { name: 'road_status', className: '' },
+            { name: 'nominal_1', className: 'text-right' },
+            { name: 'nominal_2', className: 'text-right' },
+            { name: 'nominal_3', className: 'text-right' },
+            { name: 'estimate_date_start', className: '' },
+            { name: 'estimate_date_end', className: '' },
+            { name: 'note', className: '' },
+            { name: 'status', className: 'text-center' },
+            { name: 'action', searchable: false, orderable: false, className: 'text-center' },
+        ],
+        createdRow: function ( row, data, index ) {
+            $(row).addClass('selected')
+        },
+        language: {
+            paginate: {
+                next: '<i class="fa fa-angle-double-right" aria-hidden="true"></i>',
+                previous: '<i class="fa fa-angle-double-left" aria-hidden="true"></i>' 
+            }
+        }
+    });
+}
+
+/* SPK */

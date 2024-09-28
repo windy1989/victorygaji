@@ -148,6 +148,10 @@ $(function() {
 		loadDataTableOfferingLetter();
     }
 
+    if($('#letter-agreement-datatable').length > 0){
+		loadDataTableLetterAgreement();
+    }
+
     if($('#approval-datatable').length > 0){
         loadDataTableApproval();
     }

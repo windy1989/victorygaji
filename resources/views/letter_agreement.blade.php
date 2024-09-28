@@ -8,7 +8,7 @@
 				overflow-y: auto;
 			}
             @media (min-width: 500px){
-                #offering-letter-datatable td:nth-of-type(1), #offering-letter-datatable td:nth-of-type(2), #offering-letter-datatable td:nth-last-of-type(1) {
+                #letter-agreement-datatable td:nth-of-type(1), #letter-agreement-datatable td:nth-of-type(2), #letter-agreement-datatable td:nth-last-of-type(1) {
                     background-color:rgb(255, 233, 173) !important;
                 }
             }

@@ -174,22 +174,54 @@ class LetterAgreementController extends Controller
         DB::beginTransaction();
         try {
             $validation = Validator::make($request->all(), [
-                'code'		            => $request->temp ? ['required', Rule::unique('offering_letters', 'code')->ignore($request->temp)] : 'required|unique:offering_letters,code',
-                'to_name'               => 'required',
+                'code'		            => $request->temp ? ['required', Rule::unique('letter_agreements', 'code')->ignore($request->temp)] : 'required|unique:letter_agreements,code',
+                'name'                  => 'required',
                 'project_id'            => 'required',
                 'post_date'             => 'required',
+                'address'               => 'required',
+                'position'              => 'required',
+                'phone'                 => 'required',
+                'name_ref'              => 'required',
                 'type_building'         => 'required',
-                'location_building'     => 'required',
-                'type_road'             => 'required',
+                'name_builder'          => 'required',
+                'persil_location'       => 'required',
+                'land_area'             => 'required',
+                'building_area'         => 'required',
+                'subdistrict'           => 'required',
+                'district'              => 'required',
+                'city'                  => 'required',
+                'province'              => 'required',
+                'road_status'           => 'required',
+                'nominal_1'             => 'required',
+                'nominal_2'             => 'required',
+                'nominal_3'             => 'required',
+                'estimate_date_start'   => 'required',
+                'estimate_date_finish'  => 'required',
             ], [
-                'code.required'             => 'Kode tidak boleh kosong.',
-                'code.unique'               => 'Kode telah dipakai.',
-                'to_name.required'          => 'Ditujukan kepada tidak boleh kosong.',
-                'project_id.required'       => 'Project tidak boleh kosong.',
-                'post_date.required'        => 'Tgl. post tidak boleh kosong.',
-                'type_building.required'    => 'Tipe Bangunan tidak boleh kosong.',
-                'location_building.required'=> 'Lokasi gedung tidak boleh kosong.',
-                'type_road.required'        => 'Tipe Jalan tidak boleh kosong.',
+                'code.required'                 => 'Kode tidak boleh kosong.',
+                'code.unique'                   => 'Kode telah dipakai.',
+                'name.required'                 => 'Nama pihak 1 tidak boleh kosong.',
+                'project_id.required'           => 'Project tidak boleh kosong.',
+                'post_date.required'            => 'Tgl. post tidak boleh kosong.',
+                'type_building.required'        => 'Tipe Bangunan tidak boleh kosong.',
+                'name_builder.required'         => 'Nama pembangun.',
+                'persil_location.required'      => 'Lokasi persil.',
+                'address.required'              => 'Alamat tidak boleh kosong.',
+                'position.required'             => 'Posisi/Jabatan pihak 1 tidak boleh kosong.',
+                'phone.required'                => 'Telepon pihak 1 tidak boleh kosong.',
+                'name_ref.required'             => 'Atas nama perwakilan tidak boleh kosong (Jika diwakilkan).',
+                'land_area.required'            => 'Luas Lahan tidak boleh kosong.',
+                'building_area.required'        => 'Luas Bangunan tidak boleh kosong.',
+                'subdistrict.required'          => 'Desa/Kelurahan tidak boleh kosong.',
+                'district.required'             => 'Kecamatan tidak boleh kosong.',
+                'city.required'                 => 'Kabupaten/Kota tidak boleh kosong.',
+                'province.required'             => 'Provinsi tidak boleh kosong.',
+                'road_status.required'          => 'Status jalan tidak boleh kosong.',
+                'nominal_1.required'            => 'Nominal termin 1 tidak boleh kosong.',
+                'nominal_2.required'            => 'Nominal termin 2 tidak boleh kosong.',
+                'nominal_3.required'            => 'Nominal termin 3 tidak boleh kosong.',
+                'estimate_date_start.required'  => 'Estimasi tanggal mulai pengerjaan tidak boleh kosong.',
+                'estimate_date_finish.required' => 'Estimasi tanggal selesai pengerjaan tidak boleh kosong.',
             ]);
 
             if($validation->fails()) {
@@ -199,12 +231,12 @@ class LetterAgreementController extends Controller
                 ];
             } else {
                 if($request->temp){
-                    $query = OfferingLetter::where('code',CustomHelper::decrypt($request->temp))->first();
+                    $query = LetterAgreement::where('code',CustomHelper::decrypt($request->temp))->first();
 
                     if($query->status == '3'){
                         return response()->json([
                             'status'    => 500,
-                            'message'   => 'Ups. Surat Penawaran telah SELESAI, anda tidak bisa melakukan perubahan.'
+                            'message'   => 'Ups. Surat SPK telah SELESAI, anda tidak bisa melakukan perubahan.'
                         ]);
                     }
 
@@ -212,28 +244,60 @@ class LetterAgreementController extends Controller
                     $query->code                = $request->code;
                     $query->project_id          = $request->project_id;
                     $query->post_date           = $request->post_date;
-                    $query->to_name             = $request->to_name;
+                    $query->name                = $request->name;
                     $query->type_building       = $request->type_building;
-                    $query->location_building   = $request->location_building;
+                    $query->name_builder        = $request->name_builder;
                     $query->type_road           = $request->type_road;
+                    $query->address             = $request->address;
+                    $query->position            = $request->position;
+                    $query->name_ref            = $request->name_ref;
+                    $query->persil_location     = $request->persil_location;
+                    $query->land_area           = str_replace(',','.',str_replace('.','',$request->land_area));
+                    $query->building_area       = str_replace(',','.',str_replace('.','',$request->building_area));
+                    $query->subdistrict         = $request->subdistrict;
+                    $query->district            = $request->district;
+                    $query->city                = $request->city;
+                    $query->province            = $request->province;
+                    $query->road_status         = $request->road_status;
+                    $query->nominal_1           = str_replace(',','.',str_replace('.','',$request->nominal_1));
+                    $query->nominal_2           = str_replace(',','.',str_replace('.','',$request->nominal_2));
+                    $query->nominal_3           = str_replace(',','.',str_replace('.','',$request->nominal_3));
+                    $query->estimate_date_start = $request->estimate_date_start;
+                    $query->estimate_date_finish= $request->estimate_date_finish;
                     $query->note                = $request->note;
                     $query->status              = '3';
                     $query->save();
-                    CustomHelper::saveLog($query->getTable(),$query->id,'Update data surat penawaran '.$query->code,'Pengguna '.session('bo_name').' telah mengubah data surat penawaran no '.$query->code);
+                    CustomHelper::saveLog($query->getTable(),$query->id,'Update data surat spk '.$query->code,'Pengguna '.session('bo_name').' telah mengubah data surat spk no '.$query->code);
                 }else{
                     $query = OfferingLetter::create([
-                        'user_id'               => session('bo_id'),
-                        'code'                  => $request->code,
-                        'project_id'            => $request->project_id,
-                        'post_date'             => $request->post_date,
-                        'to_name'               => $request->to_name,
-                        'type_building'         => $request->type_building,
-                        'location_building'     => $request->location_building,
-                        'type_road'             => $request->type_road,
-                        'note'                  => $request->note,
-                        'status'                => '3',
+                        'user_id'                   => session('bo_id'),
+                        'code'                      => $request->code,
+                        'project_id'                => $request->project_id,
+                        'post_date'                 => $request->post_date,
+                        'name'                      => $request->name,
+                        'type_building'             => $request->type_building,
+                        'name_builder'              => $request->name_builder,
+                        'type_road'                 => $request->type_road,
+                        'address'                   => $request->address,
+                        'position'                  => $request->position,
+                        'name_ref'                  => $request->name_ref,
+                        'persil_location'           => $request->persil_location,
+                        'land_area'                 => str_replace(',','.',str_replace('.','',$request->land_area)),
+                        'building_area'             => str_replace(',','.',str_replace('.','',$request->building_area)),
+                        'subdistrict'               => $request->subdistrict,
+                        'district'                  => $request->district,
+                        'city'                      => $request->city,
+                        'province'                  => $request->province,
+                        'road_status'               => $request->road_status,
+                        'nominal_1'                 => str_replace(',','.',str_replace('.','',$request->nominal_1)),
+                        'nominal_2'                 => str_replace(',','.',str_replace('.','',$request->nominal_2)),
+                        'nominal_3'                 => str_replace(',','.',str_replace('.','',$request->nominal_3)),
+                        'estimate_date_start'       => $request->estimate_date_start,
+                        'estimate_date_finish'      => $request->estimate_date_finish,
+                        'note'                      => $request->note,
+                        'status'                    => '3',
                     ]);
-                    CustomHelper::saveLog($query->getTable(),$query->id,'Tambah baru data surat penawaran '.$query->code,'Pengguna '.session('bo_name').' telah manambahkan baru data surat penawaran no '.$query->code);
+                    CustomHelper::saveLog($query->getTable(),$query->id,'Tambah baru data surat spk '.$query->code,'Pengguna '.session('bo_name').' telah manambahkan baru data surat spk no '.$query->code);
                 }
                 
                 if($query) {

@@ -64,7 +64,7 @@
                         
                     </td>
                     <td width="25%" style="vertical-align:middle;">
-                        <div style="border:1px solid black;width:150px;height:150px;">
+                        <div style="border:1px solid black;width:125px;height:125px;">
                             KOP PERUSAHAAN
                         </div>
                     </td>

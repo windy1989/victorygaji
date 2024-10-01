@@ -118,6 +118,10 @@
                                     <input type="text" class="form-control" placeholder="Muncul saat cetak" id="address" name="address">
                                 </div>
                                 <div class="mb-3 col-md-6">
+                                    <label class="form-label">Jabatan Pihak 1</label>
+                                    <input type="text" class="form-control" placeholder="Muncul saat cetak" id="position" name="position">
+                                </div>
+                                <div class="mb-3 col-md-6">
                                     <label class="form-label">Telepon</label>
                                     <input type="text" class="form-control" placeholder="Muncul saat cetak" id="phone" name="phone">
                                 </div>

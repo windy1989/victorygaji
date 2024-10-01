@@ -269,7 +269,7 @@ class LetterAgreementController extends Controller
                     $query->save();
                     CustomHelper::saveLog($query->getTable(),$query->id,'Update data surat spk '.$query->code,'Pengguna '.session('bo_name').' telah mengubah data surat spk no '.$query->code);
                 }else{
-                    $query = OfferingLetter::create([
+                    $query = LetterAgreement::create([
                         'user_id'                   => session('bo_id'),
                         'code'                      => $request->code,
                         'project_id'                => $request->project_id,

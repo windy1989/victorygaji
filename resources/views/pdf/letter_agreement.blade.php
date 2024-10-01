@@ -63,7 +63,7 @@
                     <td width="50%">
                         
                     </td>
-                    <td width="25%" style="vertical-align:middle;">
+                    <td width="25%" style="vertical-align:middle;border:1px solid black;">
                         KOP PERUSAHAAN
                     </td>
                 </tr>

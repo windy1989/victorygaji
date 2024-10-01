@@ -1808,4 +1808,15 @@ function loadDataTableLetterAgreement(){
     });
 }
 
+function getProjectInfoSpk(){
+    if($('#project_id').val()){
+        let data = $('#project_id').select2('data')[0];
+        $('#name').val(data.customer);
+        $('#address').val(data.address);
+        $('#phone').val(data.phone);
+    }else{
+        $('#name,#address,#phone').val('');
+    }
+}
+
 /* SPK */

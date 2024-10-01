@@ -119,6 +119,9 @@ class Select2Controller extends Controller {
                 'id'   			=> $d->id,
                 'text' 			=> $d->code.' - '.$d->name.' - '.$d->customer->name,
                 'total_project' => number_format($d->cost,2,',','.'),
+                'customer'      => $d->customer->name,
+                'address'       => $d->customer->address,
+                'phone'         => $d->customer->phone,
             ];
         }
 

@@ -103,7 +103,7 @@
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Proyek</label>
-                                    <select id="project_id" name="project_id"></select>
+                                    <select id="project_id" name="project_id" onchange="getProjectInfoSpk()"></select>
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Tgl.Post</label>

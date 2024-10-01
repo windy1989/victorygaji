@@ -249,6 +249,7 @@ class LetterAgreementController extends Controller
                     $query->name_builder        = $request->name_builder;
                     $query->type_road           = $request->type_road;
                     $query->address             = $request->address;
+                    $query->phone               = $request->phone;
                     $query->position            = $request->position;
                     $query->name_ref            = $request->name_ref;
                     $query->persil_location     = $request->persil_location;
@@ -280,6 +281,7 @@ class LetterAgreementController extends Controller
                         'type_road'                 => $request->type_road,
                         'address'                   => $request->address,
                         'position'                  => $request->position,
+                        'phone'                     => $request->phone,
                         'name_ref'                  => $request->name_ref,
                         'persil_location'           => $request->persil_location,
                         'land_area'                 => str_replace(',','.',str_replace('.','',$request->land_area)),
@@ -320,7 +322,7 @@ class LetterAgreementController extends Controller
     }
 
     public function show(Request $request){
-        $data = OfferingLetter::where('code',CustomHelper::decrypt($request->code))->first();
+        $data = LetterAgreement::where('code',CustomHelper::decrypt($request->code))->first();
         if($data){
             $data['project_code'] = $data->project->code.' - '.$data->project->name.' - '.$data->project->customer->name;
             $response = [

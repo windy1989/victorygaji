@@ -345,7 +345,7 @@ class LetterAgreementController extends Controller
     }
 
     public function detail(Request $request){
-        $data = OfferingLetter::where('code',CustomHelper::decrypt($request->code))->first();
+        $data = LetterAgreement::where('code',CustomHelper::decrypt($request->code))->first();
         if($data){
 
             $html = '';
@@ -391,10 +391,10 @@ class LetterAgreementController extends Controller
     }
 
     public function destroy(Request $request){
-        $query = OfferingLetter::where('code',CustomHelper::decrypt($request->code))->first();
+        $query = LetterAgreement::where('code',CustomHelper::decrypt($request->code))->first();
         if($query){
             if($query->status == '1'){
-                CustomHelper::saveLog($query->getTable(),$query->id,'Surat Penawaran nomor '.$query->code.' telah dihapus.','Pengguna '.session('bo_name').' telah menghapus data Surat Penawaran no '.$query->code);
+                CustomHelper::saveLog($query->getTable(),$query->id,'Surat SPK nomor '.$query->code.' telah dihapus.','Pengguna '.session('bo_name').' telah menghapus data Surat SPK no '.$query->code);
 
                 $query->approval()->delete();
                 $query->delete();
@@ -420,7 +420,7 @@ class LetterAgreementController extends Controller
     }
 
     public function print(Request $request,$id){
-        $data = OfferingLetter::where('code',CustomHelper::decrypt($id))->first();
+        $data = LetterAgreement::where('code',CustomHelper::decrypt($id))->first();
         if($data){
 
             $result = [
@@ -428,8 +428,8 @@ class LetterAgreementController extends Controller
                 'data'          => $data,
             ];
     
-            $pdf = Pdf::loadView('pdf.offering_letter', $result);
-            return $pdf->stream('offering_letter_'.$data->code.'.pdf');
+            $pdf = Pdf::loadView('pdf.letter_agreement', $result);
+            return $pdf->stream('letter_agreement_'.$data->code.'.pdf');
             /* return $pdf->download('invoice.pdf'); */
         }else{
             abort(404);

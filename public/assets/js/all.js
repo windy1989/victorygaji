@@ -921,6 +921,36 @@ function edit(code){
                     $('#note').val(response.data.note);
                 }
 
+                /* JIKA FORM SURAT SPK */
+                if($('#letter-agreement-datatable').length > 0){
+                    $('#code').val(response.data.code);
+                    $('#name').val(response.data.name);
+                    $('#project_id').empty().append(`
+                        <option value="` + response.data.project_type_id + `">` + response.data.project_code + `</option>
+                    `);
+                    $('#post_date').val(response.data.post_date);
+                    $('#address').val(response.data.address);
+                    $('#position').val(response.data.position);
+                    $('#phone').val(response.data.phone);
+                    $('#name_ref').val(response.data.name_ref);
+                    $('#type_building').val(response.data.type_building);
+                    $('#name_builder').val(response.data.name_builder);
+                    $('#persil_location').val(response.data.persil_location);
+                    $('#land_area').val(response.data.land_area);
+                    $('#building_area').val(response.data.building_area);
+                    $('#subdistrict').val(response.data.subdistrict);
+                    $('#district').val(response.data.district);
+                    $('#city').val(response.data.city);
+                    $('#province').val(response.data.province);
+                    $('#road_status').val(response.data.road_status);
+                    $('#nominal_1').val(response.data.nominal_1);
+                    $('#nominal_2').val(response.data.nominal_2);
+                    $('#nominal_3').val(response.data.nominal_3);
+                    $('#estimate_date_start').val(response.data.estimate_date_start);
+                    $('#estimate_date_finish').val(response.data.estimate_date_finish);
+                    $('#note').val(response.data.note);
+                }
+
                 $('#modalCreate').modal('toggle');
             }else{
                 errorMessage('Data tidak ditemukan.');

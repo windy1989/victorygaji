@@ -325,6 +325,11 @@ class LetterAgreementController extends Controller
         $data = LetterAgreement::where('code',CustomHelper::decrypt($request->code))->first();
         if($data){
             $data['project_code'] = $data->project->code.' - '.$data->project->name.' - '.$data->project->customer->name;
+            $data['land_area'] = number_format($data->land_area,2,',','.');
+            $data['building_area'] = number_format($data->building_area,2,',','.');
+            $data['nominal_1'] = number_format($data->nominal_1,2,',','.');
+            $data['nominal_2'] = number_format($data->nominal_2,2,',','.');
+            $data['nominal_3'] = number_format($data->nominal_3,2,',','.');
             $response = [
                 'status'    => 200,
                 'data'      => $data,

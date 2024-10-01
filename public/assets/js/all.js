@@ -361,7 +361,7 @@ function formatRupiahNoMinus(angka){
 function select2ServerSide(selector, endpoint) {
 	$(selector).select2({
 		placeholder: '-- Pilih ya --',
-		minimumInputLength: 4,
+		minimumInputLength: 1,
 		cache: true,
 		width: '100%',
 		dropdownParent: $('#modalCreate'),

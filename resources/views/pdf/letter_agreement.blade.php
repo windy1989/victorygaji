@@ -63,8 +63,10 @@
                     <td width="50%">
                         
                     </td>
-                    <td width="25%" style="vertical-align:middle;border:1px solid black;">
-                        KOP PERUSAHAAN
+                    <td width="25%" style="vertical-align:middle;">
+                        <div style="border:1px solid black;width:50px;height:50px;">
+                            KOP PERUSAHAAN
+                        </div>
                     </td>
                 </tr>
 			</table>

@@ -63,7 +63,7 @@
                     <td width="50%">
                         
                     </td>
-                    <td width="25%">
+                    <td width="25%" style="vertical-align:middle;">
                         KOP PERUSAHAAN
                     </td>
                 </tr>

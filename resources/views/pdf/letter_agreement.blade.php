@@ -68,6 +68,7 @@
                     </td>
                 </tr>
 			</table>
+            <br><br><br><br><br><br>
             <table class="table-content" id="table-detail" cellpadding="0" cellspacing="0" width="90%"style="margin:auto;font-weight:700;">
                 <tbody>
                     <tr>

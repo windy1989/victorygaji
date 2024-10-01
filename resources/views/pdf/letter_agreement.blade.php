@@ -54,22 +54,17 @@
 		</style>
 	</head>
 	<body>
-        <img src="{{ public_path('storage/sign/footer.png') }}" width="50px" height="auto" style="position:fixed;bottom:0px;margin-left:50%;">
 		<div class="invoice-box">
-			<table id="table-header" cellpadding="0" cellspacing="0" width="100%">
+			<table id="table-header" cellpadding="0" cellspacing="0" width="100%" style="position:fixed;top:0px;">
 				<tr>
-                    <td align="right" width="25%">
+                    <td width="25%">
                         <img src="{{ public_path('assets/images/square_logo.png') }}" width="125px" height="auto" style="margin-left:65px;position:absolute;">
                     </td>
-                    <td width="75%">
-                        <div style="font-size:25px;">CV. VICTORY KONSULTAN</div>
-                        <div style="font-size:13px;">
-                            <br>STUDY KELAYAKAN, REKAYASA, EVALUASI DAN MANAJEMEN
-                            <br>KANTOR PUSAT : PERUM. GRAHA KOTA D 12 NO. 20 SUKO - SIDOARJO
-                            <br>Telp.Fax : 031 - 51517878
-                            <br>Email : victorykonsultan@gmail.com
-                            <br>Web : victorykonsultan.com
-                        </div>
+                    <td width="50%">
+                        
+                    </td>
+                    <td width="25%">
+                        KOP PERUSAHAAN
                     </td>
                 </tr>
 			</table>

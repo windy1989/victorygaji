@@ -58,7 +58,7 @@
 			<table id="table-header" cellpadding="0" cellspacing="0" width="100%" style="position:fixed;top:-25px;">
 				<tr>
                     <td width="25%">
-                        <img src="{{ public_path('assets/images/square_logo.png') }}" width="125px" height="auto" style="margin-left:65px;position:absolute;">
+                        <img src="{{ public_path('assets/images/square_logo.png') }}" width="100px" height="auto" style="margin-left:65px;position:absolute;">
                     </td>
                     <td width="50%">
                         
@@ -70,7 +70,7 @@
                     </td>
                 </tr>
 			</table>
-            <br><br>
+            <br><br><br><br><br><br>
             <table class="table-content" cellpadding="0" cellspacing="0" width="90%" style="margin:auto;">
 				<tr>
                     <td width="100%" align="center">

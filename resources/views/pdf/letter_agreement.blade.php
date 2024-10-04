@@ -74,8 +74,8 @@
             <table class="table-content" cellpadding="0" cellspacing="0" width="90%" style="margin:auto;">
 				<tr>
                     <td width="100%" align="center">
-                        <h2>SURAT PERJANJIAN KERJASAMA</h2>
-                        <h2><u>PENYUSUNAN ANDALALIN (ANALISIS DAMPAK LALU LINTAS)</u></h2>
+                        <h3>SURAT PERJANJIAN KERJASAMA</h3>
+                        <h3><u>PENYUSUNAN ANDALALIN (ANALISIS DAMPAK LALU LINTAS)</u></h3>
                         No. {{ $data->code }}
                     </td>
                 </tr>

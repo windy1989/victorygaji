@@ -51,11 +51,13 @@
             #table-detail > tbody > tr > td {
                 padding:25px 5px 25px 5px !important;
             }
+
+            header { position: fixed; top: -70px; left: 0px; right: 0px; height: 150px; margin-bottom: 10em }
 		</style>
 	</head>
 	<body>
         <header>
-            <table id="table-header" cellpadding="0" cellspacing="0" width="100%" style="position:fixed;top:-25px;">
+            <table id="table-header" cellpadding="0" cellspacing="0" width="100%">
 				<tr>
                     <td width="25%">
                         <img src="{{ public_path('assets/images/square_logo.png') }}" width="100px" height="auto" style="margin-left:65px;position:absolute;">

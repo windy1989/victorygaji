@@ -459,10 +459,10 @@
                     </tr>
                 </table>
                 <br>
-                <div style="margin:auto;width:90%;">
+                <div style="margin:auto;width:90%;text-align:justify !important;">
                     <p style="text-align:center;"><b>Pasal 5</b></p>
                     <p style="text-align:center;">HAK DAN KEWAJIBAN PARA PIHAK</p>
-                    <p style="text-align:justify;">
+                    <p>
                         <ol type="1">
                             <li>
                                 Hak dan Kewajiban PIHAK KESATU :

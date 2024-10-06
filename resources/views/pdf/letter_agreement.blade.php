@@ -458,77 +458,61 @@
                     </tr>
                 </table>
                 <br>
-                <table class="table-content" cellpadding="0" cellspacing="0" width="90%" style="margin:auto;">
-                    <tr>
-                        <td width="100%" style="text-align:center;">
-                            <b>Pasal 5</b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="100%" style="text-align:center;">
-                            HAK DAN KEWAJIBAN PARA PIHAK
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="100%" style="text-align:justify;">
-                            <ol type="1">
-                                <li>
-                                    Hak dan Kewajiban PIHAK KESATU :
-                                    <ol type="a">
-                                        <li>
-                                            PIHAK KESATU berhak atas kepemilikan dari keseluruhan hasil pekerjaan (Dokumen asli, bukan copy) dari PIHAK KEDUA yang diatur dalam Perjanjian ini;
-                                        </li>
-                                        <li>
-                                            PIHAK KESATU berkewajiban membayar Nilai Kontrak sesuai dengan ketentuan pasal 3 Perjanjian ini;
-                                        </li>
-                                        <li>
-                                            PIHAK KESATU berkewajiban menyerahkan dokumen-dokumen persyaratan yang diminta melengkapi oleh PIHAK KEDUA.
-                                        </li>
-                                        <li>
-                                            Adapun Dokumen - Dokumen persayaratan yang dibutuhkan adalah :
-                                            <ol type="1">
-                                                <li>KTP Direktur</li>
-                                                <li>NPWP Perusahaan dan NPWP Direktur</li>
-                                                <li>Persetujuan Izin Lokasi / Copy P2R/SKRK/IRK</li>
-                                                <li>Copy Izin Usaha</li>
-                                                <li>Akta Perusahaan Pendirian dan Perubahan (Jika Ada)</li>
-                                                <li>Akta Tanah (SHM/HGB/Letter C, dll)</li>
-                                                <li>Gambar Siteplan / Autocad</li>
-                                                <li>SIUP dan NIB</li>
-                                                <li>KEMENKUMHAM PERUSAHAAN</li>
-                                                <li>Kerjasama pengangkutan Limbah B3 (Jika Ada)</li>
-                                            </ol>
-                                            Untuk Dokumen tersebut dikirim via email : victorykonsultan@gmail.com
-                                        </li>
-                                        <li>
-                                            PIHAK PERTAMA wajib menjaga Keorisinilan (Keaslian) hasil pekerjaan yaitu Dokumen ANDALALIN dan Surat Rekomendasi ANDALALIN. Tidak merubah isi maupun gambar yang ada pada Dokumen dan Rekomendasi ANDALALIN.
-                                        </li>
-                                    </ol>
-                                </li>
-                            </ol>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="100%" style="text-align:justify;">
-                            <ol type="1" start="2">
-                                <li>
-                                    Hak dan Kewajiban PIHAK KEDUA;
-                                    <ol type="a">
-                                        <li>
-                                            PIHAK KEDUA berhak atas penerimaan pembayaran Nilai Kontrak yang diatur dalam pasal 3 Perjanjian ini;
-                                        </li>
-                                        <li>
-                                            PIHAK KEDUA berkewajiban memberikan laporan kepada PIHAK KESATU untuk setiap perkembangan dari pekerjaan yang dilakukan oleh PIHAK KEDUA kepada PIHAK KESATU segera setelah diminta oleh PIHAK KESATU.
-                                        </li>
-                                        <li>
-                                            PIHAK KEDUA berhak mengajukan draft Dokumen Andalalin ke Dinas berwenang untuk disidangkan setelah menerima persetujuan dari Pihak Pertama, yang ditunjukan dengan Berita Acara persertujuan yang di tandatangani oleh PIHAK PERTAMA.
-                                        </li>
-                                    </ol>
-                                </li>
-                            </ol>
-                        </td>
-                    </tr>
-                </table>
+                <div width="90%" style="margin:auto;">
+                    <b>Pasal 5</b>
+                    <p>HAK DAN KEWAJIBAN PARA PIHAK</p>
+                    <p>
+                        <ol type="1">
+                            <li>
+                                Hak dan Kewajiban PIHAK KESATU :
+                                <ol type="a">
+                                    <li>
+                                        PIHAK KESATU berhak atas kepemilikan dari keseluruhan hasil pekerjaan (Dokumen asli, bukan copy) dari PIHAK KEDUA yang diatur dalam Perjanjian ini;
+                                    </li>
+                                    <li>
+                                        PIHAK KESATU berkewajiban membayar Nilai Kontrak sesuai dengan ketentuan pasal 3 Perjanjian ini;
+                                    </li>
+                                    <li>
+                                        PIHAK KESATU berkewajiban menyerahkan dokumen-dokumen persyaratan yang diminta melengkapi oleh PIHAK KEDUA.
+                                    </li>
+                                    <li>
+                                        Adapun Dokumen - Dokumen persayaratan yang dibutuhkan adalah :
+                                        <ol type="1">
+                                            <li>KTP Direktur</li>
+                                            <li>NPWP Perusahaan dan NPWP Direktur</li>
+                                            <li>Persetujuan Izin Lokasi / Copy P2R/SKRK/IRK</li>
+                                            <li>Copy Izin Usaha</li>
+                                            <li>Akta Perusahaan Pendirian dan Perubahan (Jika Ada)</li>
+                                            <li>Akta Tanah (SHM/HGB/Letter C, dll)</li>
+                                            <li>Gambar Siteplan / Autocad</li>
+                                            <li>SIUP dan NIB</li>
+                                            <li>KEMENKUMHAM PERUSAHAAN</li>
+                                            <li>Kerjasama pengangkutan Limbah B3 (Jika Ada)</li>
+                                        </ol>
+                                        Untuk Dokumen tersebut dikirim via email : victorykonsultan@gmail.com
+                                    </li>
+                                    <li>
+                                        PIHAK PERTAMA wajib menjaga Keorisinilan (Keaslian) hasil pekerjaan yaitu Dokumen ANDALALIN dan Surat Rekomendasi ANDALALIN. Tidak merubah isi maupun gambar yang ada pada Dokumen dan Rekomendasi ANDALALIN.
+                                    </li>
+                                </ol>
+                            </li>
+                            <li>
+                                Hak dan Kewajiban PIHAK KEDUA;
+                                <ol type="a">
+                                    <li>
+                                        PIHAK KEDUA berhak atas penerimaan pembayaran Nilai Kontrak yang diatur dalam pasal 3 Perjanjian ini;
+                                    </li>
+                                    <li>
+                                        PIHAK KEDUA berkewajiban memberikan laporan kepada PIHAK KESATU untuk setiap perkembangan dari pekerjaan yang dilakukan oleh PIHAK KEDUA kepada PIHAK KESATU segera setelah diminta oleh PIHAK KESATU.
+                                    </li>
+                                    <li>
+                                        PIHAK KEDUA berhak mengajukan draft Dokumen Andalalin ke Dinas berwenang untuk disidangkan setelah menerima persetujuan dari Pihak Pertama, yang ditunjukan dengan Berita Acara persertujuan yang di tandatangani oleh PIHAK PERTAMA.
+                                    </li>
+                                </ol>
+                            </li>
+                        </ol>
+                    </p>
+                </div>
                 <br>
                 <table class="table-content" cellpadding="0" cellspacing="0" width="90%" style="margin:auto;">
                     <tr>

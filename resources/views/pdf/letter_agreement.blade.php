@@ -86,6 +86,7 @@
                     </td>
                 </tr>
 			</table>
+            <br>
             <table class="table-content" cellpadding="0" cellspacing="0" width="90%" style="margin:auto;text-align:justify;">
 				<tr>
                     <td width="20%">
@@ -132,6 +133,7 @@
                     </td>
                 </tr>
 			</table>
+            <br>
             <table class="table-content" cellpadding="0" cellspacing="0" width="90%" style="margin:auto;">
 				<tr>
                     <td width="100%" style="text-align:justify;">
@@ -139,6 +141,7 @@
                     </td>
                 </tr>
 			</table>
+            <br>
             <table class="table-content" cellpadding="0" cellspacing="0" width="90%" style="margin:auto;text-align:justify;">
 				<tr>
                     <td width="20%">
@@ -173,8 +176,8 @@
                         PERUM. Graha Kota Blok D 12 No. 20 Suko - Sidoarjo
                     </td>
                 </tr>
-                
 			</table>
+            <br>
             <table class="table-content" cellpadding="0" cellspacing="0" width="90%" style="margin:auto;">
 				<tr>
                     <td width="100%" style="text-align:justify;">
@@ -187,6 +190,7 @@
                     </td>
                 </tr>
 			</table>
+            <br>
             <table class="table-content" id="table-detail" cellpadding="0" cellspacing="0" width="90%"style="margin:auto;font-weight:700;">
                 <tbody>
                     <tr>

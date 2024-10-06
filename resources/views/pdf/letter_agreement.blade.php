@@ -415,49 +415,29 @@
                     </tr>
                 </table>
                 <br>
-                <table class="table-content" cellpadding="0" cellspacing="0" width="90%" style="margin:auto;">
-                    <tr>
-                        <td width="100%" style="text-align:center;">
-                            <b>Pasal 3</b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="100%" style="text-align:center;">
-                            WAKTU PELAKSANAAN
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="100%" style="text-align:justify;">
-                            <ol type="1">
-                                <li>
-                                    Pekerjaan penyusunan Dokumen ini hingga siap untuk diajukan ke Dinas akan diselesaikan dalam waktu {{ CustomHelper::countDays($data->estimate_date_start,$data->estimate_date_finish) }} ( {{ CustomHelper::terbilang(CustomHelper::countDays($data->estimate_date_start,$data->estimate_date_finish)) }} ) Hari Kerja sejak diterimanya DP ( Down Payment ) dan berkas persyaratan ANDALALIN dengan lengkap yaitu pada tanggal {{ CustomHelper::tgl_indo($data->estimate_date_start) }} sampai dengan tanggal {{ CustomHelper::tgl_indo($data->estimate_date_finish) }}.
-                                </li>
-                            </ol>
-                        </td>
-                    </tr>
-                </table>
+                <div style="margin:auto;width:90%;text-align:justify !important;">
+                    <p style="text-align:center;"><b>Pasal 3</b></p>
+                    <p style="text-align:center;">WAKTU PELAKSANAAN</p>
+                    <p>
+                        <ol type="1">
+                            <li>
+                                Pekerjaan penyusunan Dokumen ini hingga siap untuk diajukan ke Dinas akan diselesaikan dalam waktu {{ CustomHelper::countDays($data->estimate_date_start,$data->estimate_date_finish) }} ( {{ CustomHelper::terbilang(CustomHelper::countDays($data->estimate_date_start,$data->estimate_date_finish)) }} ) Hari Kerja sejak diterimanya DP ( Down Payment ) dan berkas persyaratan ANDALALIN dengan lengkap yaitu pada tanggal {{ CustomHelper::tgl_indo($data->estimate_date_start) }} sampai dengan tanggal {{ CustomHelper::tgl_indo($data->estimate_date_finish) }}.
+                            </li>
+                        </ol>
+                    </p>
+                </div>
                 <br>
-                <table class="table-content" cellpadding="0" cellspacing="0" width="90%" style="margin:auto;">
-                    <tr>
-                        <td width="100%" style="text-align:center;">
-                            <b>Pasal 4</b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="100%" style="text-align:center;">
-                            AMANDEMEN/ADDENDUM
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="100%" style="text-align:justify;">
-                            <ol type="1">
-                                <li>
-                                    Segala sesuatu yang belum diatur dalam Surat Perjanjian ini atau perubahan-perubahan yang dipandang perlu oleh kedua belah pihak akan diatur dalam Surat Perjanjian tambahan (Addendum) atau Surat Perjanjian Perubahan (Amandemen) yang merupakan kesatuan yang tidak terpisahkan dari Surat Perjanjian ini.
-                                </li>
-                            </ol>
-                        </td>
-                    </tr>
-                </table>
+                <div style="margin:auto;width:90%;text-align:justify !important;">
+                    <p style="text-align:center;"><b>Pasal 4</b></p>
+                    <p style="text-align:center;">AMANDEMEN/ADDENDUM</p>
+                    <p>
+                        <ol type="1">
+                            <li>
+                                Segala sesuatu yang belum diatur dalam Surat Perjanjian ini atau perubahan-perubahan yang dipandang perlu oleh kedua belah pihak akan diatur dalam Surat Perjanjian tambahan (Addendum) atau Surat Perjanjian Perubahan (Amandemen) yang merupakan kesatuan yang tidak terpisahkan dari Surat Perjanjian ini.
+                            </li>
+                        </ol>
+                    </p>
+                </div>
                 <br>
                 <div style="margin:auto;width:90%;text-align:justify !important;">
                     <p style="text-align:center;"><b>Pasal 5</b></p>

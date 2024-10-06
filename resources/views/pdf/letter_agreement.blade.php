@@ -427,6 +427,217 @@
                 </tr>
 			</table>
             <br>
+            <table class="table-content" cellpadding="0" cellspacing="0" width="90%" style="margin:auto;">
+				<tr>
+                    <td width="100%" style="text-align:center;">
+                        <b>Pasal 4</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="100%" style="text-align:center;">
+                        AMANDEMEN/ADDENDUM
+                    </td>
+                </tr>
+                <tr>
+                    <td width="100%" style="text-align:justify;">
+                        <ol type="1">
+                            <li>
+                                Segala sesuatu yang belum diatur dalam Surat Perjanjian ini atau perubahan-perubahan yang dipandang perlu oleh kedua belah pihak akan diatur dalam Surat Perjanjian tambahan (Addendum) atau Surat Perjanjian Perubahan (Amandemen) yang merupakan kesatuan yang tidak terpisahkan dari Surat Perjanjian ini.
+                            </li>
+                        </ol>
+                    </td>
+                </tr>
+			</table>
+            <br>
+            <table class="table-content" cellpadding="0" cellspacing="0" width="90%" style="margin:auto;">
+				<tr>
+                    <td width="100%" style="text-align:center;">
+                        <b>Pasal 5</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="100%" style="text-align:center;">
+                        HAK DAN KEWAJIBAN PARA PIHAK
+                    </td>
+                </tr>
+                <tr>
+                    <td width="100%" style="text-align:justify;">
+                        <ol type="1">
+                            <li>
+                                Hak dan Kewajiban PIHAK KESATU :
+                                <ol type="a">
+                                    <li>
+                                        PIHAK KESATU berhak atas kepemilikan dari keseluruhan hasil pekerjaan (Dokumen asli, bukan copy) dari PIHAK KEDUA yang diatur dalam Perjanjian ini;
+                                    </li>
+                                    <li>
+                                        PIHAK KESATU berkewajiban membayar Nilai Kontrak sesuai dengan ketentuan pasal 3 Perjanjian ini;
+                                    </li>
+                                    <li>
+                                        PIHAK KESATU berkewajiban menyerahkan dokumen-dokumen persyaratan yang diminta melengkapi oleh PIHAK KEDUA.
+                                    </li>
+                                    <li>
+                                        Adapun Dokumen - Dokumen persayaratan yang dibutuhkan adalah :
+                                        <ol type="1">
+                                            <li>KTP Direktur</li>
+                                            <li>NPWP Perusahaan dan NPWP Direktur</li>
+                                            <li>Persetujuan Izin Lokasi / Copy P2R/SKRK/IRK</li>
+                                            <li>Copy Izin Usaha</li>
+                                            <li>Akta Perusahaan Pendirian dan Perubahan (Jika Ada)</li>
+                                            <li>Akta Tanah (SHM/HGB/Letter C, dll)</li>
+                                            <li>Gambar Siteplan / Autocad</li>
+                                            <li>SIUP dan NIB</li>
+                                            <li>KEMENKUMHAM PERUSAHAAN</li>
+                                            <li>Kerjasama pengangkutan Limbah B3 (Jika Ada)</li>
+                                        </ol>
+                                        Untuk Dokumen tersebut dikirim via email : victorykonsultan@gmail.com
+                                    </li>
+                                    <li>
+                                        PIHAK PERTAMA wajib menjaga Keorisinilan (Keaslian) hasil pekerjaan yaitu Dokumen ANDALALIN dan Surat Rekomendasi ANDALALIN. Tidak merubah isi maupun gambar yang ada pada Dokumen dan Rekomendasi ANDALALIN.
+                                    </li>
+                                </ol>
+                            </li>
+                            <li>
+                                Hak dan Kewajiban PIHAK KEDUA;
+                                <ol type="a">
+                                    <li>
+                                        PIHAK KEDUA berhak atas penerimaan pembayaran Nilai Kontrak yang diatur dalam pasal 3 Perjanjian ini;
+                                    </li>
+                                    <li>
+                                        PIHAK KEDUA berkewajiban memberikan laporan kepada PIHAK KESATU untuk setiap perkembangan dari pekerjaan yang dilakukan oleh PIHAK KEDUA kepada PIHAK KESATU segera setelah diminta oleh PIHAK KESATU.
+                                    </li>
+                                    <li>
+                                        PIHAK KEDUA berhak mengajukan draft Dokumen Andalalin ke Dinas berwenang untuk disidangkan setelah menerima persetujuan dari Pihak Pertama, yang ditunjukan dengan Berita Acara persertujuan yang di tandatangani oleh PIHAK PERTAMA.
+                                    </li>
+                                </ol>
+                            </li>
+                        </ol>
+                    </td>
+                </tr>
+			</table>
+            <br>
+            <table class="table-content" cellpadding="0" cellspacing="0" width="90%" style="margin:auto;">
+				<tr>
+                    <td width="100%" style="text-align:center;">
+                        <b>Pasal 6</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="100%" style="text-align:center;">
+                        FORCE MAJEURE
+                    </td>
+                </tr>
+                <tr>
+                    <td width="100%" style="text-align:justify;">
+                        <ol type="1">
+                            <li>
+                                Hal-hal yang dianggap sebagai Force Majeure dalam Perjanjian ini adalah peristiwa atau kejadian di luar kekuasaan manusia, termasuk tetapi tidak terbatas pada bencana alam, kebakaran, aksi pemogokan umum, epidemic, peperangan, huru-hara, terganggunya aliran komunikasi dan atau listrik
+                            </li>
+                            <li>
+                                Pihak yang tidak melaksanakan kewajibannya dikarenakan peristiwa Force Majeure, wajib memberitahukan pihak lainnya secara tertulis disertai surat keterangan dari Kepolisian atau instansi yang berwenang, selambat-lambatnya 10 (sepuluh) hari kerja terhitung sejak tanggal terjadinya peristiwa tersebut.
+                            </li>
+                            <li>
+                                Apabila dalam waktu 10 (sepuluh) hari kerja terhitung sejak diterimanya pemberitahuan tersebut, pihak yang menerima pemberitahuan tidak menanggapi, maka akan dianggap bahwa peristiwa tersebut telah diketahuinya
+                            </li>
+                            <li>
+                                Segala permasalahan yang timbul sebagai akibat dari terjadinya Force Majeure akan diselesaikan secara musyawarah oleh Para Pihak.
+                            </li>
+                        </ol>
+                    </td>
+                </tr>
+			</table>
+            <br>
+            <table class="table-content" cellpadding="0" cellspacing="0" width="90%" style="margin:auto;">
+				<tr>
+                    <td width="100%" style="text-align:center;">
+                        <b>Pasal 7</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="100%" style="text-align:center;">
+                        PENGAKHIRAN PERJANJIAN
+                    </td>
+                </tr>
+                <tr>
+                    <td width="100%" style="text-align:justify;">
+                        <ol type="1">
+                            <li>
+                                Para Pihak dapat mengakhiri Perjanjian ini secara sepihak sebelum jangka waktu Perjanjian berakhir dengan memberikan pemberitahuan secara tertulis selambatlambatnya 30 (tiga puluh) hari kalender sebelum tanggal pengakhiran yang dikehendaki pihak yang bersangkutan.
+                            </li>
+                            <li>
+                                Dalam hal PIHAK KESATU mengakhiri Perjanjian ini sebelum jangka waktu berakhirnya Perjanjian ini dimana harus diinformasikan dan disetujui PIHAK KEDUA, maka PIHAK KESATU wajib membayar seluruh biaya pelaksanaan Pekerjaan sesuai progress yang telah dikerjakan oleh PIHAK KEDUA.
+                            </li>
+                            <li>
+                                Sehubungan dengan pengakhiran Perjanjian ini Para Pihak sepakat untuk mengesampingkan berlakunya ketentuan Pasal 1266 dan 1267 Kitab Undang-Undang Hukum Perdata khususnya ketentuan yang mengharuskan adanya putusan pengadilan untuk pengakhiran suatu Perjanjian, sehingga untuk pengakhiran Perjanjian ini tidak diperlukan adanya putusan pengadilan.
+                            </li>
+                            <li>
+                                Dengan berakhirnya Perjanjian ini, tidak menghapuskan kewajiban Para Pihak yang telah timbul sebelum diakhirinya Perjanjian ini sampai kewajiban tersebut selesai sesuai dengan ketentuan-ketentuan dalam Perjanjian ini.
+                            </li>
+                        </ol>
+                    </td>
+                </tr>
+			</table>
+            <br>
+            <table class="table-content" cellpadding="0" cellspacing="0" width="90%" style="margin:auto;">
+				<tr>
+                    <td width="100%" style="text-align:center;">
+                        <b>Pasal 8</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="100%" style="text-align:center;">
+                        PENYELESAIAN PERSELISIHAN
+                    </td>
+                </tr>
+                <tr>
+                    <td width="100%" style="text-align:justify;">
+                        <ol type="1">
+                            <li>
+                                Apabila timbul perselisihan dalam pelaksanaan Perjanjian ini, Para Pihak sepakat untuk menyelesaikan secara musyawarah.
+                            </li>
+                            <li>
+                                Apabila penyelesaian sebagaimana dimaksud dalam ayat 1 Pasal ini tidak dapat dicapai, maka Para Pihak sepakat untuk menyelesaikannya di Pengadilan Negeri Sidoarjo.
+                            </li>
+                        </ol>
+                    </td>
+                </tr>
+			</table>
+            <br>
+            <table class="table-content" cellpadding="0" cellspacing="0" width="90%" style="margin:auto;">
+				<tr>
+                    <td width="100%" style="text-align:center;">
+                        <b>Pasal 9</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="100%" style="text-align:center;">
+                        LAIN-LAIN
+                    </td>
+                </tr>
+                <tr>
+                    <td width="100%" style="text-align:justify;">
+                        <ol type="1">
+                            <li>
+                                Bahwa dokumen ANDALALIN yang dibuat oleh PIHAK KEDUA sebagai bagian pekerjaan, dimana isi dokumen tersebut merupakan data dan fakta sesuai kondisi di lapangan hasil penelitian PIHAK KEDUA.
+                            </li>
+                            <li>
+                                PIHAK KEDUA dalam keadaan apapun turut bertangung jawab atas semua data lapangan yang dibuat oleh PIHAK KEDUA sehubungan dengan pekerjaan dan hasil pekerjaan tersebut yang kemudian menjadi pertimbangan dinas/instansi terkait untuk memberikan rekomendasi bagi penerbitan ijin lingkungan yang di ajukan PIHAK KESATU.
+                            </li>
+                            <li>
+                                Para Pihak menjamin bahwa Pihak-Pihak yang menandatangani Perjanjian ini adalah pihak - pihak yang berwenang dalam mewakili Perseroan dalam Perjanjian ini sesuai dengan Anggaran Dasar Perseroan masing-masing.
+                            </li>
+                        </ol>
+                    </td>
+                </tr>
+			</table>
+            <br>
+            <table class="table-content" cellpadding="0" cellspacing="0" width="90%" style="margin:auto;">
+				<tr>
+                    <td width="100%" style="text-align:center;">
+                        Demikian Perjanjian ini dibuat dan ditandatangani oleh Para Pihak, dibuat dalam rangkap 2 (dua), masing-masing bermaterai cukup, diberi cap perusahaan dan mempunyai kekuatan hukum yang sama.
+                    </td>
+                </tr>
+			</table>
+            <br>
             <table class="table-content" id="table-detail" cellpadding="0" cellspacing="0" width="90%"style="margin:auto;font-weight:700;">
                 <tbody>
                     <tr>

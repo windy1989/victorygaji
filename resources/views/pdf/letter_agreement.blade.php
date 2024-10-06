@@ -54,12 +54,8 @@
 
             header { position: fixed; top: -135px; left: 0px; right: 0px; height: 150px; margin-bottom: 10em }
 
-            li {
-                page-break-inside: auto;
-            }
-
-            td {
-                page-break-inside: auto;
+            table tr {
+                page-break-after:always
             }
 		</style>
 	</head>

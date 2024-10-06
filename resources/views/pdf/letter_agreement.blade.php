@@ -26,7 +26,7 @@
                 padding: 0px !important;
             }
 
-            @page { margin: 3.5cm 2cm 3cm 2cm; }
+            @page { margin: 3.75cm 2cm 3cm 2cm; }
             
             hr {
                 background-color: black;
@@ -52,7 +52,7 @@
                 padding:25px 5px 25px 5px !important;
             }
 
-            header { position: fixed; top: -150px; left: 0px; right: 0px; height: 150px; margin-bottom: 10em }
+            header { position: fixed; top: -135px; left: 0px; right: 0px; height: 150px; margin-bottom: 10em }
 		</style>
 	</head>
 	<body>

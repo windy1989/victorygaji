@@ -57,10 +57,6 @@
             table tr {
                 page-break-after:auto;
             }
-
-            li {
-                page-break-after:auto !important;
-            }
 		</style>
 	</head>
 	<body>
@@ -508,6 +504,12 @@
                                         </li>
                                     </ol>
                                 </li>
+                            </ol>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="100%" style="text-align:justify;">
+                            <ol type="1" start="2">
                                 <li>
                                     Hak dan Kewajiban PIHAK KEDUA;
                                     <ol type="a">

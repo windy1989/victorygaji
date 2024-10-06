@@ -57,6 +57,10 @@
             table tr {
                 page-break-after:auto;
             }
+
+            li {
+                page-break-after:auto !important;
+            }
 		</style>
 	</head>
 	<body>

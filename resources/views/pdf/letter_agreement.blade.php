@@ -552,7 +552,7 @@
                 <br>
                 <table class="table-content" cellpadding="0" cellspacing="0" width="90%" style="margin:auto;">
                     <tr>
-                        <td width="100%" style="text-align:center;">
+                        <td width="100%" style="text-align:justify;">
                             Demikian Perjanjian ini dibuat dan ditandatangani oleh Para Pihak, dibuat dalam rangkap 2 (dua), masing-masing bermaterai cukup, diberi cap perusahaan dan mempunyai kekuatan hukum yang sama.
                         </td>
                     </tr>

@@ -79,6 +79,59 @@
                     </td>
                 </tr>
 			</table>
+            <table class="table-content" cellpadding="0" cellspacing="0" width="90%" style="margin:auto;">
+				<tr>
+                    <td width="100%" align="center">
+                        Pada hari ini .............Tanggal ....... ( ................ ) Bulan ..........tahun 2024, yang bertanda tangan dibawah ini masing - masing
+                    </td>
+                </tr>
+			</table>
+            <table class="table-content" cellpadding="0" cellspacing="0" width="90%" style="margin:auto;">
+				<tr>
+                    <td width="30%" align="center">
+                        Nama
+                    </td>
+                    <td width="1%" align="center">
+                        :
+                    </td>
+                    <td width="69%" align="center">
+                        {{ $data->name }}
+                    </td>
+                </tr>
+                <tr>
+                    <td width="30%" align="center">
+                        Alamat
+                    </td>
+                    <td width="1%" align="center">
+                        :
+                    </td>
+                    <td width="69%" align="center">
+                        {{ $data->address }}
+                    </td>
+                </tr>
+                <tr>
+                    <td width="30%" align="center">
+                        Jabatan
+                    </td>
+                    <td width="1%" align="center">
+                        :
+                    </td>
+                    <td width="69%" align="center">
+                        {{ $data->position }}
+                    </td>
+                </tr>
+                <tr>
+                    <td width="30%" align="center">
+                        No. Telepon
+                    </td>
+                    <td width="1%" align="center">
+                        :
+                    </td>
+                    <td width="69%" align="center">
+                        {{ $data->phone }}
+                    </td>
+                </tr>
+			</table>
             <table class="table-content" id="table-detail" cellpadding="0" cellspacing="0" width="90%"style="margin:auto;font-weight:700;">
                 <tbody>
                     <tr>

@@ -345,75 +345,55 @@
                     </tr>
                 </table>
                 <br>
-                <table class="table-content" cellpadding="0" cellspacing="0" width="90%" style="margin:auto;">
-                    <tr>
-                        <td width="100%" style="text-align:center;">
-                            <b>Pasal 1</b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="100%" style="text-align:center;">
-                            RUANG LINGKUP PEKERJAAN
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="100%" style="text-align:justify;">
-                            <ol type="1">
-                                <li>
-                                    PIHAK KEDUA akan melaksanakan Pekerjaan dalam jangka waktu sebagaimana di maksud dalam ketentuan Perjanjian ini.
-                                </li>
-                                <li>
-                                    PIHAK KESATU wajib menyediakan seluruh dokumen persyaratan dan menyerahkan kepada PIHAK KEDUA.
-                                </li>
-                            </ol>
-                        </td>
-                    </tr>
-                </table>
+                <div style="margin:auto;width:90%;text-align:justify !important;">
+                    <p style="text-align:center;"><b>Pasal 1</b></p>
+                    <p style="text-align:center;">RUANG LINGKUP PEKERJAAN</p>
+                    <p>
+                        <ol type="1">
+                            <li>
+                                PIHAK KEDUA akan melaksanakan Pekerjaan dalam jangka waktu sebagaimana di maksud dalam ketentuan Perjanjian ini.
+                            </li>
+                            <li>
+                                PIHAK KESATU wajib menyediakan seluruh dokumen persyaratan dan menyerahkan kepada PIHAK KEDUA.
+                            </li>
+                        </ol>
+                    </p>
+                </div>
                 <br>
-                <table class="table-content" cellpadding="0" cellspacing="0" width="90%" style="margin:auto;">
-                    <tr>
-                        <td width="100%" style="text-align:center;">
-                            <b>Pasal 2</b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="100%" style="text-align:center;">
-                            PEMBIAYAAN
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="100%" style="text-align:justify;">
-                            <ol type="1">
-                                <li>
-                                    Atas pelaksanaan Pekerjaan, PIHAK KESATU wajib membayar Total biaya Pekerjaan sebesar Rp {{ number_format($data->project->cost,0,',','') }},- ( {{ CustomHelper::terbilang($data->project->cost) }} ) kepada PIHAK KEDUA. Pembayaran biaya pelaksanaan Pekerjaan :
-                                    <ul style="list-style-type:disc">
-                                        <li>
-                                            Tahap I sebesar ; Rp {{ number_format($data->nominal_1,0,',','') }},- ( {{ CustomHelper::terbilang($data->nominal_1) }} ) dari nilai kontrak dibayarkan pada saat penandatanganan kontrak dan setelah diterimanya invoice.
-                                        </li>
-                                        <li>
-                                            Tahap II sebesar ; Rp {{ number_format($data->nominal_2,0,',','') }},- ( {{ CustomHelper::terbilang($data->nominal_2) }} ) dari nilai kontrak dibayarkan pada saat PIHAK KEDUA menyerahkan laporan Analisis Dampak Lalu Lintas yang kondisinya siap disidangkan ke instansi terkait dengan menyertakan Tanda Terima Berkas oleh Dinas terkait.
-                                        </li>
-                                        <li>
-                                            Tahap III sebesar ; Rp {{ number_format($data->nominal_3,0,',','') }},- ( {{ CustomHelper::terbilang($data->nominal_3) }} ) Dari nilai kontrak dibayarkan saat pekerjaan sudah selesai dan surat rekomendasi Analisis Dampak Lalu Lintas yang diterbitkan instansi terkait sudah terbit.
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    Penagihan pembayaran kami sertai dengan dokumen pendukung berupa:
-                                    <ol type="a">
-                                        <li>Invoice;</li>
-                                    </ol>
-                                </li>
-                                <li>
-                                    Pembayaran akan dilakukan PIHAK KESATU selambat-lambatnya 3 (tiga) hari kerja / setelah diterimanya Invoice oleh PIHAK KESATU dan akan dilakukan sesuai jadwal pembayaran yang di berikan oleh PIHAK KEDUA.
-                                </li>
-                                <li>
-                                    Pembayaran dilakukan oleh PIHAK KESATU kepada PIHAK KEDUA dengan cara mentransfer ke rekening PIHAK KEDUA ke rekening Bank BCA Cabang Sidoarjo dengan nomor rekening 0183 - 88 - 6140 an. DEDDY CHRISTIANTO.
-                                </li>
-                            </ol>
-                        </td>
-                    </tr>
-                </table>
+                <div style="margin:auto;width:90%;text-align:justify !important;">
+                    <p style="text-align:center;"><b>Pasal 2</b></p>
+                    <p style="text-align:center;">PEMBIAYAAN</p>
+                    <p>
+                        <ol type="1">
+                            <li>
+                                Atas pelaksanaan Pekerjaan, PIHAK KESATU wajib membayar Total biaya Pekerjaan sebesar Rp {{ number_format($data->project->cost,0,',','') }},- ( {{ CustomHelper::terbilang($data->project->cost) }} ) kepada PIHAK KEDUA. Pembayaran biaya pelaksanaan Pekerjaan :
+                                <ul style="list-style-type:disc">
+                                    <li>
+                                        Tahap I sebesar ; Rp {{ number_format($data->nominal_1,0,',','') }},- ( {{ CustomHelper::terbilang($data->nominal_1) }} ) dari nilai kontrak dibayarkan pada saat penandatanganan kontrak dan setelah diterimanya invoice.
+                                    </li>
+                                    <li>
+                                        Tahap II sebesar ; Rp {{ number_format($data->nominal_2,0,',','') }},- ( {{ CustomHelper::terbilang($data->nominal_2) }} ) dari nilai kontrak dibayarkan pada saat PIHAK KEDUA menyerahkan laporan Analisis Dampak Lalu Lintas yang kondisinya siap disidangkan ke instansi terkait dengan menyertakan Tanda Terima Berkas oleh Dinas terkait.
+                                    </li>
+                                    <li>
+                                        Tahap III sebesar ; Rp {{ number_format($data->nominal_3,0,',','') }},- ( {{ CustomHelper::terbilang($data->nominal_3) }} ) Dari nilai kontrak dibayarkan saat pekerjaan sudah selesai dan surat rekomendasi Analisis Dampak Lalu Lintas yang diterbitkan instansi terkait sudah terbit.
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                Penagihan pembayaran kami sertai dengan dokumen pendukung berupa:
+                                <ol type="a">
+                                    <li>Invoice;</li>
+                                </ol>
+                            </li>
+                            <li>
+                                Pembayaran akan dilakukan PIHAK KESATU selambat-lambatnya 3 (tiga) hari kerja / setelah diterimanya Invoice oleh PIHAK KESATU dan akan dilakukan sesuai jadwal pembayaran yang di berikan oleh PIHAK KEDUA.
+                            </li>
+                            <li>
+                                Pembayaran dilakukan oleh PIHAK KESATU kepada PIHAK KEDUA dengan cara mentransfer ke rekening PIHAK KEDUA ke rekening Bank BCA Cabang Sidoarjo dengan nomor rekening 0183 - 88 - 6140 an. DEDDY CHRISTIANTO.
+                            </li>
+                        </ol>
+                    </p>
+                </div>
                 <br>
                 <div style="margin:auto;width:90%;text-align:justify !important;">
                     <p style="text-align:center;"><b>Pasal 3</b></p>
@@ -495,120 +475,80 @@
                     </p>
                 </div>
                 <br>
-                <table class="table-content" cellpadding="0" cellspacing="0" width="90%" style="margin:auto;">
-                    <tr>
-                        <td width="100%" style="text-align:center;">
-                            <b>Pasal 6</b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="100%" style="text-align:center;">
-                            FORCE MAJEURE
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="100%" style="text-align:justify;">
-                            <ol type="1">
-                                <li>
-                                    Hal-hal yang dianggap sebagai Force Majeure dalam Perjanjian ini adalah peristiwa atau kejadian di luar kekuasaan manusia, termasuk tetapi tidak terbatas pada bencana alam, kebakaran, aksi pemogokan umum, epidemic, peperangan, huru-hara, terganggunya aliran komunikasi dan atau listrik
-                                </li>
-                                <li>
-                                    Pihak yang tidak melaksanakan kewajibannya dikarenakan peristiwa Force Majeure, wajib memberitahukan pihak lainnya secara tertulis disertai surat keterangan dari Kepolisian atau instansi yang berwenang, selambat-lambatnya 10 (sepuluh) hari kerja terhitung sejak tanggal terjadinya peristiwa tersebut.
-                                </li>
-                                <li>
-                                    Apabila dalam waktu 10 (sepuluh) hari kerja terhitung sejak diterimanya pemberitahuan tersebut, pihak yang menerima pemberitahuan tidak menanggapi, maka akan dianggap bahwa peristiwa tersebut telah diketahuinya
-                                </li>
-                                <li>
-                                    Segala permasalahan yang timbul sebagai akibat dari terjadinya Force Majeure akan diselesaikan secara musyawarah oleh Para Pihak.
-                                </li>
-                            </ol>
-                        </td>
-                    </tr>
-                </table>
+                <div style="margin:auto;width:90%;text-align:justify !important;">
+                    <p style="text-align:center;"><b>Pasal 6</b></p>
+                    <p style="text-align:center;">FORCE MAJEURE</p>
+                    <p>
+                        <ol type="1">
+                            <li>
+                                Hal-hal yang dianggap sebagai Force Majeure dalam Perjanjian ini adalah peristiwa atau kejadian di luar kekuasaan manusia, termasuk tetapi tidak terbatas pada bencana alam, kebakaran, aksi pemogokan umum, epidemic, peperangan, huru-hara, terganggunya aliran komunikasi dan atau listrik
+                            </li>
+                            <li>
+                                Pihak yang tidak melaksanakan kewajibannya dikarenakan peristiwa Force Majeure, wajib memberitahukan pihak lainnya secara tertulis disertai surat keterangan dari Kepolisian atau instansi yang berwenang, selambat-lambatnya 10 (sepuluh) hari kerja terhitung sejak tanggal terjadinya peristiwa tersebut.
+                            </li>
+                            <li>
+                                Apabila dalam waktu 10 (sepuluh) hari kerja terhitung sejak diterimanya pemberitahuan tersebut, pihak yang menerima pemberitahuan tidak menanggapi, maka akan dianggap bahwa peristiwa tersebut telah diketahuinya
+                            </li>
+                            <li>
+                                Segala permasalahan yang timbul sebagai akibat dari terjadinya Force Majeure akan diselesaikan secara musyawarah oleh Para Pihak.
+                            </li>
+                        </ol>
+                    </p>
+                </div>
                 <br>
-                <table class="table-content" cellpadding="0" cellspacing="0" width="90%" style="margin:auto;">
-                    <tr>
-                        <td width="100%" style="text-align:center;">
-                            <b>Pasal 7</b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="100%" style="text-align:center;">
-                            PENGAKHIRAN PERJANJIAN
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="100%" style="text-align:justify;">
-                            <ol type="1">
-                                <li>
-                                    Para Pihak dapat mengakhiri Perjanjian ini secara sepihak sebelum jangka waktu Perjanjian berakhir dengan memberikan pemberitahuan secara tertulis selambatlambatnya 30 (tiga puluh) hari kalender sebelum tanggal pengakhiran yang dikehendaki pihak yang bersangkutan.
-                                </li>
-                                <li>
-                                    Dalam hal PIHAK KESATU mengakhiri Perjanjian ini sebelum jangka waktu berakhirnya Perjanjian ini dimana harus diinformasikan dan disetujui PIHAK KEDUA, maka PIHAK KESATU wajib membayar seluruh biaya pelaksanaan Pekerjaan sesuai progress yang telah dikerjakan oleh PIHAK KEDUA.
-                                </li>
-                                <li>
-                                    Sehubungan dengan pengakhiran Perjanjian ini Para Pihak sepakat untuk mengesampingkan berlakunya ketentuan Pasal 1266 dan 1267 Kitab Undang-Undang Hukum Perdata khususnya ketentuan yang mengharuskan adanya putusan pengadilan untuk pengakhiran suatu Perjanjian, sehingga untuk pengakhiran Perjanjian ini tidak diperlukan adanya putusan pengadilan.
-                                </li>
-                                <li>
-                                    Dengan berakhirnya Perjanjian ini, tidak menghapuskan kewajiban Para Pihak yang telah timbul sebelum diakhirinya Perjanjian ini sampai kewajiban tersebut selesai sesuai dengan ketentuan-ketentuan dalam Perjanjian ini.
-                                </li>
-                            </ol>
-                        </td>
-                    </tr>
-                </table>
+                <div style="margin:auto;width:90%;text-align:justify !important;">
+                    <p style="text-align:center;"><b>Pasal 7</b></p>
+                    <p style="text-align:center;">PENGAKHIRAN PERJANJIAN</p>
+                    <p>
+                        <ol type="1">
+                            <li>
+                                Para Pihak dapat mengakhiri Perjanjian ini secara sepihak sebelum jangka waktu Perjanjian berakhir dengan memberikan pemberitahuan secara tertulis selambatlambatnya 30 (tiga puluh) hari kalender sebelum tanggal pengakhiran yang dikehendaki pihak yang bersangkutan.
+                            </li>
+                            <li>
+                                Dalam hal PIHAK KESATU mengakhiri Perjanjian ini sebelum jangka waktu berakhirnya Perjanjian ini dimana harus diinformasikan dan disetujui PIHAK KEDUA, maka PIHAK KESATU wajib membayar seluruh biaya pelaksanaan Pekerjaan sesuai progress yang telah dikerjakan oleh PIHAK KEDUA.
+                            </li>
+                            <li>
+                                Sehubungan dengan pengakhiran Perjanjian ini Para Pihak sepakat untuk mengesampingkan berlakunya ketentuan Pasal 1266 dan 1267 Kitab Undang-Undang Hukum Perdata khususnya ketentuan yang mengharuskan adanya putusan pengadilan untuk pengakhiran suatu Perjanjian, sehingga untuk pengakhiran Perjanjian ini tidak diperlukan adanya putusan pengadilan.
+                            </li>
+                            <li>
+                                Dengan berakhirnya Perjanjian ini, tidak menghapuskan kewajiban Para Pihak yang telah timbul sebelum diakhirinya Perjanjian ini sampai kewajiban tersebut selesai sesuai dengan ketentuan-ketentuan dalam Perjanjian ini.
+                            </li>
+                        </ol>
+                    </p>
+                </div>
                 <br>
-                <table class="table-content" cellpadding="0" cellspacing="0" width="90%" style="margin:auto;">
-                    <tr>
-                        <td width="100%" style="text-align:center;">
-                            <b>Pasal 8</b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="100%" style="text-align:center;">
-                            PENYELESAIAN PERSELISIHAN
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="100%" style="text-align:justify;">
-                            <ol type="1">
-                                <li>
-                                    Apabila timbul perselisihan dalam pelaksanaan Perjanjian ini, Para Pihak sepakat untuk menyelesaikan secara musyawarah.
-                                </li>
-                                <li>
-                                    Apabila penyelesaian sebagaimana dimaksud dalam ayat 1 Pasal ini tidak dapat dicapai, maka Para Pihak sepakat untuk menyelesaikannya di Pengadilan Negeri Sidoarjo.
-                                </li>
-                            </ol>
-                        </td>
-                    </tr>
-                </table>
+                <div style="margin:auto;width:90%;text-align:justify !important;">
+                    <p style="text-align:center;"><b>Pasal 8</b></p>
+                    <p style="text-align:center;">PENYELESAIAN PERSELISIHAN</p>
+                    <p>
+                        <ol type="1">
+                            <li>
+                                Apabila timbul perselisihan dalam pelaksanaan Perjanjian ini, Para Pihak sepakat untuk menyelesaikan secara musyawarah.
+                            </li>
+                            <li>
+                                Apabila penyelesaian sebagaimana dimaksud dalam ayat 1 Pasal ini tidak dapat dicapai, maka Para Pihak sepakat untuk menyelesaikannya di Pengadilan Negeri Sidoarjo.
+                            </li>
+                        </ol>
+                    </p>
+                </div>
                 <br>
-                <table class="table-content" cellpadding="0" cellspacing="0" width="90%" style="margin:auto;">
-                    <tr>
-                        <td width="100%" style="text-align:center;">
-                            <b>Pasal 9</b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="100%" style="text-align:center;">
-                            LAIN-LAIN
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="100%" style="text-align:justify;">
-                            <ol type="1">
-                                <li>
-                                    Bahwa dokumen ANDALALIN yang dibuat oleh PIHAK KEDUA sebagai bagian pekerjaan, dimana isi dokumen tersebut merupakan data dan fakta sesuai kondisi di lapangan hasil penelitian PIHAK KEDUA.
-                                </li>
-                                <li>
-                                    PIHAK KEDUA dalam keadaan apapun turut bertangung jawab atas semua data lapangan yang dibuat oleh PIHAK KEDUA sehubungan dengan pekerjaan dan hasil pekerjaan tersebut yang kemudian menjadi pertimbangan dinas/instansi terkait untuk memberikan rekomendasi bagi penerbitan ijin lingkungan yang di ajukan PIHAK KESATU.
-                                </li>
-                                <li>
-                                    Para Pihak menjamin bahwa Pihak-Pihak yang menandatangani Perjanjian ini adalah pihak - pihak yang berwenang dalam mewakili Perseroan dalam Perjanjian ini sesuai dengan Anggaran Dasar Perseroan masing-masing.
-                                </li>
-                            </ol>
-                        </td>
-                    </tr>
-                </table>
+                <div style="margin:auto;width:90%;text-align:justify !important;">
+                    <p style="text-align:center;"><b>Pasal 9</b></p>
+                    <p style="text-align:center;">LAIN-LAIN</p>
+                    <p>
+                        <ol type="1">
+                            <li>
+                                Bahwa dokumen ANDALALIN yang dibuat oleh PIHAK KEDUA sebagai bagian pekerjaan, dimana isi dokumen tersebut merupakan data dan fakta sesuai kondisi di lapangan hasil penelitian PIHAK KEDUA.
+                            </li>
+                            <li>
+                                PIHAK KEDUA dalam keadaan apapun turut bertangung jawab atas semua data lapangan yang dibuat oleh PIHAK KEDUA sehubungan dengan pekerjaan dan hasil pekerjaan tersebut yang kemudian menjadi pertimbangan dinas/instansi terkait untuk memberikan rekomendasi bagi penerbitan ijin lingkungan yang di ajukan PIHAK KESATU.
+                            </li>
+                            <li>
+                                Para Pihak menjamin bahwa Pihak-Pihak yang menandatangani Perjanjian ini adalah pihak - pihak yang berwenang dalam mewakili Perseroan dalam Perjanjian ini sesuai dengan Anggaran Dasar Perseroan masing-masing.
+                            </li>
+                        </ol>
+                    </p>
+                </div>
                 <br>
                 <table class="table-content" cellpadding="0" cellspacing="0" width="90%" style="margin:auto;">
                     <tr>

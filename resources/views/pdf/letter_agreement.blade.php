@@ -55,7 +55,7 @@
             header { position: fixed; top: -135px; left: 0px; right: 0px; height: 150px; margin-bottom: 10em }
 
             li {
-                break-inside: auto;
+                page-break-inside: auto;
             }
 		</style>
 	</head>

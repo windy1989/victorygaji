@@ -88,46 +88,46 @@
 			</table>
             <table class="table-content" cellpadding="0" cellspacing="0" width="100%" style="margin:auto;text-align:justify;">
 				<tr>
-                    <td width="30%">
+                    <td width="20%">
                         Nama
                     </td>
                     <td width="1%">
                         :
                     </td>
-                    <td width="69%">
+                    <td width="79%">
                         {{ $data->name }}
                     </td>
                 </tr>
                 <tr>
-                    <td width="30%">
+                    <td>
                         Alamat
                     </td>
                     <td width="1%">
                         :
                     </td>
-                    <td width="69%">
+                    <td>
                         {{ $data->address }}
                     </td>
                 </tr>
                 <tr>
-                    <td width="30%">
+                    <td>
                         Jabatan
                     </td>
                     <td width="1%">
                         :
                     </td>
-                    <td width="69%">
+                    <td>
                         {{ $data->position }}
                     </td>
                 </tr>
                 <tr>
-                    <td width="30%">
+                    <td>
                         No. Telepon
                     </td>
                     <td width="1%">
                         :
                     </td>
-                    <td width="69%">
+                    <td>
                         {{ $data->phone }}
                     </td>
                 </tr>

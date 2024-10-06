@@ -52,7 +52,7 @@
                 padding:25px 5px 25px 5px !important;
             }
 
-            header { position: fixed; top: -70px; left: 0px; right: 0px; height: 150px; margin-bottom: 10em }
+            header { position: fixed; top: -20px; left: 0px; right: 0px; height: 150px; margin-bottom: 10em }
 		</style>
 	</head>
 	<body>
@@ -75,7 +75,6 @@
         </header>
         <main style="margin-top:20px;">
             <div class="invoice-box">
-                <br><br><br><br><br><br>
                 <table class="table-content" cellpadding="0" cellspacing="0" width="90%" style="margin:auto;">
                     <tr>
                         <td width="100%" align="center">

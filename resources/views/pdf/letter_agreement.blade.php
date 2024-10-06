@@ -504,13 +504,13 @@
                                     Hak dan Kewajiban PIHAK KEDUA;
                                     <ol type="a">
                                         <li>
-                                            PIHAK KEDUA berhak atas penerimaan pembayaran Nilai Kontrak yang diatur dalam pasal 3 Perjanjian ini;
+                                            PIHAK KEDUA berhak atas penerimaan pembayaran Nilai Kontrak yang diatur dalam pasal 3 Perjanjian ini;<br/><br/>
                                         </li>
                                         <li>
-                                            PIHAK KEDUA berkewajiban memberikan laporan kepada PIHAK KESATU untuk setiap perkembangan dari pekerjaan yang dilakukan oleh PIHAK KEDUA kepada PIHAK KESATU segera setelah diminta oleh PIHAK KESATU.
+                                            PIHAK KEDUA berkewajiban memberikan laporan kepada PIHAK KESATU untuk setiap perkembangan dari pekerjaan yang dilakukan oleh PIHAK KEDUA kepada PIHAK KESATU segera setelah diminta oleh PIHAK KESATU.<br/><br/>
                                         </li>
                                         <li>
-                                            PIHAK KEDUA berhak mengajukan draft Dokumen Andalalin ke Dinas berwenang untuk disidangkan setelah menerima persetujuan dari Pihak Pertama, yang ditunjukan dengan Berita Acara persertujuan yang di tandatangani oleh PIHAK PERTAMA.
+                                            PIHAK KEDUA berhak mengajukan draft Dokumen Andalalin ke Dinas berwenang untuk disidangkan setelah menerima persetujuan dari Pihak Pertama, yang ditunjukan dengan Berita Acara persertujuan yang di tandatangani oleh PIHAK PERTAMA.<br/><br/>
                                         </li>
                                     </ol>
                                 </li>

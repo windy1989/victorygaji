@@ -57,6 +57,10 @@
             li {
                 page-break-inside: auto;
             }
+
+            td {
+                page-break-inside: auto;
+            }
 		</style>
 	</head>
 	<body>

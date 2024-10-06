@@ -56,6 +56,7 @@
 
             table tr {
                 page-break-after:auto;
+                page-break-inside:auto;
             }
 		</style>
 	</head>

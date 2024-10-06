@@ -34,12 +34,12 @@
             }
             
             .table-content {
-                font-size:13px;
+                font-size:14px;
                 line-height: 1.8;
             }
 
             .table-content-body {
-                font-size:13px;
+                font-size:14px;
                 line-height: 1.8;
                 text-align: justify;
             }
@@ -129,6 +129,61 @@
                     </td>
                     <td>
                         {{ $data->phone }}
+                    </td>
+                </tr>
+			</table>
+            <table class="table-content" cellpadding="0" cellspacing="0" width="90%" style="margin:auto;">
+				<tr>
+                    <td width="100%" style="text-align:justify;">
+                        Dalam hal ini bertindak dalam jabatan tersebut diatas atas nama {{ $data->name_ref }} selanjutnya disebut sebagai PIHAK KESATU.
+                    </td>
+                </tr>
+			</table>
+            <table class="table-content" cellpadding="0" cellspacing="0" width="90%" style="margin:auto;text-align:justify;">
+				<tr>
+                    <td width="20%">
+                        Nama
+                    </td>
+                    <td width="1%">
+                        :
+                    </td>
+                    <td width="79%">
+                        DEDDY CHRISTIANTO., S.T.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Jabatan
+                    </td>
+                    <td width="1%">
+                        :
+                    </td>
+                    <td>
+                        Direktur
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Alamat Operasional
+                    </td>
+                    <td width="1%">
+                        :
+                    </td>
+                    <td>
+                        PERUM. Graha Kota Blok D 12 No. 20 Suko - Sidoarjo
+                    </td>
+                </tr>
+                
+			</table>
+            <table class="table-content" cellpadding="0" cellspacing="0" width="90%" style="margin:auto;">
+				<tr>
+                    <td width="100%" style="text-align:justify;">
+                        Selanjutnya disebut sebagai PIHAK KEDUA atas nama <b>CV. VICTORY KONSULTAN</b>.
+                    </td>
+                </tr>
+                <tr>
+                    <td width="100%" style="text-align:justify;">
+                        Bersama ini kedua belah pihak telah sepakat dan setuju untuk membuat suatu perjanjian kerjasama dalam pekerjaan Penyusunan ANDALALIN untuk :
                     </td>
                 </tr>
 			</table>

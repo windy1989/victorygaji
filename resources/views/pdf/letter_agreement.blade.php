@@ -34,12 +34,12 @@
             }
             
             .table-content {
-                font-size:14px;
+                font-size:15px;
                 line-height: 1.8;
             }
 
             .table-content-body {
-                font-size:14px;
+                font-size:15px;
                 line-height: 1.8;
                 text-align: justify;
             }

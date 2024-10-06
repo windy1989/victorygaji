@@ -82,7 +82,7 @@
             <table class="table-content" cellpadding="0" cellspacing="0" width="100%" style="margin:auto;">
 				<tr>
                     <td width="100%" style="text-align:justify;">
-                        Pada hari ini {{ CustomHelper::hari($data->post_date) }} Tanggal {{ date('j',strtotime($data->post_date)) }} ( {{ CustomHelper::terbilang(date('j',strtotime($data->post_date))) }} ) Bulan {{ CustomHelper::bulan($data->post_date) }} tahun {{ date('Y',strtotime($data->post_date)) }}, yang bertanda tangan dibawah ini masing - masing
+                        Pada hari ini <b><i>{{ CustomHelper::hari($data->post_date) }}</i></b> Tanggal <b><i>{{ date('j',strtotime($data->post_date)) }} ( {{ CustomHelper::terbilang(date('j',strtotime($data->post_date))) }} )</i></b> Bulan <b><i>{{ CustomHelper::bulan($data->post_date) }}</i></b> tahun <b><i>{{ date('Y',strtotime($data->post_date)) }}</i></b>, yang bertanda tangan dibawah ini masing - masing
                     </td>
                 </tr>
 			</table>

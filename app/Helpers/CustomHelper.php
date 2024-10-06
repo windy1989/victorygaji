@@ -281,6 +281,6 @@ class CustomHelper {
             default => 'Invalid',
         };
 	
-		return "<b>" . $hari_ini . "</b>";
+		return $hari_ini;
 	}
 }

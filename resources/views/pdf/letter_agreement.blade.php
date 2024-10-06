@@ -347,7 +347,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td width="100%" style="text-align:center;">
+                    <td width="100%" style="text-align:justify;">
                         <ol type="1">
                             <li>
                                 PIHAK KEDUA akan melaksanakan Pekerjaan dalam jangka waktu sebagaimana di maksud dalam ketentuan Perjanjian ini.

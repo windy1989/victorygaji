@@ -283,4 +283,12 @@ class CustomHelper {
 	
 		return $hari_ini;
 	}
+
+	public static function countDays($start_date, $end_date){
+		$date1 = strtotime($start_date);
+		$date2 = strtotime($end_date);
+		$diff = $date2 - $date1;
+		$days = floor($diff / (60 * 60 * 24));
+		return $days;
+	}
 }

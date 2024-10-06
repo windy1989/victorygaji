@@ -360,6 +360,73 @@
                 </tr>
 			</table>
             <br>
+            <table class="table-content" cellpadding="0" cellspacing="0" width="90%" style="margin:auto;">
+				<tr>
+                    <td width="100%" style="text-align:center;">
+                        <b>Pasal 2</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="100%" style="text-align:center;">
+                        PEMBIAYAAN
+                    </td>
+                </tr>
+                <tr>
+                    <td width="100%" style="text-align:justify;">
+                        <ol type="1">
+                            <li>
+                                Atas pelaksanaan Pekerjaan, PIHAK KESATU wajib membayar Total biaya Pekerjaan sebesar Rp {{ number_format($data->project->cost,0,',','') }},- ( {{ CustomHelper::terbilang($data->project->cost) }} ) kepada PIHAK KEDUA. Pembayaran biaya pelaksanaan Pekerjaan :
+                                <ul style="list-style-type:disc">
+                                    <li>
+                                        Tahap I sebesar ; Rp {{ number_format($data->nominal_1,0,',','') }},- ( {{ CustomHelper::terbilang($data->nominal_1) }} ) dari nilai kontrak dibayarkan pada saat penandatanganan kontrak dan setelah diterimanya invoice.
+                                    </li>
+                                    <li>
+                                        Tahap II sebesar ; Rp {{ number_format($data->nominal_2,0,',','') }},- ( {{ CustomHelper::terbilang($data->nominal_2) }} ) dari nilai kontrak dibayarkan pada saat PIHAK KEDUA menyerahkan laporan Analisis Dampak Lalu Lintas yang kondisinya siap disidangkan ke instansi terkait dengan menyertakan Tanda Terima Berkas oleh Dinas terkait.
+                                    </li>
+                                    <li>
+                                        Tahap III sebesar ; Rp {{ number_format($data->nominal_3,0,',','') }},- ( {{ CustomHelper::terbilang($data->nominal_3) }} ) Dari nilai kontrak dibayarkan saat pekerjaan sudah selesai dan surat rekomendasi Analisis Dampak Lalu Lintas yang diterbitkan instansi terkait sudah terbit.
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                Penagihan pembayaran kami sertai dengan dokumen pendukung berupa:
+                                <ol type="a">
+                                    <li>Invoice;</li>
+                                </ol>
+                            </li>
+                            <li>
+                                Pembayaran akan dilakukan PIHAK KESATU selambat-lambatnya 3 (tiga) hari kerja / setelah diterimanya Invoice oleh PIHAK KESATU dan akan dilakukan sesuai jadwal pembayaran yang di berikan oleh PIHAK KEDUA.
+                            </li>
+                            <li>
+                                Pembayaran dilakukan oleh PIHAK KESATU kepada PIHAK KEDUA dengan cara mentransfer ke rekening PIHAK KEDUA ke rekening Bank BCA Cabang Sidoarjo dengan nomor rekening 0183 - 88 - 6140 an. DEDDY CHRISTIANTO.
+                            </li>
+                        </ol>
+                    </td>
+                </tr>
+			</table>
+            <br>
+            <table class="table-content" cellpadding="0" cellspacing="0" width="90%" style="margin:auto;">
+				<tr>
+                    <td width="100%" style="text-align:center;">
+                        <b>Pasal 3</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="100%" style="text-align:center;">
+                        WAKTU PELAKSANAAN
+                    </td>
+                </tr>
+                <tr>
+                    <td width="100%" style="text-align:justify;">
+                        <ol type="1">
+                            <li>
+                                Pekerjaan penyusunan Dokumen ini hingga siap untuk diajukan ke Dinas akan diselesaikan dalam waktu {{ CustomHelper::countDays($data->estimate_date_start,$data->estimate_date_finish) }} ( {{ CustomHelper::terbilang(CustomHelper::countDays($data->estimate_date_start,$data->estimate_date_finish)) }} ) Hari Kerja sejak diterimanya DP ( Down Payment ) dan berkas persyaratan ANDALALIN dengan lengkap yaitu pada tanggal {{ CustomHelper::tgl_indo($data->estimate_date_start) }} sampai dengan tanggal {{ CustomHelper::tgl_indo($data->estimate_date_finish) }}.
+                            </li>
+                        </ol>
+                    </td>
+                </tr>
+			</table>
+            <br>
             <table class="table-content" id="table-detail" cellpadding="0" cellspacing="0" width="90%"style="margin:auto;font-weight:700;">
                 <tbody>
                     <tr>

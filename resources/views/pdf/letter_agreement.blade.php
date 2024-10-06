@@ -10,7 +10,7 @@
 		<style>
 			body {
 				font-family:"Calibri", sans-serif;
-                font-size:12px;
+                font-size:15px;
             }
 
             #table-header{
@@ -459,9 +459,9 @@
                 </table>
                 <br>
                 <div width="90%" style="margin:auto;">
-                    <b>Pasal 5</b>
+                    <b align="center">Pasal 5</b>
                     <p>HAK DAN KEWAJIBAN PARA PIHAK</p>
-                    <p>
+                    <p align="center" style="text-align:justify;">
                         <ol type="1">
                             <li>
                                 Hak dan Kewajiban PIHAK KESATU :

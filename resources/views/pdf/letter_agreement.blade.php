@@ -459,7 +459,7 @@
                     </tr>
                 </table>
                 <br>
-                <div width="60%" style="margin:auto;">
+                <div style="margin:auto;width:90%;">
                     <p style="text-align:center;"><b>Pasal 5</b></p>
                     <p style="text-align:center;">HAK DAN KEWAJIBAN PARA PIHAK</p>
                     <p style="text-align:justify;">

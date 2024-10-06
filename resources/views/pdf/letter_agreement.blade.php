@@ -52,7 +52,7 @@
                 padding:25px 5px 25px 5px !important;
             }
 
-            header { position: fixed; top: -100px; left: 0px; right: 0px; height: 150px; margin-bottom: 10em }
+            header { position: fixed; top: -125px; left: 0px; right: 0px; height: 150px; margin-bottom: 10em }
 		</style>
 	</head>
 	<body>

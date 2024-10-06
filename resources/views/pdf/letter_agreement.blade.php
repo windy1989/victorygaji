@@ -191,6 +191,107 @@
                 </tr>
 			</table>
             <br>
+            <table class="table-content" cellpadding="0" cellspacing="0" width="90%" style="margin:auto;text-align:justify;">
+				<tr>
+                    <td width="30%">
+                        Jenis Pembangunan
+                    </td>
+                    <td width="1%">
+                        :
+                    </td>
+                    <td width="69%">
+                        {{ $data->type_building }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Nama Pembangun
+                    </td>
+                    <td width="1%">
+                        :
+                    </td>
+                    <td>
+                        {{ $data->name_builder }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Lokasi Persil
+                    </td>
+                    <td width="1%">
+                        :
+                    </td>
+                    <td>
+                        {{ $data->persil_location }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        LL, LB
+                    </td>
+                    <td width="1%">
+                        :
+                    </td>
+                    <td>
+                        {{ $data->land_area.', '.$data->building_area }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Desa/Kelurahan 
+                    </td>
+                    <td width="1%">
+                        :
+                    </td>
+                    <td>
+                        {{ $data->subdistrict }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Kecamatan
+                    </td>
+                    <td width="1%">
+                        :
+                    </td>
+                    <td>
+                        {{ $data->district }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Kabupaten
+                    </td>
+                    <td width="1%">
+                        :
+                    </td>
+                    <td>
+                        {{ $data->city }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Provinsi
+                    </td>
+                    <td width="1%">
+                        :
+                    </td>
+                    <td>
+                        {{ $data->province }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Status Jalan
+                    </td>
+                    <td width="1%">
+                        :
+                    </td>
+                    <td>
+                        {{ $data->road_status }}
+                    </td>
+                </tr>
+			</table>
             <table class="table-content" id="table-detail" cellpadding="0" cellspacing="0" width="90%"style="margin:auto;font-weight:700;">
                 <tbody>
                     <tr>

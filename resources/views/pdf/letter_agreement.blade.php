@@ -56,7 +56,6 @@
 
             table tr {
                 page-break-inside: initial;
-                display: block;
             }
 		</style>
 	</head>

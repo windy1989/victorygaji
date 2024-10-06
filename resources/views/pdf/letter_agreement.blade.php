@@ -88,46 +88,46 @@
 			</table>
             <table class="table-content" cellpadding="0" cellspacing="0" width="100%" style="margin:auto;text-align:justify;">
 				<tr>
-                    <td width="30%" align="center">
+                    <td width="30%">
                         Nama
                     </td>
-                    <td width="1%" align="center">
+                    <td width="1%">
                         :
                     </td>
-                    <td width="69%" align="center">
+                    <td width="69%">
                         {{ $data->name }}
                     </td>
                 </tr>
                 <tr>
-                    <td width="30%" align="center">
+                    <td width="30%">
                         Alamat
                     </td>
-                    <td width="1%" align="center">
+                    <td width="1%">
                         :
                     </td>
-                    <td width="69%" align="center">
+                    <td width="69%">
                         {{ $data->address }}
                     </td>
                 </tr>
                 <tr>
-                    <td width="30%" align="center">
+                    <td width="30%">
                         Jabatan
                     </td>
-                    <td width="1%" align="center">
+                    <td width="1%">
                         :
                     </td>
-                    <td width="69%" align="center">
+                    <td width="69%">
                         {{ $data->position }}
                     </td>
                 </tr>
                 <tr>
-                    <td width="30%" align="center">
+                    <td width="30%">
                         No. Telepon
                     </td>
-                    <td width="1%" align="center">
+                    <td width="1%">
                         :
                     </td>
-                    <td width="69%" align="center">
+                    <td width="69%">
                         {{ $data->phone }}
                     </td>
                 </tr>

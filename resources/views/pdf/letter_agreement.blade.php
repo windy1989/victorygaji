@@ -327,6 +327,8 @@
                             </li>
                         </ol>
                     </td>
+                </tr>
+                <tr>
                     <td width="100%" style="text-align:justify;">
                         Adapun ketentuan – ketentuan dalam Surat Perjanjian Kerjasama ini adalah sebagai berikut :
                     </td>

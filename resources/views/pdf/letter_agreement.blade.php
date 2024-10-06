@@ -292,6 +292,72 @@
                     </td>
                 </tr>
 			</table>
+            <br>
+            <table class="table-content" cellpadding="0" cellspacing="0" width="90%" style="margin:auto;">
+				<tr>
+                    <td width="100%" style="text-align:justify;">
+                        Penyusunan yang dilakukan oleh PIHAK KEDUA meliputi :
+                        <ol type="a">
+                            <li>
+                                Penyusunan seluruh Dokumen ANDALALIN meliputi
+                                <ul>
+                                    <li>Survey dan Inventarisasi data beserta seluruh pembiayannya, meliputi biaya :
+                                        Survey lapangan tata guna lahan & pemetaan, survey lalu lintas, rekapitulasi
+                                        hasil survey, analysis dan evaluasi data, analisis dan simulasi manajemen dan
+                                        rekayasa lalu lintas, gambar 3Dimensi beserta simulasi perambuan lalu lintas,
+                                        pembuatan laporan dan dokumentasi.</li>
+                                    <li>Penggandaan seluruh laporan dokumen ANDALALIN dan dokumen pendukung
+                                        yang diperlukan.</li>
+                                </ul>
+                            </li>
+                            <li>
+                                Presentasi/sidang dokumen ANDALALIN;
+                            </li>
+                            <li>
+                                Asistensi dan koordinasi dengan pihak pertama dan Dinas Perhubungan selama proses penyusunan studi kajian ANDALALIN;
+                            </li>
+                            <li>
+                                Dokumen ANDALALIN Siap disidangkan;
+                            </li>
+                            <li>
+                                Surat rekomendasi ANDALALIN
+                            </li>
+                            <li>
+                                Semua hasil pekerjaan dicetak dalam bentuk hardcopy sebanyak 2 dokumen (selanjutnya disebut sebagai “pekerjaan”).
+                            </li>
+                        </ol>
+                    </td>
+                    <td width="100%" style="text-align:justify;">
+                        Adapun ketentuan – ketentuan dalam Surat Perjanjian Kerjasama ini adalah sebagai berikut :
+                    </td>
+                </tr>
+			</table>
+            <br>
+            <table class="table-content" cellpadding="0" cellspacing="0" width="90%" style="margin:auto;">
+				<tr>
+                    <td width="100%" style="text-align:center;">
+                        <b>Pasal 1</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="100%" style="text-align:center;">
+                        RUANG LINGKUP PEKERJAAN
+                    </td>
+                </tr>
+                <tr>
+                    <td width="100%" style="text-align:center;">
+                        <ol type="1">
+                            <li>
+                                PIHAK KEDUA akan melaksanakan Pekerjaan dalam jangka waktu sebagaimana di maksud dalam ketentuan Perjanjian ini.
+                            </li>
+                            <li>
+                                PIHAK KESATU wajib menyediakan seluruh dokumen persyaratan dan menyerahkan kepada PIHAK KEDUA.
+                            </li>
+                        </ol>
+                    </td>
+                </tr>
+			</table>
+            <br>
             <table class="table-content" id="table-detail" cellpadding="0" cellspacing="0" width="90%"style="margin:auto;font-weight:700;">
                 <tbody>
                     <tr>

@@ -82,11 +82,11 @@
             <table class="table-content" cellpadding="0" cellspacing="0" width="100%" style="margin:auto;">
 				<tr>
                     <td width="100%" style="text-align:justify;">
-                        Pada hari ini .............Tanggal ....... ( ................ ) Bulan ..........tahun 2024, yang bertanda tangan dibawah ini masing - masing
+                        Pada hari ini {{ CustomHelper::hari($data->) }} Tanggal ....... ( ................ ) Bulan ..........tahun 2024, yang bertanda tangan dibawah ini masing - masing
                     </td>
                 </tr>
 			</table>
-            <table class="table-content" cellpadding="0" cellspacing="0" width="100%" style="margin:auto;">
+            <table class="table-content" cellpadding="0" cellspacing="0" width="100%" style="margin:auto;text-align:justify;">
 				<tr>
                     <td width="30%" align="center">
                         Nama

@@ -246,4 +246,21 @@ class CustomHelper {
 	 
 		return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
 	}
+	
+	public static function hari($tanggal){
+		$hari = date ("D",strtotime($tanggal));
+
+		$hari_ini = match ($hari) {
+            'Sun' 	=> 'Minggu',
+            'Mon' 	=> 'Senin',
+            'Tue' 	=> 'Selasa',
+            'Wed'	=> 'Rabu',
+            'Thu' 	=> 'Kamis',
+			'Fri'	=> 'Jumat',
+			'Sat'	=> 'Sabtu',
+            default => 'Invalid',
+        };
+	
+		return "<b>" . $hari_ini . "</b>";
+	}
 }

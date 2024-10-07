@@ -586,7 +586,7 @@
                     </tr>
                 </table>
                 <br>
-                <table class="table-content" id="table-detail" cellpadding="0" cellspacing="0" width="90%"style="margin:auto;font-weight:700;">
+                <table class="table-content" cellpadding="0" cellspacing="0" width="90%"style="margin:auto;">
                     <tbody>
                         <tr>
                             <td align="center" width="100%">

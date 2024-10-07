@@ -55,7 +55,7 @@
 
             header { position: fixed; top: -135px; left: 0px; right: 0px; height: 150px; margin-bottom: 10em }
 
-            footer { position: fixed; bottom: -80px; left: 50px; right: 0px; height: 150px; margin-bottom: 10em }
+            footer { position: fixed; bottom: -35px; left: 50px; right: 0px; height: 150px; margin-bottom: 10em }
 
             table tr {
                 page-break-after:auto;

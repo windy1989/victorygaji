@@ -61,6 +61,10 @@
                 page-break-after:auto;
                 page-break-inside:auto;
             }
+
+            footer:after {
+                content:"Page " counter(page);
+            }
 		</style>
 	</head>
 	<body>

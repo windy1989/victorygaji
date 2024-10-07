@@ -609,7 +609,7 @@
                 $word_space = 0.0;
                 $char_space = 0.0;
                 $angle = 0.0;
-                $font = $pdf->getFontMetrics()->get_font("helvetica", "italic");
+                $font = array("helvetica", "italic");
                 $pdf->page_text(260, 775, "{PAGE_NUM} of {PAGE_COUNT}", $font, 10, array(0,0,0));
             }
         </script>

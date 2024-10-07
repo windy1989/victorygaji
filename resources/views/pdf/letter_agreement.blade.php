@@ -63,7 +63,7 @@
             }
 
             footer:after {
-                content:"Page " counter(page);
+                content: counter(page) ' of ' counter(pages);
             }
 		</style>
 	</head>

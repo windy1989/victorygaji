@@ -589,7 +589,7 @@
                 <table class="table-content" cellpadding="0" cellspacing="0" width="90%"style="margin:auto;">
                     <tbody>
                         <tr>
-                            <td align="center" width="100%">
+                            <td align="center" width="100%" colspan="2">
                                 Ditandatangani oleh Para Pihak,
                                 <p><b>Sidoarjo, ..... ............ {{ date('Y',strtotime($data->post_date)) }}</b></p>
                             </td>

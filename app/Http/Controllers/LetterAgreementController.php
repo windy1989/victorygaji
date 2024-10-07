@@ -428,7 +428,7 @@ class LetterAgreementController extends Controller
                 'data'          => $data,
             ];
     
-            $pdf = Pdf::loadView('pdf.letter_agreement', $result);
+            $pdf = Pdf::loadView('pdf.letter_agreement', $result)->setPaper('a4', 'portrait');
 
             $pdf->set_option("isPhpEnabled", true);
 

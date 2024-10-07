@@ -55,6 +55,8 @@
 
             header { position: fixed; top: -135px; left: 0px; right: 0px; height: 150px; margin-bottom: 10em }
 
+            footer { position: fixed; bottom: 0px; left: 0px; right: 0px; height: 150px; margin-bottom: 10em }
+
             table tr {
                 page-break-after:auto;
                 page-break-inside:auto;
@@ -576,5 +578,24 @@
                 </table>
             </div>
         </main>
+        <footer>
+            <table id="table-header" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+                    <td width="25%">
+                        <div style="border:1px solid black;width:100px;height:75px;text-align:center;vertical-align:middle;padding-top:25px;">
+                            KOP PERUSAHAAN
+                        </div>
+                    </td>
+                    <td width="50%">
+                        
+                    </td>
+                    <td width="25%">
+                        <div style="border:1px solid black;width:100px;height:75px;text-align:center;vertical-align:middle;padding-top:25px;">
+                            KOP PERUSAHAAN
+                        </div>
+                    </td>
+                </tr>
+			</table>
+        </footer>
 	</body>
 </html>

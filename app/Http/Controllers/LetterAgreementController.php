@@ -431,7 +431,7 @@ class LetterAgreementController extends Controller
             $pdf = Pdf::loadView('pdf.letter_agreement', $result);
 
             $font = $pdf->getFontMetrics()->get_font("helvetica", "bold");
-            $pdf->getCanvas()->page_text(505, 750, "{PAGE_NUM} of {PAGE_COUNT}", $font, 10, array(0,0,0));
+            $pdf->getCanvas()->page_text(505, 505, "<i>{PAGE_NUM} of {PAGE_COUNT}</i>", $font, 10, array(0,0,0));
 
             return $pdf->stream('letter_agreement_'.$data->code.'.pdf');
             /* return $pdf->download('invoice.pdf'); */

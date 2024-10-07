@@ -82,20 +82,27 @@
 			</table>
         </header>
         <footer>
-            <table id="table-header" cellpadding="0" cellspacing="0" width="100%">
+            <table align="right" id="table-header" cellpadding="0" cellspacing="0" width="30%" border="1">
 				<tr>
-                    <td width="25%">
-                        <div style="border:1px solid black;width:50px;height:50px;text-align:center;vertical-align:middle;padding-top:25px;">
-                            KOP PERUSAHAAN
-                        </div>
-                    </td>
-                    <td width="50%">
+                    <td width="33%">
                         
                     </td>
-                    <td width="25%">
-                        <div style="border:1px solid black;width:50px;height:50px;text-align:center;vertical-align:middle;padding-top:25px;">
-                            KOP PERUSAHAAN
-                        </div>
+                    <td width="33%">
+                        
+                    </td>
+                    <td width="33%">
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <i>PIHAK 1</i>
+                    </td>
+                    <td>
+                        <i>PIHAK 2</i>
+                    </td>
+                    <td>
+                        <i>Manager</i>
                     </td>
                 </tr>
 			</table>

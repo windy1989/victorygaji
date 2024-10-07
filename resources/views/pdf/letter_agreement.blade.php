@@ -589,15 +589,26 @@
                 <table class="table-content" id="table-detail" cellpadding="0" cellspacing="0" width="90%"style="margin:auto;font-weight:700;">
                     <tbody>
                         <tr>
-                            <td align="center" width="60%">
-                                
+                            <td align="center" width="100%">
+                                Ditandatangani oleh Para Pihak,
+                                <p><b>Sidoarjo, ..... ............ {{ date('Y',strtotime($data->post_date)) }}</b></p>
                             </td>
-                            <td align="center" width="40%">
-                                <img src="{{ public_path('storage/sign/sign_and_logo.png') }}" width="250px" height="auto" style="margin:20px 0 0 15px;position:absolute;z-index:-1;">
-                                CV. VICTORY KONSULTAN
+                        </tr>
+                        <tr>
+                            <td align="center" width="50%">
+                                <b>PIHAK KESATU</b>
                                 <br><br><br><br><br>
-                                <u>.DEDDY CHRISTIANTO., S.T.</u>
-                                <br>Direktur
+                                <u>...................................</u>
+                                <br>
+                                ...........................................
+                            </td>
+                            <td align="center" width="50%">
+                                <b>PIHAK KESATU</b>
+                                <p><b>CV. VICTORY KONSULTAN
+                                </b></p>
+                                <br><br><br><br>
+                                <u><b>Deddy Christianto, ST</b></u>
+                                <br><b>Direktur</b>
                             </td>
                         </tr>
                     </tbody>
@@ -609,7 +620,7 @@
                 $word_space = 0.0;
                 $char_space = 0.0;
                 $angle = 0.0;
-                $font = "italic";
+                $font = null;
                 $pdf->page_text(260, 775, "{PAGE_NUM} of {PAGE_COUNT}", $font, 10, array(0,0,0));
             }
         </script>

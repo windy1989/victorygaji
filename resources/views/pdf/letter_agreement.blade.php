@@ -604,8 +604,7 @@
                             </td>
                             <td align="center" width="50%">
                                 <b>PIHAK KESATU</b>
-                                <p><b>CV. VICTORY KONSULTAN
-                                </b></p>
+                                <br><b>CV. VICTORY KONSULTAN</b>
                                 <br><br><br><br>
                                 <u><b>Deddy Christianto, ST</b></u>
                                 <br><b>Direktur</b>

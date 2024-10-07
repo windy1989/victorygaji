@@ -55,7 +55,7 @@
 
             header { position: fixed; top: -135px; left: 0px; right: 0px; height: 150px; margin-bottom: 10em }
 
-            footer { position: fixed; bottom: -200px; left: 50px; right: 0px; height: 50px; margin-bottom: 10em }
+            footer { position: fixed; bottom: -225px; left: 50px; right: 0px; height: 50px; margin-bottom: 10em }
 
             table tr {
                 page-break-after:auto;
@@ -85,13 +85,13 @@
             <table align="right" id="table-header" cellpadding="0" cellspacing="0" width="30%" border="1">
 				<tr>
                     <td width="33%">
-                        
+                        <br><br>
                     </td>
                     <td width="33%">
-                        
+                        <br><br>
                     </td>
                     <td width="33%">
-
+                        <br><br>
                     </td>
                 </tr>
                 <tr>

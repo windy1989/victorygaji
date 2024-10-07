@@ -85,13 +85,13 @@
             <table align="right" id="table-header" cellpadding="0" cellspacing="0" width="30%" border="1">
 				<tr>
                     <td width="33%">
-                        <br><br>
+                        <br>
                     </td>
                     <td width="33%">
-                        <br><br>
+                        <br>
                     </td>
                     <td width="33%">
-                        <br><br>
+                        <br>
                     </td>
                 </tr>
                 <tr>

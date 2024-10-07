@@ -61,10 +61,6 @@
                 page-break-after:auto;
                 page-break-inside:auto;
             }
-
-            footer:after {
-                content: counter(page) ' of ' counter(pages);
-            }
 		</style>
 	</head>
 	<body>
@@ -610,10 +606,11 @@
         </main>
         <script type="text/php">
             if (isset($pdf)) {
-                $word_space = 0.0;  //  default
-                $char_space = 0.0;  //  default
-                $angle = 0.0;   //  default
-                $pdf->page_text(260, 775, "{PAGE_NUM} of {PAGE_COUNT}", null, 10, array(0,0,0));
+                $word_space = 0.0;
+                $char_space = 0.0;
+                $angle = 0.0;
+                $font = $pdf->getFontMetrics()->get_font("helvetica", "italic");
+                $pdf->page_text(260, 775, "{PAGE_NUM} of {PAGE_COUNT}", $font, 10, array(0,0,0));
             }
         </script>
 	</body>

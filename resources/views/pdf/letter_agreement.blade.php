@@ -81,32 +81,7 @@
                 </tr>
 			</table>
         </header>
-        <footer>
-            <table align="right" id="table-header" cellpadding="0" cellspacing="0" width="30%" border="1">
-				<tr>
-                    <td width="33%">
-                        <br>
-                    </td>
-                    <td width="33%">
-                        <br>
-                    </td>
-                    <td width="33%">
-                        <br>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <i>PIHAK 1</i>
-                    </td>
-                    <td>
-                        <i>PIHAK 2</i>
-                    </td>
-                    <td>
-                        <i>Manager</i>
-                    </td>
-                </tr>
-			</table>
-        </footer>
+        
         <main style="margin-top:20px;">
             <div class="invoice-box">
                 <table class="table-content" cellpadding="0" cellspacing="0" width="90%" style="margin:auto;">

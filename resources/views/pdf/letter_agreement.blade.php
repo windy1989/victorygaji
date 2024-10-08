@@ -603,7 +603,7 @@
                                 ...........................................
                             </td>
                             <td align="center" width="50%">
-                                <b>PIHAK KESATU</b>
+                                <b>PIHAK KEDUA</b>
                                 <br><b>CV. VICTORY KONSULTAN</b>
                                 <br><br><br><br>
                                 <u><b>Deddy Christianto, ST</b></u>

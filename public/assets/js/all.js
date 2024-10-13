@@ -977,7 +977,7 @@ function edit(code){
                     $('#code').val(response.data.code);
                     $('#receive_from').val(response.data.receive_from);
                     $('#project_id').empty().append(`
-                        <option value="` + response.data.project_type_id + `">` + response.data.project_code + `</option>
+                        <option value="` + response.data.project_id + `">` + response.data.project_code + `</option>
                     `);
                     $('#bank_id').empty().append(`
                         <option value="` + response.data.bank_id + `">` + response.data.bank_code + `</option>
@@ -994,7 +994,7 @@ function edit(code){
                     $('#code').val(response.data.code);
                     $('#to_name').val(response.data.to_name);
                     $('#project_id').empty().append(`
-                        <option value="` + response.data.project_type_id + `">` + response.data.project_code + `</option>
+                        <option value="` + response.data.project_id + `">` + response.data.project_code + `</option>
                     `);
                     $('#post_date').val(response.data.post_date);
                     $('#type_building').val(response.data.type_building);
@@ -1008,7 +1008,7 @@ function edit(code){
                     $('#code').val(response.data.code);
                     $('#name').val(response.data.name);
                     $('#project_id').empty().append(`
-                        <option value="` + response.data.project_type_id + `">` + response.data.project_code + `</option>
+                        <option value="` + response.data.project_id + `">` + response.data.project_code + `</option>
                     `);
                     $('#post_date').val(response.data.post_date);
                     $('#address').val(response.data.address);
@@ -1036,7 +1036,7 @@ function edit(code){
                 /* JIKA FORM HASIL SURVEI */
                 if($('#survey-result-datatable').length > 0){
                     $('#project_id').empty().append(`
-                        <option value="` + response.data.project_type_id + `">` + response.data.project_code + `</option>
+                        <option value="` + response.data.project_id + `">` + response.data.project_code + `</option>
                     `);
                     $('#post_date').val(response.data.post_date);
                     $('#note').val(response.data.note);

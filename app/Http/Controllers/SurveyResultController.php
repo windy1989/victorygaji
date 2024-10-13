@@ -283,10 +283,14 @@ class SurveyResultController extends Controller
                         'name'              => $request->file('file')->getClientOriginalName(),
                         'file_location'	    => $request->file('file') ? $request->file('file')->store('public/survey_result') : NULL
                     ]);
-                }else{
                     $response = [
                         'status'		=> 200,
-                        'message'		=> 'You have successfully upload the file.'
+                        'message'		=> 'Data berhasil di upload.'
+                    ];
+                }else{
+                    $response = [
+                        'status'		=> 500,
+                        'message'		=> 'Maaf, data survei tidak ditemukan.'
                     ];
                 }
             /* } */

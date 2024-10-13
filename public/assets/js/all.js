@@ -1103,7 +1103,7 @@ function showUpload(code){
                                 ` + val.file + `
                                 <p class="mt-3 text-center">
                                     <h6>` + val.name + `</h6>
-                                    <button type="button" class="btn btn-rounded btn-primary" onclick="destroyFile('` + val.code + `');"><i class="fa fa-shopping-cart"></i></button>
+                                    <button type="button" class="btn btn-rounded btn-primary" onclick="destroyFile('` + val.code + `');"><i class="fa fa-trash"></i></button>
 								</p>
                             </div>    
                         `);

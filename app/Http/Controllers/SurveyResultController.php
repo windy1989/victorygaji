@@ -97,6 +97,7 @@ class SurveyResultController extends Controller
                     $val->project->project_no.' - '.$val->project->customer->name,
                     date('d/m/Y',strtotime($val->post_date)),
                     $val->note,
+                    $val->surveyResultDetail()->count(),
                     $val->statusBadge(),
                     '
                         <!-- <a href="javascript:void(0);" class="btn btn-secondary btn-sm content-icon" onclick="detail(`'.CustomHelper::encrypt($val->code).'`)"><i class="fa fa-info-circle"></i></a> -->

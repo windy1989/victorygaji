@@ -1363,6 +1363,8 @@ function save(){
                              });
                         });
                         $('.modal-body').scrollTop(0);
+                    }else{
+                        errorMessage(response.message);
                     }
                 },
                 error: function() {

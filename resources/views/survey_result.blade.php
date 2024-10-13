@@ -129,9 +129,9 @@
                         </form>
                         <div class="row">
                             <div class="col-xl-12 col-md-12">
-                                <h5>Daftar file terupload.</h5>
+                                <h5 class="text-center">Daftar file terupload.</h5>
                                 <div id="list-files" class="row">
-                                    
+
                                 </div>
                             </div>
                         </div>

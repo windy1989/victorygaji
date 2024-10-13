@@ -96,6 +96,15 @@ Dropzone.options.dropzoneUpload = {
         this.on("success", function(file, responseText) {
             $('#validation_alert_upload').empty().hide();
             if(responseText.status == '200'){
+                $('#list-files').append(`
+                    <div class="col-md-2">
+                        ` + responseText.newimage.file + `
+                        <p class="mt-3 text-center">
+                            <h6>` + responseText.newimage.name + `</h6>
+                            <button type="button" class="btn btn-rounded btn-primary" onclick="destroyFile('` + responseText.newimage.code + `');"><i class="fa fa-trash"></i></button>
+                        </p>
+                    </div>    
+                `);
                 successMessage(responseText.message);
                 loadDataTableSurveyResult();
             }else if(responseText.status == '422'){

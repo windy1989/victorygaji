@@ -283,9 +283,15 @@ class SurveyResultController extends Controller
                         'name'              => $request->file('file')->getClientOriginalName(),
                         'file_location'	    => $request->file('file') ? $request->file('file')->store('public/survey_result') : NULL
                     ]);
+                    $newimage = [
+                        'file'      => $querydetail->getFile(),
+                        'code'      => CustomHelper::encrypt($querydetail->code),
+                        'name'      => $querydetail->name,
+                    ];
                     $response = [
                         'status'		=> 200,
-                        'message'		=> 'Data berhasil di upload.'
+                        'message'		=> 'Data berhasil di upload.',
+                        'newimage'      => $newimage,
                     ];
                 }else{
                     $response = [

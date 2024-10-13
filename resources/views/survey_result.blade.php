@@ -77,33 +77,13 @@
                         <form id="formData">
                             <div class="row">
                                 <div class="mb-3 col-md-6">
-                                    <label class="form-label">Kode Dokumen</label>
                                     <input type="hidden" id="temp" name="temp">
-                                    <input type="text" class="form-control" placeholder="Kode Dokumen" id="code" name="code">
-                                </div>
-                                <div class="mb-3 col-md-6">
                                     <label class="form-label">Proyek</label>
                                     <select id="project_id" name="project_id"></select>
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <label class="form-label">Ditujukan Kepada</label>
-                                    <input type="text" class="form-control" placeholder="Muncul saat cetak" id="to_name" name="to_name">
-                                </div>
-                                <div class="mb-3 col-md-6">
                                     <label class="form-label">Tgl.Post</label>
                                     <input type="date" class="form-control" id="post_date" name="post_date" value="{{ date('Y-m-d') }}">
-                                </div>
-                                <div class="mb-3 col-md-6">
-                                    <label class="form-label">Tipe Bangunan</label>
-                                    <input type="text" class="form-control" placeholder="Muncul saat cetak" id="type_building" name="type_building">
-                                </div>
-                                <div class="mb-3 col-md-6">
-                                    <label class="form-label">Lokasi Bangunan</label>
-                                    <input type="text" class="form-control" placeholder="Muncul saat cetak" id="location_building" name="location_building">
-                                </div>
-                                <div class="mb-3 col-md-6">
-                                    <label class="form-label">Tipe Jalan</label>
-                                    <input type="text" class="form-control" placeholder="Muncul saat cetak" id="type_road" name="type_road">
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Keterangan (Internal)</label>
@@ -120,16 +100,32 @@
             </div>
         </div>
 
-        <div class="modal fade" id="modalDetail">
+        <div class="modal fade" id="modalUpload">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Detail Informasi <b id="modal-detail-title"></b></h5>
+                        <h5 class="modal-title">Form Upload Hasil Survei <b id="modal-detail-title-upload"></b></h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal">
                         </button>
                     </div>
-                    <div class="modal-body" id="modal-detail-body">
-                        
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-xl-12  col-md-12 mb-4">
+                                <div class="alert alert-secondary alert-dismissible fade show">
+                                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="me-2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                                    <strong>Info!</strong> This form will be automatically submitted after you choose file, please fill <b>Company</b> and <b>Category</b> first.
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close">
+                                    </button>
+                                </div>
+                                <input type="hidden" id="tempUpload">
+                                <div id="validation_alert_upload" style="display:none;">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <form action="{{ Request::url() }}/upload" class="dropzone mt-3" id="dropzone-multiple">
+                            @csrf
+                        </form>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>

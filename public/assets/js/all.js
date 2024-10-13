@@ -6,7 +6,7 @@ Dropzone.options.dropzoneMultiple = {
     autoQueue: true,
 	timeout: 0,
     addRemoveLinks : true,
-    acceptedFiles: ".xlsx,.xls",
+    acceptedFiles: "image/*",
     init: function() {
         dropzoneMultiple = this;
         this.on("addedfiles", function(files) {
@@ -16,23 +16,23 @@ Dropzone.options.dropzoneMultiple = {
             
         });
         this.on("success", function(file, responseText) {
-            $('#validation_alert').empty().hide();
+            $('#validation_alert_upload').empty().hide();
             if(responseText.status == '200'){
                 successMessage(responseText.message);
                 loadDataTablePayroll();
             }else if(responseText.status == '422'){
-                $('#validation_alert').show();
+                $('#validation_alert_upload').show();
                 $.each(responseText.error, function(i, val) {
                     $.each(val, function(i, val) {
-                       $('#validation_alert').append(`
+                       $('#validation_alert_upload').append(`
                             <div class="alert alert-danger solid alert-rounded "> ` + val + `</div>
                        `);
                     });
                 });
             }else if(responseText.status == '432'){
-                $('#validation_alert').show();
+                $('#validation_alert_upload').show();
                 $.each(responseText.error, function(i, val) {
-                    $('#validation_alert').append(`
+                    $('#validation_alert_upload').append(`
                         <div class="alert alert-danger solid alert-rounded ">
                             <p> Line <b>` + val.row + `</b> in column <b>` + val.attribute + `</b> : ` + val.errors[0] + `</p>
                         </div>
@@ -1156,6 +1156,10 @@ function save(){
 
                         if($('#letter-agreement-datatable').length > 0){
                             loadDataTableLetterAgreement();
+                        }
+
+                        if($('#survey-result-datatable').length > 0){
+                            loadDataTableSurveyResult();
                         }
 
                         $('#modalCreate').modal('toggle');

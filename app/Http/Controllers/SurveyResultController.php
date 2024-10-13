@@ -127,13 +127,10 @@ class SurveyResultController extends Controller
         DB::beginTransaction();
         try {
             $validation = Validator::make($request->all(), [
-                'code'		            => $request->temp ? ['required', Rule::unique('letter_agreements', 'code')->ignore($request->temp)] : 'required|unique:letter_agreements,code',
                 'name'                  => 'required',
                 'project_id'            => 'required',
                 'post_date'             => 'required',
             ], [
-                'code.required'                 => 'Kode tidak boleh kosong.',
-                'code.unique'                   => 'Kode telah dipakai.',
                 'name.required'                 => 'Nama pihak 1 tidak boleh kosong.',
                 'project_id.required'           => 'Project tidak boleh kosong.',
                 'post_date.required'            => 'Tgl. post tidak boleh kosong.',

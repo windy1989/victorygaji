@@ -59,6 +59,10 @@ class SurveyResult extends Model
         return $status;
     }
 
+    public function surveyResultDetail(){
+        return $this->hasMany('App\Models\SurveyResultDetail','survey_result_id','id');
+    }
+
     public function approval(){
         return $this->hasMany('App\Models\Approval', 'lookable_id', 'id')->where('lookable_type',$this->table);
     }

@@ -288,6 +288,7 @@ class SurveyResultController extends Controller
                         'code'      => CustomHelper::encrypt($querydetail->code),
                         'name'      => $querydetail->name,
                     ];
+                    CustomHelper::saveLog($query->getTable(),$query->id,'Tambah baru data file hasil survei '.$query->code,'Pengguna '.session('bo_nama').' telah manambahkan baru data file hasil survei no '.$query->code);
                     $response = [
                         'status'		=> 200,
                         'message'		=> 'Data berhasil di upload.',
@@ -305,6 +306,25 @@ class SurveyResultController extends Controller
         }
 
         return response()->json($response);
+	}
+
+    public function destroyFile(Request $request){
+		$data = SurveyResultDetail::where('code',CustomHelper::decrypt($request->id))->first();
+		
+		$data->deleteFile();
+		
+		if($data->delete()){
+            CustomHelper::saveLog($data->getTable(),$data->id,'Menghapus data file hasil survei '.$data->code,'Pengguna '.session('bo_nama').' telah menghapus data file hasil survei no '.$data->code);
+			return response()->json([
+				'status'	=> 200,
+				'message'	=> 'File berhasil dihapus.' 
+			]);
+		}else{
+			return response()->json([
+				'status'	=> 422,
+				'message'	=> 'File tidak ditemukan.'
+			]);
+		}
 	}
 
     public function detail(Request $request){

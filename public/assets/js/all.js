@@ -1086,6 +1086,47 @@ function detail(code){
     });
 }
 
+function destroyFile(code){
+    swal.fire({
+        title: "Yakin ingin menghapus data?",
+        text: "Anda tidak bisa mengembalikan data yang dihapus.",
+        showCancelButton: true,
+        type: 'warning',
+        cancelButtonColor: '#d33',
+        confirmButtonColor: "#DD6B55",
+    }).then((res) => {
+        if(res.value){
+            $.ajax({
+                url: '{{ Request::url() }}/destroy_file',
+                type: 'POST',
+                dataType: 'JSON',
+                data: { id : val },
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                beforeSend: function() {
+                    loadingOpen();
+                },
+                success: function(response) {
+                    loadingClose();
+                    if(response.status == 200) {
+                        $('#picture' + val).remove();
+                        successMessage(response.message);
+                    }
+                },
+                error: function() {
+                    if(response.status == '403'){
+                        errorMessage('You have no access.');
+                    }else{
+                        errorConnection();
+                    }
+                    loadingClose();
+                }
+            });
+        }
+    });
+}
+
 function showUpload(code){
     $.ajax({
         url: window.location.href + '/show_upload',

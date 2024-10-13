@@ -82,7 +82,7 @@
                                     <select id="project_id" name="project_id"></select>
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <label class="form-label">Tgl.Post</label>
+                                    <label class="form-label">Tgl.Survei</label>
                                     <input type="date" class="form-control" id="post_date" name="post_date" value="{{ date('Y-m-d') }}">
                                 </div>
                                 <div class="mb-3 col-md-6">

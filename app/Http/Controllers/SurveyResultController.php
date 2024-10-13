@@ -251,8 +251,7 @@ class SurveyResultController extends Controller
     public function upload(Request $request){
         $validation = Validator::make($request->all(), [
 			'file' 				=> 'required',
-			'alias'			    => 'required',
-            'category'          => 'required',
+			'tempUpload'	    => 'required',
 		]);
 
         if($validation->fails()) {

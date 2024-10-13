@@ -124,8 +124,8 @@ class SurveyResultController extends Controller
     }
 
     public function create(Request $request){
-        DB::beginTransaction();
-        try {
+        /* DB::beginTransaction();
+        try { */
             $validation = Validator::make($request->all(), [
                 'project_id'            => 'required',
                 'post_date'             => 'required',
@@ -181,11 +181,11 @@ class SurveyResultController extends Controller
                     ];
                 }
             }
-            DB::commit();
+            /* DB::commit(); */
 		    return response()->json($response);
-        }catch(\Exception $e){
+        /* }catch(\Exception $e){
             DB::rollback();
-        }
+        } */
     }
 
     public function show(Request $request){

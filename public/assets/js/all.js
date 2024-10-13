@@ -1097,7 +1097,7 @@ function destroyFile(code){
     }).then((res) => {
         if(res.value){
             $.ajax({
-                url: '{{ Request::url() }}/destroy_file',
+                url: window.location.href + '/destroy_file',
                 type: 'POST',
                 dataType: 'JSON',
                 data: { id : code },

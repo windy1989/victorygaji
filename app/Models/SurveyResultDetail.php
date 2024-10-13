@@ -48,9 +48,9 @@ class SurveyResultDetail extends Model
     public function getFile(){
         if(Storage::exists($this->file_location)) {
             if(explode('.',$this->file_location)[1] == 'pdf'){
-                $document = '<a href="'.asset(Storage::url($this->file_location)).'" target="_blank"><img src="'.asset('assets/images/pdf.png').'" style="max-height:200px;"></a>';
+                $document = '<a href="'.asset(Storage::url($this->file_location)).'" target="_blank"><img src="'.asset('assets/images/pdf.png').'" style="max-height:100px;"></a>';
             }else{ 
-                $document = '<img src="'.asset(Storage::url($this->file_location)).'" style="max-height:200px;">';
+                $document = '<img src="'.asset(Storage::url($this->file_location)).'" style="max-height:100px;">';
             }
         } else {
             $document = asset('website/empty_profile.png');

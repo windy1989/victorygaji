@@ -1101,7 +1101,7 @@ function showUpload(code){
                         $('#list-files').append(`
                             <div class="col-md-2">
                                 ` + val.file + `
-                                <p class="mt-3">
+                                <p class="mt-3 text-center">
                                     <h6>` + val.name + `</h6>
                                     <button type="button" class="btn btn-rounded btn-primary" onclick="destroyFile('` + val.code + `');"><span class="btn-icon-start text-primary"><i class="fa fa-shopping-cart"></i>
                                     </span>Buy</button>

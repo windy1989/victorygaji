@@ -327,57 +327,18 @@ class SurveyResultController extends Controller
 		}
 	}
 
-    public function detail(Request $request){
-        $data = LetterAgreement::where('code',CustomHelper::decrypt($request->code))->first();
-        if($data){
-
-            $html = '';
-
-            if($data->approval()->exists()){
-                $html = '<table class="table table-responsive-md">
-                        <thead>
-                            <tr>
-                                <th><strong>#</strong></th>
-                                <th><strong>APPROVER</strong></th>
-                                <th><strong>LEVEL</strong></th>
-                                <th><strong>TGL.APPROVE</strong></th>
-                                <th><strong>STATUS</strong></th>
-                            </tr>
-                        </thead><tbody>';
-
-                foreach($data->approval()->orderBy('approve_level')->get() as $key => $row){
-                    $html .= '<tr>
-                        <td class="text-center">'.($key+1).'</td>
-                        <td>'.$row->toUser->nama.'</td>
-                        <td>'.$row->approve_level.'</td>
-                        <td>'.($row->approve_date ? date('d/m/Y H:i:s',strtotime($row->approve_date)) : '-').'</td>
-                        <td>'.$row->approveStatus().'</td>
-                    </tr>';
-                }
-
-                $html .= '</tbody></table>';
+    public function destroy(Request $request){
+        $query = SurveyResult::where('code',CustomHelper::decrypt($request->code))->first();
+        if($query){
+            if($query->surveyResultDetail()->exists()){
+                return response()->json([
+                    'status'    => 500,
+                    'message'   => 'Sebelum menghapus hasil survei silahkan hapus file terlebih dahulu.'
+                ]);
             }
 
-            $response = [
-                'status'    => 200,
-                'data'      => $data,
-                'html'      => $html,
-            ];
-        }else{
-            $response = [
-                'status'  => 500,
-                'message' => 'Data tidak ditemukan.'
-            ];
-        }
-
-        return response()->json($response);
-    }
-
-    public function destroy(Request $request){
-        $query = LetterAgreement::where('code',CustomHelper::decrypt($request->code))->first();
-        if($query){
             if($query->status == '1'){
-                CustomHelper::saveLog($query->getTable(),$query->id,'Surat SPK nomor '.$query->code.' telah dihapus.','Pengguna '.session('bo_nama').' telah menghapus data Surat SPK no '.$query->code);
+                CustomHelper::saveLog($query->getTable(),$query->id,'Hasil survei nomor '.$query->code.' telah dihapus.','Pengguna '.session('bo_nama').' telah menghapus data hasil survei no '.$query->code);
 
                 $query->approval()->delete();
                 $query->delete();
@@ -400,25 +361,5 @@ class SurveyResultController extends Controller
         }
 
         return response()->json($response);
-    }
-
-    public function print(Request $request,$id){
-        $data = LetterAgreement::where('code',CustomHelper::decrypt($id))->first();
-        if($data){
-
-            $result = [
-                'title'         => 'Surat Penawaran '.$data->code,
-                'data'          => $data,
-            ];
-    
-            $pdf = Pdf::loadView('pdf.letter_agreement', $result)->setPaper('a4', 'portrait');
-            $pdf->getDomPDF()->set_option("enable_php", true);
-            /* $font = $pdf->getFontMetrics()->get_font("helvetica", "italic");
-            $pdf->getCanvas()->page_text(260, 775, "{PAGE_NUM} of {PAGE_COUNT}", $font, 10, array(0,0,0)); */
-            return $pdf->stream('letter_agreement_'.$data->code.'.pdf');
-            /* return $pdf->download('invoice.pdf'); */
-        }else{
-            abort(404);
-        }
     }
 }

@@ -108,7 +108,6 @@ Route::middleware('login')->group(function () {
         Route::post('check',[SurveyResultController::class, 'check']);
         Route::post('show_upload',[SurveyResultController::class, 'showUpload']);
         Route::post('destroy_file',[SurveyResultController::class, 'destroyFile']);
-        Route::post('detail',[SurveyResultController::class, 'detail']);
         Route::post('destroy',[SurveyResultController::class, 'destroy']);
         Route::get('print/{id}',[SurveyResultController::class, 'print']);
     });

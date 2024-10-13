@@ -15,6 +15,7 @@ use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ProjectTypeController;
 use App\Http\Controllers\PurposeController;
 use App\Http\Controllers\Select2Controller;
+use App\Http\Controllers\SurveyResultController;
 use App\Models\LetterAgreement;
 use App\Models\OfferingLetter;
 
@@ -96,6 +97,16 @@ Route::middleware('login')->group(function () {
         Route::post('detail',[LetterAgreementController::class, 'detail']);
         Route::post('destroy',[LetterAgreementController::class, 'destroy']);
         Route::get('print/{id}',[LetterAgreementController::class, 'print']);
+    });
+
+    Route::prefix('hasil_survei')->middleware('admin.auth:1')->group(function () {
+        Route::get('/',[SurveyResultController::class, 'index']);
+        Route::get('datatable',[SurveyResultController::class, 'datatable']);
+        Route::post('create',[SurveyResultController::class, 'create']);
+        Route::post('show',[SurveyResultController::class, 'show']);
+        Route::post('detail',[SurveyResultController::class, 'detail']);
+        Route::post('destroy',[SurveyResultController::class, 'destroy']);
+        Route::get('print/{id}',[SurveyResultController::class, 'print']);
     });
 
     Route::prefix('invoice')->middleware('admin.auth:1')->group(function () {

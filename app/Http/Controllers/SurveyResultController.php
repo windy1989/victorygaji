@@ -127,11 +127,9 @@ class SurveyResultController extends Controller
         DB::beginTransaction();
         try {
             $validation = Validator::make($request->all(), [
-                'name'                  => 'required',
                 'project_id'            => 'required',
                 'post_date'             => 'required',
             ], [
-                'name.required'                 => 'Nama pihak 1 tidak boleh kosong.',
                 'project_id.required'           => 'Project tidak boleh kosong.',
                 'post_date.required'            => 'Tgl. post tidak boleh kosong.',
             ]);

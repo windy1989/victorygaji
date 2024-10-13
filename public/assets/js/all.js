@@ -6,7 +6,7 @@ Dropzone.options.dropzoneMultiple = {
     autoQueue: true,
 	timeout: 0,
     addRemoveLinks : true,
-    acceptedFiles: "image/*",
+    acceptedFiles: ".xls,.xlsx",
     init: function() {
         dropzoneMultiple = this;
         this.on("addedfiles", function(files) {
@@ -16,27 +16,95 @@ Dropzone.options.dropzoneMultiple = {
             
         });
         this.on("success", function(file, responseText) {
-            $('#validation_alert_upload').empty().hide();
+            $('#validation_alert').empty().hide();
             if(responseText.status == '200'){
                 successMessage(responseText.message);
                 loadDataTablePayroll();
             }else if(responseText.status == '422'){
-                $('#validation_alert_upload').show();
+                $('#validation_alert').show();
                 $.each(responseText.error, function(i, val) {
                     $.each(val, function(i, val) {
-                       $('#validation_alert_upload').append(`
+                       $('#validation_alert').append(`
                             <div class="alert alert-danger solid alert-rounded "> ` + val + `</div>
                        `);
                     });
                 });
             }else if(responseText.status == '432'){
-                $('#validation_alert_upload').show();
+                $('#validation_alert').show();
                 $.each(responseText.error, function(i, val) {
-                    $('#validation_alert_upload').append(`
+                    $('#validation_alert').append(`
                         <div class="alert alert-danger solid alert-rounded ">
                             <p> Line <b>` + val.row + `</b> in column <b>` + val.attribute + `</b> : ` + val.errors[0] + `</p>
                         </div>
                     `);
+                });
+            }else{
+                errorMessage(responseText.message);
+            }
+        });
+        this.on("complete", function(file) {
+            dropzoneMultiple.removeFile(file);
+        });
+		this.on('error', function(file, response) {
+			errorMessage(response.match("<title>(.*?)</title>")[1]);
+		});
+    },
+};
+
+Dropzone.options.dropzoneUpload = {
+    paramName: "file",
+    maxFilesize: 200000,
+    maxFiles: 1,
+    autoProcessQueue: false,
+    autoQueue: true,
+	timeout: 0,
+    addRemoveLinks : true,
+    acceptedFiles: ".jpeg,.jpg,.png,.gif,.pdf,.xlsx,.xls,.7z,.rar,.zip",
+    init: function() {
+        dropzoneMultiple = this;
+        this.on("addedfiles", function(files) {
+            $.ajax({
+                url: window.location.href + '/upload',
+                type: 'POST',
+                dataType: 'JSON',
+                data: {
+                   name: files[0].name
+                },
+                headers: {
+                   'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                beforeSend: function() {
+
+                },
+                success: function(response) {
+                    if(response.status == '1'){
+                        dropzoneMultiple.processQueue();
+                    }else{
+                        if(confirm("Ups, this file is already exists. Do you want to replace the file?")){
+                            dropzoneMultiple.processQueue();
+                        }else{
+                            dropzoneMultiple.removeFile(files[0]);
+                        }
+                    }
+                }
+           });
+        });
+        this.on("sending", function(file, xhr, formData){
+            formData.append('code', $('#tempUpload').val());
+        });
+        this.on("success", function(file, responseText) {
+            $('#validation_alert_upload').empty().hide();
+            if(responseText.status == '200'){
+                successMessage(responseText.message);
+                loadDataTableSurveyResult();
+            }else if(responseText.status == '422'){
+                $('#validation_alert_upload').show();
+                $.each(responseText.error, function(i, val) {
+                    $.each(val, function(i, val) {
+                       $('#validation_alert_upload').append(`
+                            <div class="alert alert-info solid alert-rounded "> ` + val + `</div>
+                       `);
+                    });
                 });
             }else{
                 errorMessage(responseText.message);
@@ -1026,6 +1094,7 @@ function showUpload(code){
             if(response.status == 200){
                 $('#modal-detail-title-upload').text(response.code);
                 $("#list-files").empty();
+                $('#tempUpload').val(code);
                 if(response.data.length > 0){
                     $.each(response.data, function(i, val) {
                         $('#list-files').append(`

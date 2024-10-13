@@ -64,7 +64,7 @@ Dropzone.options.dropzoneUpload = {
         dropzoneMultiple = this;
         this.on("addedfiles", function(files) {
             $.ajax({
-                url: window.location.href + '/upload',
+                url: window.location.href + '/check',
                 type: 'POST',
                 dataType: 'JSON',
                 data: {
@@ -80,11 +80,12 @@ Dropzone.options.dropzoneUpload = {
                     if(response.status == '1'){
                         dropzoneMultiple.processQueue();
                     }else{
-                        if(confirm("Ups, this file is already exists. Do you want to replace the file?")){
+                        errorMessage('Maaf nama file telah ada pada sistem. Silahkan rename file anda.');
+                        /* if(confirm("Ups, file ini telah ada dalam. Do you want to replace the file?")){
                             dropzoneMultiple.processQueue();
                         }else{
                             dropzoneMultiple.removeFile(files[0]);
-                        }
+                        } */
                     }
                 }
            });

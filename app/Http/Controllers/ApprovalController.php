@@ -157,7 +157,7 @@ class ApprovalController extends Controller
                         'status'    => '3'
                     ]);
                 }
-                CustomHelper::saveLog($data->lookable_type,$data->lookable_id,'Data dokumen no '.$data->lookable->code.' telah disetujui.','Pengguna '.session('bo_name').' telah menyetujui data dokumen no '.$data->lookable->code);
+                CustomHelper::saveLog($data->lookable_type,$data->lookable_id,'Data dokumen no '.$data->lookable->code.' telah disetujui.','Pengguna '.session('bo_nama').' telah menyetujui data dokumen no '.$data->lookable->code);
             }else{
                 $data->lookable->update([
                     'status'    => '5'
@@ -167,7 +167,7 @@ class ApprovalController extends Controller
                     'approve_date'      => now(),
                     'approve_note'      => $request->note,
                 ]);
-                CustomHelper::saveLog($data->lookable_type,$data->lookable_id,'Data dokumen no '.$data->lookable->code.' telah ditolak/revisi.','Pengguna '.session('bo_name').' telah menolak/revisi data dokumen no '.$data->lookable->code);
+                CustomHelper::saveLog($data->lookable_type,$data->lookable_id,'Data dokumen no '.$data->lookable->code.' telah ditolak/revisi.','Pengguna '.session('bo_nama').' telah menolak/revisi data dokumen no '.$data->lookable->code);
             }
             
 

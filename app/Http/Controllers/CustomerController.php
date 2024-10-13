@@ -156,7 +156,7 @@ class CustomerController extends Controller
                     $query->note            = $request->note;
                     $query->status          = $request->status ?? '2';
                     $query->save();
-                    CustomHelper::saveLog($query->getTable(),$query->id,'Update data customer '.$query->code,'Pengguna '.session('bo_name').' telah mengubah data pelanggan no '.$query->code);
+                    CustomHelper::saveLog($query->getTable(),$query->id,'Update data customer '.$query->code,'Pengguna '.session('bo_nama').' telah mengubah data pelanggan no '.$query->code);
                 }else{
                     $query = Customer::create([
                         'code'              => $request->code ?? Customer::generateCode(),
@@ -175,7 +175,7 @@ class CustomerController extends Controller
                         'note'              => $request->note,
                         'status'            => $request->status ?? '2',
                     ]);
-                    CustomHelper::saveLog($query->getTable(),$query->id,'Tambah baru data customer '.$query->code,'Pengguna '.session('bo_name').' telah manambahkan baru data pelanggan no '.$query->code);
+                    CustomHelper::saveLog($query->getTable(),$query->id,'Tambah baru data customer '.$query->code,'Pengguna '.session('bo_nama').' telah manambahkan baru data pelanggan no '.$query->code);
                 }
                 
                 if($query) {
@@ -218,7 +218,7 @@ class CustomerController extends Controller
         $query = Customer::where('code',CustomHelper::decrypt($request->code))->first();
 		
         if($query->delete()) {
-            CustomHelper::saveLog($query->getTable(),$query->id,'Delete data customer '.$query->code,'Pengguna '.session('bo_name').' telah menghapus data pelanggan no '.$query->code);
+            CustomHelper::saveLog($query->getTable(),$query->id,'Delete data customer '.$query->code,'Pengguna '.session('bo_nama').' telah menghapus data pelanggan no '.$query->code);
 
             $response = [
                 'status'  => 200,

@@ -9,6 +9,7 @@ use App\Models\LetterAgreement;
 use App\Models\OfferingLetter;
 use App\Models\Project;
 use App\Models\SurveyResult;
+use App\Models\SurveyResultDetail;
 use Barryvdh\DomPDF\Facade\Pdf;
 use GuzzleHttp\Psr7\Query;
 use Illuminate\Http\Request;
@@ -155,7 +156,7 @@ class SurveyResultController extends Controller
                     $query->note                = $request->note;
                     $query->status              = '3';
                     $query->save();
-                    CustomHelper::saveLog($query->getTable(),$query->id,'Update data hasil survei '.$query->code,'Pengguna '.session('bo_name').' telah mengubah data hasil survei no '.$query->code);
+                    CustomHelper::saveLog($query->getTable(),$query->id,'Update data hasil survei '.$query->code,'Pengguna '.session('bo_nama').' telah mengubah data hasil survei no '.$query->code);
                 }else{
                     $query = SurveyResult::create([
                         'user_id'                   => session('bo_id'),
@@ -165,7 +166,7 @@ class SurveyResultController extends Controller
                         'note'                      => $request->note,
                         'status'                    => '3',
                     ]);
-                    CustomHelper::saveLog($query->getTable(),$query->id,'Tambah baru data hasil survei '.$query->code,'Pengguna '.session('bo_name').' telah manambahkan baru data hasil survei no '.$query->code);
+                    CustomHelper::saveLog($query->getTable(),$query->id,'Tambah baru data hasil survei '.$query->code,'Pengguna '.session('bo_nama').' telah manambahkan baru data hasil survei no '.$query->code);
                 }
                 
                 if($query) {
@@ -233,6 +234,70 @@ class SurveyResultController extends Controller
         return response()->json($response);
     }
 
+    public function check(Request $request){		
+        $query = SurveyResultDetail::where('name',$request->name)->first();
+        
+        if($query){
+            return response()->json([
+                'status'		=> 0,
+            ]);
+        }else{
+            return response()->json([
+                'status'		=> 1,
+            ]);
+        }
+	}
+
+    public function upload(Request $request){
+        $validation = Validator::make($request->all(), [
+			'file' 				=> 'required',
+			'alias'			    => 'required',
+            'category'          => 'required',
+		]);
+
+        if($validation->fails()) {
+            $response = [
+                'status' => 422,
+                'error'  => $validation->errors()
+            ];
+        } else {
+
+            /* $check = SurveyResult::where('name',$request->file('file')->getClientOriginalName())->first();
+
+            if($check){
+                $check->deleteFile();
+                $query = $check->update([
+                    'user_id'       => session('bo_id'),
+                    'alias'         => $request->alias,
+                    'category_id'   => $request->category,
+                    'name'          => $request->file('file')->getClientOriginalName(),
+                    'file_location'	=> $request->file('file') ? $request->file('file')->store('public/survey_result') : NULL
+                ]);
+                
+            }else{ */
+                $query = SurveyResult::where('code',CustomHelper::decrypt($request->code))->first();
+
+                if($query){
+                    $querydetail = SurveyResultDetail::create([
+                        'survey_result_id'  => $query->id,
+                        'code'	            => strtoupper(Str::random(15)),
+                        'name'              => $request->file('file')->getClientOriginalName(),
+                        'file_location'	    => $request->file('file') ? $request->file('file')->store('public/survey_result') : NULL
+                    ]);
+                }else{
+                    $response = [
+                        'status'		=> 200,
+                        'message'		=> 'You have successfully upload the file.'
+                    ];
+                }
+            /* } */
+            
+            
+        }
+
+        return response()->json($response);
+	}
+
     public function detail(Request $request){
         $data = LetterAgreement::where('code',CustomHelper::decrypt($request->code))->first();
         if($data){
@@ -283,7 +348,7 @@ class SurveyResultController extends Controller
         $query = LetterAgreement::where('code',CustomHelper::decrypt($request->code))->first();
         if($query){
             if($query->status == '1'){
-                CustomHelper::saveLog($query->getTable(),$query->id,'Surat SPK nomor '.$query->code.' telah dihapus.','Pengguna '.session('bo_name').' telah menghapus data Surat SPK no '.$query->code);
+                CustomHelper::saveLog($query->getTable(),$query->id,'Surat SPK nomor '.$query->code.' telah dihapus.','Pengguna '.session('bo_nama').' telah menghapus data Surat SPK no '.$query->code);
 
                 $query->approval()->delete();
                 $query->delete();

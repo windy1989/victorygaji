@@ -176,7 +176,7 @@ class UserController extends Controller
                     $query->phone           = $request->phone;
                     $query->status          = $request->status ?? NULL;
                     $query->save();
-                    CustomHelper::saveLog($query->getTable(),$query->id,'Update data user '.$query->nik,'Pengguna '.session('bo_name').' telah mengubah data user no '.$query->nik);
+                    CustomHelper::saveLog($query->getTable(),$query->id,'Update data user '.$query->nik,'Pengguna '.session('bo_nama').' telah mengubah data user no '.$query->nik);
                 }else{
                     $query = User::create([
                         'nama'              => $request->name,
@@ -186,7 +186,7 @@ class UserController extends Controller
                         'phone'             => $request->phone,
                         'status'            => $request->status ?? '2',
                     ]);
-                    CustomHelper::saveLog($query->getTable(),$query->id,'Tambah baru data user '.$query->nik,'Pengguna '.session('bo_name').' telah manambahkan baru data user no '.$query->nik);
+                    CustomHelper::saveLog($query->getTable(),$query->id,'Tambah baru data user '.$query->nik,'Pengguna '.session('bo_nama').' telah manambahkan baru data user no '.$query->nik);
                 }
                 
                 if($query) {
@@ -212,7 +212,7 @@ class UserController extends Controller
         $query = User::find($request->code);
 		
         if($query->delete()) {
-            CustomHelper::saveLog($query->getTable(),$query->id,'Delete data user '.$query->nik,'Pengguna '.session('bo_name').' telah menghapus data user no '.$query->nik);
+            CustomHelper::saveLog($query->getTable(),$query->id,'Delete data user '.$query->nik,'Pengguna '.session('bo_nama').' telah menghapus data user no '.$query->nik);
 
             $response = [
                 'status'  => 200,

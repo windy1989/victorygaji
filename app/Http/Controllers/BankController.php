@@ -151,7 +151,7 @@ class BankController extends Controller
                     $query->branch          = $request->branch;
                     $query->status          = $request->status ?? NULL;
                     $query->save();
-                    CustomHelper::saveLog($query->getTable(),$query->id,'Update data bank '.$query->code,'Pengguna '.session('bo_name').' telah mengubah data bank no '.$query->code);
+                    CustomHelper::saveLog($query->getTable(),$query->id,'Update data bank '.$query->code,'Pengguna '.session('bo_nama').' telah mengubah data bank no '.$query->code);
                 }else{
                     $query = Bank::create([
                         'code'              => $request->code,
@@ -161,7 +161,7 @@ class BankController extends Controller
                         'branch'            => $request->branch,
                         'status'            => $request->status ?? NULL,
                     ]);
-                    CustomHelper::saveLog($query->getTable(),$query->id,'Tambah baru data bank '.$query->code,'Pengguna '.session('bo_name').' telah manambahkan baru data bank no '.$query->code);
+                    CustomHelper::saveLog($query->getTable(),$query->id,'Tambah baru data bank '.$query->code,'Pengguna '.session('bo_nama').' telah manambahkan baru data bank no '.$query->code);
                 }
                 
                 if($query) {
@@ -187,7 +187,7 @@ class BankController extends Controller
         $query = Bank::find($request->code);
 		
         if($query->delete()) {
-            CustomHelper::saveLog($query->getTable(),$query->id,'Delete data bank '.$query->code,'Pengguna '.session('bo_name').' telah menghapus data bank no '.$query->code);
+            CustomHelper::saveLog($query->getTable(),$query->id,'Delete data bank '.$query->code,'Pengguna '.session('bo_nama').' telah menghapus data bank no '.$query->code);
 
             $response = [
                 'status'  => 200,

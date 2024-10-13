@@ -189,7 +189,7 @@ class InvoiceController extends Controller
                     $query->note            = $request->note;
                     $query->status          = '1';
                     $query->save();
-                    CustomHelper::saveLog($query->getTable(),$query->id,'Update data invoice '.$query->code,'Pengguna '.session('bo_name').' telah mengubah data invoice no '.$query->code);
+                    CustomHelper::saveLog($query->getTable(),$query->id,'Update data invoice '.$query->code,'Pengguna '.session('bo_nama').' telah mengubah data invoice no '.$query->code);
                 }else{
                     $query = Invoice::create([
                         'user_id'         => session('bo_id'),
@@ -203,7 +203,7 @@ class InvoiceController extends Controller
                         'note'            => $request->note,
                         'status'          => '1',
                     ]);
-                    CustomHelper::saveLog($query->getTable(),$query->id,'Tambah baru data invoice '.$query->code,'Pengguna '.session('bo_name').' telah manambahkan baru data invoice no '.$query->code);
+                    CustomHelper::saveLog($query->getTable(),$query->id,'Tambah baru data invoice '.$query->code,'Pengguna '.session('bo_nama').' telah manambahkan baru data invoice no '.$query->code);
                 }
                 
                 if($query) {
@@ -278,7 +278,7 @@ class InvoiceController extends Controller
                 $query->save();
                 
                 if($query) {
-                    CustomHelper::saveLog($query->getTable(),$query->id,'Update pembayaran data invoice '.$query->code,'Pengguna '.session('bo_name').' telah mengubah data invoice no '.$query->code);
+                    CustomHelper::saveLog($query->getTable(),$query->id,'Update pembayaran data invoice '.$query->code,'Pengguna '.session('bo_nama').' telah mengubah data invoice no '.$query->code);
                     CustomHelper::sendApproval($query->getTable(),$query->id,'invoice');
 
                     $response = [
@@ -371,7 +371,7 @@ class InvoiceController extends Controller
         $query = Invoice::where('code',CustomHelper::decrypt($request->code))->first();
         if($query){
             if($query->status == '1'){
-                CustomHelper::saveLog($query->getTable(),$query->id,'Invoice nomor '.$query->code.' telah dihapus.','Pengguna '.session('bo_name').' telah menghapus data invoice no '.$query->code);
+                CustomHelper::saveLog($query->getTable(),$query->id,'Invoice nomor '.$query->code.' telah dihapus.','Pengguna '.session('bo_nama').' telah menghapus data invoice no '.$query->code);
 
                 $query->approval()->delete();
                 $query->delete();

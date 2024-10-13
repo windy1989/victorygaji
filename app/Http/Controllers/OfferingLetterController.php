@@ -186,7 +186,7 @@ class OfferingLetterController extends Controller
                     $query->note                = $request->note;
                     $query->status              = '3';
                     $query->save();
-                    CustomHelper::saveLog($query->getTable(),$query->id,'Update data surat penawaran '.$query->code,'Pengguna '.session('bo_name').' telah mengubah data surat penawaran no '.$query->code);
+                    CustomHelper::saveLog($query->getTable(),$query->id,'Update data surat penawaran '.$query->code,'Pengguna '.session('bo_nama').' telah mengubah data surat penawaran no '.$query->code);
                 }else{
                     $query = OfferingLetter::create([
                         'user_id'               => session('bo_id'),
@@ -200,7 +200,7 @@ class OfferingLetterController extends Controller
                         'note'                  => $request->note,
                         'status'                => '3',
                     ]);
-                    CustomHelper::saveLog($query->getTable(),$query->id,'Tambah baru data surat penawaran '.$query->code,'Pengguna '.session('bo_name').' telah manambahkan baru data surat penawaran no '.$query->code);
+                    CustomHelper::saveLog($query->getTable(),$query->id,'Tambah baru data surat penawaran '.$query->code,'Pengguna '.session('bo_nama').' telah manambahkan baru data surat penawaran no '.$query->code);
                 }
                 
                 if($query) {
@@ -290,7 +290,7 @@ class OfferingLetterController extends Controller
         $query = OfferingLetter::where('code',CustomHelper::decrypt($request->code))->first();
         if($query){
             if($query->status == '1'){
-                CustomHelper::saveLog($query->getTable(),$query->id,'Surat Penawaran nomor '.$query->code.' telah dihapus.','Pengguna '.session('bo_name').' telah menghapus data Surat Penawaran no '.$query->code);
+                CustomHelper::saveLog($query->getTable(),$query->id,'Surat Penawaran nomor '.$query->code.' telah dihapus.','Pengguna '.session('bo_nama').' telah menghapus data Surat Penawaran no '.$query->code);
 
                 $query->approval()->delete();
                 $query->delete();

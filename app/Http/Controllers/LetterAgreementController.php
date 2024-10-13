@@ -268,7 +268,7 @@ class LetterAgreementController extends Controller
                     $query->note                = $request->note;
                     $query->status              = '3';
                     $query->save();
-                    CustomHelper::saveLog($query->getTable(),$query->id,'Update data surat spk '.$query->code,'Pengguna '.session('bo_name').' telah mengubah data surat spk no '.$query->code);
+                    CustomHelper::saveLog($query->getTable(),$query->id,'Update data surat spk '.$query->code,'Pengguna '.session('bo_nama').' telah mengubah data surat spk no '.$query->code);
                 }else{
                     $query = LetterAgreement::create([
                         'user_id'                   => session('bo_id'),
@@ -299,7 +299,7 @@ class LetterAgreementController extends Controller
                         'note'                      => $request->note,
                         'status'                    => '3',
                     ]);
-                    CustomHelper::saveLog($query->getTable(),$query->id,'Tambah baru data surat spk '.$query->code,'Pengguna '.session('bo_name').' telah manambahkan baru data surat spk no '.$query->code);
+                    CustomHelper::saveLog($query->getTable(),$query->id,'Tambah baru data surat spk '.$query->code,'Pengguna '.session('bo_nama').' telah manambahkan baru data surat spk no '.$query->code);
                 }
                 
                 if($query) {
@@ -394,7 +394,7 @@ class LetterAgreementController extends Controller
         $query = LetterAgreement::where('code',CustomHelper::decrypt($request->code))->first();
         if($query){
             if($query->status == '1'){
-                CustomHelper::saveLog($query->getTable(),$query->id,'Surat SPK nomor '.$query->code.' telah dihapus.','Pengguna '.session('bo_name').' telah menghapus data Surat SPK no '.$query->code);
+                CustomHelper::saveLog($query->getTable(),$query->id,'Surat SPK nomor '.$query->code.' telah dihapus.','Pengguna '.session('bo_nama').' telah menghapus data Surat SPK no '.$query->code);
 
                 $query->approval()->delete();
                 $query->delete();

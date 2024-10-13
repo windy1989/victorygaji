@@ -129,14 +129,14 @@ class ProjectTypeController extends Controller
                     $query->name            = $request->name;    
                     $query->status          = $request->status ?? NULL;
                     $query->save();
-                    CustomHelper::saveLog($query->getTable(),$query->id,'Update data jenis proyek '.$query->code,'Pengguna '.session('bo_name').' telah mengubah data jenis proyek no '.$query->code);
+                    CustomHelper::saveLog($query->getTable(),$query->id,'Update data jenis proyek '.$query->code,'Pengguna '.session('bo_nama').' telah mengubah data jenis proyek no '.$query->code);
                 }else{
                     $query = ProjectType::create([
                         'code'              => $request->code,
                         'name'              => $request->name,    
                         'status'            => $request->status ?? NULL,
                     ]);
-                    CustomHelper::saveLog($query->getTable(),$query->id,'Tambah baru data jenis proyek '.$query->code,'Pengguna '.session('bo_name').' telah manambahkan baru data jenis proyek no '.$query->code);
+                    CustomHelper::saveLog($query->getTable(),$query->id,'Tambah baru data jenis proyek '.$query->code,'Pengguna '.session('bo_nama').' telah manambahkan baru data jenis proyek no '.$query->code);
                 }
                 
                 if($query) {
@@ -162,7 +162,7 @@ class ProjectTypeController extends Controller
         $query = ProjectType::find($request->code);
 		
         if($query->delete()) {
-            CustomHelper::saveLog($query->getTable(),$query->id,'Delete data jenis proyek '.$query->code,'Pengguna '.session('bo_name').' telah menghapus data jenis proyek no '.$query->code);
+            CustomHelper::saveLog($query->getTable(),$query->id,'Delete data jenis proyek '.$query->code,'Pengguna '.session('bo_nama').' telah menghapus data jenis proyek no '.$query->code);
 
             $response = [
                 'status'  => 200,

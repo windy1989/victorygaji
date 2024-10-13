@@ -209,7 +209,7 @@ class ProjectController extends Controller
                     $query->note            = $request->note;
                     $query->status          = '1';
                     $query->save();
-                    CustomHelper::saveLog($query->getTable(),$query->id,'Update data proyek '.$query->code,'Pengguna '.session('bo_name').' telah mengubah data proyek no '.$query->code);
+                    CustomHelper::saveLog($query->getTable(),$query->id,'Update data proyek '.$query->code,'Pengguna '.session('bo_nama').' telah mengubah data proyek no '.$query->code);
                 }else{
                     $query = Project::create([
                         'code'                  => Project::generateCode(),
@@ -233,7 +233,7 @@ class ProjectController extends Controller
                         'note'                  => $request->note,
                         'status'                => '1'
                     ]);
-                    CustomHelper::saveLog($query->getTable(),$query->id,'Tambah baru data proyek '.$query->code,'Pengguna '.session('bo_name').' telah manambahkan baru data proyek no '.$query->code);
+                    CustomHelper::saveLog($query->getTable(),$query->id,'Tambah baru data proyek '.$query->code,'Pengguna '.session('bo_nama').' telah manambahkan baru data proyek no '.$query->code);
                 }
                 
                 if($query) {

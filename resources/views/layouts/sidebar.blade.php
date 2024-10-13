@@ -9,7 +9,7 @@
 							<img src="{{ url('assets/images/profile/pic1.jpg') }}" alt="">
 							<div class="d-flex align-items-center sidebar-info">
 								<div>
-									<span class="font-w400 d-block">{{ session('bo_name') }}</span>
+									<span class="font-w400 d-block">{{ session('bo_nama') }}</span>
 									<small class="text-end font-w400">Access : {{ ucfirst(session('bo_typename')) }}</small>
 								</div>	
 								<i class="fas fa-chevron-down"></i>

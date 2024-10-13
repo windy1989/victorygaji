@@ -134,14 +134,14 @@ class PurposeController extends Controller
                     $query->name            = $request->name;    
                     $query->status          = $request->status ?? NULL;
                     $query->save();
-                    CustomHelper::saveLog($query->getTable(),$query->id,'Update data peruntukan '.$query->code,'Pengguna '.session('bo_name').' telah mengubah data peruntukan no '.$query->code);
+                    CustomHelper::saveLog($query->getTable(),$query->id,'Update data peruntukan '.$query->code,'Pengguna '.session('bo_nama').' telah mengubah data peruntukan no '.$query->code);
                 }else{
                     $query = Purpose::create([
                         'code'              => $request->code,
                         'name'              => $request->name,    
                         'status'            => $request->status ?? NULL,
                     ]);
-                    CustomHelper::saveLog($query->getTable(),$query->id,'Tambah baru data peruntukan '.$query->code,'Pengguna '.session('bo_name').' telah manambahkan baru data peruntukan no '.$query->code);
+                    CustomHelper::saveLog($query->getTable(),$query->id,'Tambah baru data peruntukan '.$query->code,'Pengguna '.session('bo_nama').' telah manambahkan baru data peruntukan no '.$query->code);
                 }
                 
                 if($query) {
@@ -167,7 +167,7 @@ class PurposeController extends Controller
         $query = Purpose::find($request->code);
 		
         if($query->delete()) {
-            CustomHelper::saveLog($query->getTable(),$query->id,'Delete data peruntukan '.$query->code,'Pengguna '.session('bo_name').' telah menghapus data peruntukan no '.$query->code);
+            CustomHelper::saveLog($query->getTable(),$query->id,'Delete data peruntukan '.$query->code,'Pengguna '.session('bo_nama').' telah menghapus data peruntukan no '.$query->code);
 
             $response = [
                 'status'  => 200,

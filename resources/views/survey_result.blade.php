@@ -127,7 +127,7 @@
                         <form action="{{ Request::url() }}/upload" class="dropzone mt-3" id="dropzone-multiple">
                             @csrf
                         </form>
-                        <div class="row">
+                        <div class="row mt-3">
                             <div class="col-xl-12 col-md-12">
                                 <h5 class="text-center">Daftar file terupload.</h5>
                                 <div id="list-files" class="row">

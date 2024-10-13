@@ -143,12 +143,12 @@ class SurveyResultController extends Controller
                 if($request->temp){
                     $query = SurveyResult::where('code',CustomHelper::decrypt($request->temp))->first();
 
-                    if($query->status == '3'){
+                    /* if($query->status == '3'){
                         return response()->json([
                             'status'    => 500,
                             'message'   => 'Ups. Surat SPK telah SELESAI, anda tidak bisa melakukan perubahan.'
                         ]);
-                    }
+                    } */
 
                     $query->user_id             = session('bo_id');
                     $query->project_id          = $request->project_id;

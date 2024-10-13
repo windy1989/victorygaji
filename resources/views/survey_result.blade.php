@@ -111,10 +111,10 @@
                     </div>
                     <div class="modal-body">
                         <div class="row">
-                            <div class="col-xl-12  col-md-12 mb-4">
+                            <div class="col-xl-12 col-md-12 mb-4">
                                 <div class="alert alert-secondary alert-dismissible fade show">
                                     <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="me-2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-                                    <strong>Info!</strong> This form will be automatically submitted after you choose file, please fill <b>Company</b> and <b>Category</b> first.
+                                    <strong>Info!</strong> Ketika file diupload maka akan secara otomatis terkirim ke server.
                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close">
                                     </button>
                                 </div>
@@ -127,6 +127,14 @@
                         <form action="{{ Request::url() }}/upload" class="dropzone mt-3" id="dropzone-multiple">
                             @csrf
                         </form>
+                        <div class="row">
+                            <div class="col-xl-12 col-md-12">
+                                <h5>Daftar file terupload.</h5>
+                                <div id="list-files" class="row">
+                                    
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>

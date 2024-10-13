@@ -44,4 +44,18 @@ class SurveyResultDetail extends Model
             Storage::delete($this->file_location);
         }
 	}
+
+    public function getFile(){
+        if(Storage::exists($this->file_location)) {
+            if(explode('.',$this->file_location)[1] == 'pdf'){
+                $document = '<a href="'.asset(Storage::url($this->file_location)).'" target="_blank"><i class="fa fa-file" aria-hidden="true"></i></a>';
+            }else{ 
+                $document = '<img src="'.asset(Storage::url($this->file_location)).'" style="max-height:200px;">';
+            }
+        } else {
+            $document = asset('website/empty_profile.png');
+        }
+
+        return $document;
+    }
 }

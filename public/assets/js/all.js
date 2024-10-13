@@ -1008,6 +1008,54 @@ function detail(code){
     });
 }
 
+function showUpload(code){
+    $.ajax({
+        url: window.location.href + '/show_upload',
+        type: 'POST',
+        dataType: 'JSON',
+        data: {
+            code: code
+        },
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        beforeSend: function() {
+            loadingOpen();
+        },
+        success: function(response) {
+            if(response.status == 200){
+                $('#modal-detail-title-upload').text(response.code);
+
+                if(response.data.length > 0){
+                    $("#list-files").empty();
+                    $.each(response.data, function(i, val) {
+                        $('#list-files').append(`
+                            <div class="col-md-2">
+                                ` + val.file + `
+                            </div>    
+                        `);
+                    });
+                }else{
+
+                }                
+
+                $('#modalUpload').modal('toggle');
+            }else{
+                errorMessage('Data tidak ditemukan.');
+            }
+            loadingClose();
+        },
+        error: function(response) {
+            if(response.status == '403'){
+				errorMessage('You have no access.');
+			}else{
+				errorConnection();
+			}
+            loadingClose();
+        }
+    });
+}
+
 function destroy(code){
     swal.fire({
         title: "Yakin ingin menghapus data?",
@@ -1193,6 +1241,13 @@ $(function() {
         $('#validation_alert').hide();
         $('#customer_id,#project_type_id,#purpose_id,#region_id,#project_id,#bank_id').empty();
         $('#nominal_project').text('0,00');
+    });
+
+    $('#modalUpload').on('hidden.bs.modal', function (e) {
+        $('#tempUpdate').val('');
+        $('#validation_alert_upload').html('');
+        $('#validation_alert_upload').hide();
+        $('#list-files').empty();
     });
 
     $('#modalDetail').on('hidden.bs.modal', function (e) {

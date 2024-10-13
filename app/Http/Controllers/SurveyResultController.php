@@ -99,7 +99,7 @@ class SurveyResultController extends Controller
                     $val->surveyResultDetail()->count(),
                     $val->statusBadge(),
                     '
-                        <a href="javascript:void(0);" class="btn btn-info btn-sm content-icon" data-toggle="tooltip" data-placement="top" title="Upload Bukti" onclick="upload(`'.CustomHelper::encrypt($val->code).'`)"><i class="fa fa-upload"></i></a>
+                        <a href="javascript:void(0);" class="btn btn-info btn-sm content-icon" data-toggle="tooltip" data-placement="top" title="Upload Bukti" onclick="showUpload(`'.CustomHelper::encrypt($val->code).'`)"><i class="fa fa-upload"></i></a>
                         <a href="javascript:void(0);" class="btn btn-warning btn-sm content-icon" onclick="edit(`'.CustomHelper::encrypt($val->code).'`)"><i class="fa fa-edit"></i></a>
                         <a href="javascript:void(0);" class="btn btn-danger btn-sm content-icon" onclick="destroy(`'.CustomHelper::encrypt($val->code).'`)"><i class="fa fa-trash"></i></a>
 					'
@@ -194,6 +194,34 @@ class SurveyResultController extends Controller
             $response = [
                 'status'    => 200,
                 'data'      => $data,
+            ];
+        }else{
+            $response = [
+                'status'  => 500,
+                'message' => 'Data tidak ditemukan.'
+            ];
+        }
+
+        return response()->json($response);
+    }
+
+    public function showUpload(Request $request){
+        $data = SurveyResult::where('code',CustomHelper::decrypt($request->code))->first();
+        if($data){
+            $images = [];
+
+            foreach($data->surveyResultDetail as $rowfile){
+                $images[] = [
+                    'file'      => $rowfile->getFile(),
+                    'code'      => CustomHelper::encrypt($rowfile->code),
+                    'name'      => $rowfile->name,
+                ];
+            }
+
+            $response = [
+                'status'    => 200,
+                'code'      => $data->code,
+                'data'      => $images,
             ];
         }else{
             $response = [

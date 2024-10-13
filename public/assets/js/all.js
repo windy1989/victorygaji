@@ -1100,7 +1100,7 @@ function destroyFile(code){
                 url: '{{ Request::url() }}/destroy_file',
                 type: 'POST',
                 dataType: 'JSON',
-                data: { id : val },
+                data: { id : code },
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
@@ -1110,8 +1110,9 @@ function destroyFile(code){
                 success: function(response) {
                     loadingClose();
                     if(response.status == 200) {
-                        $('#picture' + val).remove();
+                        $('#picture' + code).remove();
                         successMessage(response.message);
+                        loadDataTableSurveyResult();
                     }
                 },
                 error: function() {
@@ -1149,7 +1150,7 @@ function showUpload(code){
                 if(response.data.length > 0){
                     $.each(response.data, function(i, val) {
                         $('#list-files').append(`
-                            <div class="col-md-3">
+                            <div class="col-md-3" id="picture` + val.code + `">
                                 ` + val.file + `
                                 <p class="mt-3 text-center">
                                     <h6>` + val.name + `</h6>

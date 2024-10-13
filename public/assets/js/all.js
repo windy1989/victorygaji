@@ -53,7 +53,7 @@ Dropzone.options.dropzoneMultiple = {
 
 Dropzone.options.dropzoneUpload = {
     paramName: "file",
-    maxFilesize: 200000,
+    maxFilesize: 2000,
     maxFiles: 1,
     autoProcessQueue: false,
     autoQueue: true,

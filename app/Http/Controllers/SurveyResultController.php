@@ -39,7 +39,6 @@ class SurveyResultController extends Controller
             'project_id',
 			'post_date',
             'note',
-            'status',
         ];
 
         $start  = $request->start;

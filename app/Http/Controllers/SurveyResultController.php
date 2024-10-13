@@ -94,7 +94,7 @@ class SurveyResultController extends Controller
                     $nomor,
                     $val->code,
                     $val->user->nama,
-                    $val->project->project_no.' - '.$val->project->customer->name,
+                    $val->project->project_no.' - '.$val->project->name.' - '.$val->project->customer->name,
                     date('d/m/Y',strtotime($val->post_date)),
                     $val->note,
                     $val->surveyResultDetail()->count(),

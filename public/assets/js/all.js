@@ -1906,7 +1906,8 @@ function loadDataTableSurveyResult(){
             { name: 'project_id', className: '' },
             { name: 'post_date', className: '' },
             { name: 'note', className: '' },
-            { name: 'status', className: 'text-center' },
+            { name: 'attachment', searchable: false, orderable: false, className: 'text-center' },
+            { name: 'status', searchable: false, orderable: false, className: 'text-center' },
             { name: 'action', searchable: false, orderable: false, className: 'text-center' },
         ],
         createdRow: function ( row, data, index ) {

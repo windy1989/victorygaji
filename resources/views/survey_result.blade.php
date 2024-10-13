@@ -44,8 +44,9 @@
                                                 <th>Kode Dokumen</th>
                                                 <th>Pengguna</th>
                                                 <th>No.Proyek</th>
-                                                <th>Tgl.Post</th>
+                                                <th>Tgl.Survei</th>
                                                 <th>Catatan Internal</th>
+                                                <th>Jumlah Lampiran</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
                                             </tr>

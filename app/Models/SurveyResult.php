@@ -22,6 +22,7 @@ class SurveyResult extends Model
         'code',
         'post_date',
         'note',
+        'status',
     ];
 
     public function user(){

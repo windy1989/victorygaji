@@ -60,7 +60,7 @@ class SurveyResult extends Model
     }
 
     public function surveyResultDetail(){
-        return $this->hasMany('App\Models\SurveyResultDetail','survey_result_id','id');
+        return $this->hasMany('App\Models\SurveyResultDetail');
     }
 
     public function approval(){

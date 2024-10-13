@@ -97,7 +97,7 @@ Dropzone.options.dropzoneUpload = {
             $('#validation_alert_upload').empty().hide();
             if(responseText.status == '200'){
                 $('#list-files').append(`
-                    <div class="col-md-2">
+                    <div class="col-md-3">
                         ` + responseText.newimage.file + `
                         <p class="mt-3 text-center">
                             <h6>` + responseText.newimage.name + `</h6>
@@ -1108,7 +1108,7 @@ function showUpload(code){
                 if(response.data.length > 0){
                     $.each(response.data, function(i, val) {
                         $('#list-files').append(`
-                            <div class="col-md-2">
+                            <div class="col-md-3">
                                 ` + val.file + `
                                 <p class="mt-3 text-center">
                                     <h6>` + val.name + `</h6>

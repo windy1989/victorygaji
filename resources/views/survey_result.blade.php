@@ -124,7 +124,7 @@
                                 </div>
                             </div>
                         </div>
-                        <form action="{{ Request::url() }}/upload" class="dropzone mt-3" id="dropzone-upload">
+                        <form action="{{ Request::url() }}/upload" class="dropzone mt-3" id="dropzone-upload-small">
                             @csrf
                         </form>
                         <div class="row mt-3">

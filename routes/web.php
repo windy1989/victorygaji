@@ -16,6 +16,7 @@ use App\Http\Controllers\ProjectTypeController;
 use App\Http\Controllers\PurposeController;
 use App\Http\Controllers\Select2Controller;
 use App\Http\Controllers\SurveyResultController;
+use App\Http\Controllers\ItemSurveyController;
 use App\Models\LetterAgreement;
 use App\Models\OfferingLetter;
 
@@ -110,6 +111,19 @@ Route::middleware('login')->group(function () {
         Route::post('destroy_file',[SurveyResultController::class, 'destroyFile']);
         Route::post('destroy',[SurveyResultController::class, 'destroy']);
         Route::get('print/{id}',[SurveyResultController::class, 'print']);
+    });
+
+    Route::prefix('item_survei')->middleware('admin.auth:1')->group(function () {
+        Route::get('/',[ItemSurveyController::class, 'index']);
+        Route::get('datatable',[ItemSurveyController::class, 'datatable']);
+        Route::post('create',[ItemSurveyController::class, 'create']);
+        Route::post('show',[ItemSurveyController::class, 'show']);
+        Route::post('upload',[ItemSurveyController::class, 'upload']);
+        Route::post('check',[ItemSurveyController::class, 'check']);
+        Route::post('show_upload',[ItemSurveyController::class, 'showUpload']);
+        Route::post('destroy_file',[ItemSurveyController::class, 'destroyFile']);
+        Route::post('destroy',[ItemSurveyController::class, 'destroy']);
+        Route::get('print/{id}',[ItemSurveyController::class, 'print']);
     });
 
     Route::prefix('invoice')->middleware('admin.auth:1')->group(function () {

@@ -1131,7 +1131,12 @@ function destroyFile(code){
                     if(response.status == 200) {
                         $('#picture' + code).remove();
                         successMessage(response.message);
-                        loadDataTableSurveyResult();
+                        if($('#survey-result-datatable').length > 0){
+                            loadDataTableSurveyResult();
+                        }
+                        if($('#survey-item-datatable').length > 0){
+                            loadDataTableSurveyItem();
+                        }
                     }
                 },
                 error: function() {

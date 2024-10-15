@@ -88,7 +88,7 @@ class SurveyDocumentationController extends Controller
                     $val->project->project_no.' - '.$val->project->name.' - '.$val->project->customer->name,
                     date('d/m/Y',strtotime($val->post_date)),
                     $val->note,
-                    $val->surveyItemDetail()->count(),
+                    $val->surveyDocumentationDetail()->count(),
                     $val->statusBadge(),
                     '
                         <a href="javascript:void(0);" class="btn btn-info btn-sm content-icon" data-toggle="tooltip" data-placement="top" title="Upload Bukti" onclick="showUpload(`'.CustomHelper::encrypt($val->code).'`)"><i class="fa fa-upload"></i></a>

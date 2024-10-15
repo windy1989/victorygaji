@@ -101,7 +101,7 @@ class ItemSurveyController extends Controller
                     $val->name,
                     date('d/m/Y',strtotime($val->post_date)),
                     $val->note,
-                    $val->surveyResultDetail()->count(),
+                    $val->surveyItemDetail()->count(),
                     $val->statusBadge(),
                     '
                         <a href="javascript:void(0);" class="btn btn-info btn-sm content-icon" data-toggle="tooltip" data-placement="top" title="Upload Bukti" onclick="showUpload(`'.CustomHelper::encrypt($val->code).'`)"><i class="fa fa-upload"></i></a>

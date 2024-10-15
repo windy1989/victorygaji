@@ -112,6 +112,9 @@ Dropzone.options.dropzoneUploadSmall = {
                 if($('#survey-item-datatable').length > 0){
                     loadDataTableSurveyItem();
                 }
+                if($('#survey-documentation-datatable').length > 0){
+                    loadDataTableSurveyDocumentation();
+                }
                 $('#no-file-error').remove();
             }else if(responseText.status == '422'){
                 $('#validation_alert_upload').show();
@@ -246,6 +249,10 @@ $(function() {
 
     if($('#survey-item-datatable').length > 0){
         loadDataTableSurveyItem();
+    }
+
+    if($('#survey-documentation-datatable').length > 0){
+        loadDataTableSurveyDocumentation();
     }
 
     $('#payroll-datatable tbody').on('click', '.payroll-email', function() {
@@ -1062,6 +1069,15 @@ function edit(code){
                     $('#note').val(response.data.note);
                 }
 
+                /* JIKA FORM HASIL SURVEI */
+                if($('#survey-documentation-datatable').length > 0){
+                    $('#project_id').empty().append(`
+                        <option value="` + response.data.project_id + `">` + response.data.project_code + `</option>
+                    `);
+                    $('#post_date').val(response.data.post_date);
+                    $('#note').val(response.data.note);
+                }
+
                 $('#modalCreate').modal('toggle');
             }else{
                 errorMessage('Data tidak ditemukan.');
@@ -1146,6 +1162,9 @@ function destroyFile(code){
                         }
                         if($('#survey-item-datatable').length > 0){
                             loadDataTableSurveyItem();
+                        }
+                        if($('#survey-documentation-datatable').length > 0){
+                            loadDataTableSurveyDocumentation();
                         }
                     }
                 },
@@ -1379,6 +1398,10 @@ function save(){
 
                         if($('#survey-item-datatable').length > 0){
                             loadDataTableSurveyResult();
+                        }
+
+                        if($('#survey-documentation-datatable').length > 0){
+                            loadDataTableSurveyDocumentation();
                         }
 
                         $('#modalCreate').modal('toggle');
@@ -2095,6 +2118,67 @@ function getProjectInfoSpk(){
 
 function loadDataTableSurveyResult(){
     window.table = $('#survey-result-datatable').DataTable({
+        "scrollCollapse": true,
+        "scrollY": '400px',
+		"scrollX": true,
+		"scroller": true,
+        "responsive": true,
+        "stateSave": true,
+        "serverSide": true,
+        "deferRender": true,
+        "destroy": true,
+        "fixedColumns": {
+            left: 2,
+            right: 1
+        },
+        "iDisplayInLength": 10,
+        "order": [[0, 'asc']],
+        ajax: {
+            url: window.location.href + '/datatable',
+            type: 'GET',
+            data: {
+                
+            },
+            beforeSend: function() {
+                /* loadingOpen(); */
+            },
+            complete: function() {
+                /* loadingClose(); */
+            },
+            error: function() {
+                /* loadingClose(); */
+                errorConnection();
+            }
+        },
+        columns: [
+            { name: 'id', searchable: false, className: 'text-center' },
+            { name: 'code', className: '' },
+            { name: 'user_id', className: '' },
+            { name: 'project_id', className: '' },
+            { name: 'post_date', className: '' },
+            { name: 'note', className: '' },
+            { name: 'attachment', searchable: false, orderable: false, className: 'text-center' },
+            { name: 'status', searchable: false, orderable: false, className: 'text-center' },
+            { name: 'action', searchable: false, orderable: false, className: 'text-center' },
+        ],
+        createdRow: function ( row, data, index ) {
+            $(row).addClass('selected')
+        },
+        language: {
+            paginate: {
+                next: '<i class="fa fa-angle-double-right" aria-hidden="true"></i>',
+                previous: '<i class="fa fa-angle-double-left" aria-hidden="true"></i>' 
+            }
+        }
+    });
+}
+
+/* HASIL SURVEY */
+
+/* HASIL SURVEY */
+
+function loadDataTableSurveyDocumentation(){
+    window.table = $('#survey-documentation-datatable').DataTable({
         "scrollCollapse": true,
         "scrollY": '400px',
 		"scrollX": true,

@@ -126,6 +126,19 @@ Route::middleware('login')->group(function () {
         Route::get('print/{id}',[ItemSurveyController::class, 'print']);
     });
 
+    Route::prefix('dokumentasi_survei')->middleware('admin.auth:1')->group(function () {
+        Route::get('/',[SurveyDocumentationController::class, 'index']);
+        Route::get('datatable',[SurveyDocumentationController::class, 'datatable']);
+        Route::post('create',[SurveyDocumentationController::class, 'create']);
+        Route::post('show',[SurveyDocumentationController::class, 'show']);
+        Route::post('upload',[SurveyDocumentationController::class, 'upload']);
+        Route::post('check',[SurveyDocumentationController::class, 'check']);
+        Route::post('show_upload',[SurveyDocumentationController::class, 'showUpload']);
+        Route::post('destroy_file',[SurveyDocumentationController::class, 'destroyFile']);
+        Route::post('destroy',[SurveyDocumentationController::class, 'destroy']);
+        Route::get('print/{id}',[SurveyDocumentationController::class, 'print']);
+    });
+
     Route::prefix('invoice')->middleware('admin.auth:1')->group(function () {
         Route::get('/',[InvoiceController::class, 'index']);
         Route::get('datatable',[InvoiceController::class, 'datatable']);

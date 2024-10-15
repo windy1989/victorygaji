@@ -286,7 +286,7 @@ class ItemSurveyController extends Controller
 
                 if($query){
                     $querydetail = SurveyItemDetail::create([
-                        'survey_result_id'  => $query->id,
+                        'survey_item_id'    => $query->id,
                         'code'	            => strtoupper(Str::random(15)),
                         'name'              => $request->file('file')->getClientOriginalName(),
                         'file_location'	    => $request->file('file') ? $request->file('file')->store('public/survey_item') : NULL

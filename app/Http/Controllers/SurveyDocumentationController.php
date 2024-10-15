@@ -269,7 +269,7 @@ class SurveyDocumentationController extends Controller
 
                 if($query){
                     $querydetail = SurveyDocumentationDetail::create([
-                        'survey_item_id'    => $query->id,
+                        'survey_documentation_id'    => $query->id,
                         'code'	            => strtoupper(Str::random(15)),
                         'name'              => $request->file('file')->getClientOriginalName(),
                         'file_location'	    => $request->file('file') ? $request->file('file')->store('public/survey_documentation') : NULL

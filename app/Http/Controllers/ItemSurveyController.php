@@ -197,7 +197,7 @@ class ItemSurveyController extends Controller
     }
 
     public function show(Request $request){
-        $data = SurveyResult::where('code',CustomHelper::decrypt($request->code))->first();
+        $data = SurveyItem::where('code',CustomHelper::decrypt($request->code))->first();
         if($data){
             $data['project_code'] = $data->project->code.' - '.$data->project->name.' - '.$data->project->customer->name;
             $response = [
@@ -215,11 +215,11 @@ class ItemSurveyController extends Controller
     }
 
     public function showUpload(Request $request){
-        $data = SurveyResult::where('code',CustomHelper::decrypt($request->code))->first();
+        $data = SurveyItem::where('code',CustomHelper::decrypt($request->code))->first();
         if($data){
             $images = [];
 
-            foreach($data->surveyResultDetail as $rowfile){
+            foreach($data->surveyItemDetail as $rowfile){
                 $images[] = [
                     'file'      => $rowfile->getFile(),
                     'code'      => CustomHelper::encrypt($rowfile->code),
@@ -243,7 +243,7 @@ class ItemSurveyController extends Controller
     }
 
     public function check(Request $request){		
-        $query = SurveyResultDetail::where('name',$request->name)->first();
+        $query = SurveyItemDetail::where('name',$request->name)->first();
         
         if($query){
             return response()->json([
@@ -282,10 +282,10 @@ class ItemSurveyController extends Controller
                 ]);
                 
             }else{ */
-                $query = SurveyResult::where('code',CustomHelper::decrypt($request->code))->first();
+                $query = SurveyItem::where('code',CustomHelper::decrypt($request->code))->first();
 
                 if($query){
-                    $querydetail = SurveyResultDetail::create([
+                    $querydetail = SurveyItemDetail::create([
                         'survey_result_id'  => $query->id,
                         'code'	            => strtoupper(Str::random(15)),
                         'name'              => $request->file('file')->getClientOriginalName(),
@@ -296,7 +296,7 @@ class ItemSurveyController extends Controller
                         'code'      => CustomHelper::encrypt($querydetail->code),
                         'name'      => $querydetail->name,
                     ];
-                    CustomHelper::saveLog($query->getTable(),$query->id,'Tambah baru data file hasil survei '.$query->code,'Pengguna '.session('bo_nama').' telah manambahkan baru data file hasil survei no '.$query->code);
+                    CustomHelper::saveLog($query->getTable(),$query->id,'Tambah baru data file hasil survei item '.$query->code,'Pengguna '.session('bo_nama').' telah manambahkan baru data file hasil survei item no '.$query->code);
                     $response = [
                         'status'		=> 200,
                         'message'		=> 'Data berhasil di upload.',
@@ -317,12 +317,12 @@ class ItemSurveyController extends Controller
 	}
 
     public function destroyFile(Request $request){
-		$data = SurveyResultDetail::where('code',CustomHelper::decrypt($request->id))->first();
+		$data = SurveyItemDetail::where('code',CustomHelper::decrypt($request->id))->first();
 		
 		$data->deleteFile();
 		
 		if($data->delete()){
-            CustomHelper::saveLog($data->getTable(),$data->id,'Menghapus data file hasil survei '.$data->code,'Pengguna '.session('bo_nama').' telah menghapus data file hasil survei no '.$data->code);
+            CustomHelper::saveLog($data->getTable(),$data->id,'Menghapus data file hasil survei item '.$data->code,'Pengguna '.session('bo_nama').' telah menghapus data file hasil survei item no '.$data->code);
 			return response()->json([
 				'status'	=> 200,
 				'message'	=> 'File berhasil dihapus.' 
@@ -336,17 +336,17 @@ class ItemSurveyController extends Controller
 	}
 
     public function destroy(Request $request){
-        $query = SurveyResult::where('code',CustomHelper::decrypt($request->code))->first();
+        $query = SurveyItem::where('code',CustomHelper::decrypt($request->code))->first();
         if($query){
-            if($query->surveyResultDetail()->exists()){
+            if($query->surveyItemDetail()->exists()){
                 return response()->json([
                     'status'    => 500,
-                    'message'   => 'Sebelum menghapus hasil survei silahkan hapus file terlebih dahulu.'
+                    'message'   => 'Sebelum menghapus hasil survei item silahkan hapus file terlebih dahulu.'
                 ]);
             }
 
             if($query->status == '1'){
-                CustomHelper::saveLog($query->getTable(),$query->id,'Hasil survei nomor '.$query->code.' telah dihapus.','Pengguna '.session('bo_nama').' telah menghapus data hasil survei no '.$query->code);
+                CustomHelper::saveLog($query->getTable(),$query->id,'Hasil survei item nomor '.$query->code.' telah dihapus.','Pengguna '.session('bo_nama').' telah menghapus data hasil survei item no '.$query->code);
 
                 $query->approval()->delete();
                 $query->delete();

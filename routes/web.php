@@ -16,6 +16,7 @@ use App\Http\Controllers\ProjectTypeController;
 use App\Http\Controllers\PurposeController;
 use App\Http\Controllers\Select2Controller;
 use App\Http\Controllers\SurveyResultController;
+use App\Http\Controllers\SurveyDocumentationController;
 use App\Http\Controllers\ItemSurveyController;
 use App\Models\LetterAgreement;
 use App\Models\OfferingLetter;

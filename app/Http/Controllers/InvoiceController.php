@@ -336,6 +336,7 @@ class InvoiceController extends Controller
                                 <th><strong>LEVEL</strong></th>
                                 <th><strong>TGL.APPROVE</strong></th>
                                 <th><strong>STATUS</strong></th>
+                                <th><strong>Catatan</strong></th>
                             </tr>
                         </thead><tbody>';
 
@@ -346,6 +347,7 @@ class InvoiceController extends Controller
                         <td>'.$row->approve_level.'</td>
                         <td>'.($row->approve_date ? date('d/m/Y H:i:s',strtotime($row->approve_date)) : '-').'</td>
                         <td>'.$row->approveStatus().'</td>
+                        <td>'.$row->approve_note.'</td>
                     </tr>';
                 }
 

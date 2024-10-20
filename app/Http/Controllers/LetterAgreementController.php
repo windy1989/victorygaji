@@ -146,7 +146,7 @@ class LetterAgreementController extends Controller
                     $val->note,
                     $val->statusBadge(),
                     '
-                        <!-- <a href="javascript:void(0);" class="btn btn-secondary btn-sm content-icon" onclick="detail(`'.CustomHelper::encrypt($val->code).'`)"><i class="fa fa-info-circle"></i></a> -->
+                        <a href="javascript:void(0);" class="btn btn-secondary btn-sm content-icon" onclick="detail(`'.CustomHelper::encrypt($val->code).'`)"><i class="fa fa-info-circle"></i></a>
                         <a href="'.env('APP_URL').'/spk/print/'.CustomHelper::encrypt($val->code).'" class="btn btn-info btn-sm content-icon" data-toggle="tooltip" data-placement="top" title="Cetak Invoice"><i class="fa fa-print"></i></a>
                         <a href="javascript:void(0);" class="btn btn-warning btn-sm content-icon" onclick="edit(`'.CustomHelper::encrypt($val->code).'`)"><i class="fa fa-edit"></i></a>
                         <a href="javascript:void(0);" class="btn btn-danger btn-sm content-icon" onclick="destroy(`'.CustomHelper::encrypt($val->code).'`)"><i class="fa fa-trash"></i></a>
@@ -359,6 +359,7 @@ class LetterAgreementController extends Controller
                                 <th><strong>LEVEL</strong></th>
                                 <th><strong>TGL.APPROVE</strong></th>
                                 <th><strong>STATUS</strong></th>
+                                <th><strong>Catatan</strong></th>
                             </tr>
                         </thead><tbody>';
 
@@ -369,6 +370,7 @@ class LetterAgreementController extends Controller
                         <td>'.$row->approve_level.'</td>
                         <td>'.($row->approve_date ? date('d/m/Y H:i:s',strtotime($row->approve_date)) : '-').'</td>
                         <td>'.$row->approveStatus().'</td>
+                        <td>'.$row->approve_note.'</td>
                     </tr>';
                 }
 

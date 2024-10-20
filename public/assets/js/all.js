@@ -2425,7 +2425,6 @@ function loadDataTableDocumentation(){
             { name: 'code', className: '' },
             { name: 'user_id', className: '' },
             { name: 'project_id', className: '' },
-            { name: 'name', className: '' },
             { name: 'post_date', className: '' },
             { name: 'note', className: '' },
             { name: 'attachment', searchable: false, orderable: false, className: 'text-center' },

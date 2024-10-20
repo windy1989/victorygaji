@@ -52,7 +52,7 @@ class Documentation extends Model
     public function project(){
         return $this->belongsTo('App\Models\Project','project_id','id')->withTrashed();
     }
-    
+
     public function voidUser(){
         return $this->belongsTo('App\Models\User','void_id','id')->withTrashed();
     }
@@ -85,5 +85,9 @@ class Documentation extends Model
 
     public function approval(){
         return $this->hasMany('App\Models\Approval', 'lookable_id', 'id')->where('lookable_type',$this->table);
+    }
+
+    public function documentationDetail(): mixed{
+        return $this->hasMany('App\Models\DocumentationDetail');
     }
 }

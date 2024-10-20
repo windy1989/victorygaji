@@ -93,8 +93,8 @@ class DocumentationController extends Controller
                     $val->project->project_no.' - '.$val->project->customer->name,
                     date('d/m/Y',strtotime($val->post_date)),
                     $val->note,
+                    $val->documentationDetail()->count(),
                     $val->statusBadge(),
-                    $val->document ? '<a href="'.$val->attachment().'" target="_blank"><i class="flaticon-381-link"></i></a>' : 'Belum diunggah',
                     '
                         <a href="javascript:void(0);" class="btn btn-secondary btn-sm content-icon" onclick="detail(`'.CustomHelper::encrypt($val->code).'`)"><i class="fa fa-info-circle"></i></a>
                         <a href="javascript:void(0);" class="btn btn-info btn-sm content-icon" data-toggle="tooltip" data-placement="top" title="Upload Bukti" onclick="showUpload(`'.CustomHelper::encrypt($val->code).'`)"><i class="fa fa-upload"></i></a>

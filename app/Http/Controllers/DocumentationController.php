@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Helpers\CustomHelper;
 use App\Http\Controllers\Controller;
+use App\Models\Documentation;
 use App\Models\Invoice;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
@@ -30,15 +31,9 @@ class DocumentationController extends Controller
         $column = [
             'id',
             'code',
-            'receipt_code',
             'user_id',
-            'receive_from',
             'project_id',
-            'bank_id',
 			'post_date',
-            'pay_date',
-            'nominal',
-            'termin_no',
             'note',
             'status',
         ];
@@ -49,14 +44,12 @@ class DocumentationController extends Controller
         $dir    = $request->input('order.0.dir');
         $search = $request->input('search.value');
 
-        $total_data = Invoice::count();
+        $total_data = Documentation::count();
         
-        $query_data = Invoice::where(function($query) use ($search, $request) {
+        $query_data = Documentation::where(function($query) use ($search, $request) {
                 if($search) {
                     $query->where(function($query) use ($search, $request) {
                         $query->where('code', 'like', "%$search%")
-                            ->orWhere('receipt_code', 'like', "%$search%")
-                            ->orWhere('receive_from', 'like', "%$search%")
                             ->orWhere('note', 'like', "%$search%")
                             ->orWhereHas('project',function($query) use ($search){
                                 $query->whereHas('customer', function($query) use ($search){
@@ -72,12 +65,10 @@ class DocumentationController extends Controller
             ->orderBy($order, $dir)
             ->get();
 
-        $total_filtered = Invoice::where(function($query) use ($search, $request) {
+        $total_filtered = Documentation::where(function($query) use ($search, $request) {
                 if($search) {
                     $query->where(function($query) use ($search, $request) {
                         $query->where('code', 'like', "%$search%")
-                            ->orWhere('receipt_code', 'like', "%$search%")
-                            ->orWhere('receive_from', 'like', "%$search%")
                             ->orWhere('note', 'like', "%$search%")
                             ->orWhereHas('project',function($query) use ($search){
                                 $query->whereHas('customer', function($query) use ($search){
@@ -98,23 +89,15 @@ class DocumentationController extends Controller
                 $response['data'][] = [
                     $nomor,
                     $val->code,
-                    $val->receipt_code ?? '-',
                     $val->user->nama,
-                    $val->receive_from,
                     $val->project->project_no.' - '.$val->project->customer->name,
-                    $val->bank->no.' - '.$val->bank->bank,
                     date('d/m/Y',strtotime($val->post_date)),
-                    $val->pay_date ? date('d/m/Y',strtotime($val->pay_date)) : '-',
-                    number_format($val->nominal,2,',','.'),
-                    $val->termin_no,
                     $val->note,
                     $val->statusBadge(),
                     $val->document ? '<a href="'.$val->attachment().'" target="_blank"><i class="flaticon-381-link"></i></a>' : 'Belum diunggah',
                     '
                         <a href="javascript:void(0);" class="btn btn-secondary btn-sm content-icon" onclick="detail(`'.CustomHelper::encrypt($val->code).'`)"><i class="fa fa-info-circle"></i></a>
-                        <a href="javascript:void(0);" class="btn btn-success btn-sm content-icon" onclick="pay(`'.CustomHelper::encrypt($val->code).'`,`'.$val->code.'`)"><i class="fa fa-credit-card-alt"></i></a>
-                        <a href="'.env('APP_URL').'/invoice/print/'.CustomHelper::encrypt($val->code).'" class="btn btn-info btn-sm content-icon" data-toggle="tooltip" data-placement="top" title="Cetak Invoice"><i class="fa fa-print"></i></a>
-                        <a href="'.env('APP_URL').'/invoice/print_receipt/'.CustomHelper::encrypt($val->code).'" class="btn btn-light btn-sm content-icon" data-toggle="tooltip" data-placement="top" title="Cetak Kwitansi"><i class="fa fa-print"></i></a>
+                        <a href="javascript:void(0);" class="btn btn-info btn-sm content-icon" data-toggle="tooltip" data-placement="top" title="Upload Bukti" onclick="showUpload(`'.CustomHelper::encrypt($val->code).'`)"><i class="fa fa-upload"></i></a>
                         <a href="javascript:void(0);" class="btn btn-warning btn-sm content-icon" onclick="edit(`'.CustomHelper::encrypt($val->code).'`)"><i class="fa fa-edit"></i></a>
                         <a href="javascript:void(0);" class="btn btn-danger btn-sm content-icon" onclick="destroy(`'.CustomHelper::encrypt($val->code).'`)"><i class="fa fa-trash"></i></a>
 					'

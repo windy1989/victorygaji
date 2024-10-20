@@ -139,9 +139,13 @@ class ApprovalController extends Controller
                 $data2 = Approval::where('lookable_type',$data->lookable_type)->where('lookable_id',$data->lookable_id)->whereNull('approve_status')->where('approve_level',$nextlevel)->get();
                 if(count($data2)>0){
                     $message = '';
+
                     if($data->url == 'invoice'){
                         $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Invoice No. '.$data->code.' telah dibayarkan dengan nomor kwitansi : '.$data->lookable->receipt_code.', mohon persetujuannya dengan menekan link terlampir : ';
+                    }elseif($data->url == 'kelengkapan_dokumen'){
+                        $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Kelengkapan Dokumen No. '.$data->code.', mohon persetujuannya dengan menekan link terlampir : ';
                     }
+                    
                     foreach($data2 as $row){
                         $row->update([
                             'approve_status'    => '1'

@@ -47,8 +47,8 @@ class DocumentationDetail extends Model
 
     public function getFile(){
         if(Storage::exists($this->file_location)) {
-            if(explode('.',$this->file_location)[1] == 'pdf'){
-                $document = '<a href="'.asset(Storage::url($this->file_location)).'" target="_blank"><img src="'.asset('assets/images/pdf.png').'" style="max-height:100px;"></a>';
+            if(in_array(explode('.',$this->file_location)[1],['docx','doc'])){
+                $document = '<a href="'.asset(Storage::url($this->file_location)).'" target="_blank"><img src="'.asset('assets/images/docx.png').'" style="max-height:100px;"></a>';
             }else{ 
                 $document = '<img src="'.asset(Storage::url($this->file_location)).'" style="max-height:100px;">';
             }

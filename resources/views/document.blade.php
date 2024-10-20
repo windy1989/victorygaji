@@ -78,6 +78,10 @@
                         <form id="formData">
                             <div class="row">
                                 <div class="mb-3 col-md-6">
+                                    <label class="form-label">Kode Dokumen</label>
+                                    <input type="text" class="form-control" placeholder="Kode Dokumen" id="code" name="code">
+                                </div>
+                                <div class="mb-3 col-md-6">
                                     <input type="hidden" id="temp" name="temp">
                                     <label class="form-label">Proyek</label>
                                     <select id="project_id" name="project_id"></select>

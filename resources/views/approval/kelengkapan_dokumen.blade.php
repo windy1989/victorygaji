@@ -20,10 +20,15 @@
                                 <h4 class="card-title">Daftar {{ $title }}</h4>
                             </div>
                             <div class="card-body">
-                                <div class="profile-uoloaded-post border-bottom-1 pb-5">
-                                    {{-- <img src="{{ $data->lookable->attachment() }}" alt="" class="img-fluid w-100 rounded">
-                                    <h3 class="text-black">Bukti Bayar Kwitansi No. {{ $data->lookable->receipt_code }}</h3> --}}
-                                </div>
+                                @foreach ($data->lookable->documentationDetail as $row)
+                                    <div class="profile-uoloaded-post border-bottom-1 pb-5">
+                                        <div>
+                                            {{ $row->attachment() }}
+                                        </div>
+                                        <h3 class="text-black">Bukti Bayar Kwitansi No. {{ $data->lookable->receipt_code }}</h3> --}}
+                                    </div>
+                                @endforeach
+                                
                             </div>
                         </div>
                     </div>

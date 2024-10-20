@@ -18,6 +18,7 @@ use App\Http\Controllers\Select2Controller;
 use App\Http\Controllers\SurveyResultController;
 use App\Http\Controllers\SurveyDocumentationController;
 use App\Http\Controllers\ItemSurveyController;
+use App\Http\Controllers\DocumentationController;
 use App\Models\LetterAgreement;
 use App\Models\OfferingLetter;
 
@@ -138,6 +139,18 @@ Route::middleware('login')->group(function () {
         Route::post('destroy_file',[SurveyDocumentationController::class, 'destroyFile']);
         Route::post('destroy',[SurveyDocumentationController::class, 'destroy']);
         Route::get('print/{id}',[SurveyDocumentationController::class, 'print']);
+    });
+
+    Route::prefix('kelengkapan_dokumen')->middleware('admin.auth:1')->group(function () {
+        Route::get('/',[DocumentationController::class, 'index']);
+        Route::get('datatable',[DocumentationController::class, 'datatable']);
+        Route::post('create',[DocumentationController::class, 'create']);
+        Route::post('create_receipt',[DocumentationController::class, 'createReceipt']);
+        Route::post('show',[DocumentationController::class, 'show']);
+        Route::post('detail',[DocumentationController::class, 'detail']);
+        Route::post('destroy',[DocumentationController::class, 'destroy']);
+        Route::get('print/{id}',[DocumentationController::class, 'print']);
+        Route::get('print_receipt/{id}',[DocumentationController::class, 'printReceipt']);
     });
 
     Route::prefix('invoice')->middleware('admin.auth:1')->group(function () {

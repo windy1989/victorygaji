@@ -23,7 +23,7 @@
                                 @foreach ($data->lookable->documentationDetail as $row)
                                     <div class="profile-uoloaded-post border-bottom-1 pb-5">
                                         <div>
-                                            {{ $row->attachment() }}
+                                            <iframe src="https://docs.google.com/gview?url={{ $row->attachment() }}&embedded=true" style="width:100%; height:500px;" frameborder="0"></iframe>
                                         </div>
                                         <h3 class="text-black">Nama File : {{ $row->name }}</h3>
                                     </div>

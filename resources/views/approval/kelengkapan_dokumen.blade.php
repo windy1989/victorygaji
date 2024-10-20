@@ -25,7 +25,7 @@
                                         <div>
                                             {{ $row->attachment() }}
                                         </div>
-                                        <h3 class="text-black">Nama File : {{ $row->name }}</h3> --}}
+                                        <h3 class="text-black">Nama File : {{ $row->name }}</h3>
                                     </div>
                                 @endforeach
                                 

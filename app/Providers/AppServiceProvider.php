@@ -25,6 +25,7 @@ class AppServiceProvider extends ServiceProvider
             'customers'                     => 'App\Models\Customer',
             'users'                         => 'App\Models\User',
             'invoices'                      => 'App\Models\Invoice',
+            'documentations'                => 'App\Models\Documentation', 
         ]);
     }
 }

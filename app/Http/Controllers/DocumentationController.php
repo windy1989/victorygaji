@@ -343,23 +343,30 @@ class DocumentationController extends Controller
             $query = Documentation::where('code',CustomHelper::decrypt($request->code))->first();
 
             if($query){
-                $querydetail = DocumentationDetail::create([
-                    'documentation_id'  => $query->id,
-                    'code'	            => strtoupper(Str::random(15)),
-                    'name'              => $request->file('file')->getClientOriginalName(),
-                    'file_location'	    => $request->file('file') ? $request->file('file')->store('public/documentation') : NULL
-                ]);
-                $newimage = [
-                    'file'      => $querydetail->getFile(),
-                    'code'      => CustomHelper::encrypt($querydetail->code),
-                    'name'      => $querydetail->name,
-                ];
-                CustomHelper::saveLog($query->getTable(),$query->id,'Tambah baru data file kelengkapan dokumen '.$query->code,'Pengguna '.session('bo_nama').' telah manambahkan baru data file kelengkapan dokumen no '.$query->code);
-                $response = [
-                    'status'		=> 200,
-                    'message'		=> 'Data berhasil di upload.',
-                    'newimage'      => $newimage,
-                ];
+                if($query->status == '1'){
+                    $querydetail = DocumentationDetail::create([
+                        'documentation_id'  => $query->id,
+                        'code'	            => strtoupper(Str::random(15)),
+                        'name'              => $request->file('file')->getClientOriginalName(),
+                        'file_location'	    => $request->file('file') ? $request->file('file')->store('public/documentation') : NULL
+                    ]);
+                    $newimage = [
+                        'file'      => $querydetail->getFile(),
+                        'code'      => CustomHelper::encrypt($querydetail->code),
+                        'name'      => $querydetail->name,
+                    ];
+                    CustomHelper::saveLog($query->getTable(),$query->id,'Tambah baru data file kelengkapan dokumen '.$query->code,'Pengguna '.session('bo_nama').' telah manambahkan baru data file kelengkapan dokumen no '.$query->code);
+                    $response = [
+                        'status'		=> 200,
+                        'message'		=> 'Data berhasil di upload.',
+                        'newimage'      => $newimage,
+                    ];
+                }else{
+                    $response = [
+                        'status'		=> 500,
+                        'message'		=> 'Maaf, status dokumen sudah diluar perubahan.'
+                    ];
+                }
             }else{
                 $response = [
                     'status'		=> 500,

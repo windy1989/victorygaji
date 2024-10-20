@@ -1158,6 +1158,16 @@ function edit(code){
                     $('#note').val(response.data.note);
                 }
 
+                /* JIKA FORM HASIL SURVEI */
+                if($('#documentation-datatable').length > 0){
+                    $('#code').val(response.data.code);
+                    $('#project_id').empty().append(`
+                        <option value="` + response.data.project_id + `">` + response.data.project_code + `</option>
+                    `);
+                    $('#post_date').val(response.data.post_date);
+                    $('#note').val(response.data.note);
+                }
+
                 $('#modalCreate').modal('toggle');
             }else{
                 errorMessage('Data tidak ditemukan.');

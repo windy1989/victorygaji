@@ -159,7 +159,7 @@ class DocumentationController extends Controller
                     $query->save();
                     CustomHelper::saveLog($query->getTable(),$query->id,'Update data kelengkapan dokumen '.$query->code,'Pengguna '.session('bo_nama').' telah mengubah data kelengkapan dokumen no '.$query->code);
                 }else{
-                    $query = Invoice::create([
+                    $query = Documentation::create([
                         'user_id'         => session('bo_id'),
                         'code'            => $request->code,
                         'project_id'      => $request->project_id,
@@ -171,6 +171,7 @@ class DocumentationController extends Controller
                 }
                 
                 if($query) {
+                    CustomHelper::sendApproval($query->getTable(),$query->id,'kelengkapan_dokumen');
                     $response = [
                         'status'  => 200,
                         'message' => 'Data berhasil disimpan.'
@@ -254,7 +255,7 @@ class DocumentationController extends Controller
     }
 
     public function destroy(Request $request){
-        $query = Invoice::where('code',CustomHelper::decrypt($request->code))->first();
+        $query = Documentation::where('code',CustomHelper::decrypt($request->code))->first();
         if($query){
             if($query->status == '1'){
                 CustomHelper::saveLog($query->getTable(),$query->id,'Invoice nomor '.$query->code.' telah dihapus.','Pengguna '.session('bo_nama').' telah menghapus data invoice no '.$query->code);

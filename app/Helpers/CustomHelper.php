@@ -94,6 +94,10 @@ class CustomHelper {
             $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Invoice No. '.$data->code.' telah dibayarkan dengan nomor kwitansi : '.$data->receipt_code.', mohon persetujuannya dengan menekan link terlampir : ';
         }
 
+		if($url == 'kelengkapan_dokumen'){
+            $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Kelengkapan Dokumen No. '.$data->code.', mohon persetujuannya dengan menekan link terlampir : ';
+        }
+
         foreach($userlevel1 as $row1){
             $dataaprove = Approval::create([
                 'code'              => strtoupper(Str::random(15)),

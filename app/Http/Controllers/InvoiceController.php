@@ -115,7 +115,7 @@ class InvoiceController extends Controller
                     $val->document ? '<a href="'.$val->attachment().'" target="_blank"><i class="flaticon-381-link"></i></a>' : 'Belum diunggah',
                     '
                         <a href="javascript:void(0);" class="btn btn-secondary btn-sm content-icon" onclick="detail(`'.CustomHelper::encrypt($val->code).'`)"><i class="fa fa-info-circle"></i></a>
-                        <a href="javascript:void(0);" class="btn btn-success btn-sm content-icon" onclick="pay(`'.CustomHelper::encrypt($val->code).'`,`'.$val->code.'`)"><i class="fa fa-credit-card-alt"></i></a>
+                        <a href="javascript:void(0);" class="btn btn-success btn-sm content-icon" onclick="pay(`'.CustomHelper::encrypt($val->code).'`,`'.$val->code.'`)" data-toggle="tooltip" data-placement="top" title="Bayar Invoice"><i class="fa fa-credit-card-alt"></i></a>
                         <a href="'.env('APP_URL').'/invoice/print/'.CustomHelper::encrypt($val->code).'" class="btn btn-info btn-sm content-icon" data-toggle="tooltip" data-placement="top" title="Cetak Invoice"><i class="fa fa-print"></i></a>
                         <a href="'.env('APP_URL').'/invoice/print_receipt/'.CustomHelper::encrypt($val->code).'" class="btn btn-light btn-sm content-icon" data-toggle="tooltip" data-placement="top" title="Cetak Kwitansi"><i class="fa fa-print"></i></a>
                         <a href="javascript:void(0);" class="btn btn-warning btn-sm content-icon" onclick="edit(`'.CustomHelper::encrypt($val->code).'`)"><i class="fa fa-edit"></i></a>

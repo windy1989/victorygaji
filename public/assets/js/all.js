@@ -2387,7 +2387,7 @@ function loadDataTableSurveyItem(){
 /* HASIL KELENGKAPAN DOKUMEN */
 
 function loadDataTableDocumentation(){
-    window.table = $('#survey-item-datatable').DataTable({
+    window.table = $('#documentation-datatable').DataTable({
         "scrollCollapse": true,
         "scrollY": '400px',
 		"scrollX": true,

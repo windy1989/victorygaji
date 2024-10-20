@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Helpers\CustomHelper;
 use App\Http\Controllers\Controller;
 use App\Models\Documentation;
+use App\Models\DocumentationDetail;
 use App\Models\Invoice;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
@@ -282,4 +283,108 @@ class DocumentationController extends Controller
 
         return response()->json($response);
     }
+
+    public function showUpload(Request $request){
+        $data = Documentation::where('code',CustomHelper::decrypt($request->code))->first();
+        if($data){
+            $images = [];
+
+            foreach($data->documentationDetail as $rowfile){
+                $images[] = [
+                    'file'      => $rowfile->getFile(),
+                    'code'      => CustomHelper::encrypt($rowfile->code),
+                    'name'      => $rowfile->name,
+                ];
+            }
+
+            $response = [
+                'status'    => 200,
+                'code'      => $data->code,
+                'data'      => $images,
+            ];
+        }else{
+            $response = [
+                'status'  => 500,
+                'message' => 'Data tidak ditemukan.'
+            ];
+        }
+
+        return response()->json($response);
+    }
+
+    public function check(Request $request){		
+        $query = DocumentationDetail::where('name',$request->name)->first();
+        
+        if($query){
+            return response()->json([
+                'status'		=> 0,
+            ]);
+        }else{
+            return response()->json([
+                'status'		=> 1,
+            ]);
+        }
+	}
+
+    public function upload(Request $request){
+        $validation = Validator::make($request->all(), [
+			'file' 				=> 'required',
+			'code'	            => 'required',
+		]);
+
+        if($validation->fails()) {
+            $response = [
+                'status' => 422,
+                'error'  => $validation->errors()
+            ];
+        } else {
+            $query = Documentation::where('code',CustomHelper::decrypt($request->code))->first();
+
+            if($query){
+                $querydetail = DocumentationDetail::create([
+                    'survey_result_id'  => $query->id,
+                    'code'	            => strtoupper(Str::random(15)),
+                    'name'              => $request->file('file')->getClientOriginalName(),
+                    'file_location'	    => $request->file('file') ? $request->file('file')->store('public/documentation') : NULL
+                ]);
+                $newimage = [
+                    'file'      => $querydetail->getFile(),
+                    'code'      => CustomHelper::encrypt($querydetail->code),
+                    'name'      => $querydetail->name,
+                ];
+                CustomHelper::saveLog($query->getTable(),$query->id,'Tambah baru data file kelengkapan dokumen '.$query->code,'Pengguna '.session('bo_nama').' telah manambahkan baru data file kelengkapan dokumen no '.$query->code);
+                $response = [
+                    'status'		=> 200,
+                    'message'		=> 'Data berhasil di upload.',
+                    'newimage'      => $newimage,
+                ];
+            }else{
+                $response = [
+                    'status'		=> 500,
+                    'message'		=> 'Maaf, data survei tidak ditemukan.'
+                ];
+            }
+        }
+
+        return response()->json($response);
+	}
+
+    public function destroyFile(Request $request){
+		$data = DocumentationDetail::where('code',CustomHelper::decrypt($request->id))->first();
+		
+		$data->deleteFile();
+		
+		if($data->delete()){
+            CustomHelper::saveLog($data->getTable(),$data->id,'Menghapus data file kelengkapan dokumen '.$data->code,'Pengguna '.session('bo_nama').' telah menghapus data file kelengkapan dokumen no '.$data->code);
+			return response()->json([
+				'status'	=> 200,
+				'message'	=> 'File berhasil dihapus.' 
+			]);
+		}else{
+			return response()->json([
+				'status'	=> 422,
+				'message'	=> 'File tidak ditemukan.'
+			]);
+		}
+	}
 }

@@ -188,13 +188,7 @@ Dropzone.options.dropzoneUploadDocument = {
                     </div>    
                 `);
                 successMessage(responseText.message);
-                if($('#survey-result-datatable').length > 0){
-                    loadDataTableSurveyResult();
-                }
-                if($('#survey-item-datatable').length > 0){
-                    loadDataTableSurveyItem();
-                }
-                if($('#survey-documentation-datatable').length > 0){
+                if($('#documentation-datatable').length > 0){
                     loadDataTableSurveyDocumentation();
                 }
                 $('#no-file-error').remove();

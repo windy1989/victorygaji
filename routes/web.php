@@ -151,6 +151,10 @@ Route::middleware('login')->group(function () {
         Route::post('destroy',[DocumentationController::class, 'destroy']);
         Route::get('print/{id}',[DocumentationController::class, 'print']);
         Route::get('print_receipt/{id}',[DocumentationController::class, 'printReceipt']);
+        Route::post('upload',[DocumentationController::class, 'upload']);
+        Route::post('check',[DocumentationController::class, 'check']);
+        Route::post('show_upload',[DocumentationController::class, 'showUpload']);
+        Route::post('destroy_file',[DocumentationController::class, 'destroyFile']);
     });
 
     Route::prefix('invoice')->middleware('admin.auth:1')->group(function () {

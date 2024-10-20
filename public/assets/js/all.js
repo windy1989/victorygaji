@@ -138,6 +138,88 @@ Dropzone.options.dropzoneUploadSmall = {
     },
 };
 
+Dropzone.options.dropzoneUploadDocument = {
+    paramName: "file",
+    maxFilesize: 40,
+    maxFiles: 1,
+    autoProcessQueue: false,
+    autoQueue: true,
+	timeout: 0,
+    addRemoveLinks : true,
+    acceptedFiles: ".doc,.docx",
+    init: function() {
+        dropzoneMultiple = this;
+        this.on("addedfiles", function(files) {
+            $.ajax({
+                url: window.location.href + '/check',
+                type: 'POST',
+                dataType: 'JSON',
+                data: {
+                   name: files[0].name
+                },
+                headers: {
+                   'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                beforeSend: function() {
+
+                },
+                success: function(response) {
+                    if(response.status == '1'){
+                        dropzoneMultiple.processQueue();
+                    }else{
+                        errorMessage('Maaf nama file telah ada pada sistem. Silahkan rename file anda.');
+                    }
+                }
+           });
+        });
+        this.on("sending", function(file, xhr, formData){
+            formData.append('code', $('#tempUpload').val());
+        });
+        this.on("success", function(file, responseText) {
+            $('#validation_alert_upload').empty().hide();
+            if(responseText.status == '200'){
+                $('#list-files').append(`
+                    <div class="col-md-3">
+                        ` + responseText.newimage.file + `
+                        <p class="mt-3 text-center">
+                            <h6>` + responseText.newimage.name + `</h6>
+                            <button type="button" class="btn btn-rounded btn-primary" onclick="destroyFile('` + responseText.newimage.code + `');"><i class="fa fa-trash"></i></button>
+                        </p>
+                    </div>    
+                `);
+                successMessage(responseText.message);
+                if($('#survey-result-datatable').length > 0){
+                    loadDataTableSurveyResult();
+                }
+                if($('#survey-item-datatable').length > 0){
+                    loadDataTableSurveyItem();
+                }
+                if($('#survey-documentation-datatable').length > 0){
+                    loadDataTableSurveyDocumentation();
+                }
+                $('#no-file-error').remove();
+            }else if(responseText.status == '422'){
+                $('#validation_alert_upload').show();
+                $.each(responseText.error, function(i, val) {
+                    $.each(val, function(i, val) {
+                       $('#validation_alert_upload').append(`
+                            <div class="alert alert-info solid alert-rounded "> ` + val + `</div>
+                       `);
+                    });
+                });
+            }else{
+                errorMessage(responseText.message);
+            }
+        });
+        this.on("complete", function(file) {
+            dropzoneMultiple.removeFile(file);
+        });
+		this.on('error', function(file, response) {
+			errorMessage(response.match("<title>(.*?)</title>")[1]);
+		});
+    },
+};
+
 $(function() {
 
     $('#basicModal').on('hidden.bs.modal', function (e) {
@@ -253,6 +335,10 @@ $(function() {
 
     if($('#survey-documentation-datatable').length > 0){
         loadDataTableSurveyDocumentation();
+    }
+
+    if($('#documentation-datatable').length > 0){
+        loadDataTableDocumentation();
     }
 
     $('#payroll-datatable tbody').on('click', '.payroll-email', function() {
@@ -2239,6 +2325,68 @@ function loadDataTableSurveyDocumentation(){
 /* HASIL SURVEY ITEM */
 
 function loadDataTableSurveyItem(){
+    window.table = $('#survey-item-datatable').DataTable({
+        "scrollCollapse": true,
+        "scrollY": '400px',
+		"scrollX": true,
+		"scroller": true,
+        "responsive": true,
+        "stateSave": true,
+        "serverSide": true,
+        "deferRender": true,
+        "destroy": true,
+        "fixedColumns": {
+            left: 2,
+            right: 1
+        },
+        "iDisplayInLength": 10,
+        "order": [[0, 'asc']],
+        ajax: {
+            url: window.location.href + '/datatable',
+            type: 'GET',
+            data: {
+                
+            },
+            beforeSend: function() {
+                /* loadingOpen(); */
+            },
+            complete: function() {
+                /* loadingClose(); */
+            },
+            error: function() {
+                /* loadingClose(); */
+                errorConnection();
+            }
+        },
+        columns: [
+            { name: 'id', searchable: false, className: 'text-center' },
+            { name: 'code', className: '' },
+            { name: 'user_id', className: '' },
+            { name: 'project_id', className: '' },
+            { name: 'name', className: '' },
+            { name: 'post_date', className: '' },
+            { name: 'note', className: '' },
+            { name: 'attachment', searchable: false, orderable: false, className: 'text-center' },
+            { name: 'status', searchable: false, orderable: false, className: 'text-center' },
+            { name: 'action', searchable: false, orderable: false, className: 'text-center' },
+        ],
+        createdRow: function ( row, data, index ) {
+            $(row).addClass('selected')
+        },
+        language: {
+            paginate: {
+                next: '<i class="fa fa-angle-double-right" aria-hidden="true"></i>',
+                previous: '<i class="fa fa-angle-double-left" aria-hidden="true"></i>' 
+            }
+        }
+    });
+}
+
+/* HASIL SURVEY ITEM */
+
+/* HASIL KELENGKAPAN DOKUMEN */
+
+function loadDataTableDocumentation(){
     window.table = $('#survey-item-datatable').DataTable({
         "scrollCollapse": true,
         "scrollY": '400px',

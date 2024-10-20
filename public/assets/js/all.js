@@ -189,7 +189,7 @@ Dropzone.options.dropzoneUploadDocument = {
                 `);
                 successMessage(responseText.message);
                 if($('#documentation-datatable').length > 0){
-                    loadDataTableSurveyDocumentation();
+                    loadDataTableDocumentation();
                 }
                 $('#no-file-error').remove();
             }else if(responseText.status == '422'){
@@ -1245,6 +1245,9 @@ function destroyFile(code){
                         }
                         if($('#survey-documentation-datatable').length > 0){
                             loadDataTableSurveyDocumentation();
+                        }
+                        if($('#documentation-datatable').length > 0){
+                            loadDataTableDocumentation();
                         }
                     }
                 },

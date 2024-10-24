@@ -144,7 +144,7 @@ class InvoiceController extends Controller
         DB::beginTransaction();
         try {
             $validation = Validator::make($request->all(), [
-                'code'		            => $request->temp ? ['required', Rule::unique('invoices', 'code')->ignore($request->temp)] : 'required|unique:invoices,code',
+                'code'		            => $request->temp ? ['required', Rule::unique('invoices', 'code')CustomHelper::decrypt($request->temp),'code'] : 'required|unique:invoices,code',
                 'receive_from'          => 'required',
                 'project_id'            => 'required',
                 'bank_id'               => 'required',

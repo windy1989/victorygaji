@@ -122,7 +122,7 @@ class BankController extends Controller
         DB::beginTransaction();
         try {
             $validation = Validator::make($request->all(), [
-                'code'		    => $request->temp ? ['required', Rule::unique('banks', 'code')CustomHelper::decrypt($request->temp),'code'] : 'required|unique:banks,code',
+                'code'		    => $request->temp ? ['required', Rule::unique('banks', 'code')->ignore($request->temp)] : 'required|unique:banks,code',
                 'name'          => 'required',
                 'no'            => 'required',
                 'bank'          => 'required',

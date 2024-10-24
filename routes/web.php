@@ -19,6 +19,7 @@ use App\Http\Controllers\SurveyResultController;
 use App\Http\Controllers\SurveyDocumentationController;
 use App\Http\Controllers\ItemSurveyController;
 use App\Http\Controllers\DocumentationController;
+use App\Http\Controllers\AndalalinController;
 use App\Models\LetterAgreement;
 use App\Models\OfferingLetter;
 
@@ -149,12 +150,24 @@ Route::middleware('login')->group(function () {
         Route::post('show',[DocumentationController::class, 'show']);
         Route::post('detail',[DocumentationController::class, 'detail']);
         Route::post('destroy',[DocumentationController::class, 'destroy']);
-        Route::get('print/{id}',[DocumentationController::class, 'print']);
-        Route::get('print_receipt/{id}',[DocumentationController::class, 'printReceipt']);
         Route::post('upload',[DocumentationController::class, 'upload']);
         Route::post('check',[DocumentationController::class, 'check']);
         Route::post('show_upload',[DocumentationController::class, 'showUpload']);
         Route::post('destroy_file',[DocumentationController::class, 'destroyFile']);
+    });
+
+    Route::prefix('dokumen_andalalin')->middleware('admin.auth:1')->group(function () {
+        Route::get('/',[AndalalinController::class, 'index']);
+        Route::get('datatable',[AndalalinController::class, 'datatable']);
+        Route::post('create',[AndalalinController::class, 'create']);
+        Route::post('create_receipt',[AndalalinController::class, 'createReceipt']);
+        Route::post('show',[AndalalinController::class, 'show']);
+        Route::post('detail',[AndalalinController::class, 'detail']);
+        Route::post('destroy',[AndalalinController::class, 'destroy']);
+        Route::post('upload',[AndalalinController::class, 'upload']);
+        Route::post('check',[AndalalinController::class, 'check']);
+        Route::post('show_upload',[AndalalinController::class, 'showUpload']);
+        Route::post('destroy_file',[AndalalinController::class, 'destroyFile']);
     });
 
     Route::prefix('invoice')->middleware('admin.auth:1')->group(function () {

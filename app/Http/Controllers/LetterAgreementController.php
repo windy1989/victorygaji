@@ -174,7 +174,7 @@ class LetterAgreementController extends Controller
         DB::beginTransaction();
         try {
             $validation = Validator::make($request->all(), [
-                'code'		            => $request->temp ? ['required', Rule::unique('letter_agreements', 'code')CustomHelper::decrypt($request->temp),'code'] : 'required|unique:letter_agreements,code',
+                'code'		            => $request->temp ? ['required', Rule::unique('letter_agreements', 'code')->ignore(CustomHelper::decrypt($request->temp),'code')] : 'required|unique:letter_agreements,code',
                 'name'                  => 'required',
                 'project_id'            => 'required',
                 'post_date'             => 'required',

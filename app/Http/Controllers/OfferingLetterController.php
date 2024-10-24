@@ -141,7 +141,7 @@ class OfferingLetterController extends Controller
         DB::beginTransaction();
         try {
             $validation = Validator::make($request->all(), [
-                'code'		            => $request->temp ? ['required', Rule::unique('offering_letters', 'code')CustomHelper::decrypt($request->temp),'code'] : 'required|unique:offering_letters,code',
+                'code'		            => $request->temp ? ['required', Rule::unique('offering_letters', 'code')->ignore(CustomHelper::decrypt($request->temp),'code')] : 'required|unique:offering_letters,code',
                 'to_name'               => 'required',
                 'project_id'            => 'required',
                 'post_date'             => 'required',

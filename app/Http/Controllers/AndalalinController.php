@@ -345,7 +345,7 @@ class AndalalinController extends Controller
             if($query){
                 if($query->status == '1'){
                     $querydetail = AndalalinDetail::create([
-                        'documentation_id'  => $query->id,
+                        'andalalin_id'      => $query->id,
                         'code'	            => strtoupper(Str::random(15)),
                         'name'              => $request->file('file')->getClientOriginalName(),
                         'file_location'	    => $request->file('file') ? $request->file('file')->store('public/andalalin') : NULL

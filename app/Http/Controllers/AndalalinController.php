@@ -147,7 +147,7 @@ class AndalalinController extends Controller
                     if($query->status == '3'){
                         return response()->json([
                             'status'    => 500,
-                            'message'   => 'Ups. Kelengkapan Produk telah SELESAI, anda tidak bisa melakukan perubahan.'
+                            'message'   => 'Ups. Dokumen Andalalin telah SELESAI, anda tidak bisa melakukan perubahan.'
                         ]);
                     }
 

@@ -125,7 +125,7 @@ class DocumentationController extends Controller
         DB::beginTransaction();
         try {
             $validation = Validator::make($request->all(), [
-                'code'		            => $request->temp ? ['required', Rule::unique('documentations', 'code')->ignore(CustomHelper::decrypt($request->temp))] : 'required|unique:documentations,code',
+                'code'		            => $request->temp ? ['required', Rule::unique('documentations', 'code')->ignore(CustomHelper::decrypt($request->temp),'code')] : 'required|unique:documentations,code',
                 'project_id'            => 'required',
                 'post_date'             => 'required',
             ], [

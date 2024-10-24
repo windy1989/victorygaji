@@ -192,7 +192,7 @@ Dropzone.options.dropzoneUploadDocument = {
                     loadDataTableDocumentation();
                 }
                 if($('#andalalin-datatable').length > 0){
-                    loadDatatableAndalalin();
+                    loadDataTableAndalalin();
                 }
                 $('#no-file-error').remove();
             }else if(responseText.status == '422'){
@@ -339,7 +339,7 @@ $(function() {
     }
 
     if($('#andalalin-datatable').length > 0){
-        loadDatatableAndalalin();
+        loadDataTableAndalalin();
     }
 
     $('#payroll-datatable tbody').on('click', '.payroll-email', function() {
@@ -1509,7 +1509,7 @@ function save(){
                         }
 
                         if($('#andalalin-datatable').length > 0){
-                            loadDatatableAndalalin();
+                            loadDataTableAndalalin();
                         }
 
                         $('#modalCreate').modal('toggle');
@@ -2469,7 +2469,7 @@ function loadDataTableDocumentation(){
 
 /* HASIL DOKUMEN ANDALALIN */
 
-function loadDatatableAndalalin(){
+function loadDataTableAndalalin(){
     window.table = $('#andalalin-datatable').DataTable({
         "scrollCollapse": true,
         "scrollY": '400px',

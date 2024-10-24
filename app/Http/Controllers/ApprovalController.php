@@ -144,6 +144,8 @@ class ApprovalController extends Controller
                         $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Invoice No. '.$data->code.' telah dibayarkan dengan nomor kwitansi : '.$data->lookable->receipt_code.', mohon persetujuannya dengan menekan link terlampir : ';
                     }elseif($data->url == 'kelengkapan_dokumen'){
                         $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Kelengkapan Dokumen No. '.$data->code.', mohon persetujuannya dengan menekan link terlampir : ';
+                    }elseif($data->url == 'dokumen_andalalin'){
+                        $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Andalalin No. '.$data->code.', mohon persetujuannya dengan menekan link terlampir : ';
                     }
                     
                     foreach($data2 as $row){

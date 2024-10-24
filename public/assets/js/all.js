@@ -191,6 +191,9 @@ Dropzone.options.dropzoneUploadDocument = {
                 if($('#documentation-datatable').length > 0){
                     loadDataTableDocumentation();
                 }
+                if($('#andalalin-datatable').length > 0){
+                    loadDatatableAndalalin();
+                }
                 $('#no-file-error').remove();
             }else if(responseText.status == '422'){
                 $('#validation_alert_upload').show();

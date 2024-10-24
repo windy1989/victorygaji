@@ -1166,7 +1166,7 @@ function edit(code){
                 }
 
                 /* JIKA FORM HASIL SURVEI */
-                if($('#documentation-datatable').length > 0){
+                if($('#documentation-datatable').length > 0 || $('#andalalin-datatable').length > 0){
                     $('#code').val(response.data.code);
                     $('#project_id').empty().append(`
                         <option value="` + response.data.project_id + `">` + response.data.project_code + `</option>

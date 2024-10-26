@@ -261,7 +261,7 @@ class HearingController extends Controller
     }
 
     public function detail(Request $request){
-        $data = Invoice::where('code',CustomHelper::decrypt($request->code))->first();
+        $data = Hearing::where('code',CustomHelper::decrypt($request->code))->first();
         if($data){
 
             $html = '';
@@ -309,10 +309,10 @@ class HearingController extends Controller
     }
 
     public function destroy(Request $request){
-        $query = Invoice::where('code',CustomHelper::decrypt($request->code))->first();
+        $query = Hearing::where('code',CustomHelper::decrypt($request->code))->first();
         if($query){
             if($query->status == '1'){
-                CustomHelper::saveLog($query->getTable(),$query->id,'Invoice nomor '.$query->code.' telah dihapus.','Pengguna '.session('bo_nama').' telah menghapus data invoice no '.$query->code);
+                CustomHelper::saveLog($query->getTable(),$query->id,'Sidang nomor '.$query->code.' telah dihapus.','Pengguna '.session('bo_nama').' telah menghapus data sidang no '.$query->code);
 
                 $query->approval()->delete();
                 $query->delete();

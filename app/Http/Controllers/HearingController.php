@@ -242,88 +242,10 @@ class HearingController extends Controller
         }
     }
 
-    public function createReceipt(Request $request){
-        DB::beginTransaction();
-        try {
-            $validation = Validator::make($request->all(), [
-                'code_receipt'		    => 'required|unique:invoices,receipt_code',
-                'pay_date'              => 'required',
-                'tempReceipt'           => 'required',
-                'fileReceipt'           => 'required|mimes:jpg,png,jpeg|max:1024',
-            ], [
-                'code_receipt.required'     => 'Kode kwitansi tidak boleh kosong.',
-                'code_receipt.unique'       => 'Kode kwitansi telah dipakai.',
-                'pay_date.required'         => 'Tgl. bayar tidak boleh kosong.',
-                'tempReceipt.required'      => 'Bukti invoice tidak boleh kosong.',
-                'fileReceipt.required'      => 'File bukti bayar tidak boleh kosong.',
-                'fileReceipt.mimes'         => 'File bukti bayar harus berupa jpeg, png atau jpg.',
-                'fileReceipt.max'           => 'File bukti bayar ukuran maksimal 1024Kb',
-            ]);
-
-            if($validation->fails()) {
-                $response = [
-                    'status' => 422,
-                    'error'  => $validation->errors()
-                ];
-            } else {
-
-                $query = Invoice::where('code',CustomHelper::decrypt($request->tempReceipt))->first();
-
-                if($query->status == '3'){
-                    return response()->json([
-                        'status'    => 500,
-                        'message'   => 'Ups. Invoice telah SELESAI, anda tidak bisa melakukan perubahan.'
-                    ]);
-                }
-
-                if($query->document){
-                    if(Storage::exists($query->document)){
-                        Storage::delete($query->document);
-                    }
-                }
-
-                $imageName = Str::random(35).'.png';
-                $path =storage_path('app/public/invoice/'.$imageName);
-                $newFile = CustomHelper::compress($request->fileReceipt,$path,50);
-                $basePath = storage_path('app');
-                $desiredPath = explode($basePath.'/', $newFile)[1];
-
-                $query->receipt_code    = $request->code_receipt;
-                $query->pay_date        = $request->pay_date;
-                $query->document        = $desiredPath;
-                $query->status          = '1';
-                $query->save();
-                
-                if($query) {
-                    CustomHelper::saveLog($query->getTable(),$query->id,'Update pembayaran data invoice '.$query->code,'Pengguna '.session('bo_nama').' telah mengubah data invoice no '.$query->code);
-                    CustomHelper::sendApproval($query->getTable(),$query->id,'invoice');
-
-                    $response = [
-                        'status'  => 200,
-                        'message' => 'Data berhasil disimpan.'
-                    ];
-                } else {
-                    $response = [
-                        'status'  => 500,
-                        'message' => 'Data gagal disimpan.'
-                    ];
-                }
-            }
-            DB::commit();
-		    return response()->json($response);
-        }catch(\Exception $e){
-            info($e->getMessage());
-            DB::rollback();
-        }
-    }
-
     public function show(Request $request){
-        $data = Invoice::where('code',CustomHelper::decrypt($request->code))->first();
+        $data = Hearing::where('code',CustomHelper::decrypt($request->code))->first();
         if($data){
             $data['project_code'] = $data->project->code.' - '.$data->project->name.' - '.$data->project->customer->name;
-            $data['bank_code'] = $data->bank->name.' - '.$data->bank->no.' - '.$data->bank->bank;
-            $data['nominal'] = number_format($data->nominal,2,',','.');
-            $data['nominal_project'] = number_format($data->project->cost,2,',','.');
             $response = [
                 'status'    => 200,
                 'data'      => $data,

@@ -1205,6 +1205,20 @@ function edit(code){
                     $('#note').val(response.data.note);
                 }
 
+                /* JIKA FORM HASIL SURVEI */
+                if($('#hearing-datatable').length > 0){
+                    $('#code').val(response.data.code);
+                    $('#project_id').empty().append(`
+                        <option value="` + response.data.project_id + `">` + response.data.project_code + `</option>
+                    `);
+                    $('#post_date').val(response.data.post_date);
+                    $('#no_hearing').val(response.data.no_hearing);
+                    $('#no_recomendation').val(response.data.no_recomendation);
+                    $('#start_date').val(response.data.start_date);
+                    $('#finish_date').val(response.data.finish_date);
+                    $('#note').val(response.data.note);
+                }
+
                 $('#modalCreate').modal('toggle');
             }else{
                 errorMessage('Data tidak ditemukan.');
@@ -1937,7 +1951,7 @@ function checkFileReceiptMax(element){
     var maxSizeKB = 1024;
     var maxSize = maxSizeKB * 1024;
     if (size > maxSize) {
-        errorMessage('File upload bukti bayar ukuran maksimal adalah ' + maxSize + 'Kb.');
+        errorMessage('File upload bukti bayar ukuran maksimal adalah ' + maxSize + ' Bytes.');
         file.value = "";
     }
 }
@@ -1948,7 +1962,7 @@ function checkFileMax(element){
     var maxSizeKB = 1024;
     var maxSize = maxSizeKB * 1024;
     if (size > maxSize) {
-        errorMessage('File upload bukti bayar ukuran maksimal adalah ' + maxSize + 'Kb.');
+        errorMessage('File upload bukti bayar ukuran maksimal adalah ' + maxSize + ' Bytes.');
         file.value = "";
     }
 }

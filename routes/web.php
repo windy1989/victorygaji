@@ -20,6 +20,7 @@ use App\Http\Controllers\SurveyDocumentationController;
 use App\Http\Controllers\ItemSurveyController;
 use App\Http\Controllers\DocumentationController;
 use App\Http\Controllers\AndalalinController;
+use App\Http\Controllers\HearingController;
 use App\Models\LetterAgreement;
 use App\Models\OfferingLetter;
 
@@ -168,6 +169,15 @@ Route::middleware('login')->group(function () {
         Route::post('check',[AndalalinController::class, 'check']);
         Route::post('show_upload',[AndalalinController::class, 'showUpload']);
         Route::post('destroy_file',[AndalalinController::class, 'destroyFile']);
+    });
+
+    Route::prefix('sidang')->middleware('admin.auth:1')->group(function () {
+        Route::get('/',[HearingController::class, 'index']);
+        Route::get('datatable',[HearingController::class, 'datatable']);
+        Route::post('create',[HearingController::class, 'create']);
+        Route::post('show',[HearingController::class, 'show']);
+        Route::post('detail',[HearingController::class, 'detail']);
+        Route::post('destroy',[HearingController::class, 'destroy']);
     });
 
     Route::prefix('invoice')->middleware('admin.auth:1')->group(function () {

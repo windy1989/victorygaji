@@ -514,6 +514,32 @@ $(function() {
     }
     /*INVOICE*/
 
+    /*SIDANG*/
+    if($('#document').length > 0){
+        $("#document").on('change', function () {
+            if($('#document').val()){
+                if (typeof (FileReader) != "undefined") {
+                    var image_holder = $("#previewFile");
+                    image_holder.empty();
+
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $("<img />", {
+                            "src": e.target.result,
+                            "class": "thumb-image",
+                            "width": "100%"
+                        }).appendTo(image_holder);
+                    };
+                    image_holder.show();
+                    reader.readAsDataURL($(this)[0].files[0]);
+                } else {
+                    alert("This browser does not support FileReader.");
+                }
+            }
+        });
+    }
+    /*SIDANG*/
+
     cekApproval();
 
     setInterval(function () {
@@ -1553,6 +1579,7 @@ $(function() {
         $('#validation_alert').hide();
         $('#customer_id,#project_type_id,#purpose_id,#region_id,#project_id,#bank_id').empty();
         $('#nominal_project').text('0,00');
+        $('#previewFile').html('');
     });
 
     $('#modalUpload').on('hidden.bs.modal', function (e) {

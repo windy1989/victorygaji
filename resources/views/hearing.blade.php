@@ -112,11 +112,15 @@
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Dokumen Upload</label>
-                                    <input class="form-control" type="file" id="document" name="document" accept="image/png, image/jpeg, image/jpg" onchange="checkFileReceiptMax(this)">
+                                    <input class="form-control" type="file" id="document" name="document" accept="image/png, image/jpeg, image/jpg" onchange="checkFileMax(this)">
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Keterangan</label>
                                     <input type="text" class="form-control" placeholder="Keterangan" id="note" name="note">
+                                </div>
+                                <div class="mb-3 col-md-12">
+                                    <label class="form-label">Preview File</label>
+                                    <div id="previewFile"></div>
                                 </div>
                             </div>
                         </form>

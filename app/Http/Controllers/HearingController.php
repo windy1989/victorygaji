@@ -195,7 +195,7 @@ class HearingController extends Controller
                     $query->finish_date     = $request->finish_date;
                     $query->document        = $desiredPath ?? NULL;
                     $query->note            = $request->note;
-                    $query->status          = '2';
+                    $query->status          = '3';
                     $query->save();
                     CustomHelper::saveLog($query->getTable(),$query->id,'Update data sidang '.$query->code,'Pengguna '.session('bo_nama').' telah mengubah data sidang no '.$query->code);
                 }else{
@@ -218,7 +218,7 @@ class HearingController extends Controller
                         'finish_date'       => $request->finish_date,
                         'document'          => $desiredPath ?? NULL,
                         'note'              => $request->note,
-                        'status'            => '2',
+                        'status'            => '3',
                     ]);
                     CustomHelper::saveLog($query->getTable(),$query->id,'Tambah baru data sidang '.$query->code,'Pengguna '.session('bo_nama').' telah manambahkan baru data sidang no '.$query->code);
                 }

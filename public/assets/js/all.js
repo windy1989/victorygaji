@@ -1942,6 +1942,17 @@ function checkFileReceiptMax(element){
     }
 }
 
+function checkFileMax(element){
+    var file = element;
+    var size = parseFloat(file.files[0].size);
+    var maxSizeKB = 1024;
+    var maxSize = maxSizeKB * 1024;
+    if (size > maxSize) {
+        errorMessage('File upload bukti bayar ukuran maksimal adalah ' + maxSize + 'Kb.');
+        file.value = "";
+    }
+}
+
 function saveReceipt(){
     swal({
         title: "Apakah yakin ingin simpan?",

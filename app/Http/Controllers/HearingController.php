@@ -135,22 +135,22 @@ class HearingController extends Controller
         DB::beginTransaction();
         try {
             $validation = Validator::make($request->all(), [
-                'code'		            => $request->temp ? ['required', Rule::unique('invoices', 'code')->ignore(CustomHelper::decrypt($request->temp),'code')] : 'required|unique:invoices,code',
-                'receive_from'          => 'required',
+                'code'		            => $request->temp ? ['required', Rule::unique('hearings', 'code')->ignore(CustomHelper::decrypt($request->temp),'code')] : 'required|unique:hearings,code',
                 'project_id'            => 'required',
-                'bank_id'               => 'required',
                 'post_date'             => 'required',
-                'nominal'               => 'required',
-                'termin_no'             => 'required',
+                'no_hearing'            => 'required',
+                'no_recomendation'      => 'required',
+                'start_date'            => 'required',
+                'finish_date'           => 'required',
             ], [
                 'code.required'             => 'Kode tidak boleh kosong.',
                 'code.unique'               => 'Kode telah dipakai.',
-                'receive_from.required'     => 'Identitas pengirim tidak boleh kosong.',
                 'project_id.required'       => 'Project tidak boleh kosong.',
-                'bank_id.required'          => 'Bank tidak boleh kosong.',
                 'post_date.required'        => 'Tgl. post tidak boleh kosong.',
-                'nominal.required'          => 'Nominal tidak boleh kosong.',
-                'termin_no.required'        => 'Termin pembayaran tidak boleh kosong.',
+                'no_hearing.required'       => 'No Pendaftaran Sidang tidak boleh kosong.',
+                'no_recomendation.required' => 'No Surat Rekomendasi tidak boleh kosong.',
+                'start_date.required'       => 'Tgl. Mulai Sidang tidak boleh kosong.',
+                'finish_date.required'      => 'Tgl. Selesai Sidang tidak boleh kosong.',
             ]);
 
             if($validation->fails()) {
@@ -160,41 +160,67 @@ class HearingController extends Controller
                 ];
             } else {
                 if($request->temp){
-                    $query = Invoice::where('code',CustomHelper::decrypt($request->temp))->first();
+                    $query = Hearing::where('code',CustomHelper::decrypt($request->temp))->first();
 
                     if($query->status == '3'){
                         return response()->json([
                             'status'    => 500,
-                            'message'   => 'Ups. Invoice telah SELESAI, anda tidak bisa melakukan perubahan.'
+                            'message'   => 'Ups. Sidang telah SELESAI, anda tidak bisa melakukan perubahan.'
                         ]);
+                    }
+
+                    $desiredPath = '';
+                    if($request->has('document')){
+                        if($query->document){
+                            if(Storage::exists($query->document)){
+                                Storage::delete($query->document);
+                            }
+                        }
+                        $imageName = Str::random(35).'.png';
+                        $path =storage_path('app/public/hearing/'.$imageName);
+                        $newFile = CustomHelper::compress($request->document,$path,50);
+                        $basePath = storage_path('app');
+                        $desiredPath = explode($basePath.'/', $newFile)[1];
+                    }else{
+                        $desiredPath = $query->document;
                     }
 
                     $query->user_id         = session('bo_id');
                     $query->code            = $request->code;
-                    $query->receive_from    = $request->receive_from;    
                     $query->project_id      = $request->project_id;
-                    $query->bank_id         = $request->bank_id;
                     $query->post_date       = $request->post_date;
-                    $query->nominal         = str_replace(',','.',str_replace('.','',$request->nominal));
-                    $query->termin_no       = $request->termin_no;
+                    $query->no_hearing      = $request->no_hearing;
+                    $query->no_recomendation= $request->no_recomendation;
+                    $query->start_date      = $request->start_date;
+                    $query->finish_date     = $request->finish_date;
+                    $query->document        = $desiredPath ?? NULL;
                     $query->note            = $request->note;
                     $query->status          = '1';
                     $query->save();
-                    CustomHelper::saveLog($query->getTable(),$query->id,'Update data invoice '.$query->code,'Pengguna '.session('bo_nama').' telah mengubah data invoice no '.$query->code);
+                    CustomHelper::saveLog($query->getTable(),$query->id,'Update data sidang '.$query->code,'Pengguna '.session('bo_nama').' telah mengubah data sidang no '.$query->code);
                 }else{
-                    $query = Invoice::create([
-                        'user_id'         => session('bo_id'),
-                        'code'            => $request->code,
-                        'receive_from'    => $request->receive_from,
-                        'project_id'      => $request->project_id,
-                        'bank_id'         => $request->bank_id,
-                        'post_date'       => $request->post_date,
-                        'nominal'         => str_replace(',','.',str_replace('.','',$request->nominal)),
-                        'termin_no'       => $request->termin_no,
-                        'note'            => $request->note,
-                        'status'          => '1',
+                    $desiredPath = '';
+                    if($request->has('document')){
+                        $imageName = Str::random(35).'.png';
+                        $path =storage_path('app/public/hearing/'.$imageName);
+                        $newFile = CustomHelper::compress($request->document,$path,50);
+                        $basePath = storage_path('app');
+                        $desiredPath = explode($basePath.'/', $newFile)[1];
+                    }
+                    $query = Hearing::create([
+                        'user_id'           => session('bo_id'),
+                        'code'              => $request->code,
+                        'project_id'        => $request->project_id,
+                        'post_date'         => $request->post_date,
+                        'no_hearing'        => $request->no_hearing,
+                        'no_recomendation'  => $request->no_recomendation,
+                        'start_date'        => $request->start_date,
+                        'finish_date'       => $request->finish_date,
+                        'document'          => $desiredPath ?? NULL,
+                        'note'              => $request->note,
+                        'status'            => '1',
                     ]);
-                    CustomHelper::saveLog($query->getTable(),$query->id,'Tambah baru data invoice '.$query->code,'Pengguna '.session('bo_nama').' telah manambahkan baru data invoice no '.$query->code);
+                    CustomHelper::saveLog($query->getTable(),$query->id,'Tambah baru data sidang '.$query->code,'Pengguna '.session('bo_nama').' telah manambahkan baru data sidang no '.$query->code);
                 }
                 
                 if($query) {

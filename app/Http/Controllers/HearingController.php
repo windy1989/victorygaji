@@ -314,6 +314,7 @@ class HearingController extends Controller
             if($query->status == '1'){
                 CustomHelper::saveLog($query->getTable(),$query->id,'Sidang nomor '.$query->code.' telah dihapus.','Pengguna '.session('bo_nama').' telah menghapus data sidang no '.$query->code);
 
+                $query->deleteFile();
                 $query->approval()->delete();
                 $query->delete();
 

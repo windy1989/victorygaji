@@ -388,38 +388,4 @@ class HearingController extends Controller
 
         return response()->json($response);
     }
-
-    public function print(Request $request,$id){
-        $data = Invoice::where('code',CustomHelper::decrypt($id))->first();
-        if($data){
-
-            $result = [
-                'title'         => 'Invoice '.$data->code,
-                'data'          => $data,
-            ];
-    
-            $pdf = Pdf::loadView('pdf.invoice', $result);
-            return $pdf->stream('invoice_'.$data->code.'.pdf');
-            /* return $pdf->download('invoice.pdf'); */
-        }else{
-            abort(404);
-        }
-    }
-
-    public function printReceipt(Request $request,$id){
-        $data = Invoice::where('code',CustomHelper::decrypt($id))->whereNotNull('receipt_code')->first();
-        if($data){
-
-            $result = [
-                'title'         => 'Kwitansi '.$data->receipt_code,
-                'data'          => $data,
-            ];
-    
-            $pdf = Pdf::loadView('pdf.receipt', $result);
-            return $pdf->stream('receipt_'.$data->receipt_code.'.pdf');
-            /* return $pdf->download('invoice.pdf'); */
-        }else{
-            abort(404);
-        }
-    }
 }

@@ -2538,7 +2538,7 @@ function loadDataTableAndalalin(){
 
 /* HASIL SIDANG */
 
-function loadDataTableAndalalin(){
+function loadDataTableHearing(){
     window.table = $('#hearing-datatable').DataTable({
         "scrollCollapse": true,
         "scrollY": '400px',

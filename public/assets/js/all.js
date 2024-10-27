@@ -2080,7 +2080,7 @@ function cekNotifikasi(){
                 $('#list-notification').empty();
                 $.each(response, function(i, val) {
                     if(!$('.row-notification[data-notif="' + val.id + '"]').length > 0){
-                        $('#list-notification').append(`
+                        $('#list-notification').after(`
                             <li class="row-notification" data-notif="` + val.id + `">
                                 <div class="timeline-panel">
                                     <div class="media me-2 media-info">
@@ -2096,7 +2096,7 @@ function cekNotifikasi(){
                     }
                 });
             }else{
-                $('#list-notification').empty().append(`
+                $('#list-notification').empty().after(`
                     <li id="notifications-divider"></li>
                     <li id="notification-none" class="text-center">
                         <div class="timeline-panel">

@@ -114,4 +114,40 @@ class Project extends Model
     public function offeringLetter(): mixed{
         return $this->hasMany('App\Models\OfferingLetter');
     }
+
+    public function letterAgreement(): mixed{
+        return $this->hasMany('App\Models\LetterAgreement');
+    }
+
+    public function invoice(): mixed{
+        return $this->hasMany('App\Models\Invoice');
+    }
+
+    public function surveyResult(): mixed{
+        return $this->hasMany('App\Models\SurveyResult');
+    }
+
+    public function surveyItem(): mixed{
+        return $this->hasMany('App\Models\SurveyItem');
+    }
+
+    public function surveyDocumentation(): mixed{
+        return $this->hasMany('App\Models\SurveyDocumentation');
+    }
+
+    public function documentation(): mixed{
+        return $this->hasMany('App\Models\Documentation');
+    }
+
+    public function andalalin(): mixed{
+        return $this->hasMany('App\Models\Andalalin');
+    }
+
+    public function hearing(): mixed{
+        return $this->hasMany('App\Models\Hearing');
+    }
+
+    public function revision(): mixed{
+        return $this->hasMany('App\Models\Revision');
+    }
 }

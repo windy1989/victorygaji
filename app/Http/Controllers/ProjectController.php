@@ -283,6 +283,7 @@ class ProjectController extends Controller
 
             $html = '';
 
+            #penawaran
             $html = '<table class="table table-responsive-md">
                     <thead>
                         <tr>
@@ -312,6 +313,116 @@ class ProjectController extends Controller
             }else{
                 $html .= '<tr>
                     <td class="text-center" colspan="6">Data tidak ditemukan.</td>
+                </tr>';
+            }
+
+            $html .= '</tbody></table>';
+
+            #spk
+
+            $html = '<table class="table table-responsive-md">
+                    <thead>
+                        <tr>
+                            <th colspan="6"><strong>SPK</strong></th>
+                        </tr>
+                        <tr>
+                            <th><strong>#</strong></th>
+                            <th><strong>Dokumen</strong></th>
+                            <th><strong>Pengguna</strong></th>
+                            <th><strong>Tgl.Dokumen</strong></th>
+                            <th><strong>Status</strong></th>
+                            <th><strong>Catatan</strong></th>
+                        </tr>
+                    </thead><tbody>';
+
+            if($data->letterAgreement()->exists()){
+                foreach($data->letterAgreement as $key => $row){
+                    $html .= '<tr>
+                        <td class="text-center">'.($key+1).'</td>
+                        <td>'.$row->code.'</td>
+                        <td>'.$row->user->nama.'</td>
+                        <td>'.date('d/m/Y',strtotime($row->post_date)).'</td>
+                        <td>'.$row->statusBadge().'</td>
+                        <td>'.$row->note.'</td>
+                    </tr>';
+                }
+            }else{
+                $html .= '<tr>
+                    <td class="text-center" colspan="6">Data tidak ditemukan.</td>
+                </tr>';
+            }
+
+            $html .= '</tbody></table>';
+
+            #invoice
+
+            $html = '<table class="table table-responsive-md">
+                    <thead>
+                        <tr>
+                            <th colspan="6"><strong>SPK</strong></th>
+                        </tr>
+                        <tr>
+                            <th><strong>#</strong></th>
+                            <th><strong>Dokumen</strong></th>
+                            <th><strong>Pengguna</strong></th>
+                            <th><strong>Tgl.Dokumen</strong></th>
+                            <th><strong>Status</strong></th>
+                            <th><strong>Catatan</strong></th>
+                        </tr>
+                    </thead><tbody>';
+
+            if($data->invoice()->exists()){
+                foreach($data->invoice as $key => $row){
+                    $html .= '<tr>
+                        <td class="text-center">'.($key+1).'</td>
+                        <td>'.$row->code.'</td>
+                        <td>'.$row->user->nama.'</td>
+                        <td>'.date('d/m/Y',strtotime($row->post_date)).'</td>
+                        <td>'.$row->statusBadge().'</td>
+                        <td>'.$row->note.'</td>
+                    </tr>';
+                }
+            }else{
+                $html .= '<tr>
+                    <td class="text-center" colspan="6">Data tidak ditemukan.</td>
+                </tr>';
+            }
+
+            $html .= '</tbody></table>';
+
+            #hasil survei
+
+            $html = '<table class="table table-responsive-md">
+                    <thead>
+                        <tr>
+                            <th colspan="7"><strong>Hasil Survei</strong></th>
+                        </tr>
+                        <tr>
+                            <th><strong>#</strong></th>
+                            <th><strong>Dokumen</strong></th>
+                            <th><strong>Pengguna</strong></th>
+                            <th><strong>Tgl.Dokumen</strong></th>
+                            <th><strong>Status</strong></th>
+                            <th><strong>Catatan</strong></th>
+                            <th><strong>Jumlah File</strong></th>
+                        </tr>
+                    </thead><tbody>';
+
+            if($data->surveyResult()->exists()){
+                foreach($data->surveyResult as $key => $row){
+                    $html .= '<tr>
+                        <td class="text-center">'.($key+1).'</td>
+                        <td>'.$row->code.'</td>
+                        <td>'.$row->user->nama.'</td>
+                        <td>'.date('d/m/Y',strtotime($row->post_date)).'</td>
+                        <td>'.$row->statusBadge().'</td>
+                        <td>'.$row->note.'</td>
+                        <td>'.$row->surveyResultDetail()->count().'</td>
+                    </tr>';
+                }
+            }else{
+                $html .= '<tr>
+                    <td class="text-center" colspan="7">Data tidak ditemukan.</td>
                 </tr>';
             }
 

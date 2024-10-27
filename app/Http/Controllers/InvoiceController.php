@@ -353,7 +353,7 @@ class InvoiceController extends Controller
 
                 $html .= '</tbody></table>';
             }else{
-                $html = 'Data sedang diproses, silahkan upload bukti bayar dengan tombol HIJAU.';
+                $html = 'Anda belum mengupload bukti bayar, silahkan upload dengan tombol HIJAU.';
             }
 
             $response = [

@@ -2714,7 +2714,7 @@ function loadDataTableHearing(){
 /* HASIL NOTIFIKASI */
 
 function loadDataTableNotification(){
-    window.table = $('#hearing-datatable').DataTable({
+    window.table = $('#notification-datatable').DataTable({
         "scrollCollapse": true,
         "scrollY": '400px',
 		"scrollX": true,

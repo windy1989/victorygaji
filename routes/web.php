@@ -90,6 +90,7 @@ Route::middleware('login')->group(function () {
         Route::post('create',[ProjectController::class, 'create']);
         Route::post('show',[ProjectController::class, 'show']);
         Route::post('destroy',[ProjectController::class, 'destroy']);
+        Route::post('recap',[ProjectController::class, 'recap']);
     });
 
     Route::prefix('surat_penawaran')->middleware('admin.auth:1')->group(function () {

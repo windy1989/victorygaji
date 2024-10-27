@@ -207,7 +207,7 @@ class ProjectController extends Controller
                     $query->cost            = str_replace(',','.',str_replace('.','',$request->cost));
                     $query->termin          = $request->termin;
                     $query->note            = $request->note;
-                    $query->status          = '1';
+                    $query->status          = '2';
                     $query->save();
                     CustomHelper::saveLog($query->getTable(),$query->id,'Update data proyek '.$query->code,'Pengguna '.session('bo_nama').' telah mengubah data proyek no '.$query->code);
                 }else{
@@ -231,7 +231,7 @@ class ProjectController extends Controller
                         'cost'                  => str_replace(',','.',str_replace('.','',$request->cost)),
                         'termin'                => $request->termin,
                         'note'                  => $request->note,
-                        'status'                => '1'
+                        'status'                => '2'
                     ]);
                     CustomHelper::saveLog($query->getTable(),$query->id,'Tambah baru data proyek '.$query->code,'Pengguna '.session('bo_nama').' telah manambahkan baru data proyek no '.$query->code);
                 }

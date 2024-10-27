@@ -44,7 +44,7 @@ class ReportPaymentController extends Controller
 
         if($data->count() > 0){
             foreach($data as $key => $row){
-                $rowspan = $row->invoice()->count();
+                $rowspan = $row->invoice()->count() == 0 ? 1 : $row->invoice()->count();
                 $html .= '<tr>
                     <td class="text-center" rowspan="'.$rowspan.'">'.($key + 1).'</td>
                     <td rowspan="'.$rowspan.'">'.$row->code.'</td>

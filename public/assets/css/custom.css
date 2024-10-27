@@ -14,7 +14,7 @@
 }
 
 @media (min-width:768){
-    .dropdown-menu-end {
-        min-width: 30rem;
+    .notification_dropdown .dropdown-menu-end {
+        min-width: 30rem !important;
     }
 }

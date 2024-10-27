@@ -27,6 +27,7 @@ class AppServiceProvider extends ServiceProvider
             'invoices'                      => 'App\Models\Invoice',
             'documentations'                => 'App\Models\Documentation',
             'andalalins'                    => 'App\Models\Andalalin', 
+            'revisions'                     => 'App\Models\Revision',
         ]);
     }
 }

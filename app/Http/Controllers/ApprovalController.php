@@ -146,6 +146,8 @@ class ApprovalController extends Controller
                         $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Kelengkapan Dokumen No. '.$data->code.', mohon persetujuannya dengan menekan link terlampir : ';
                     }elseif($data->url == 'dokumen_andalalin'){
                         $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Andalalin No. '.$data->code.', mohon persetujuannya dengan menekan link terlampir : ';
+                    }elseif($data->url == 'revisi'){
+                        $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Revisi No. '.$data->code.', mohon persetujuannya dengan menekan link terlampir : ';
                     }
                     
                     foreach($data2 as $row){

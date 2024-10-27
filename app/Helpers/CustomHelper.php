@@ -102,6 +102,10 @@ class CustomHelper {
             $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Andalalin No. '.$data->code.', mohon persetujuannya dengan menekan link terlampir : ';
         }
 
+		if($url == 'revisi'){
+            $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Revisi No. '.$data->code.', mohon persetujuannya dengan menekan link terlampir : ';
+        }
+
         foreach($userlevel1 as $row1){
             $dataaprove = Approval::create([
                 'code'              => strtoupper(Str::random(15)),

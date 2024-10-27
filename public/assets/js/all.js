@@ -1284,6 +1284,41 @@ function detail(code){
         }
     });
 }
+function recap(code){
+    $.ajax({
+        url: window.location.href + '/recap',
+        type: 'POST',
+        dataType: 'JSON',
+        data: {
+            code: code
+        },
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        beforeSend: function() {
+            loadingOpen();
+        },
+        success: function(response) {
+            if(response.status == 200){
+                $('#modal-recap-title').text(response.data.code);
+                $('#modal-recap-body').html(response.html);
+
+                $('#modalRecap').modal('toggle');
+            }else{
+                errorMessage('Data tidak ditemukan.');
+            }
+            loadingClose();
+        },
+        error: function(response) {
+            if(response.status == '403'){
+				errorMessage('You have no access.');
+			}else{
+				errorConnection();
+			}
+            loadingClose();
+        }
+    });
+}
 
 function destroyFile(code){
     swal.fire({
@@ -1622,6 +1657,10 @@ $(function() {
 
     $('#modalDetail').on('hidden.bs.modal', function (e) {
         $('#modal-detail-title,#modal-detail-body').text('');
+    });
+
+    $('#modalRecap').on('hidden.bs.modal', function (e) {
+        $('#modal-recap-title,#modal-recap-body').text('');
     });
 });
 

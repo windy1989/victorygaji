@@ -31,7 +31,7 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table id="notification-datatable" class="display">
+                            <table id="notification-datatable" class="display nowrap" style="min-width: 100%">
                                 <thead>
                                     <tr>
                                         <th>#</th>

@@ -541,9 +541,11 @@ $(function() {
     /*SIDANG*/
 
     cekApproval();
+    cekNotifikasi();
 
     setInterval(function () {
         cekApproval();
+        cekNotifikasi();
     },25000);
 });
 

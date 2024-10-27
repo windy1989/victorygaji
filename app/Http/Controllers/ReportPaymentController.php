@@ -55,7 +55,7 @@ class ReportPaymentController extends Controller
                     <td rowspan="'.$rowspan.'" class="text-right">'.number_format($row->cost,2,',','.').'</td>
                 ';
 
-                if($rowspan == 0){
+                if(!$row->invoice()->exists()){
                     $html .= '<td></td>';
                     $html .= '<td></td>';
                     $html .= '<td></td>';

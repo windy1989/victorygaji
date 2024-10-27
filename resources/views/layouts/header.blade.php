@@ -54,7 +54,7 @@
 											</li>
 										</ul>
 									</div>
-                                    <a class="all-notification" href="javascript:void(0);">See all notifications <i class="ti-arrow-end"></i></a>
+                                    <a class="all-notification" href="{{ url('notifikasi') }}">See all notifications <i class="ti-arrow-end"></i></a>
                                 </div>
                             </li>
                             <li class="nav-item dropdown notification_dropdown">

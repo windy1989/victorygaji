@@ -12,3 +12,9 @@
         position:relative !important;
     }
 }
+
+@media (min-width:768){
+    .dropdown-menu-end {
+        min-width: 30rem;
+    }
+}

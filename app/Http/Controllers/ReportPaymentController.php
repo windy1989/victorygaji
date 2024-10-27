@@ -37,6 +37,7 @@ class ReportPaymentController extends Controller
                             <th><strong>Invoice</strong></th>
                             <th><strong>Nominal</strong></th>
                             <th><strong>Kwitansi</strong></th>
+                            <th><strong>Sisa</strong></th>
                         </tr>
                     </thead><tbody>';
         $data = Project::whereIn('status',['2','3'])->get();
@@ -67,6 +68,9 @@ class ReportPaymentController extends Controller
                         }
                     }
                 }
+
+                $html .= '<td rowspan="'.$rowspan.'" class="text-right">'.number_format($row->balancePayment(),2,',','.').'</td>';
+
                 $html .= '</tr>';
                 if($rowspan > 1){
                     foreach($row->invoice as $keypay => $payment){

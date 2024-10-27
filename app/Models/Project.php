@@ -150,4 +150,12 @@ class Project extends Model
     public function revision(): mixed{
         return $this->hasMany('App\Models\Revision');
     }
+
+    public function balancePayment(){
+        $total = $this->cost;
+        foreach($this->invoice()->whereNotNull('receipt_code')->get() as $payment){
+            $total -= $payment->nominal;
+        }
+        return $total;
+    }
 }

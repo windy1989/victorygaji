@@ -24,7 +24,7 @@ class ReportPaymentController extends Controller
     }
     public function process(Request $request){
         $html = '';
-        $html .= '<table class="table table-responsive-md mt-2">
+        $html .= '<table class="table table-bordered table-responsive-md mt-2">
                     <thead>
                         <tr>
                             <th><strong>#</strong></th>
@@ -33,6 +33,7 @@ class ReportPaymentController extends Controller
                             <th><strong>Nama Proyek</strong></th>
                             <th><strong>Tgl.Proyek</strong></th>
                             <th><strong>Status</strong></th>
+                            <th><strong>Nilai Proyek</strong></th>
                             <th><strong>Invoice</strong></th>
                             <th><strong>Nominal</strong></th>
                             <th><strong>Kwitansi</strong></th>
@@ -50,6 +51,7 @@ class ReportPaymentController extends Controller
                     <td rowspan="'.$rowspan.'">'.$row->name.'</td>
                     <td rowspan="'.$rowspan.'" class="text-center">'.date('d/m/Y',strtotime($row->post_date)).'</td>
                     <td rowspan="'.$rowspan.'" class="text-center">'.$row->statusBadge().'</td>
+                    <td rowspan="'.$rowspan.'" class="text-right">'.number_format($row->cost,2,',','.').'</td>
                 ';
 
                 if($rowspan == 0){
@@ -79,7 +81,7 @@ class ReportPaymentController extends Controller
                 }
             }
         }else{
-            $html .= '<tr><td class="text-center" colspan="9">Data proyek tidak ditemukan.</td></tr>';
+            $html .= '<tr><td class="text-center" colspan="10">Data proyek tidak ditemukan.</td></tr>';
         }
 
         $html .= '</tbody></table>';

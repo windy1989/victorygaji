@@ -96,7 +96,7 @@ class Project extends Model
         $prefix = 'PRJ-';
 
         $query = Project::withTrashed()->selectRaw('RIGHT(code, 6) as code')
-            ->orderByDesc('code')
+            ->orderByDesc('id')
             ->limit(1)
             ->get();
 

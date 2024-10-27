@@ -109,13 +109,22 @@ class NotificationController extends Controller
     public function getNotification(Request $request){
         $data = Activity::orderByDesc('id')->limit(10)->get()->sortBy('id');
         $notif = [];
+        $countNew = 0;
         foreach($data as $row) {
+            $dbtimestamp = strtotime($row->created_at);
+            if (time() - $dbtimestamp <= (15 * 60)) {
+                $countNew++;
+            }
             $notif[] = [
                 'id'    => $row->id,
                 'note'  => $row->note,
                 'time'  => $row->getTimeAgo(),
             ];
         }
-        return response()->json($notif);
+        $data = [
+            'count_new' => $countNew,
+            'data'      => $notif,
+        ];
+        return response()->json($data);
     }
 }

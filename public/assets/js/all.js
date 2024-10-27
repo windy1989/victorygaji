@@ -2076,9 +2076,9 @@ function cekNotifikasi(){
 
         },
         success: function(response) {
-            if(response.length > 0){
+            if(response.data.length > 0){
                 $('#notification-none').remove();
-                $.each(response, function(i, val) {
+                $.each(response.data, function(i, val) {
                     if(!$('.row-notification[data-notif="' + val.id + '"]').length > 0){
                         $('#notifications-divider').after(`
                             <li class="row-notification" data-notif="` + val.id + `">
@@ -2110,6 +2110,7 @@ function cekNotifikasi(){
                     </li>    
                 `);
             }
+            $('.notif-count').text(response.count_new);
         }
     });
 }

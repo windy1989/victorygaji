@@ -2077,10 +2077,11 @@ function cekNotifikasi(){
         },
         success: function(response) {
             if(response.length > 0){
-                $('#list-notification').empty();
+                /* $('#list-notification').empty(); */
+                $('#notification-none').remove();
                 $.each(response, function(i, val) {
                     if(!$('.row-notification[data-notif="' + val.id + '"]').length > 0){
-                        $('#list-notification').after(`
+                        $('#notifications-divider').before(`
                             <li class="row-notification" data-notif="` + val.id + `">
                                 <div class="timeline-panel">
                                     <div class="media me-2 media-info">
@@ -2096,8 +2097,7 @@ function cekNotifikasi(){
                     }
                 });
             }else{
-                $('#list-notification').empty().after(`
-                    <li id="notifications-divider"></li>
+                $('#notifications-divider').after(`
                     <li id="notification-none" class="text-center">
                         <div class="timeline-panel">
                             No new notifications.

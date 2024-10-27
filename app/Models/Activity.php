@@ -25,6 +25,10 @@ class Activity extends Model
         return $this->morphTo();
     }
 
+    public function user(){
+        return $this->belongsTo('App\Models\User','user_id','id')->withTrashed();
+    }
+
     public function getTimeAgo()
     {
         $time_difference = time() - strtotime($this->created_at);

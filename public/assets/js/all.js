@@ -346,6 +346,10 @@ $(function() {
         loadDataTableHearing();
     }
 
+    if($('#notification-datatable').length > 0){
+        loadDataTableNotification();
+    }
+
     $('#payroll-datatable tbody').on('click', '.payroll-email', function() {
         let id = $(this).data('payroll');
         swal.fire({
@@ -2706,3 +2710,60 @@ function loadDataTableHearing(){
 }
 
 /* HASIL DOKUMEN ANDALALIN */
+
+/* HASIL NOTIFIKASI */
+
+function loadDataTableNotification(){
+    window.table = $('#hearing-datatable').DataTable({
+        "scrollCollapse": true,
+        "scrollY": '400px',
+		"scrollX": true,
+		"scroller": true,
+        "responsive": true,
+        "stateSave": true,
+        "serverSide": true,
+        "deferRender": true,
+        "destroy": true,
+        "fixedColumns": {
+            left: 2,
+            right: 1
+        },
+        "iDisplayInLength": 10,
+        "order": [[0, 'asc']],
+        ajax: {
+            url: window.location.href + '/datatable',
+            type: 'GET',
+            data: {
+                
+            },
+            beforeSend: function() {
+                /* loadingOpen(); */
+            },
+            complete: function() {
+                /* loadingClose(); */
+            },
+            error: function() {
+                /* loadingClose(); */
+                errorConnection();
+            }
+        },
+        columns: [
+            { name: 'id', searchable: false, className: 'text-center' },
+            { name: 'user_id', className: '' },
+            { name: 'title', className: '' },
+            { name: 'note', className: '' },
+            { name: 'created_at', className: '' },
+        ],
+        createdRow: function ( row, data, index ) {
+            $(row).addClass('selected')
+        },
+        language: {
+            paginate: {
+                next: '<i class="fa fa-angle-double-right" aria-hidden="true"></i>',
+                previous: '<i class="fa fa-angle-double-left" aria-hidden="true"></i>' 
+            }
+        }
+    });
+}
+
+/* HASIL NOTIFIKASI */

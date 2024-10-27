@@ -25,12 +25,10 @@ class NotificationController extends Controller
     public function datatable(Request $request){
         $column = [
             'id',
+            'user_id',
+            'title',
+            'note',
             'created_at',
-            'from_user_id',
-            'approve_note',
-            'approve_status',
-            'approve_level',
-            'approve_date',
         ];
 
         $start  = $request->start;
@@ -39,35 +37,29 @@ class NotificationController extends Controller
         $dir    = $request->input('order.0.dir');
         $search = $request->input('search.value');
 
-        $total_data = Approval::where('to_user_id',session('bo_id'))->whereNotNull('approve_status')->count();
+        $total_data = Activity::count();
         
-        $query_data = Approval::where(function($query) use ($search, $request) {
+        $query_data = Activity::where(function($query) use ($search, $request) {
                 if($search) {
                     $query->where(function($query) use ($search, $request) {
-                        $query->whereHas('fromUser',function($query) use ($search, $request) {
-                            $query->where('nama','like',"%$search%");
-                        });
+                        $query->where('title','like',"%$search%")
+                            ->orWhere('note','like',"%$search%");
                     });
                 }
             })
-            ->where('to_user_id',session('bo_id'))
-            ->whereNotNull('approve_status')
             ->offset($start)
             ->limit($length)
             ->orderBy($order, $dir)
             ->get();
 
-        $total_filtered = Approval::where(function($query) use ($search, $request) {
+        $total_filtered = Activity::where(function($query) use ($search, $request) {
                 if($search) {
                     $query->where(function($query) use ($search, $request) {
-                        $query->whereHas('fromUser',function($query) use ($search, $request) {
-                            $query->where('nama','like',"%$search%");
-                        });
+                        $query->where('title','like',"%$search%")
+                            ->orWhere('note','like',"%$search%");
                     });
                 }
             })
-            ->where('to_user_id',session('bo_id'))
-            ->whereNotNull('approve_status')
             ->count();
 
         $response['data'] = [];
@@ -77,16 +69,10 @@ class NotificationController extends Controller
 				
                 $response['data'][] = [
                     $nomor,
+                    $val->user->nama,
+                    $val->title,
+                    $val->note,
                     date('d/m/y H:i:s',strtotime($val->created_at)),
-                    $val->fromUser->nama,
-                    $val->approve_note,
-                    $val->approveStatus(),
-                    $val->approve_level,
-                    $val->approve_date ? date('d/m/y H:i:s',strtotime($val->approve_date)) : '-',
-                    $val->lookable->code,
-                    '
-                    <a href="'.env('APP_URL').'/persetujuan/detail/'.$val->code.'" class="btn btn-success btn-sm content-icon"><i class="fa fa-search"></i></a>
-					'
                 ];
 
                 $nomor++;

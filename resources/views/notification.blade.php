@@ -24,7 +24,7 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table id="notification-datatable" class="display" style="min-width: 845px">
+                            <table id="notification-datatable" class="display">
                                 <thead>
                                     <tr>
                                         <th>#</th>

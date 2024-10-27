@@ -17,7 +17,7 @@
                     <div class="col-xl-12">
                         <div class="card mt-3">
                             <div class="card-header">
-                                <h4 class="card-title">{{ $title }}</h4>
+                                <h4 class="card-title">{{ $title }} <i>(Hanya status PROSES & SELESAI yang akan muncul disini)</i></h4>
                                 <div>
                                     <button type="button" class="btn btn-primary mb-2" onclick="process();">Proses</button>
                                 </div>

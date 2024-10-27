@@ -1284,6 +1284,36 @@ function detail(code){
         }
     });
 }
+
+function process(){
+    $.ajax({
+        url: window.location.href + '/process',
+        type: 'POST',
+        dataType: 'JSON',
+        data: {
+            
+        },
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        beforeSend: function() {
+            loadingOpen();
+        },
+        success: function(response) {
+            $('#report-result').empty().html(response);
+            loadingClose();
+        },
+        error: function(response) {
+            if(response.status == '403'){
+				errorMessage('You have no access.');
+			}else{
+				errorConnection();
+			}
+            loadingClose();
+        }
+    });
+}
+
 function recap(code){
     $.ajax({
         url: window.location.href + '/recap',

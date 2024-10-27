@@ -283,32 +283,39 @@ class ProjectController extends Controller
 
             $html = '';
 
-            if($data->approval()->exists()){
-                $html = '<table class="table table-responsive-md">
-                        <thead>
-                            <tr>
-                                <th><strong>#</strong></th>
-                                <th><strong>APPROVER</strong></th>
-                                <th><strong>LEVEL</strong></th>
-                                <th><strong>TGL.APPROVE</strong></th>
-                                <th><strong>STATUS</strong></th>
-                                <th><strong>Catatan</strong></th>
-                            </tr>
-                        </thead><tbody>';
+            $html = '<table class="table table-responsive-md">
+                    <thead>
+                        <tr>
+                            <th colspan="6"><strong>Surat Penawaran</strong></th>
+                        </tr>
+                        <tr>
+                            <th><strong>#</strong></th>
+                            <th><strong>Dokumen</strong></th>
+                            <th><strong>Pengguna</strong></th>
+                            <th><strong>Tgl.Dokumen</strong></th>
+                            <th><strong>Status</strong></th>
+                            <th><strong>Catatan</strong></th>
+                        </tr>
+                    </thead><tbody>';
 
-                foreach($data->approval()->orderBy('approve_level')->get() as $key => $row){
+            if($data->offeringLetter()->exists()){
+                foreach($data->offeringLetter as $key => $row){
                     $html .= '<tr>
                         <td class="text-center">'.($key+1).'</td>
-                        <td>'.$row->toUser->nama.'</td>
-                        <td>'.$row->approve_level.'</td>
-                        <td>'.($row->approve_date ? date('d/m/Y H:i:s',strtotime($row->approve_date)) : '-').'</td>
-                        <td>'.$row->approveStatus().'</td>
-                        <td>'.$row->approve_note.'</td>
+                        <td>'.$row->code.'</td>
+                        <td>'.$row->user->nama.'</td>
+                        <td>'.date('d/m/Y',strtotime($row->post_date)).'</td>
+                        <td>'.$row->statusBadge().'</td>
+                        <td>'.$row->note.'</td>
                     </tr>';
                 }
-
-                $html .= '</tbody></table>';
+            }else{
+                $html .= '<tr>
+                    <td class="text-center" colspan="6">Data tidak ditemukan.</td>
+                </tr>';
             }
+
+            $html .= '</tbody></table>';
 
             $response = [
                 'status'    => 200,

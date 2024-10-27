@@ -110,4 +110,8 @@ class Project extends Model
 
         return $prefix.$no;
     }
+
+    public function offeringLetter(): mixed{
+        return $this->hasMany('App\Models\OfferingLetter');
+    }
 }

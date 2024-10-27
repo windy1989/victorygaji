@@ -56,7 +56,7 @@ class ReportPaymentController extends Controller
                     <td rowspan="'.$rowspan.'">'.$row->name.'</td>
                     <td rowspan="'.$rowspan.'" class="text-center">'.date('d/m/Y',strtotime($row->post_date)).'</td>
                     <td rowspan="'.$rowspan.'" class="text-center">'.$row->statusBadge().'</td>
-                    <td rowspan="'.$rowspan.'" class="text-right">'.number_format($row->cost,2,',','.').'</td>
+                    <td rowspan="'.$rowspan.'" style="text-align:right;">'.number_format($row->cost,2,',','.').'</td>
                 ';
 
                 if(!$row->invoice()->exists()){
@@ -67,13 +67,13 @@ class ReportPaymentController extends Controller
                     foreach($row->invoice as $keypay => $payment){
                         if($keypay == 0){
                             $html .= '<td>'.$payment->code.'</td>';
-                            $html .= '<td class="text-right">'.number_format($payment->nominal,2,',','.').'</td>';
+                            $html .= '<td style="text-align:right;">'.number_format($payment->nominal,2,',','.').'</td>';
                             $html .= '<td>'.($payment->receipt_code ?? '-').'</td>';
                         }
                     }
                 }
 
-                $html .= '<td rowspan="'.$rowspan.'" class="text-right">'.number_format($balance,   2,',','.').'</td>';
+                $html .= '<td rowspan="'.$rowspan.'" style="text-align:right;">'.number_format($balance,   2,',','.').'</td>';
 
                 $html .= '</tr>';
                 if($rowspan > 1){
@@ -81,7 +81,7 @@ class ReportPaymentController extends Controller
                         if($keypay > 0){
                             $html .= '<tr>';
                             $html .= '<td>'.$payment->code.'</td>';
-                            $html .= '<td class="text-right">'.number_format($payment->nominal,2,',','.').'</td>';
+                            $html .= '<td style="text-align:right;">'.number_format($payment->nominal,2,',','.').'</td>';
                             $html .= '<td>'.($payment->receipt_code ?? '-').'</td>';
                             $html .= '</tr>';
                         }
@@ -92,7 +92,7 @@ class ReportPaymentController extends Controller
             $html .= '<tr><td class="text-center" colspan="11">Data proyek tidak ditemukan.</td></tr>';
         }
 
-        $html .= '<tr><td colspan="10" style="text-align:right;">TOTAL</td><td class="text-right">'.number_format($total,2,',','.').'</td></tr></tbody></table>';
+        $html .= '<tr><td colspan="10" style="text-align:right;">TOTAL</td><td style="text-align:right;">'.number_format($total,2,',','.').'</td></tr></tbody></table>';
 
         return response()->json($html);
     }

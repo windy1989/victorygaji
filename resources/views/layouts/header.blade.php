@@ -45,7 +45,7 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end">
                                     <div id="DZ_W_Notification1" class="widget-media dlab-scroll p-3" style="height:auto;">
-										<ul class="timeline">
+										<ul class="timeline" id="list-notification">
 											<li id="notifications-divider"></li>
 											<li id="notification-none" class="text-center">
 												<div class="timeline-panel">

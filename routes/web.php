@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ApprovalController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\PayrollController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -74,6 +75,12 @@ Route::middleware('login')->group(function () {
         Route::post('get_count_approval',[ApprovalController::class, 'getCountApproval']);
         Route::post('approve',[ApprovalController::class, 'approve']);
         Route::get('detail/{id}',[ApprovalController::class, 'detail']);
+    });
+
+    Route::prefix('notifikasi')->group(function () {
+        Route::get('/', [NotificationController::class, 'index']);
+        Route::get('datatable',[NotificationController::class, 'datatable']);
+        Route::post('get_notification',[NotificationController::class, 'getNotification']);
     });
 
     Route::prefix('proyek')->middleware('admin.auth:1')->group(function () {

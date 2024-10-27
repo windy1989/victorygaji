@@ -2061,6 +2061,52 @@ function cekApproval(){
     });
 }
 
+function cekNotifikasi(){
+	$.ajax({
+        url: location.protocol + '//' + location.host + '/notifikasi/get_notification',
+        type: 'POST',
+        dataType: 'JSON',
+        data: { },
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        beforeSend: function() {
+
+        },
+        success: function(response) {
+            if(response.length > 0){
+                $('#list-notification').empty();
+                $.each(response, function(i, val) {
+                    if(!$('.row-notification[data-notif="' + val.id + '"]').length > 0){
+                        $('#list-notification').append(`
+                            <li class="row-notification" data-notif="` + val.id + `">
+                                <div class="timeline-panel">
+                                    <div class="media me-2 media-info">
+                                        VK
+                                    </div>
+                                    <div class="media-body">
+                                        <h6 class="mb-1">` + val.note + `</h6>
+                                        <small class="d-block">` + val.time + `</small>
+                                    </div>
+                                </div>
+                            </li>    
+                        `);
+                    }
+                });
+            }else{
+                $('#list-notification').empty().append(`
+                    <li id="notifications-divider"></li>
+                    <li id="notification-none" class="text-center">
+                        <div class="timeline-panel">
+                            No new notifications.
+                        </div>
+                    </li>    
+                `);
+            }
+        }
+    });
+}
+
 function approve(code,type){
     if($('#note').val()){
         swal({

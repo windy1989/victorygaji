@@ -2081,7 +2081,7 @@ function cekNotifikasi(){
                 $('#notification-none').remove();
                 $.each(response, function(i, val) {
                     if(!$('.row-notification[data-notif="' + val.id + '"]').length > 0){
-                        $('#notifications-divider').before(`
+                        $('#notifications-divider').after(`
                             <li class="row-notification" data-notif="` + val.id + `">
                                 <div class="timeline-panel">
                                     <div class="media me-2 media-info">

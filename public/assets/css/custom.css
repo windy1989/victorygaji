@@ -14,7 +14,7 @@
 }
 
 @media (min-width:768){
-    .dropdown-menu {
+    #DZ_W_Notification1 {
         min-width: 30rem !important;
     }
 }

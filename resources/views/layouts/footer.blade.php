@@ -42,7 +42,7 @@
 
     <script src="{{ url('assets/js/custom.min.js') }}"></script>
 	<script src="{{ url('assets/js/dlabnav-init.js') }}"></script>
-	<script src="{{ url('assets/js/all.js?v=200') }}"></script>
+	<script src="{{ url('assets/js/all.js?v=201') }}"></script>
   
 </body>
 </html>

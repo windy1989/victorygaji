@@ -2077,7 +2077,6 @@ function cekNotifikasi(){
         },
         success: function(response) {
             if(response.length > 0){
-                /* $('#list-notification').empty(); */
                 $('#notification-none').remove();
                 $.each(response, function(i, val) {
                     if(!$('.row-notification[data-notif="' + val.id + '"]').length > 0){
@@ -2096,6 +2095,12 @@ function cekNotifikasi(){
                         `);
                     }
                 });
+                if($('.row-notification').length > 10){
+                    let count = $('.row-notification').length - 10;
+                    for (let i = 10; i <= (10 + count - 1); i++) {
+                        $('.row-notification').eq(i).remove();
+                    }
+                }
             }else{
                 $('#notifications-divider').after(`
                     <li id="notification-none" class="text-center">

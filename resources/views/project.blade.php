@@ -12,6 +12,9 @@
                     background-color:rgb(255, 233, 173) !important;
                 }
             }
+            .table thead tr th:last-child {
+                text-align: left;
+            }
 		</style>
 		<div class="content-body">
             <!-- container starts -->

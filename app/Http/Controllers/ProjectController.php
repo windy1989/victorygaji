@@ -320,7 +320,7 @@ class ProjectController extends Controller
 
             #spk
 
-            $html = '<table class="table table-responsive-md">
+            $html .= '<table class="table table-responsive-md mt-2">
                     <thead>
                         <tr>
                             <th colspan="6"><strong>SPK</strong></th>
@@ -356,7 +356,7 @@ class ProjectController extends Controller
 
             #invoice
 
-            $html = '<table class="table table-responsive-md">
+            $html .= '<table class="table table-responsive-md mt-2">
                     <thead>
                         <tr>
                             <th colspan="6"><strong>SPK</strong></th>
@@ -392,7 +392,7 @@ class ProjectController extends Controller
 
             #hasil survei
 
-            $html = '<table class="table table-responsive-md">
+            $html .= '<table class="table table-responsive-md mt-2">
                     <thead>
                         <tr>
                             <th colspan="7"><strong>Hasil Survei</strong></th>
@@ -418,6 +418,194 @@ class ProjectController extends Controller
                         <td>'.$row->statusBadge().'</td>
                         <td>'.$row->note.'</td>
                         <td>'.$row->surveyResultDetail()->count().'</td>
+                    </tr>';
+                }
+            }else{
+                $html .= '<tr>
+                    <td class="text-center" colspan="7">Data tidak ditemukan.</td>
+                </tr>';
+            }
+
+            $html .= '</tbody></table>';
+
+            #item survei
+
+            $html .= '<table class="table table-responsive-md mt-2">
+                    <thead>
+                        <tr>
+                            <th colspan="7"><strong>Item Survei</strong></th>
+                        </tr>
+                        <tr>
+                            <th><strong>#</strong></th>
+                            <th><strong>Dokumen</strong></th>
+                            <th><strong>Pengguna</strong></th>
+                            <th><strong>Tgl.Dokumen</strong></th>
+                            <th><strong>Status</strong></th>
+                            <th><strong>Catatan</strong></th>
+                            <th><strong>Jumlah File</strong></th>
+                        </tr>
+                    </thead><tbody>';
+
+            if($data->surveyItem()->exists()){
+                foreach($data->surveyItem as $key => $row){
+                    $html .= '<tr>
+                        <td class="text-center">'.($key+1).'</td>
+                        <td>'.$row->code.'</td>
+                        <td>'.$row->user->nama.'</td>
+                        <td>'.date('d/m/Y',strtotime($row->post_date)).'</td>
+                        <td>'.$row->statusBadge().'</td>
+                        <td>'.$row->note.'</td>
+                        <td>'.$row->surveyItemDetail()->count().'</td>
+                    </tr>';
+                }
+            }else{
+                $html .= '<tr>
+                    <td class="text-center" colspan="7">Data tidak ditemukan.</td>
+                </tr>';
+            }
+
+            $html .= '</tbody></table>';
+
+            #dokumentasi survei
+
+            $html .= '<table class="table table-responsive-md mt-2">
+                    <thead>
+                        <tr>
+                            <th colspan="7"><strong>Dokumentasi Survei</strong></th>
+                        </tr>
+                        <tr>
+                            <th><strong>#</strong></th>
+                            <th><strong>Dokumen</strong></th>
+                            <th><strong>Pengguna</strong></th>
+                            <th><strong>Tgl.Dokumen</strong></th>
+                            <th><strong>Status</strong></th>
+                            <th><strong>Catatan</strong></th>
+                            <th><strong>Jumlah File</strong></th>
+                        </tr>
+                    </thead><tbody>';
+
+            if($data->surveyDocumentation()->exists()){
+                foreach($data->surveyDocumentation as $key => $row){
+                    $html .= '<tr>
+                        <td class="text-center">'.($key+1).'</td>
+                        <td>'.$row->code.'</td>
+                        <td>'.$row->user->nama.'</td>
+                        <td>'.date('d/m/Y',strtotime($row->post_date)).'</td>
+                        <td>'.$row->statusBadge().'</td>
+                        <td>'.$row->note.'</td>
+                        <td>'.$row->surveyDocumentationDetail()->count().'</td>
+                    </tr>';
+                }
+            }else{
+                $html .= '<tr>
+                    <td class="text-center" colspan="7">Data tidak ditemukan.</td>
+                </tr>';
+            }
+
+            $html .= '</tbody></table>';
+
+            #kelangkapan dokumen
+
+            $html .= '<table class="table table-responsive-md mt-2">
+                    <thead>
+                        <tr>
+                            <th colspan="7"><strong>Kelengkapan Dokumen</strong></th>
+                        </tr>
+                        <tr>
+                            <th><strong>#</strong></th>
+                            <th><strong>Dokumen</strong></th>
+                            <th><strong>Pengguna</strong></th>
+                            <th><strong>Tgl.Dokumen</strong></th>
+                            <th><strong>Status</strong></th>
+                            <th><strong>Catatan</strong></th>
+                            <th><strong>Jumlah File</strong></th>
+                        </tr>
+                    </thead><tbody>';
+
+            if($data->documentation()->exists()){
+                foreach($data->documentation as $key => $row){
+                    $html .= '<tr>
+                        <td class="text-center">'.($key+1).'</td>
+                        <td>'.$row->code.'</td>
+                        <td>'.$row->user->nama.'</td>
+                        <td>'.date('d/m/Y',strtotime($row->post_date)).'</td>
+                        <td>'.$row->statusBadge().'</td>
+                        <td>'.$row->note.'</td>
+                        <td>'.$row->documentationDetail()->count().'</td>
+                    </tr>';
+                }
+            }else{
+                $html .= '<tr>
+                    <td class="text-center" colspan="7">Data tidak ditemukan.</td>
+                </tr>';
+            }
+
+            $html .= '</tbody></table>';
+
+            #sidang
+
+            $html .= '<table class="table table-responsive-md mt-2">
+                    <thead>
+                        <tr>
+                            <th colspan="6"><strong>Sidang</strong></th>
+                        </tr>
+                        <tr>
+                            <th><strong>#</strong></th>
+                            <th><strong>Dokumen</strong></th>
+                            <th><strong>Pengguna</strong></th>
+                            <th><strong>Tgl.Dokumen</strong></th>
+                            <th><strong>Status</strong></th>
+                            <th><strong>Catatan</strong></th>
+                        </tr>
+                    </thead><tbody>';
+
+            if($data->hearing()->exists()){
+                foreach($data->hearing as $key => $row){
+                    $html .= '<tr>
+                        <td class="text-center">'.($key+1).'</td>
+                        <td>'.$row->code.'</td>
+                        <td>'.$row->user->nama.'</td>
+                        <td>'.date('d/m/Y',strtotime($row->post_date)).'</td>
+                        <td>'.$row->statusBadge().'</td>
+                        <td>'.$row->note.'</td>
+                    </tr>';
+                }
+            }else{
+                $html .= '<tr>
+                    <td class="text-center" colspan="6">Data tidak ditemukan.</td>
+                </tr>';
+            }
+
+            $html .= '</tbody></table>';
+
+            #revisi
+
+            $html .= '<table class="table table-responsive-md mt-2">
+                    <thead>
+                        <tr>
+                            <th colspan="7"><strong>Revisi</strong></th>
+                        </tr>
+                        <tr>
+                            <th><strong>#</strong></th>
+                            <th><strong>Dokumen</strong></th>
+                            <th><strong>Pengguna</strong></th>
+                            <th><strong>Tgl.Dokumen</strong></th>
+                            <th><strong>Status</strong></th>
+                            <th><strong>Catatan</strong></th>
+                            <th><strong>Jumlah File</strong></th>
+                        </tr>
+                    </thead><tbody>';
+
+            if($data->revision()->exists()){
+                foreach($data->revision as $key => $row){
+                    $html .= '<tr>
+                        <td class="text-center">'.($key+1).'</td>
+                        <td>'.$row->code.'</td>
+                        <td>'.$row->user->nama.'</td>
+                        <td>'.date('d/m/Y',strtotime($row->post_date)).'</td>
+                        <td>'.$row->statusBadge().'</td>
+                        <td>'.$row->note.'</td>
+                        <td>'.$row->revisionDetail()->count().'</td>
                     </tr>';
                 }
             }else{

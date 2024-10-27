@@ -59,7 +59,7 @@ class SurveyResultController extends Controller
                                 $query->whereHas('customer', function($query) use ($search){
                                     $query->where('code','like',"%$search%")
                                         ->orWhere('name','like',"%$search%");
-                                });
+                                })->orWhere('code', 'like', "%$search%");
                             });
                     });
                 }
@@ -78,7 +78,7 @@ class SurveyResultController extends Controller
                                 $query->whereHas('customer', function($query) use ($search){
                                     $query->where('code','like',"%$search%")
                                         ->orWhere('name','like',"%$search%");
-                                });
+                                })->orWhere('code', 'like', "%$search%");
                             });
                     });
                 }

@@ -4,6 +4,7 @@ use App\Http\Controllers\ApprovalController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\PayrollController;
+use App\Http\Controllers\ReportPaymentController;
 use App\Http\Controllers\RevisionController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -262,5 +263,10 @@ Route::middleware('login')->group(function () {
         Route::post('create',[BankController::class, 'create']);
         Route::post('show',[BankController::class, 'show']);
         Route::post('destroy',[BankController::class, 'destroy']);
+    });
+
+    Route::prefix('laporan_pembayaran')->middleware('admin.auth:1')->group(function () {
+        Route::get('/', [ReportPaymentController::class, 'index']);
+        Route::post('process',[ReportPaymentController::class, 'process']);
     });
 });

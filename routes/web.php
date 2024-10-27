@@ -4,6 +4,7 @@ use App\Http\Controllers\ApprovalController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\PayrollController;
+use App\Http\Controllers\RevisionController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
@@ -176,6 +177,20 @@ Route::middleware('login')->group(function () {
         Route::post('check',[AndalalinController::class, 'check']);
         Route::post('show_upload',[AndalalinController::class, 'showUpload']);
         Route::post('destroy_file',[AndalalinController::class, 'destroyFile']);
+    });
+
+    Route::prefix('revisi')->middleware('admin.auth:1')->group(function () {
+        Route::get('/',[RevisionController::class, 'index']);
+        Route::get('datatable',[RevisionController::class, 'datatable']);
+        Route::post('create',[RevisionController::class, 'create']);
+        Route::post('create_receipt',[RevisionController::class, 'createReceipt']);
+        Route::post('show',[RevisionController::class, 'show']);
+        Route::post('detail',[RevisionController::class, 'detail']);
+        Route::post('destroy',[RevisionController::class, 'destroy']);
+        Route::post('upload',[RevisionController::class, 'upload']);
+        Route::post('check',[RevisionController::class, 'check']);
+        Route::post('show_upload',[RevisionController::class, 'showUpload']);
+        Route::post('destroy_file',[RevisionController::class, 'destroyFile']);
     });
 
     Route::prefix('sidang')->middleware('admin.auth:1')->group(function () {

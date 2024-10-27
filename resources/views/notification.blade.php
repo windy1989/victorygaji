@@ -1,13 +1,6 @@
 <!--**********************************
     Content body start
 ***********************************-->
-<style>
-    @media (min-width: 500px){
-        #notification-letter-datatable td:nth-of-type(1), #notification-letter-datatable td:nth-of-type(2), #notification-letter-datatable td:nth-last-of-type(1) {
-            background-color:rgb(255, 233, 173) !important;
-        }
-    }
-</style>
 <div class="content-body">
     <!-- container starts -->
     <div class="container-fluid">

@@ -107,7 +107,7 @@ class NotificationController extends Controller
     }
 
     public function getNotification(Request $request){
-        $data = Activity::orderByDesc('id')->limit(5)->get()->sortBy('id');
+        $data = Activity::orderByDesc('id')->limit(5)->get();
         $notif = [];
         foreach($data as $row) {
             $notif[] = [

@@ -2729,7 +2729,7 @@ function loadDataTableNotification(){
             right: 1
         },
         "iDisplayInLength": 10,
-        "order": [[0, 'asc']],
+        "order": [[0, 'desc']],
         ajax: {
             url: window.location.href + '/datatable',
             type: 'GET',

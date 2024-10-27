@@ -42,8 +42,12 @@ class ReportPaymentController extends Controller
                     </thead><tbody>';
         $data = Project::whereIn('status',['2','3'])->get();
 
+        $total = 0;
+
         if($data->count() > 0){
             foreach($data as $key => $row){
+                $balance = $row->balancePayment();
+                $total += $balance;
                 $rowspan = $row->invoice()->count() == 0 ? 1 : $row->invoice()->count();
                 $html .= '<tr>
                     <td class="text-center" rowspan="'.$rowspan.'">'.($key + 1).'</td>
@@ -69,7 +73,7 @@ class ReportPaymentController extends Controller
                     }
                 }
 
-                $html .= '<td rowspan="'.$rowspan.'" class="text-right">'.number_format($row->balancePayment(),2,',','.').'</td>';
+                $html .= '<td rowspan="'.$rowspan.'" class="text-right">'.number_format($balance,   2,',','.').'</td>';
 
                 $html .= '</tr>';
                 if($rowspan > 1){
@@ -85,10 +89,10 @@ class ReportPaymentController extends Controller
                 }
             }
         }else{
-            $html .= '<tr><td class="text-center" colspan="10">Data proyek tidak ditemukan.</td></tr>';
+            $html .= '<tr><td class="text-center" colspan="11">Data proyek tidak ditemukan.</td></tr>';
         }
 
-        $html .= '</tbody></table>';
+        $html .= '<tr><td colspan="10" class="text-right">TOTAL</td><td class="text-right">'.number_format($total,2,',','.').'</td></tr></tbody></table>';
 
         return response()->json($html);
     }

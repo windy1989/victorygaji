@@ -13,8 +13,8 @@
     }
 }
 
-@media (min-width:768){
-    #DZ_W_Notification1 {
+@media (min-width:768px){
+    .notification_dropdown .dropdown-menu-end {
         min-width: 30rem !important;
     }
 }

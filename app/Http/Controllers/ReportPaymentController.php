@@ -92,7 +92,7 @@ class ReportPaymentController extends Controller
             $html .= '<tr><td class="text-center" colspan="11">Data proyek tidak ditemukan.</td></tr>';
         }
 
-        $html .= '<tr><td colspan="10" class="text-right">TOTAL</td><td class="text-right">'.number_format($total,2,',','.').'</td></tr></tbody></table>';
+        $html .= '<tr><td colspan="10" style="text-align:right;">TOTAL</td><td class="text-right">'.number_format($total,2,',','.').'</td></tr></tbody></table>';
 
         return response()->json($html);
     }

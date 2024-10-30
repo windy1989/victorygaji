@@ -17,6 +17,13 @@
             <div class="col-xl-12">
                 <div class="card">
                     <div class="card-header d-block">
+                        <h4 class="card-title">Selamat Datang!</h4>
+                        <p class="m-0 subtitle">Aplikasi Manajemen Proyek V.24.01</p>
+                    </div>
+                    <div class="card-body">
+                        
+                    </div>
+                    {{-- <div class="card-header d-block">
                         <h4 class="card-title">Daftar Payroll Anda</h4>
                         <p class="m-0 subtitle">Silahkan tekan tombol download untuk mengunduh dalam bentuk PDF.</p>
                     </div>
@@ -36,7 +43,7 @@
                                 </thead>
                             </table>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
             <!-- Column ends -->

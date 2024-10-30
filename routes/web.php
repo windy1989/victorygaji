@@ -85,7 +85,7 @@ Route::middleware('login')->group(function () {
         Route::post('get_notification',[NotificationController::class, 'getNotification']);
     });
 
-    Route::prefix('proyek')->middleware('admin.auth:1')->group(function () {
+    Route::prefix('proyek')->middleware('admin.auth:01')->group(function () {
         Route::get('/',[ProjectController::class, 'index']);
         Route::get('datatable',[ProjectController::class, 'datatable']);
         Route::post('create',[ProjectController::class, 'create']);
@@ -94,7 +94,7 @@ Route::middleware('login')->group(function () {
         Route::post('recap',[ProjectController::class, 'recap']);
     });
 
-    Route::prefix('surat_penawaran')->middleware('admin.auth:1')->group(function () {
+    Route::prefix('surat_penawaran')->middleware('admin.auth:01')->group(function () {
         Route::get('/',[OfferingLetterController::class, 'index']);
         Route::get('datatable',[OfferingLetterController::class, 'datatable']);
         Route::post('create',[OfferingLetterController::class, 'create']);
@@ -104,7 +104,7 @@ Route::middleware('login')->group(function () {
         Route::get('print/{id}',[OfferingLetterController::class, 'print']);
     });
 
-    Route::prefix('spk')->middleware('admin.auth:1')->group(function () {
+    Route::prefix('spk')->middleware('admin.auth:01')->group(function () {
         Route::get('/',[LetterAgreementController::class, 'index']);
         Route::get('datatable',[LetterAgreementController::class, 'datatable']);
         Route::post('create',[LetterAgreementController::class, 'create']);
@@ -114,7 +114,7 @@ Route::middleware('login')->group(function () {
         Route::get('print/{id}',[LetterAgreementController::class, 'print']);
     });
 
-    Route::prefix('hasil_survei')->middleware('admin.auth:1')->group(function () {
+    Route::prefix('hasil_survei')->middleware('admin.auth:01')->group(function () {
         Route::get('/',[SurveyResultController::class, 'index']);
         Route::get('datatable',[SurveyResultController::class, 'datatable']);
         Route::post('create',[SurveyResultController::class, 'create']);
@@ -127,7 +127,7 @@ Route::middleware('login')->group(function () {
         Route::get('print/{id}',[SurveyResultController::class, 'print']);
     });
 
-    Route::prefix('item_survei')->middleware('admin.auth:1')->group(function () {
+    Route::prefix('item_survei')->middleware('admin.auth:01')->group(function () {
         Route::get('/',[ItemSurveyController::class, 'index']);
         Route::get('datatable',[ItemSurveyController::class, 'datatable']);
         Route::post('create',[ItemSurveyController::class, 'create']);
@@ -140,7 +140,7 @@ Route::middleware('login')->group(function () {
         Route::get('print/{id}',[ItemSurveyController::class, 'print']);
     });
 
-    Route::prefix('dokumentasi_survei')->middleware('admin.auth:1')->group(function () {
+    Route::prefix('dokumentasi_survei')->middleware('admin.auth:01')->group(function () {
         Route::get('/',[SurveyDocumentationController::class, 'index']);
         Route::get('datatable',[SurveyDocumentationController::class, 'datatable']);
         Route::post('create',[SurveyDocumentationController::class, 'create']);
@@ -153,7 +153,7 @@ Route::middleware('login')->group(function () {
         Route::get('print/{id}',[SurveyDocumentationController::class, 'print']);
     });
 
-    Route::prefix('kelengkapan_dokumen')->middleware('admin.auth:1')->group(function () {
+    Route::prefix('kelengkapan_dokumen')->middleware('admin.auth:01')->group(function () {
         Route::get('/',[DocumentationController::class, 'index']);
         Route::get('datatable',[DocumentationController::class, 'datatable']);
         Route::post('create',[DocumentationController::class, 'create']);
@@ -167,7 +167,7 @@ Route::middleware('login')->group(function () {
         Route::post('destroy_file',[DocumentationController::class, 'destroyFile']);
     });
 
-    Route::prefix('dokumen_andalalin')->middleware('admin.auth:1')->group(function () {
+    Route::prefix('dokumen_andalalin')->middleware('admin.auth:01')->group(function () {
         Route::get('/',[AndalalinController::class, 'index']);
         Route::get('datatable',[AndalalinController::class, 'datatable']);
         Route::post('create',[AndalalinController::class, 'create']);
@@ -181,7 +181,7 @@ Route::middleware('login')->group(function () {
         Route::post('destroy_file',[AndalalinController::class, 'destroyFile']);
     });
 
-    Route::prefix('revisi')->middleware('admin.auth:1')->group(function () {
+    Route::prefix('revisi')->middleware('admin.auth:01')->group(function () {
         Route::get('/',[RevisionController::class, 'index']);
         Route::get('datatable',[RevisionController::class, 'datatable']);
         Route::post('create',[RevisionController::class, 'create']);
@@ -195,7 +195,7 @@ Route::middleware('login')->group(function () {
         Route::post('destroy_file',[RevisionController::class, 'destroyFile']);
     });
 
-    Route::prefix('sidang')->middleware('admin.auth:1')->group(function () {
+    Route::prefix('sidang')->middleware('admin.auth:01')->group(function () {
         Route::get('/',[HearingController::class, 'index']);
         Route::get('datatable',[HearingController::class, 'datatable']);
         Route::post('create',[HearingController::class, 'create']);
@@ -204,7 +204,7 @@ Route::middleware('login')->group(function () {
         Route::post('destroy',[HearingController::class, 'destroy']);
     });
 
-    Route::prefix('invoice')->middleware('admin.auth:1')->group(function () {
+    Route::prefix('invoice')->middleware('admin.auth:01')->group(function () {
         Route::get('/',[InvoiceController::class, 'index']);
         Route::get('datatable',[InvoiceController::class, 'datatable']);
         Route::post('create',[InvoiceController::class, 'create']);
@@ -216,7 +216,7 @@ Route::middleware('login')->group(function () {
         Route::get('print_receipt/{id}',[InvoiceController::class, 'printReceipt']);
     });
 
-    Route::prefix('payroll')->middleware('admin.auth:1')->group(function () {
+    Route::prefix('payroll')->middleware('admin.auth:01')->group(function () {
         Route::get('/',[PayrollController::class, 'index']);
         Route::get('datatable',[PayrollController::class, 'datatable']);
         Route::post('create',[PayrollController::class, 'create']);
@@ -224,7 +224,7 @@ Route::middleware('login')->group(function () {
         Route::post('history', [PayrollController::class, 'history']);
     });
 
-    Route::prefix('customer')->middleware('admin.auth:1')->group(function () {
+    Route::prefix('customer')->middleware('admin.auth:01')->group(function () {
         Route::get('/',[CustomerController::class, 'index']);
         Route::get('datatable',[CustomerController::class, 'datatable']);
         Route::post('create',[CustomerController::class, 'create']);
@@ -232,7 +232,7 @@ Route::middleware('login')->group(function () {
         Route::post('destroy',[CustomerController::class, 'destroy']);
     });
 
-    Route::prefix('user')->middleware('admin.auth:1')->group(function () {
+    Route::prefix('user')->middleware('admin.auth:01')->group(function () {
         Route::get('/',[UserController::class, 'index']);
         Route::get('datatable',[UserController::class, 'datatable']);
         Route::post('update_password',[UserController::class, 'updatePassword']);
@@ -241,7 +241,7 @@ Route::middleware('login')->group(function () {
         Route::post('destroy',[UserController::class, 'destroy']);
     });
 
-    Route::prefix('peruntukan')->middleware('admin.auth:1')->group(function () {
+    Route::prefix('peruntukan')->middleware('admin.auth:01')->group(function () {
         Route::get('/',[PurposeController::class, 'index']);
         Route::get('datatable',[PurposeController::class, 'datatable']);
         Route::post('create',[PurposeController::class, 'create']);
@@ -249,7 +249,7 @@ Route::middleware('login')->group(function () {
         Route::post('destroy',[PurposeController::class, 'destroy']);
     });
 
-    Route::prefix('jenis_proyek')->middleware('admin.auth:1')->group(function () {
+    Route::prefix('jenis_proyek')->middleware('admin.auth:01')->group(function () {
         Route::get('/',[ProjectTypeController::class, 'index']);
         Route::get('datatable',[ProjectTypeController::class, 'datatable']);
         Route::post('create',[ProjectTypeController::class, 'create']);
@@ -257,7 +257,7 @@ Route::middleware('login')->group(function () {
         Route::post('destroy',[ProjectTypeController::class, 'destroy']);
     });
 
-    Route::prefix('rekening_bank')->middleware('admin.auth:1')->group(function () {
+    Route::prefix('rekening_bank')->middleware('admin.auth:01')->group(function () {
         Route::get('/',[BankController::class, 'index']);
         Route::get('datatable',[BankController::class, 'datatable']);
         Route::post('create',[BankController::class, 'create']);
@@ -265,7 +265,7 @@ Route::middleware('login')->group(function () {
         Route::post('destroy',[BankController::class, 'destroy']);
     });
 
-    Route::prefix('laporan_pembayaran')->middleware('admin.auth:1')->group(function () {
+    Route::prefix('laporan_pembayaran')->middleware('admin.auth:01')->group(function () {
         Route::get('/', [ReportPaymentController::class, 'index']);
         Route::post('process',[ReportPaymentController::class, 'process']);
     });

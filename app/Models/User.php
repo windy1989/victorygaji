@@ -64,7 +64,7 @@ class User extends Authenticatable
     public function type(){
         $type = match ($this->type) {
             '01' => 'Superadmin',
-            '02' => 'Karyawan',
+            '02' => 'Admin',
             '03' => 'Dokumen',
             '04' => 'Drafter',
             '05' => 'Surveyor',

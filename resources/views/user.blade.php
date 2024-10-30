@@ -110,7 +110,7 @@
                                     <label class="form-label">Tipe Pegawai & Hak Akses</label>
                                     <select id="type" name="type" class="form-control wide">
                                         <option value="01">Superadmin</option>
-                                        <option value="02">Karyawan</option>
+                                        <option value="02">Admin</option>
                                         <option value="03">Dokumen</option>
                                         <option value="04">Drafter</option>
                                         <option value="05">Surveyor</option>

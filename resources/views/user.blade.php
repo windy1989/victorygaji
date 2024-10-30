@@ -109,15 +109,18 @@
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Tipe Pegawai & Hak Akses</label>
                                     <select id="type" name="type" class="form-control wide">
-                                        <option value="1">Superadmin</option>
-                                        <option value="2">Karyawan</option>
-                                        <option value="3">Dokumen</option>
-                                        <option value="4">Drafter</option>
-                                        <option value="5">Surveyor</option>
-                                        <option value="6">Manager</option>
-                                        <option value="7">Director</option>
-                                        <option value="8">Komisaris</option>
-                                        <option value="9">Supervisor</option>
+                                        <option value="01">Superadmin</option>
+                                        <option value="02">Karyawan</option>
+                                        <option value="03">Dokumen</option>
+                                        <option value="04">Drafter</option>
+                                        <option value="05">Surveyor</option>
+                                        <option value="06">Manager</option>
+                                        <option value="07">Director</option>
+                                        <option value="08">Komisaris</option>
+                                        <option value="09">Supervisor Admin</option>
+                                        <option value="10">Supervisor Surveyor</option>
+                                        <option value="11">Supervisor Drafter</option>
+                                        <option value="12">Supervisor Dokumen</option>
                                     </select>
                                 </div>
                                 <div class="mb-3 col-md-6">

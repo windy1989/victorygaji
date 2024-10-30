@@ -63,15 +63,18 @@ class User extends Authenticatable
 
     public function type(){
         $type = match ($this->type) {
-            '1' => 'Superadmin',
-            '2' => 'Karyawan',
-            '3' => 'Dokumen',
-            '4' => 'Drafter',
-            '5' => 'Surveyor',
-            '6' => 'Manager',
-            '7' => 'Director',
-            '8' => 'Komisaris',
-            '9' => 'Supervisor',
+            '01' => 'Superadmin',
+            '02' => 'Karyawan',
+            '03' => 'Dokumen',
+            '04' => 'Drafter',
+            '05' => 'Surveyor',
+            '06' => 'Manager',
+            '07' => 'Director',
+            '08' => 'Komisaris',
+            '09' => 'Supervisor Admin',
+            '10' => 'Supervisor Surveyor',
+            '11' => 'Supervisor Drafter',
+            '12' => 'Supervisor Dokumen',
             default => 'Invalid',
         };
 

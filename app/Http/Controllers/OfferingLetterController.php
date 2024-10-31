@@ -40,6 +40,8 @@ class OfferingLetterController extends Controller
             'type_building',
             'location_building',
             'type_road',
+            'is_pnbp',
+            'is_include_tax',
             'note',
             'status',
         ];
@@ -110,6 +112,8 @@ class OfferingLetterController extends Controller
                     $val->type_building,
                     $val->location_building,
                     $val->type_road,
+                    $val->isPnbp(),
+                    $val->isIncludeTax(),
                     $val->note,
                     $val->statusBadge(),
                     '

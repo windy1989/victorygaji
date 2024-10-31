@@ -25,6 +25,8 @@ class OfferingLetter extends Model
         'type_building',
         'location_building',
         'type_road',
+        'is_pnbp',
+        'is_include_tax',
         'note',
         'status',
     ];
@@ -44,6 +46,26 @@ class OfferingLetter extends Model
             '3' => 'Selesai',
             '4' => 'Dibatalkan',
             '5' => 'Revisi/Ditolak',
+            default => 'Invalid',
+        };
+
+        return $status;
+    }
+
+    public function isPnbp(){
+        $status = match ($this->status) {
+            '1' => 'include PNBP',
+            '2' => 'tidak include PNBP',
+            default => 'Invalid',
+        };
+
+        return $status;
+    }
+
+    public function isIncludeTax(){
+        $status = match ($this->status) {
+            '1' => 'include Pajak',
+            '2' => 'tidak include Pajak',
             default => 'Invalid',
         };
 

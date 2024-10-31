@@ -49,6 +49,8 @@
                                                 <th>Jenis Bangunan</th>
                                                 <th>Lokasi Bangunan</th>
                                                 <th>Jalan</th>
+                                                <th>Include PNBP</th>
+                                                <th>Include Pajak</th>
                                                 <th>Catatan Internal</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
@@ -112,6 +114,20 @@
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Keterangan (Internal)</label>
                                     <input type="text" class="form-control" placeholder="Keterangan" id="note" name="note">
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label class="form-label">Include PNBP?</label>
+                                    <select id="is_pnbp" name="is_pnbp" class="form-control wide">
+                                        <option value="1">Ya</option>
+                                        <option value="2">Tidak</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label class="form-label">Include Pajak?</label>
+                                    <select id="is_include_tax" name="is_include_tax" class="form-control wide">
+                                        <option value="1">Ya</option>
+                                        <option value="2">Tidak</option>
+                                    </select>
                                 </div>
                             </div>
                         </form>

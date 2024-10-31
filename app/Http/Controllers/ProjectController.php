@@ -43,6 +43,8 @@ class ProjectController extends Controller
             'end_date',
             'andalalin_document_no',
             'power_letter_no',
+            'pic_name',
+            'pic_no',
             'cost',
             'termin',
             'note',
@@ -64,6 +66,8 @@ class ProjectController extends Controller
                             ->orWhere('name', 'like', "%$search%")
                             ->orWhere('project_no', 'like', "%$search%")
                             ->orWhere('location', 'like', "%$search%")
+                            ->orWhere('pic_name', 'like', "%$search%")
+                            ->orWhere('pic_no', 'like', "%$search%")
 							->orWhereHas('customer', function($query) use ($search){
 								$query->where('code','like',"%$search%")
                                     ->orWhere('name','like',"%$search%");
@@ -83,6 +87,8 @@ class ProjectController extends Controller
                             ->orWhere('name', 'like', "%$search%")
                             ->orWhere('project_no', 'like', "%$search%")
                             ->orWhere('location', 'like', "%$search%")
+                            ->orWhere('pic_name', 'like', "%$search%")
+                            ->orWhere('pic_no', 'like', "%$search%")
 							->orWhereHas('customer', function($query) use ($search){
 								$query->where('code','like',"%$search%")
                                     ->orWhere('name','like',"%$search%");

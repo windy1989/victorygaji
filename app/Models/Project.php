@@ -24,6 +24,8 @@ class Project extends Model
         'location',
         'region_id',
         'customer_id',
+        'pic_name',
+        'pic_no',
         'project_type_id',
         'purpose_id',
         'purpose_note',

@@ -1819,6 +1819,8 @@ function loadDataTableProject(){
             { name: 'end_date', className: '' },
             { name: 'andalalin_document_no', className: '' },
             { name: 'power_letter_no', className: '' },
+            { name: 'pic_name', className: '' },
+            { name: 'pic_no', className: '' },
             { name: 'cost', className: 'text-right' },
             { name: 'termin', className: 'text-center' },
             { name: 'note', className: '' },

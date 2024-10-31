@@ -60,6 +60,8 @@
                                                 <th>Tgl.Selesai Pengerjaan</th>
                                                 <th>No.Surat Andalalin</th>
                                                 <th>No.Surat Kuasa</th>
+                                                <th>Nama PIC</th>
+                                                <th>Telp. PIC</th>
                                                 <th>Biaya</th>
                                                 <th>Termin</th>
                                                 <th>Keterangan/Catatan</th>

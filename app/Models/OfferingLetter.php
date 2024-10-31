@@ -53,7 +53,7 @@ class OfferingLetter extends Model
     }
 
     public function isPnbp(){
-        $status = match ($this->status) {
+        $status = match ($this->is_pnbp) {
             '1' => 'include PNBP',
             '2' => 'exclude PNBP',
             default => 'Invalid',
@@ -63,7 +63,7 @@ class OfferingLetter extends Model
     }
 
     public function isIncludeTax(){
-        $status = match ($this->status) {
+        $status = match ($this->is_include_tax) {
             '1' => 'include Pajak',
             '2' => 'exclude Pajak',
             default => 'Invalid',

@@ -121,6 +121,8 @@ class ProjectController extends Controller
                     date('d/m/Y',strtotime($val->end_date)),
                     $val->andalalin_document_no,
                     $val->power_letter_no,
+                    $val->pic_name,
+                    $val->pic_no,
                     number_format($val->cost,2,',','.'),
                     $val->termin,
                     $val->note,
@@ -198,6 +200,8 @@ class ProjectController extends Controller
                     $query->code            = $request->code;
                     $query->name            = $request->name;    
                     $query->customer_id     = $request->customer_id;
+                    $query->pic_name        = $request->pic_name;
+                    $query->pic_no          = $request->pic_no;
                     $query->project_no      = $request->project_no;
                     $query->post_date       = $request->post_date;
                     $query->location        = $request->location;
@@ -222,6 +226,8 @@ class ProjectController extends Controller
                         'user_id'               => session('bo_id'),
                         'name'                  => $request->name,
                         'customer_id'           => $request->customer_id,
+                        'pic_name'              => $request->pic_name,
+                        'pic_no'                => $request->pic_no,
                         'project_no'            => $request->project_no,
                         'post_date'             => $request->post_date,
                         'location'              => $request->location,

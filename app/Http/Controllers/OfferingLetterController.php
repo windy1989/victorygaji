@@ -187,6 +187,8 @@ class OfferingLetterController extends Controller
                     $query->type_building       = $request->type_building;
                     $query->location_building   = $request->location_building;
                     $query->type_road           = $request->type_road;
+                    $query->is_pnbp             = $request->is_pnbp;
+                    $query->is_include_tax      = $request->is_include_tax;
                     $query->note                = $request->note;
                     $query->status              = '3';
                     $query->save();
@@ -201,6 +203,8 @@ class OfferingLetterController extends Controller
                         'type_building'         => $request->type_building,
                         'location_building'     => $request->location_building,
                         'type_road'             => $request->type_road,
+                        'is_pnbp'               => $request->is_pnbp,
+                        'is_include_tax'        => $request->is_include_tax,
                         'note'                  => $request->note,
                         'status'                => '3',
                     ]);

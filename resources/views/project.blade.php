@@ -168,6 +168,14 @@
                                     <label class="form-label">Keterangan</label>
                                     <input type="text" class="form-control" placeholder="Keterangan" id="note" name="note">
                                 </div>
+                                <div class="mb-3 col-md-6">
+                                    <label class="form-label">Nama PIC</label>
+                                    <input type="text" class="form-control" placeholder="Nama PIC" id="pic_name" name="pic_name">
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label class="form-label">Nomor Telp. PIC</label>
+                                    <input type="text" class="form-control" placeholder="Nomor Telp PIC" id="pic_no" name="pic_no">
+                                </div>
                             </div>
                         </form>
                     </div>

@@ -1109,6 +1109,8 @@ function edit(code){
                         <option value="` + response.data.purpose_id + `">` + response.data.purpose_info + `</option>
                     `);
                     $('#purpose_note').val(response.data.purpose_note);
+                    $('#pic_name').val(response.data.pic_name);
+                    $('#pic_no').val(response.data.pic_no);
                     $('#working_days').val(response.data.working_days);
                     $('#start_date').val(response.data.start_date);
                     $('#end_date').val(response.data.end_date);
@@ -1147,6 +1149,8 @@ function edit(code){
                     $('#type_building').val(response.data.type_building);
                     $('#location_building').val(response.data.location_building);
                     $('#type_road').val(response.data.type_road);
+                    $('#is_pnbp').val(response.data.is_pnbp);
+                    $('#is_include_tax').val(response.data.is_include_tax);
                     $('#note').val(response.data.note);
                 }
 

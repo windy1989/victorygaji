@@ -59,7 +59,7 @@
 			<table id="table-header" cellpadding="0" cellspacing="0" width="100%">
 				<tr>
                     <td align="right" width="30%">
-                        <img src="{{ public_path('assets/images/square_logo.png') }}" width="125px" height="auto" style="margin-left:65px;position:absolute;">
+                        <img src="{{ public_path('assets/images/square_logo.png') }}" width="125px" height="auto" style="margin-left:85px;position:absolute;">
                     </td>
                     <td width="70%">
                         <div style="font-size:25px;">CV. VICTORY KONSULTAN</div>

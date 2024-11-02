@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Helpers\CustomHelper;
 use App\Http\Controllers\Controller;
+use App\Models\Bank;
 use App\Models\Customer;
 use App\Models\Invoice;
 use App\Models\Project;
@@ -407,6 +408,7 @@ class InvoiceController extends Controller
             $result = [
                 'title'         => 'Invoice '.$data->code,
                 'data'          => $data,
+                'banks'         => Bank::where('status','1')->get(),
             ];
     
             $pdf = Pdf::loadView('pdf.invoice', $result);

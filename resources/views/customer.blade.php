@@ -59,6 +59,7 @@
                                                 <th>Tipe</th>
                                                 <th>Keterangan</th>
                                                 <th>Status</th>
+                                                <th>Logo</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -159,6 +160,14 @@
                                         <input type="checkbox" class="form-check-input" checked="" id="status" name="status" required="" value="1">
                                         <label class="form-check-label" for="status">Aktif</label>
                                     </div>
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label class="form-label">Logo Perusahaan (Jika Ada)</label>
+                                    <input class="form-control" type="file" id="document" name="document" accept="image/png, image/jpeg, image/jpg" onchange="checkFileMax(this)">
+                                </div>
+                                <div class="mb-3 col-md-12">
+                                    <label class="form-label">Preview Logo</label>
+                                    <div id="previewFile"></div>
                                 </div>
                             </div>
                         </form>

@@ -101,6 +101,7 @@ class CustomerController extends Controller
                     $val->typeBody(),
                     $val->note,
                     $val->statusBadge(),
+                    $val->logo ? '<a href="'.$val->attachment().'" target="_blank"><i class="flaticon-381-link"></i></a>' : 'Belum diunggah',
                     '
                         <a href="javascript:void(0);" class="btn btn-warning btn-sm content-icon" onclick="edit(`'.CustomHelper::encrypt($val->code).'`)"><i class="fa fa-edit"></i></a>
                         <a href="javascript:void(0);" class="btn btn-danger btn-sm content-icon" onclick="destroy(`'.CustomHelper::encrypt($val->code).'`)"><i class="fa fa-trash"></i></a>
@@ -141,6 +142,23 @@ class CustomerController extends Controller
             } else {
                 if($request->temp){
                     $query = Customer::where('code',CustomHelper::decrypt($request->temp))->first();
+                    
+                    $desiredPath = '';
+                    if($request->has('document')){
+                        if($query->logo){
+                            if(Storage::exists($query->logo)){
+                                Storage::delete($query->logo);
+                            }
+                        }
+                        $imageName = Str::random(35).'.png';
+                        $path =storage_path('app/public/customer/'.$imageName);
+                        $newFile = CustomHelper::compress($request->document,$path,50);
+                        $basePath = storage_path('app');
+                        $desiredPath = explode($basePath.'/', $newFile)[1];
+                    }else{
+                        $desiredPath = $query->logo;
+                    }
+
                     $query->name            = $request->name;        
                     $query->email           = $request->email;
                     $query->owner_name      = $request->owner_name;
@@ -154,10 +172,20 @@ class CustomerController extends Controller
                     $query->phone           = $request->phone;
                     $query->type_body       = $request->type_body;
                     $query->note            = $request->note;
+                    $query->logo            = $desiredPath;
                     $query->status          = $request->status ?? '2';
                     $query->save();
                     CustomHelper::saveLog($query->getTable(),$query->id,'Update data customer '.$query->code,'Pengguna '.session('bo_nama').' telah mengubah data pelanggan no '.$query->code);
                 }else{
+                    $desiredPath = '';
+                    if($request->has('document')){
+                        $imageName = Str::random(35).'.png';
+                        $path =storage_path('app/public/customer/'.$imageName);
+                        $newFile = CustomHelper::compress($request->document,$path,50);
+                        $basePath = storage_path('app');
+                        $desiredPath = explode($basePath.'/', $newFile)[1];
+                    }
+
                     $query = Customer::create([
                         'code'              => $request->code ?? Customer::generateCode(),
                         'name'              => $request->name,         
@@ -173,6 +201,7 @@ class CustomerController extends Controller
                         'phone'             => $request->phone,
                         'type_body'         => $request->type_body,
                         'note'              => $request->note,
+                        'logo'              => $desiredPath,
                         'status'            => $request->status ?? '2',
                     ]);
                     CustomHelper::saveLog($query->getTable(),$query->id,'Tambah baru data customer '.$query->code,'Pengguna '.session('bo_nama').' telah manambahkan baru data pelanggan no '.$query->code);

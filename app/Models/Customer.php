@@ -30,8 +30,26 @@ class Customer extends Model
         'phone',
         'type_body',
         'note',
+        'logo',
         'status',
     ];
+
+    public function attachment() 
+    {
+        if($this->logo !== NULL && Storage::exists($this->logo)) {
+            $document = asset(Storage::url($this->logo));
+        } else {
+            $document = asset('website/empty.png');
+        }
+
+        return $document;
+    }
+
+    public function deleteFile(){
+		if(Storage::exists($this->logo)) {
+            Storage::delete($this->logo);
+        }
+	}
 
     public function status(){
         $status = match ($this->status) {

@@ -1753,6 +1753,7 @@ function loadDataTableCustomer(){
             { name: 'type', className: '' },
             { name: 'note', className: '' },
             { name: 'status', className: 'text-center' },
+            { name: 'logo', searchable: false, orderable: false, className: 'text-center' },
             { name: 'action', searchable: false, orderable: false, className: 'text-center' },
         ],
         createdRow: function ( row, data, index ) {

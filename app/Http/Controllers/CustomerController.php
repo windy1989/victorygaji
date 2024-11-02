@@ -150,11 +150,7 @@ class CustomerController extends Controller
                                 Storage::delete($query->logo);
                             }
                         }
-                        $imageName = Str::random(35).'.png';
-                        $path =storage_path('app/public/customer/'.$imageName);
-                        $newFile = CustomHelper::compress($request->document,$path,100);
-                        $basePath = storage_path('app');
-                        $desiredPath = explode($basePath.'/', $newFile)[1];
+                        $desiredPath = $request->file('document')->store('public/customer');
                     }else{
                         $desiredPath = $query->logo;
                     }
@@ -177,15 +173,6 @@ class CustomerController extends Controller
                     $query->save();
                     CustomHelper::saveLog($query->getTable(),$query->id,'Update data customer '.$query->code,'Pengguna '.session('bo_nama').' telah mengubah data pelanggan no '.$query->code);
                 }else{
-                    $desiredPath = '';
-                    if($request->has('document')){
-                        $imageName = Str::random(35).'.png';
-                        $path =storage_path('app/public/customer/'.$imageName);
-                        $newFile = CustomHelper::compress($request->document,$path,100);
-                        $basePath = storage_path('app');
-                        $desiredPath = explode($basePath.'/', $newFile)[1];
-                    }
-
                     $query = Customer::create([
                         'code'              => $request->code ?? Customer::generateCode(),
                         'name'              => $request->name,         
@@ -201,7 +188,7 @@ class CustomerController extends Controller
                         'phone'             => $request->phone,
                         'type_body'         => $request->type_body,
                         'note'              => $request->note,
-                        'logo'              => $desiredPath,
+                        'logo'              => $request->file('document') ? $request->file('document')->store('public/customer') : NULL,
                         'status'            => $request->status ?? '2',
                     ]);
                     CustomHelper::saveLog($query->getTable(),$query->id,'Tambah baru data customer '.$query->code,'Pengguna '.session('bo_nama').' telah manambahkan baru data pelanggan no '.$query->code);

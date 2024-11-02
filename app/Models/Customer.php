@@ -35,6 +35,15 @@ class Customer extends Model
         'status',
     ];
 
+    public function pathLogoFromPublic(){
+        $path = '';
+        if($this->logo){
+            $arr = explode('/',$this->logo);
+            $path = $arr[1].'/'.$arr[2];
+        }
+        return $path;
+    }
+
     public function attachment() 
     {
         if($this->logo !== NULL && Storage::exists($this->logo)) {

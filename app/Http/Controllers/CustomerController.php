@@ -152,7 +152,7 @@ class CustomerController extends Controller
                         }
                         $imageName = Str::random(35).'.png';
                         $path =storage_path('app/public/customer/'.$imageName);
-                        $newFile = CustomHelper::compress($request->document,$path,50);
+                        $newFile = CustomHelper::compress($request->document,$path,100);
                         $basePath = storage_path('app');
                         $desiredPath = explode($basePath.'/', $newFile)[1];
                     }else{
@@ -181,7 +181,7 @@ class CustomerController extends Controller
                     if($request->has('document')){
                         $imageName = Str::random(35).'.png';
                         $path =storage_path('app/public/customer/'.$imageName);
-                        $newFile = CustomHelper::compress($request->document,$path,50);
+                        $newFile = CustomHelper::compress($request->document,$path,100);
                         $basePath = storage_path('app');
                         $desiredPath = explode($basePath.'/', $newFile)[1];
                     }

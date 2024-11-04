@@ -31,6 +31,10 @@ class OfferingLetter extends Model
         'status',
     ];
 
+    public function offeringLetterPayment(){
+        return $this->hasMany('App\Models\OfferingLetterPayment');
+    }
+
     public function user(){
         return $this->belongsTo('App\Models\User','user_id','id')->withTrashed();
     }

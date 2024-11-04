@@ -84,8 +84,8 @@ class CustomHelper {
 
     public static function sendApproval($table_name = null,$table_id = null,$url = null){
         Approval::where('lookable_type',$table_name)->where('lookable_id',$table_id)->delete();
-        $userlevel1 = User::where('status','1')->where('type','7')->get();
-        $userlevel2 = User::where('status','1')->where('type','8')->get();
+        $userlevel1 = User::where('status','1')->where('type','07')->get();
+        $userlevel2 = User::where('status','1')->where('type','08')->get();
         $message = '';
         
         $data = DB::table($table_name)->where('id',$table_id)->first();

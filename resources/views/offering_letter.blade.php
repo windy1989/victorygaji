@@ -134,73 +134,18 @@
                                         <table class="table table-responsive-md">
                                             <thead>
                                                 <tr>
-                                                    <th style="width:80px;"><strong>#</strong></th>
-                                                    <th><strong>PATIENT</strong></th>
-                                                    <th><strong>DR NAME</strong></th>
-                                                    <th><strong>DATE</strong></th>
-                                                    <th><strong>STATUS</strong></th>
-                                                    <th><strong>PRICE</strong></th>
-                                                    <th></th>
+                                                    <th colspan="5" class="text-center"><strong>Detail Pembayaran</strong></th>
+                                                </tr>
+                                                <tr>
+                                                    <th><strong>#</strong></th>
+                                                    <th><strong>Termin</strong></th>
+                                                    <th><strong>Prosentase</strong></th>
+                                                    <th><strong>Keterangan</strong></th>
+                                                    <th><strong>Hapus</strong></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td><strong>01</strong></td>
-                                                    <td>Mr. Bobby</td>
-                                                    <td>Dr. Jackson</td>
-                                                    <td>01 August 2020</td>
-                                                    <td><span class="badge light badge-success">Successful</span></td>
-                                                    <td>$21.56</td>
-                                                    <td>
-                                                        <div class="dropdown">
-                                                            <button type="button" class="btn btn-success light sharp" data-bs-toggle="dropdown" aria-expanded="false">
-                                                                <svg width="20px" height="20px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
-                                                            </button>
-                                                            <div class="dropdown-menu" style="">
-                                                                <a class="dropdown-item" href="#">Edit</a>
-                                                                <a class="dropdown-item" href="#">Delete</a>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td><strong>02</strong></td>
-                                                    <td>Mr. Bobby</td>
-                                                    <td>Dr. Jackson</td>
-                                                    <td>01 August 2020</td>
-                                                    <td><span class="badge light badge-danger">Canceled</span></td>
-                                                    <td>$21.56</td>
-                                                    <td>
-                                                        <div class="dropdown">
-                                                            <button type="button" class="btn btn-danger light sharp" data-bs-toggle="dropdown">
-                                                                <svg width="20px" height="20px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
-                                                            </button>
-                                                            <div class="dropdown-menu">
-                                                                <a class="dropdown-item" href="#">Edit</a>
-                                                                <a class="dropdown-item" href="#">Delete</a>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td><strong>03</strong></td>
-                                                    <td>Mr. Bobby</td>
-                                                    <td>Dr. Jackson</td>
-                                                    <td>01 August 2020</td>
-                                                    <td><span class="badge light badge-warning">Pending</span></td>
-                                                    <td>$21.56</td>
-                                                    <td>
-                                                        <div class="dropdown">
-                                                            <button type="button" class="btn btn-warning light sharp" data-bs-toggle="dropdown">
-                                                                <svg width="20px" height="20px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
-                                                            </button>
-                                                            <div class="dropdown-menu">
-                                                                <a class="dropdown-item" href="#">Edit</a>
-                                                                <a class="dropdown-item" href="#">Delete</a>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
+                                                
                                             </tbody>
                                         </table>
                                     </div>

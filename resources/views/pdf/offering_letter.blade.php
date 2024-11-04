@@ -20,6 +20,7 @@
 
             table {
                 border-collapse:collapse;
+                border-spacing: 5em;
             }
 
             td {
@@ -121,7 +122,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td style="padding-top: 0px;">
+                    <td>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <ol>
                             <li>Biaya Survey Lapangan Tata Guna lahan dan Pemetaan (Mapping dan Planologi Wilayah dengan Menggunakan Drone)</li>

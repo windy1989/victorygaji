@@ -144,8 +144,18 @@
                                                     <th><strong>Hapus</strong></th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
-                                                
+                                            <tbody id="body-payment">
+                                                <tr>
+                                                    <td colspan="5">Silahkan tambahkan termin.</td>
+                                                </tr>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <td colspan="5" class="text-center">
+                                                        <button type="button" class="btn btn-rounded btn-info"><span class="btn-icon-start text-info"><i class="fa fa-plus color-info"></i>
+                                                        </span>Tambah</button>
+                                                    </td>
+                                                </tr>
                                             </tbody>
                                         </table>
                                     </div>

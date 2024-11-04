@@ -19,8 +19,8 @@
             }
 
             table {
-                border-collapse:collapse;
-                border-spacing: 5em;
+                border-collapse: separate;
+                border-spacing: 0 0em;
             }
 
             td {

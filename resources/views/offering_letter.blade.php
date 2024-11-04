@@ -146,7 +146,7 @@
                                             </thead>
                                             <tbody id="body-payment">
                                                 <tr>
-                                                    <td colspan="5">Silahkan tambahkan termin.</td>
+                                                    <td colspan="5" class="text-center">Silahkan tambahkan termin.</td>
                                                 </tr>
                                             </tbody>
                                             <tfoot>

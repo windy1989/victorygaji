@@ -19,8 +19,7 @@
             }
 
             table {
-                border-collapse: separate;
-                border-spacing: 0 0em;
+                border-collapse:collapse;
             }
 
             td {
@@ -123,7 +122,6 @@
                 </tr>
                 <tr>
                     <td>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <ol>
                             <li>Biaya Survey Lapangan Tata Guna lahan dan Pemetaan (Mapping dan Planologi Wilayah dengan Menggunakan Drone)</li>
                             <li>Biaya Survey Lalu lintas yang terdiri dari Persimpangan dan Ruas Jalan.</li>

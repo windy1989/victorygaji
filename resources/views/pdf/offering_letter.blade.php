@@ -141,9 +141,9 @@
                     <td>
                         Adapun mekanisme pembayarannya adalah sebagai berikut :
                         <ol>
-                            <li>DP sebesar 30% sejak Surat perintah kerja (SPK) diterbitkan,</li>
-                            <li>Tahap 2 sebesar 50% ketika laporan sudah selesai dan siap untuk disidangkan</li>
-                            <li>Tahap 3 sebesar 20% ketika surat Rekomendasi sudah keluar dan diturunkan.</li>
+                            @foreach ($data->offeringLetterPayment as $key => $rowpay)
+                                <li>{{ $rowpay->termin == 1 ? 'DP sebesar ' : 'Tahap '.$rowpay->termin }} {{ number_format($rowpay->percentage,0,',','.') }}% {{ $rowpay->note }}</li>
+                            @endforeach
                         </ol>
                     </td>
                 </tr>

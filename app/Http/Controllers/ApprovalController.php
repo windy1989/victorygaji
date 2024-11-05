@@ -141,12 +141,30 @@ class ApprovalController extends Controller
                     $message = '';
 
                     if($data->url == 'invoice'){
-                        $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Invoice No. '.$data->code.' telah dibayarkan dengan nomor kwitansi : '.$data->lookable->receipt_code.', mohon persetujuannya dengan menekan link terlampir : ';
-                    }elseif($data->url == 'kelengkapan_dokumen'){
+                        $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Invoice No. '.$data->code.' telah dibayarkan dengan nomor kwitansi : '.$data->receipt_code.', mohon persetujuannya dengan menekan link terlampir : ';
+                    }
+            
+                    if($data->url == 'surat_penawaran'){
+                        $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Surat Penawaran No. '.$data->code.', mohon persetujuannya dengan menekan link terlampir : ';
+                    }
+            
+                    if($data->url == 'spk'){
+                        $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen SPK No. '.$data->code.', mohon persetujuannya dengan menekan link terlampir : ';
+                    }
+            
+                    if($data->url == 'proyek'){
+                        $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Proyek No. '.$data->code.', mohon persetujuannya dengan menekan link terlampir : ';
+                    }
+            
+                    if($data->url == 'kelengkapan_dokumen'){
                         $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Kelengkapan Dokumen No. '.$data->code.', mohon persetujuannya dengan menekan link terlampir : ';
-                    }elseif($data->url == 'dokumen_andalalin'){
+                    }
+            
+                    if($data->url == 'dokumen_andalalin'){
                         $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Andalalin No. '.$data->code.', mohon persetujuannya dengan menekan link terlampir : ';
-                    }elseif($data->url == 'revisi'){
+                    }
+            
+                    if($data->url == 'revisi'){
                         $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Revisi No. '.$data->code.', mohon persetujuannya dengan menekan link terlampir : ';
                     }
                     

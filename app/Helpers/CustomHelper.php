@@ -84,14 +84,48 @@ class CustomHelper {
 
     public static function sendApproval($table_name = null,$table_id = null,$url = null){
         Approval::where('lookable_type',$table_name)->where('lookable_id',$table_id)->delete();
-        $userlevel1 = User::where('status','1')->where('type','07')->get();
-        $userlevel2 = User::where('status','1')->where('type','08')->get();
+		$userlevel1 = '';
+		$userlevel2 = '';
+		$userlevel3 = '';
+		$userlevel4 = '';
+		if($url == 'proyek' || $url == 'surat_penawaran'){
+			$userlevel1 = User::where('status','1')->where('type','06')->get();
+        	$userlevel2 = User::where('status','1')->where('type','07')->get();
+		}
+		if($url == 'spk' || $url == 'kelengkapan_dokumen'){
+			$userlevel1 = User::where('status','1')->where('type','06')->get();
+        	$userlevel2 = User::where('status','1')->where('type','07')->get();
+			$userlevel3 = User::where('status','1')->where('type','08')->get();
+		}
+		if($url == 'dokumen_andalalin' || $url == 'revisi'){
+			$userlevel1 = User::where('status','1')->where('type','12')->get();
+        	$userlevel2 = User::where('status','1')->where('type','06')->get();
+			$userlevel3 = User::where('status','1')->where('type','07')->get();
+			$userlevel4 = User::where('status','1')->where('type','08')->get();
+		}
+		if($url == 'invoice'){
+			$userlevel1 = User::where('status','1')->where('type','07')->get();
+			$userlevel2 = User::where('status','1')->where('type','08')->get();
+		}
+
         $message = '';
         
         $data = DB::table($table_name)->where('id',$table_id)->first();
 
         if($url == 'invoice'){
             $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Invoice No. '.$data->code.' telah dibayarkan dengan nomor kwitansi : '.$data->receipt_code.', mohon persetujuannya dengan menekan link terlampir : ';
+        }
+
+		if($url == 'surat_penawaran'){
+            $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Surat Penawaran No. '.$data->code.', mohon persetujuannya dengan menekan link terlampir : ';
+        }
+
+		if($url == 'spk'){
+            $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen SPK No. '.$data->code.', mohon persetujuannya dengan menekan link terlampir : ';
+        }
+
+		if($url == 'proyek'){
+            $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Proyek No. '.$data->code.', mohon persetujuannya dengan menekan link terlampir : ';
         }
 
 		if($url == 'kelengkapan_dokumen'){
@@ -106,34 +140,68 @@ class CustomHelper {
             $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Revisi No. '.$data->code.', mohon persetujuannya dengan menekan link terlampir : ';
         }
 
-        foreach($userlevel1 as $row1){
-            $dataaprove = Approval::create([
-                'code'              => strtoupper(Str::random(15)),
-                'from_user_id'      => session('bo_id'),
-                'to_user_id'        => $row1->id,
-                'lookable_type'     => $table_name,
-                'lookable_id'       => $table_id,
-                'url'               => $url,
-                'approve_status'    => '1',
-                'approve_level'     => 1,
-            ]);
-            if($row1->phone && $message){
-                self::sendWhatsapp($row1->phone,$message.' '.env('APP_URL').'/persetujuan/detail/'.$dataaprove->code);
-            }
-        }
+		if($userlevel1){
+			foreach($userlevel1 as $row1){
+				$dataaprove = Approval::create([
+					'code'              => strtoupper(Str::random(15)),
+					'from_user_id'      => session('bo_id'),
+					'to_user_id'        => $row1->id,
+					'lookable_type'     => $table_name,
+					'lookable_id'       => $table_id,
+					'url'               => $url,
+					'approve_status'    => '1',
+					'approve_level'     => 1,
+				]);
+				if($row1->phone && $message){
+					self::sendWhatsapp($row1->phone,$message.' '.env('APP_URL').'/persetujuan/detail/'.$dataaprove->code);
+				}
+			}
+		}
 
-        foreach($userlevel2 as $row2){
-            $dataaprove = Approval::create([
-                'code'              => strtoupper(Str::random(15)),
-                'from_user_id'      => session('bo_id'),
-                'to_user_id'        => $row2->id,
-                'lookable_type'     => $table_name,
-                'lookable_id'       => $table_id,
-                'url'               => $url,
-                'approve_status'    => NULL,
-                'approve_level'     => 2,
-            ]);
-        }
+		if($userlevel2){
+			foreach($userlevel2 as $row2){
+				$dataaprove = Approval::create([
+					'code'              => strtoupper(Str::random(15)),
+					'from_user_id'      => session('bo_id'),
+					'to_user_id'        => $row2->id,
+					'lookable_type'     => $table_name,
+					'lookable_id'       => $table_id,
+					'url'               => $url,
+					'approve_status'    => NULL,
+					'approve_level'     => 2,
+				]);
+			}
+		}
+
+		if($userlevel3){
+			foreach($userlevel3 as $row3){
+				$dataaprove = Approval::create([
+					'code'              => strtoupper(Str::random(15)),
+					'from_user_id'      => session('bo_id'),
+					'to_user_id'        => $row3->id,
+					'lookable_type'     => $table_name,
+					'lookable_id'       => $table_id,
+					'url'               => $url,
+					'approve_status'    => NULL,
+					'approve_level'     => 3,
+				]);
+			}
+		}
+
+		if($userlevel4){
+			foreach($userlevel4 as $row4){
+				$dataaprove = Approval::create([
+					'code'              => strtoupper(Str::random(15)),
+					'from_user_id'      => session('bo_id'),
+					'to_user_id'        => $row4->id,
+					'lookable_type'     => $table_name,
+					'lookable_id'       => $table_id,
+					'url'               => $url,
+					'approve_status'    => NULL,
+					'approve_level'     => 4,
+				]);
+			}
+		}
     }
 
     public static function terbilangWithKoma($angka){

@@ -190,6 +190,26 @@
         </div>
         <script>
             function addTermin(){
-                alert($('#empty-termin').length);
+                if($('#empty-termin').length > 0){
+                    $('#empty-termin').remove();
+                }
+                let no = $('.row_payment').length + 1;
+                $("#body-payment").append(`
+                    <tr class="row_payment">
+                        <td class="text-center">` + no + `</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="text-center">
+                            <button type="button" class="btn btn-danger" onclick="deletePayment(this);">Hapus <span class="btn-icon-end">
+								<i class="fas fa-times"></i></span>
+                            </button>
+                        </td>
+                    </tr>
+                `);
+            }
+
+            function deletePayment(element){
+                $(element).closest('tr').remove();
             }
         </script>

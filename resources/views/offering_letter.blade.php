@@ -195,7 +195,7 @@
                     <tr class="row_payment">
                         <td class="text-center">` + no + `</td>
                         <td><input type="number" class="form-control" name="arr_termin[]" value="` + no + `"></td>
-                        <td><input type="number" class="form-control" name="arr_percentage[]" value="0"></td>
+                        <td><input type="number" class="form-control" name="arr_percentage[]" value="0,00" onkeyup="formatRupiahNoMinus(this);"></td>
                         <td><input type="text" class="form-control" name="arr_note[]" placeholder="Keterangan untuk hasil cetak..."></td>
                         <td class="text-center">
                             <button type="button" class="btn btn-danger" onclick="deletePayment(this);">Hapus</button>

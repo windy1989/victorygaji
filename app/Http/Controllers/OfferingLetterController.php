@@ -6,6 +6,7 @@ use App\Helpers\CustomHelper;
 use App\Http\Controllers\Controller;
 use App\Models\Customer;
 use App\Models\OfferingLetter;
+use App\Models\OfferingLetterPayment;
 use App\Models\Project;
 use Barryvdh\DomPDF\Facade\Pdf;
 use GuzzleHttp\Psr7\Query;
@@ -152,6 +153,7 @@ class OfferingLetterController extends Controller
                 'type_building'         => 'required',
                 'location_building'     => 'required',
                 'type_road'             => 'required',
+                'arr_termin'            => 'required',
             ], [
                 'code.required'             => 'Kode tidak boleh kosong.',
                 'code.unique'               => 'Kode telah dipakai.',
@@ -161,6 +163,7 @@ class OfferingLetterController extends Controller
                 'type_building.required'    => 'Tipe Bangunan tidak boleh kosong.',
                 'location_building.required'=> 'Lokasi gedung tidak boleh kosong.',
                 'type_road.required'        => 'Tipe Jalan tidak boleh kosong.',
+                'arr_termin.required'       => 'Termin pembayaran tidak boleh kosong.',
             ]);
 
             if($validation->fails()) {
@@ -192,6 +195,7 @@ class OfferingLetterController extends Controller
                     $query->note                = $request->note;
                     $query->status              = '3';
                     $query->save();
+                    $query->offeringLetterPayment()->delete();
                     CustomHelper::saveLog($query->getTable(),$query->id,'Update data surat penawaran '.$query->code,'Pengguna '.session('bo_nama').' telah mengubah data surat penawaran no '.$query->code);
                 }else{
                     $query = OfferingLetter::create([
@@ -212,6 +216,18 @@ class OfferingLetterController extends Controller
                 }
                 
                 if($query) {
+
+                    if($request->arr_termin){
+                        foreach($request->arr_termin as $key => $row){
+                            OfferingLetterPayment::create([
+                                'offering_letter_id'    => $query->id,
+                                'termin'                => $row,
+                                'percentage'            => str_replace(',','.',str_replace('.','',$request->arr_percentage[$key])),
+                                'note'                  => $request->arr_note[$key],
+                            ]);
+                        }
+                    }
+
                     $response = [
                         'status'  => 200,
                         'message' => 'Data berhasil disimpan.'

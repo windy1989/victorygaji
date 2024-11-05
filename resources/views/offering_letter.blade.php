@@ -146,13 +146,13 @@
                                             </thead>
                                             <tbody id="body-payment">
                                                 <tr>
-                                                    <td colspan="5" class="text-center">Silahkan tambahkan termin.</td>
+                                                    <td colspan="5" class="text-center" id="empty-termin">Silahkan tambahkan termin.</td>
                                                 </tr>
                                             </tbody>
                                             <tfoot>
                                                 <tr>
                                                     <td colspan="5" class="text-center">
-                                                        <button type="button" class="btn btn-rounded btn-info"><span class="btn-icon-start text-info"><i class="fa fa-plus color-info"></i>
+                                                        <button type="button" class="btn btn-rounded btn-info"><span class="btn-icon-start text-info"><i class="fa fa-plus color-info" onclick="addTermin();"></i>
                                                         </span>Tambah</button>
                                                     </td>
                                                 </tr>
@@ -188,3 +188,8 @@
                 </div>
             </div>
         </div>
+        <script>
+            function addTermin(){
+                alert($('#empty-termin').length);
+            }
+        </script>

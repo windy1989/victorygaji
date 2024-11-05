@@ -142,7 +142,7 @@
                         Adapun mekanisme pembayarannya adalah sebagai berikut :
                         <ol>
                             @foreach ($data->offeringLetterPayment as $key => $rowpay)
-                                <li>{{ $rowpay->termin == 1 ? 'DP sebesar ' : 'Tahap '.$rowpay->termin }} {{ number_format($rowpay->percentage,0,',','.') }}% {{ $rowpay->note }}</li>
+                                <li>{{ $rowpay->termin == 1 ? 'DP sebesar ' : 'Tahap '.$rowpay->termin.' sebesar ' }} {{ number_format($rowpay->percentage,0,',','.') }}% {{ $rowpay->note }}</li>
                             @endforeach
                         </ol>
                     </td>

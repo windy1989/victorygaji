@@ -198,9 +198,7 @@
                         <td><input type="number" class="form-control" name="arr_percentage[]" value="0"></td>
                         <td><input type="text" class="form-control" name="arr_note[]" placeholder="Keterangan untuk hasil cetak..."></td>
                         <td class="text-center">
-                            <button type="button" class="btn btn-danger" onclick="deletePayment(this);">Hapus <span class="btn-icon-end">
-								<i class="fas fa-times"></i></span>
-                            </button>
+                            <button type="button" class="btn btn-danger" onclick="deletePayment(this);">Hapus</button>
                         </td>
                     </tr>
                 `);

@@ -211,7 +211,7 @@
 
             function deletePayment(element){
                 $(element).closest('tr').remove();
-                if($("#body-payment tr").length == 0){
+                if($("#body-payment").children().length == 0){
                     $("#body-payment").append(`
                         <tr>
                             <td colspan="5" class="text-center" id="empty-termin">Silahkan tambahkan termin.</td>

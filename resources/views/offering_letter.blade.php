@@ -152,7 +152,7 @@
                                             <tfoot>
                                                 <tr>
                                                     <td colspan="5" class="text-center">
-                                                        <button type="button" class="btn btn-rounded btn-info"><span class="btn-icon-start text-info"><i class="fa fa-plus color-info" onclick="addTermin();"></i>
+                                                        <button type="button" class="btn btn-rounded btn-info" onclick="addTermin();"><span class="btn-icon-start text-info"><i class="fa fa-plus color-info"></i>
                                                         </span>Tambah</button>
                                                     </td>
                                                 </tr>

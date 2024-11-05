@@ -211,7 +211,7 @@
 
             function deletePayment(element){
                 $(element).closest('tr').remove();
-                alert($('#body-payment').children().length);
+                alert($('#body-payment tr').length);
                 if($("#body-payment").children().length == 0){
                     $("#body-payment").append(`
                         <tr>

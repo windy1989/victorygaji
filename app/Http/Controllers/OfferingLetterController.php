@@ -250,6 +250,15 @@ class OfferingLetterController extends Controller
         $data = OfferingLetter::where('code',CustomHelper::decrypt($request->code))->first();
         if($data){
             $data['project_code'] = $data->project->code.' - '.$data->project->name.' - '.$data->project->customer->name;
+            $details = [];
+            foreach($data->offeringLetterPayment as $row){
+                $details[] = [
+                    'termin'    => $row->termin,
+                    'percentage'=> number_format($row->percentage,2,',','.'),
+                    'note'      => $row->note,
+                ];
+            }
+            $data['details'] = $details;
             $response = [
                 'status'    => 200,
                 'data'      => $data,

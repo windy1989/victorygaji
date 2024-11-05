@@ -1152,6 +1152,22 @@ function edit(code){
                     $('#is_pnbp').val(response.data.is_pnbp);
                     $('#is_include_tax').val(response.data.is_include_tax);
                     $('#note').val(response.data.note);
+                    $('#body-payment').empty();
+                    if(response.data.details.length > 0){
+                        $.each(response.data.details, function(i, val) {
+                            $('#body-payment').append(`
+                                <tr class="row_payment">
+                                    <td class="text-center">` + (i+1) + `</td>
+                                    <td><input type="number" class="form-control" name="arr_termin[]" value="` + val.termin + `"></td>
+                                    <td><input type="text" class="form-control" name="arr_percentage[]" value="` + val.percentage + `" onkeyup="formatRupiahNoMinus(this);"></td>
+                                    <td><input type="text" class="form-control" name="arr_note[]" placeholder="Keterangan untuk hasil cetak..." value="` + val.note + `"></td>
+                                    <td class="text-center">
+                                        <button type="button" class="btn btn-danger" onclick="deletePayment(this);">Hapus</button>
+                                    </td>
+                                </tr>    
+                            `);
+                        });
+                    }
                 }
 
                 /* JIKA FORM SURAT SPK */

@@ -145,9 +145,6 @@
                                                 </tr>
                                             </thead>
                                             <tbody id="body-payment">
-                                                <tr>
-                                                    <td colspan="5" class="text-center" id="empty-termin">Silahkan tambahkan termin.</td>
-                                                </tr>
                                             </tbody>
                                             <tfoot>
                                                 <tr>
@@ -197,9 +194,9 @@
                 $("#body-payment").append(`
                     <tr class="row_payment">
                         <td class="text-center">` + no + `</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td><input type="number" class="form-control" name="arr_termin[]" value="` + no + `"></td>
+                        <td><input type="number" class="form-control" name="arr_percentage[]" value="0"></td>
+                        <td><input type="text" class="form-control" name="arr_note[]" placeholder="Keterangan untuk hasil cetak..."></td>
                         <td class="text-center">
                             <button type="button" class="btn btn-danger" onclick="deletePayment(this);">Hapus <span class="btn-icon-end">
 								<i class="fas fa-times"></i></span>
@@ -211,13 +208,5 @@
 
             function deletePayment(element){
                 $(element).closest('tr').remove();
-                alert($('#body-payment tr').length);
-                if($("#body-payment").children().length == 0){
-                    $("#body-payment").append(`
-                        <tr>
-                            <td colspan="5" class="text-center" id="empty-termin">Silahkan tambahkan termin.</td>
-                        </tr>
-                    `);
-                }
             }
         </script>

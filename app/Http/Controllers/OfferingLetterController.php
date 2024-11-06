@@ -279,6 +279,31 @@ class OfferingLetterController extends Controller
 
             $html = '';
 
+            if($data->offeringLetterPayment()->exists()){
+                $html .= '<table class="table table-responsive-md">
+                        <thead>
+                            <tr>
+                                <th colspan="4"><strong>Detail Termin</strong></th>
+                            </tr>
+                            <tr>
+                                <th><strong>#</strong></th>
+                                <th><strong>Termin</strong></th>
+                                <th><strong>Prosentase</strong></th>
+                                <th><strong>Catatan</strong></th>
+                            </tr>
+                        </thead><tbody>';
+                foreach($data->offeringLetterPayment as $key2 => $row){
+                    $html .= '<tr>
+                        <td class="text-center">'.($key2+1).'</td>
+                        <td>'.$row->termin.'</td>
+                        <td>'.number_format($row->percentage,2,',','.').'</td>
+                        <td>'.$row->note.'</td>
+                    </tr>';
+                }
+                $html .= '</tbody></table>';
+            }
+            
+
             if($data->approval()->exists()){
                 $html = '<table class="table table-responsive-md">
                         <thead>

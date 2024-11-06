@@ -193,6 +193,34 @@
                                     <label class="form-label">Keterangan (Internal)</label>
                                     <input type="text" class="form-control" placeholder="Keterangan" id="note" name="note">
                                 </div>
+                                <div class="col-md-12">
+                                    <div class="table-responsive">
+                                        <table class="table table-responsive-md">
+                                            <thead>
+                                                <tr>
+                                                    <th colspan="5" class="text-center"><strong>Detail Pembayaran</strong></th>
+                                                </tr>
+                                                <tr>
+                                                    <th><strong>#</strong></th>
+                                                    <th><strong>Termin</strong></th>
+                                                    <th><strong>Prosentase</strong></th>
+                                                    <th><strong>Tipe</strong></th>
+                                                    <th><strong>Hapus</strong></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="body-payment">
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <td colspan="5" class="text-center">
+                                                        <button type="button" class="btn btn-rounded btn-info" onclick="addTermin();"><span class="btn-icon-start text-info"><i class="fa fa-plus color-info"></i>
+                                                        </span>Tambah</button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
                             </div>
                         </form>
                     </div>
@@ -221,3 +249,32 @@
                 </div>
             </div>
         </div>
+        <script>
+            function addTermin(){
+                if($('#empty-termin').length > 0){
+                    $('#empty-termin').remove();
+                }
+                let no = $('.row_payment').length + 1;
+                $("#body-payment").append(`
+                    <tr class="row_payment">
+                        <td class="text-center">` + no + `</td>
+                        <td><input type="number" class="form-control" name="arr_termin[]" value="` + no + `"></td>
+                        <td><input type="text" class="form-control" name="arr_percentage[]" value="0,00" onkeyup="formatRupiahNoMinus(this);"></td>
+                        <td>
+                            <select name="arr_type[]" class="form-control wide">
+                                <option value="1">Nilai kontrak dibayarkan pada saat penandatanganan kontrak dan setelah diterimanya invoice.</option>
+                                <option value="2">Nilai kontrak dibayarkan pada saat PIHAK KEDUA menyerahkan laporan Analisis Dampak Lalu Lintas yang kondisinya siap disidangkan ke instansi terkait dengan menyertakan Tanda Terima Berkas oleh Dinas terkait.</option>
+                                <option value="3">Nilai kontrak dibayarkan saat pekerjaan sudah selesai dan surat rekomendasi Analisis Dampak Lalu Lintas yang diterbitkan instansi terkait sudah terbit.</option>
+                            </select>    
+                        </td>
+                        <td class="text-center">
+                            <button type="button" class="btn btn-danger" onclick="deletePayment(this);">Hapus</button>
+                        </td>
+                    </tr>
+                `);
+            }
+
+            function deletePayment(element){
+                $(element).closest('tr').remove();
+            }
+        </script>

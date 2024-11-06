@@ -272,6 +272,7 @@
                         </td>
                     </tr>
                 `);
+                $('.default-select').selectpicker();
             }
 
             function deletePayment(element){

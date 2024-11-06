@@ -194,9 +194,9 @@ class LetterAgreementController extends Controller
                 'city'                  => 'required',
                 'province'              => 'required',
                 'road_status'           => 'required',
-                'nominal_1'             => 'required',
+                /* 'nominal_1'             => 'required',
                 'nominal_2'             => 'required',
-                'nominal_3'             => 'required',
+                'nominal_3'             => 'required', */
                 'estimate_date_start'   => 'required',
                 'estimate_date_finish'  => 'required',
             ], [
@@ -219,9 +219,9 @@ class LetterAgreementController extends Controller
                 'city.required'                 => 'Kabupaten/Kota tidak boleh kosong.',
                 'province.required'             => 'Provinsi tidak boleh kosong.',
                 'road_status.required'          => 'Status jalan tidak boleh kosong.',
-                'nominal_1.required'            => 'Nominal termin 1 tidak boleh kosong.',
+                /* 'nominal_1.required'            => 'Nominal termin 1 tidak boleh kosong.',
                 'nominal_2.required'            => 'Nominal termin 2 tidak boleh kosong.',
-                'nominal_3.required'            => 'Nominal termin 3 tidak boleh kosong.',
+                'nominal_3.required'            => 'Nominal termin 3 tidak boleh kosong.', */
                 'estimate_date_start.required'  => 'Estimasi tanggal mulai pengerjaan tidak boleh kosong.',
                 'estimate_date_finish.required' => 'Estimasi tanggal selesai pengerjaan tidak boleh kosong.',
             ]);

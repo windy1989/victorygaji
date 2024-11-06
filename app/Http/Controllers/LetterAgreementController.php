@@ -173,8 +173,8 @@ class LetterAgreementController extends Controller
     }
 
     public function create(Request $request){
-        DB::beginTransaction();
-        try {
+        /* DB::beginTransaction();
+        try { */
             $validation = Validator::make($request->all(), [
                 'code'		            => $request->temp ? ['required', Rule::unique('letter_agreements', 'code')->ignore(CustomHelper::decrypt($request->temp),'code')] : 'required|unique:letter_agreements,code',
                 'name'                  => 'required',
@@ -328,11 +328,11 @@ class LetterAgreementController extends Controller
                     ];
                 }
             }
-            DB::commit();
+            /* DB::commit(); */
 		    return response()->json($response);
-        }catch(\Exception $e){
+        /* }catch(\Exception $e){
             DB::rollback();
-        }
+        } */
     }
 
     public function show(Request $request){

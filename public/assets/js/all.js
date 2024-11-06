@@ -1194,6 +1194,7 @@ function edit(code){
                     $('#city').val(response.data.city);
                     $('#province').val(response.data.province);
                     $('#road_status').val(response.data.road_status);
+                    $('#days_to_finish').val(response.data.days_to_finish);
                     $('#estimate_date_start').val(response.data.estimate_date_start);
                     $('#estimate_date_finish').val(response.data.estimate_date_finish);
                     $('#note').val(response.data.note);
@@ -2436,6 +2437,7 @@ function loadDataTableLetterAgreement(){
             { name: 'city', className: '' },
             { name: 'province', className: '' },
             { name: 'road_status', className: '' },
+            { name: 'days_to_finish', className: 'text-center' },
             /* { name: 'nominal_1', className: 'text-right' },
             { name: 'nominal_2', className: 'text-right' },
             { name: 'nominal_3', className: 'text-right' }, */

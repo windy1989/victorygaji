@@ -60,6 +60,7 @@
                                                 <th>Kabupaten/Kota</th>
                                                 <th>Provinsi</th>
                                                 <th>Status Jalan</th>
+                                                <th>Jangka Waktu Setelah DP</th>
                                                 <th>Est.Tgl. Mulai Pekerjaan</th>
                                                 <th>Est.Tgl. Selesai Pekerjaan</th>
                                                 <th>Catatan Internal</th>
@@ -165,6 +166,10 @@
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Status Jalan</label>
                                     <input type="text" class="form-control" placeholder="Muncul saat cetak" id="road_status" name="road_status">
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label class="form-label">Jangka Waktu Pengerjaan Setelah DP</label>
+                                    <input type="number" class="form-control" id="days_to_finish" name="days_to_finish" value="1" step="1" min="1">
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Tgl.Mulai Pengerjaan</label>

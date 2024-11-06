@@ -37,6 +37,7 @@ class LetterAgreement extends Model
         'nominal_1',
         'nominal_2',
         'nominal_3',
+        'days_to_finish',
         'estimate_date_start',
         'estimate_date_finish',
         'note',

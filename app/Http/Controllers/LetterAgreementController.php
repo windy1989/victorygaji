@@ -54,6 +54,7 @@ class LetterAgreementController extends Controller
             'city',
             'province',
             'road_status',
+            'days_to_finish',
             /* 'nominal_1',
             'nominal_2',
             'nominal_3', */
@@ -140,6 +141,7 @@ class LetterAgreementController extends Controller
                     $val->city,
                     $val->province,
                     $val->road_status,
+                    $val->days_to_finish,
                     /* number_format($val->nominal_1,2,',','.'),
                     number_format($val->nominal_2,2,',','.'),
                     number_format($val->nominal_3,2,',','.'), */
@@ -194,6 +196,7 @@ class LetterAgreementController extends Controller
                 'city'                  => 'required',
                 'province'              => 'required',
                 'road_status'           => 'required',
+                'days_to_finish'        => 'required',
                 /* 'nominal_1'             => 'required',
                 'nominal_2'             => 'required',
                 'nominal_3'             => 'required', */
@@ -219,6 +222,7 @@ class LetterAgreementController extends Controller
                 'city.required'                 => 'Kabupaten/Kota tidak boleh kosong.',
                 'province.required'             => 'Provinsi tidak boleh kosong.',
                 'road_status.required'          => 'Status jalan tidak boleh kosong.',
+                'days_to_finish.required'       => 'Jangka waktu pengerjaan setelah DP tidak boleh kosong.',
                 /* 'nominal_1.required'            => 'Nominal termin 1 tidak boleh kosong.',
                 'nominal_2.required'            => 'Nominal termin 2 tidak boleh kosong.',
                 'nominal_3.required'            => 'Nominal termin 3 tidak boleh kosong.', */
@@ -262,6 +266,7 @@ class LetterAgreementController extends Controller
                     $query->city                = $request->city;
                     $query->province            = $request->province;
                     $query->road_status         = $request->road_status;
+                    $query->days_to_finish      = $request->days_to_finish;
                     /* $query->nominal_1           = str_replace(',','.',str_replace('.','',$request->nominal_1));
                     $query->nominal_2           = str_replace(',','.',str_replace('.','',$request->nominal_2));
                     $query->nominal_3           = str_replace(',','.',str_replace('.','',$request->nominal_3)); */
@@ -293,6 +298,7 @@ class LetterAgreementController extends Controller
                         'city'                      => $request->city,
                         'province'                  => $request->province,
                         'road_status'               => $request->road_status,
+                        'days_to_finish'            => $request->days_to_finish,
                         /* 'nominal_1'                 => str_replace(',','.',str_replace('.','',$request->nominal_1)),
                         'nominal_2'                 => str_replace(',','.',str_replace('.','',$request->nominal_2)),
                         'nominal_3'                 => str_replace(',','.',str_replace('.','',$request->nominal_3)), */
@@ -390,7 +396,7 @@ class LetterAgreementController extends Controller
                         <td class="text-center">'.($key2+1).'</td>
                         <td>'.$row->termin.'</td>
                         <td>'.number_format($row->percentage,2,',','.').'</td>
-                        <td>'.$row->type().'</td>
+                        <td class="text-left">'.$row->type().'</td>
                     </tr>';
                 }
                 $html .= '</tbody></table>';

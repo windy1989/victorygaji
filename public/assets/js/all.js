@@ -146,7 +146,7 @@ Dropzone.options.dropzoneUploadDocument = {
     autoQueue: true,
 	timeout: 0,
     addRemoveLinks : true,
-    acceptedFiles: ".doc,.docx",
+    /* acceptedFiles: ".doc,.docx", */
     init: function() {
         dropzoneMultiple = this;
         this.on("addedfiles", function(files) {

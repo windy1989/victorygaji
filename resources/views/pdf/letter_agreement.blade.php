@@ -376,7 +376,6 @@
                         </td>
                     </tr>
                 </table>
-                <br>
                 <div style="margin:auto;width:90%;text-align:justify !important;">
                     <p style="text-align:center;"><b>Pasal 1</b></p>
                     <p style="text-align:center;">RUANG LINGKUP PEKERJAAN</p>
@@ -391,7 +390,6 @@
                         </ol>
                     </p>
                 </div>
-                <br>
                 <div style="margin:auto;width:90%;text-align:justify !important;">
                     <p style="text-align:center;"><b>Pasal 2</b></p>
                     <p style="text-align:center;">PEMBIAYAAN</p>
@@ -431,7 +429,6 @@
                         </ol>
                     </p>
                 </div>
-                <br>
                 <div style="margin:auto;width:90%;text-align:justify !important;">
                     <p style="text-align:center;"><b>Pasal 3</b></p>
                     <p style="text-align:center;">WAKTU PELAKSANAAN</p>
@@ -443,7 +440,6 @@
                         </ol>
                     </p>
                 </div>
-                <br>
                 <div style="margin:auto;width:90%;text-align:justify !important;">
                     <p style="text-align:center;"><b>Pasal 4</b></p>
                     <p style="text-align:center;">AMANDEMEN/ADDENDUM</p>
@@ -455,7 +451,6 @@
                         </ol>
                     </p>
                 </div>
-                <br>
                 <div style="margin:auto;width:90%;text-align:justify !important;">
                     <p style="text-align:center;"><b>Pasal 5</b></p>
                     <p style="text-align:center;">HAK DAN KEWAJIBAN PARA PIHAK</p>
@@ -511,7 +506,6 @@
                         </ol>
                     </p>
                 </div>
-                <br>
                 <div style="margin:auto;width:90%;text-align:justify !important;">
                     <p style="text-align:center;"><b>Pasal 6</b></p>
                     <p style="text-align:center;">FORCE MAJEURE</p>
@@ -532,7 +526,6 @@
                         </ol>
                     </p>
                 </div>
-                <br>
                 <div style="margin:auto;width:90%;text-align:justify !important;">
                     <p style="text-align:center;"><b>Pasal 7</b></p>
                     <p style="text-align:center;">PENGAKHIRAN PERJANJIAN</p>
@@ -553,7 +546,6 @@
                         </ol>
                     </p>
                 </div>
-                <br>
                 <div style="margin:auto;width:90%;text-align:justify !important;">
                     <p style="text-align:center;"><b>Pasal 8</b></p>
                     <p style="text-align:center;">PENYELESAIAN PERSELISIHAN</p>
@@ -568,7 +560,6 @@
                         </ol>
                     </p>
                 </div>
-                <br>
                 <div style="margin:auto;width:90%;text-align:justify !important;">
                     <p style="text-align:center;"><b>Pasal 9</b></p>
                     <p style="text-align:center;">LAIN-LAIN</p>
@@ -586,7 +577,6 @@
                         </ol>
                     </p>
                 </div>
-                <br>
                 <table class="table-content" cellpadding="0" cellspacing="0" width="90%" style="margin:auto;">
                     <tr>
                         <td width="100%" style="text-align:justify;">
@@ -594,7 +584,6 @@
                         </td>
                     </tr>
                 </table>
-                <br>
                 <table class="table-content" cellpadding="0" cellspacing="0" width="90%"style="margin:auto;">
                     <tbody>
                         <tr>

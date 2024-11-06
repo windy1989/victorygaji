@@ -148,7 +148,7 @@ Dropzone.options.dropzoneUploadDocument = {
     parallelUploads: 1,
 	timeout: 0,
     addRemoveLinks : true,
-    /* acceptedFiles: ".doc,.docx", */
+    acceptedFiles: ".doc,.docx",
     init: function() {
         dropzoneMultiple = this;
         this.on("addedfiles", function(files) {
@@ -1409,6 +1409,9 @@ function destroyFile(code){
                         }
                         if($('#documentation-datatable').length > 0){
                             loadDataTableDocumentation();
+                        }
+                        if($('#andalalin-datatable').length > 0){
+                            loadDataTableAndalalin();
                         }
                     }
                 },

@@ -1442,6 +1442,13 @@ function showUpload(code){
                 $('#modal-detail-title-upload').text(response.code);
                 $("#list-files").empty();
                 $('#tempUpload').val(code);
+                if(response.doc_status){
+                    if(response.doc_status == '3'){
+                        $(".dz-hidden-input").prop("disabled",true);
+                    }else{
+                        $(".dz-hidden-input").prop("disabled",false);
+                    }
+                }
                 if(response.data.length > 0){
                     $.each(response.data, function(i, val) {
                         $('#list-files').append(`

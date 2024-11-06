@@ -303,6 +303,7 @@ class AndalalinController extends Controller
                 'status'    => 200,
                 'code'      => $data->code,
                 'data'      => $images,
+                'doc_status'=> $data->status,
             ];
         }else{
             $response = [

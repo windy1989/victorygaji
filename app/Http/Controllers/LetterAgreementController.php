@@ -262,9 +262,9 @@ class LetterAgreementController extends Controller
                     $query->city                = $request->city;
                     $query->province            = $request->province;
                     $query->road_status         = $request->road_status;
-                    $query->nominal_1           = str_replace(',','.',str_replace('.','',$request->nominal_1));
+                    /* $query->nominal_1           = str_replace(',','.',str_replace('.','',$request->nominal_1));
                     $query->nominal_2           = str_replace(',','.',str_replace('.','',$request->nominal_2));
-                    $query->nominal_3           = str_replace(',','.',str_replace('.','',$request->nominal_3));
+                    $query->nominal_3           = str_replace(',','.',str_replace('.','',$request->nominal_3)); */
                     $query->estimate_date_start = $request->estimate_date_start;
                     $query->estimate_date_finish= $request->estimate_date_finish;
                     $query->note                = $request->note;
@@ -293,9 +293,9 @@ class LetterAgreementController extends Controller
                         'city'                      => $request->city,
                         'province'                  => $request->province,
                         'road_status'               => $request->road_status,
-                        'nominal_1'                 => str_replace(',','.',str_replace('.','',$request->nominal_1)),
+                        /* 'nominal_1'                 => str_replace(',','.',str_replace('.','',$request->nominal_1)),
                         'nominal_2'                 => str_replace(',','.',str_replace('.','',$request->nominal_2)),
-                        'nominal_3'                 => str_replace(',','.',str_replace('.','',$request->nominal_3)),
+                        'nominal_3'                 => str_replace(',','.',str_replace('.','',$request->nominal_3)), */
                         'estimate_date_start'       => $request->estimate_date_start,
                         'estimate_date_finish'      => $request->estimate_date_finish,
                         'note'                      => $request->note,

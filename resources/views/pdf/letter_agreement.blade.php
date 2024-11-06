@@ -275,7 +275,7 @@
                             :
                         </td>
                         <td>
-                            {{ ($data->land_area ? $data->land_area : 'Belum diidentifikasi').', '.($data->building_area > 0 ? $data->building_area : 'belum diidentifikasi') }}
+                            {{ ($data->land_area > 0 ? $data->land_area : 'Belum diidentifikasi').', '.($data->building_area > 0 ? $data->building_area : 'belum diidentifikasi') }}
                         </td>
                     </tr>
                     <tr>

@@ -506,6 +506,7 @@
                         </ol>
                     </p>
                 </div>
+                <br>
                 <div style="margin:auto;width:90%;text-align:justify !important;">
                     <p style="text-align:center;"><b>Pasal 6</b></p>
                     <p style="text-align:center;">FORCE MAJEURE</p>

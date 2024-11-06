@@ -283,7 +283,7 @@ class OfferingLetterController extends Controller
                 $html .= '<table class="table table-responsive-md">
                         <thead>
                             <tr>
-                                <th colspan="4"><strong>Detail Termin</strong></th>
+                                <th colspan="4" class="text-center"><strong>Detail Termin</strong></th>
                             </tr>
                             <tr>
                                 <th><strong>#</strong></th>

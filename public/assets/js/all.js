@@ -97,7 +97,7 @@ Dropzone.options.dropzoneUploadSmall = {
             $('#validation_alert_upload').empty().hide();
             if(responseText.status == '200'){
                 $('#list-files').append(`
-                    <div class="col-md-3">
+                    <div class="col-md-3" id="picture` + responseText.newimage.code + `">
                         ` + responseText.newimage.file + `
                         <p class="mt-3 text-center">
                             <h6>` + responseText.newimage.name + `</h6>
@@ -179,7 +179,7 @@ Dropzone.options.dropzoneUploadDocument = {
             $('#validation_alert_upload').empty().hide();
             if(responseText.status == '200'){
                 $('#list-files').append(`
-                    <div class="col-md-3">
+                    <div class="col-md-3" id="picture` + responseText.newimage.code + `">
                         ` + responseText.newimage.file + `
                         <p class="mt-3 text-center">
                             <h6>` + responseText.newimage.name + `</h6>

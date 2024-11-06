@@ -54,9 +54,9 @@ class LetterAgreementController extends Controller
             'city',
             'province',
             'road_status',
-            'nominal_1',
+            /* 'nominal_1',
             'nominal_2',
-            'nominal_3',
+            'nominal_3', */
             'estimate_date_start',
             'estimate_date_finish',
             'note',
@@ -140,9 +140,9 @@ class LetterAgreementController extends Controller
                     $val->city,
                     $val->province,
                     $val->road_status,
-                    number_format($val->nominal_1,2,',','.'),
+                    /* number_format($val->nominal_1,2,',','.'),
                     number_format($val->nominal_2,2,',','.'),
-                    number_format($val->nominal_3,2,',','.'),
+                    number_format($val->nominal_3,2,',','.'), */
                     date('d/m/Y',strtotime($val->estimate_date_start)),
                     date('d/m/Y',strtotime($val->estimate_date_finish)),
                     $val->note,

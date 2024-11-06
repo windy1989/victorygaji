@@ -2436,9 +2436,9 @@ function loadDataTableLetterAgreement(){
             { name: 'city', className: '' },
             { name: 'province', className: '' },
             { name: 'road_status', className: '' },
-            { name: 'nominal_1', className: 'text-right' },
+            /* { name: 'nominal_1', className: 'text-right' },
             { name: 'nominal_2', className: 'text-right' },
-            { name: 'nominal_3', className: 'text-right' },
+            { name: 'nominal_3', className: 'text-right' }, */
             { name: 'estimate_date_start', className: '' },
             { name: 'estimate_date_end', className: '' },
             { name: 'note', className: '' },

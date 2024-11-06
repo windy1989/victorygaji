@@ -141,7 +141,7 @@ Dropzone.options.dropzoneUploadSmall = {
 Dropzone.options.dropzoneUploadDocument = {
     paramName: "file",
     maxFilesize: 40,
-    maxFiles: 1,
+    maxFiles: 3,
     autoProcessQueue: false,
     autoQueue: true,
 	timeout: 0,

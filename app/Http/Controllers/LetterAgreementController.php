@@ -385,7 +385,7 @@ class LetterAgreementController extends Controller
                                 <th><strong>Tipe</strong></th>
                             </tr>
                         </thead><tbody>';
-                foreach($data->offeringLetterPayment as $key2 => $row){
+                foreach($data->letterAgreementPayment as $key2 => $row){
                     $html .= '<tr>
                         <td class="text-center">'.($key2+1).'</td>
                         <td>'.$row->termin.'</td>

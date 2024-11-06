@@ -303,7 +303,6 @@ class AndalalinController extends Controller
                 'status'    => 200,
                 'code'      => $data->code,
                 'data'      => $images,
-                'doc_status'=> $data->status,
             ];
         }else{
             $response = [
@@ -344,7 +343,7 @@ class AndalalinController extends Controller
             $query = Andalalin::where('code',CustomHelper::decrypt($request->code))->first();
 
             if($query){
-                if($query->status == '1'){
+                /* if($query->status == '1'){ */
                     $querydetail = AndalalinDetail::create([
                         'andalalin_id'      => $query->id,
                         'code'	            => strtoupper(Str::random(15)),
@@ -362,12 +361,12 @@ class AndalalinController extends Controller
                         'message'		=> 'Data berhasil di upload.',
                         'newimage'      => $newimage,
                     ];
-                }else{
+                /* }else{
                     $response = [
                         'status'		=> 500,
                         'message'		=> 'Maaf, status dokumen sudah diluar perubahan.'
                     ];
-                }
+                } */
             }else{
                 $response = [
                     'status'		=> 500,

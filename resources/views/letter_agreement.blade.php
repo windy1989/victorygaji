@@ -60,9 +60,6 @@
                                                 <th>Kabupaten/Kota</th>
                                                 <th>Provinsi</th>
                                                 <th>Status Jalan</th>
-                                                <th>Nominal Termin 1</th>
-                                                <th>Nominal Termin 2</th>
-                                                <th>Nominal Termin 3</th>
                                                 <th>Est.Tgl. Mulai Pekerjaan</th>
                                                 <th>Est.Tgl. Selesai Pekerjaan</th>
                                                 <th>Catatan Internal</th>

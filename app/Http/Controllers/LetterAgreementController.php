@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Helpers\CustomHelper;
 use App\Http\Controllers\Controller;
+use App\Models\Bank;
 use App\Models\Customer;
 use App\Models\LetterAgreement;
 use App\Models\OfferingLetter;
@@ -428,6 +429,7 @@ class LetterAgreementController extends Controller
             $result = [
                 'title'         => 'Surat Penawaran '.$data->code,
                 'data'          => $data,
+                'banks'         => Bank::where('status','1')->get(),
             ];
     
             $pdf = Pdf::loadView('pdf.letter_agreement', $result)->setPaper('a4', 'portrait');

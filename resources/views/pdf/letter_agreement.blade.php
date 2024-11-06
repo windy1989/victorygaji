@@ -421,7 +421,12 @@
                                 Pembayaran akan dilakukan PIHAK KESATU selambat-lambatnya 3 (tiga) hari kerja / setelah diterimanya Invoice oleh PIHAK KESATU dan akan dilakukan sesuai jadwal pembayaran yang di berikan oleh PIHAK KEDUA.
                             </li>
                             <li>
-                                Pembayaran dilakukan oleh PIHAK KESATU kepada PIHAK KEDUA dengan cara mentransfer ke rekening PIHAK KEDUA ke rekening Bank BCA Cabang Sidoarjo dengan nomor rekening 0183 - 88 - 6140 an. DEDDY CHRISTIANTO.
+                                Pembayaran dilakukan oleh PIHAK KESATU kepada PIHAK KEDUA dengan cara mentransfer ke rekening PIHAK KEDUA ke rekening :
+                                <ul>
+                                    @foreach ($banks as $rowbank)
+                                        <li>{{ $rowbank->bank.' Cabang '.$rowbank->branch.' dengan nomor rekening '.$rowbank->no.' an. '.$rowbank->name }}</li>
+                                    @endforeach
+                                </ul>
                             </li>
                         </ol>
                     </p>

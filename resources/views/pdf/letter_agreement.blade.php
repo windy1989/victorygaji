@@ -111,7 +111,7 @@
                 </tr>
 			</table>
         </footer>
-        <main style="margin-top:20px;">
+        <main style="margin-top:0px;">
             <div class="invoice-box">
                 <table class="table-content" cellpadding="0" cellspacing="0" width="90%" style="margin:auto;">
                     <tr>

@@ -261,7 +261,7 @@
                         <td><input type="number" class="form-control" name="arr_termin[]" value="` + no + `"></td>
                         <td><input type="text" class="form-control" name="arr_percentage[]" value="0,00" onkeyup="formatRupiahNoMinus(this);"></td>
                         <td>
-                            <select name="arr_type[]" class="form-control wide">
+                            <select name="arr_type[]" class="nice-select default-select wide form-control solid">
                                 <option value="1">Nilai kontrak dibayarkan pada saat penandatanganan kontrak dan setelah diterimanya invoice.</option>
                                 <option value="2">Nilai kontrak dibayarkan pada saat PIHAK KEDUA menyerahkan laporan Analisis Dampak Lalu Lintas yang kondisinya siap disidangkan ke instansi terkait dengan menyertakan Tanda Terima Berkas oleh Dinas terkait.</option>
                                 <option value="3">Nilai kontrak dibayarkan saat pekerjaan sudah selesai dan surat rekomendasi Analisis Dampak Lalu Lintas yang diterbitkan instansi terkait sudah terbit.</option>

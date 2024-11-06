@@ -80,4 +80,8 @@ class LetterAgreement extends Model
     public function approval(){
         return $this->hasMany('App\Models\Approval', 'lookable_id', 'id')->where('lookable_type',$this->table);
     }
+
+    public function letterAgreementPayment(){
+        return $this->hasMany('App\Models\LetterAgreementPayment');
+    }
 }

@@ -170,18 +170,6 @@
                                     <input type="text" class="form-control" placeholder="Muncul saat cetak" id="road_status" name="road_status">
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <label class="form-label">Nominal Termin 1</label>
-                                    <input type="text" class="form-control" placeholder="Luas Bangunan" id="nominal_1" name="nominal_1" onkeyup="formatRupiahNoMinus(this);" value="0,00">
-                                </div>
-                                <div class="mb-3 col-md-6">
-                                    <label class="form-label">Nominal Termin 2</label>
-                                    <input type="text" class="form-control" placeholder="Luas Bangunan" id="nominal_2" name="nominal_2" onkeyup="formatRupiahNoMinus(this);" value="0,00">
-                                </div>
-                                <div class="mb-3 col-md-6">
-                                    <label class="form-label">Nominal Termin 3</label>
-                                    <input type="text" class="form-control" placeholder="Luas Bangunan" id="nominal_3" name="nominal_3" onkeyup="formatRupiahNoMinus(this);" value="0,00">
-                                </div>
-                                <div class="mb-3 col-md-6">
                                     <label class="form-label">Tgl.Mulai Pengerjaan</label>
                                     <input type="date" class="form-control" id="estimate_date_start" name="estimate_date_start" value="{{ date('Y-m-d') }}">
                                 </div>

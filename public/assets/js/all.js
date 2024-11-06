@@ -1194,12 +1194,32 @@ function edit(code){
                     $('#city').val(response.data.city);
                     $('#province').val(response.data.province);
                     $('#road_status').val(response.data.road_status);
-                    $('#nominal_1').val(response.data.nominal_1);
-                    $('#nominal_2').val(response.data.nominal_2);
-                    $('#nominal_3').val(response.data.nominal_3);
                     $('#estimate_date_start').val(response.data.estimate_date_start);
                     $('#estimate_date_finish').val(response.data.estimate_date_finish);
                     $('#note').val(response.data.note);
+                    $('#body-payment').empty();
+                    if(response.data.details.length > 0){
+                        $.each(response.data.details, function(i, val) {
+                            $('#body-payment').append(`
+                                <tr class="row_payment">
+                                    <td class="text-center">` + (i+1) + `</td>
+                                    <td><input type="number" class="form-control" name="arr_termin[]" value="` + val.termin + `"></td>
+                                    <td><input type="text" class="form-control" name="arr_percentage[]" value="` + val.percentage + `" onkeyup="formatRupiahNoMinus(this);"></td>
+                                    <td>
+                                        <select name="arr_type[]" id="arr_type` + i + `" class="form-control wide">
+                                            <option value="1">Nilai kontrak dibayarkan pada saat penandatanganan kontrak dan setelah diterimanya invoice.</option>
+                                            <option value="2">Nilai kontrak dibayarkan pada saat PIHAK KEDUA menyerahkan laporan Analisis Dampak Lalu Lintas yang kondisinya siap disidangkan ke instansi terkait dengan menyertakan Tanda Terima Berkas oleh Dinas terkait.</option>
+                                            <option value="3">Nilai kontrak dibayarkan saat pekerjaan sudah selesai dan surat rekomendasi Analisis Dampak Lalu Lintas yang diterbitkan instansi terkait sudah terbit.</option>
+                                        </select>
+                                    </td>
+                                    <td class="text-center">
+                                        <button type="button" class="btn btn-danger" onclick="deletePayment(this);">Hapus</button>
+                                    </td>
+                                </tr>    
+                            `);
+                            $('#arr_type' + i).val(val.type);
+                        });
+                    }
                 }
 
                 /* JIKA FORM HASIL SURVEI */

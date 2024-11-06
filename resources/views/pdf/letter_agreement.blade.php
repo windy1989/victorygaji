@@ -398,15 +398,11 @@
                             <li>
                                 Atas pelaksanaan Pekerjaan, PIHAK KESATU wajib membayar Total biaya Pekerjaan sebesar Rp {{ number_format($data->project->cost,0,',','') }},- ( {{ CustomHelper::terbilang($data->project->cost) }} ) kepada PIHAK KEDUA. Pembayaran biaya pelaksanaan Pekerjaan :
                                 <ul style="list-style-type:disc">
-                                    <li>
-                                        Tahap I sebesar ; Rp {{ number_format($data->nominal_1,0,',','') }},- ( {{ CustomHelper::terbilang($data->nominal_1) }} ) dari nilai kontrak dibayarkan pada saat penandatanganan kontrak dan setelah diterimanya invoice.
-                                    </li>
-                                    <li>
-                                        Tahap II sebesar ; Rp {{ number_format($data->nominal_2,0,',','') }},- ( {{ CustomHelper::terbilang($data->nominal_2) }} ) dari nilai kontrak dibayarkan pada saat PIHAK KEDUA menyerahkan laporan Analisis Dampak Lalu Lintas yang kondisinya siap disidangkan ke instansi terkait dengan menyertakan Tanda Terima Berkas oleh Dinas terkait.
-                                    </li>
-                                    <li>
-                                        Tahap III sebesar ; Rp {{ number_format($data->nominal_3,0,',','') }},- ( {{ CustomHelper::terbilang($data->nominal_3) }} ) Dari nilai kontrak dibayarkan saat pekerjaan sudah selesai dan surat rekomendasi Analisis Dampak Lalu Lintas yang diterbitkan instansi terkait sudah terbit.
-                                    </li>
+                                    @foreach ($data->letterAgreementPayment as $row)
+                                        <li>
+                                            Tahap {{ CustomHelper::tahap($row->termin) }} sebesar ; Rp {{ number_format($row->getNominal(),0,',','') }},- ( {{ CustomHelper::terbilang($row->getNominal()) }} ) dari {{ $row->type() }}.
+                                        </li>
+                                    @endforeach
                                 </ul>
                             </li>
                             <li>

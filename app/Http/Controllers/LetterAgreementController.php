@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Bank;
 use App\Models\Customer;
 use App\Models\LetterAgreement;
+use App\Models\LetterAgreementPayment;
 use App\Models\OfferingLetter;
 use App\Models\Project;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -304,6 +305,18 @@ class LetterAgreementController extends Controller
                 }
                 
                 if($query) {
+
+                    if($request->arr_termin){
+                        foreach($request->arr_termin as $key => $row){
+                            LetterAgreementPayment::create([
+                                'letter_agreement_id'   => $query->id,
+                                'termin'                => $row,
+                                'percentage'            => str_replace(',','.',str_replace('.','',$request->arr_percentage[$key])),
+                                'type'                  => $request->arr_type[$key],
+                            ]);
+                        }
+                    }
+
                     $response = [
                         'status'  => 200,
                         'message' => 'Data berhasil disimpan.'
@@ -328,9 +341,17 @@ class LetterAgreementController extends Controller
             $data['project_code'] = $data->project->code.' - '.$data->project->name.' - '.$data->project->customer->name;
             $data['land_area'] = number_format($data->land_area,2,',','.');
             $data['building_area'] = number_format($data->building_area,2,',','.');
-            $data['nominal_1'] = number_format($data->nominal_1,2,',','.');
-            $data['nominal_2'] = number_format($data->nominal_2,2,',','.');
-            $data['nominal_3'] = number_format($data->nominal_3,2,',','.');
+
+            $details = [];
+            foreach($data->letterAgreementPayment as $row){
+                $details[] = [
+                    'termin'    => $row->termin,
+                    'percentage'=> number_format($row->percentage,2,',','.'),
+                    'type'      => $row->type,
+                ];
+            }
+            $data['details'] = $details;
+
             $response = [
                 'status'    => 200,
                 'data'      => $data,
@@ -350,6 +371,30 @@ class LetterAgreementController extends Controller
         if($data){
 
             $html = '';
+
+            if($data->letterAgreementPayment()->exists()){
+                $html .= '<table class="table table-responsive-md">
+                        <thead>
+                            <tr>
+                                <th colspan="4" class="text-center"><strong>Detail Termin</strong></th>
+                            </tr>
+                            <tr>
+                                <th><strong>#</strong></th>
+                                <th><strong>Termin</strong></th>
+                                <th><strong>Prosentase</strong></th>
+                                <th><strong>Tipe</strong></th>
+                            </tr>
+                        </thead><tbody>';
+                foreach($data->offeringLetterPayment as $key2 => $row){
+                    $html .= '<tr>
+                        <td class="text-center">'.($key2+1).'</td>
+                        <td>'.$row->termin.'</td>
+                        <td>'.number_format($row->percentage,2,',','.').'</td>
+                        <td>'.$row->type().'</td>
+                    </tr>';
+                }
+                $html .= '</tbody></table>';
+            }
 
             if($data->approval()->exists()){
                 $html = '<table class="table table-responsive-md">

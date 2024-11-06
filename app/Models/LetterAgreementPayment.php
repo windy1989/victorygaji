@@ -22,6 +22,12 @@ class LetterAgreementPayment extends Model
         'type',
     ];
 
+    public function getNominal(){
+        $totalProject = $this->letterAgreement->project->cost;
+        $nominal = round(($this->percentage / 100) * $totalProject,2);
+        return $nominal;
+    }
+
     public function letterAgreement(){
         return $this->belongsTo('App\Models\LetterAgreement','letter_agreement_id','id')->withTrashed();
     }

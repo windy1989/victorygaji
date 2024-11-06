@@ -364,6 +364,17 @@ class CustomHelper {
 		return $hari_ini;
 	}
 
+	public static function tahap($number){
+		$tahap = match ($number) {
+            1 	=> 'I',
+            2 	=> 'II',
+            3   => 'III',
+            default => 'Invalid',
+        };
+	
+		return $tahap;
+	}
+
 	public static function countDays($start_date, $end_date){
 		$date1 = strtotime($start_date);
 		$date2 = strtotime($end_date);

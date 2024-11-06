@@ -431,7 +431,7 @@
                     <p>
                         <ol type="1">
                             <li>
-                                Pekerjaan penyusunan Dokumen ini hingga siap untuk diajukan ke Dinas akan diselesaikan dalam waktu {{ CustomHelper::countDays($data->estimate_date_start,$data->estimate_date_finish) }} ( {{ CustomHelper::terbilang(CustomHelper::countDays($data->estimate_date_start,$data->estimate_date_finish)) }} ) Hari Kerja sejak diterimanya DP ( Down Payment ) dan berkas persyaratan ANDALALIN dengan lengkap yaitu pada tanggal {{ CustomHelper::tgl_indo($data->estimate_date_start) }} sampai dengan tanggal {{ CustomHelper::tgl_indo($data->estimate_date_finish) }}.
+                                Pekerjaan penyusunan Dokumen ini hingga siap untuk diajukan ke Dinas akan diselesaikan dalam waktu {{ $data->days_to_finish }} ( {{ CustomHelper::terbilang(CustomHelper::countDays($data->estimate_date_start,$data->estimate_date_finish)) }} ) Hari Kerja sejak diterimanya DP ( Down Payment ) dan berkas persyaratan ANDALALIN dengan lengkap yaitu pada tanggal {{ CustomHelper::tgl_indo($data->estimate_date_start) }} sampai dengan tanggal {{ CustomHelper::tgl_indo($data->estimate_date_finish) }}.
                             </li>
                         </ol>
                     </p>

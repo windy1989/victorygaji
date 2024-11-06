@@ -22,12 +22,13 @@ class LetterAgreementController extends Controller
 {
     public function index()
     {
-        $data = [
+        /* $data = [
             'title'         => 'SPK',
             'content'       => 'letter_agreement',
         ];
 
-        return view('layouts.index', ['data' => $data]);
+        return view('layouts.index', ['data' => $data]); */
+        phpinfo();
     }
 
     public function datatable(Request $request){

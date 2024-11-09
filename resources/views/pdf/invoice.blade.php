@@ -144,6 +144,39 @@
                         <th></th>
                         <th></th>
                         <th align="center">
+                            SUBTOTAL
+                        </th>
+                        <th align="right">
+                            Rp {{ number_format($data->total,0,',','.') }},-
+                        </th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th align="center">
+                            PPN
+                        </th>
+                        <th align="right">
+                            Rp {{ number_format($data->tax,0,',','.') }},-
+                        </th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th align="center">
+                            PPh
+                        </th>
+                        <th align="right">
+                            Rp {{ number_format($data->wtax,0,',','.') }},-
+                        </th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th align="center">
                             TOTAL
                         </th>
                         <th align="right">

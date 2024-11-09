@@ -231,14 +231,14 @@
                 if(percentWtax > 0){
                     wtax = Math.round(total * (percentWtax / 100)) / 100;
                 }
-                grandtotal = (total + tax - wtax).toFixed(2);
-                $('#tax').text(
+                grandtotal = total + tax - wtax;
+                $('#tax').val(
                     (tax >= 0 ? '' : '-') + formatRupiahIni(tax.toFixed(2).toString().replace('.',','))
                 );
-                $('#wtax').text(
+                $('#wtax').val(
                     (wtax >= 0 ? '' : '-') + formatRupiahIni(wtax.toFixed(2).toString().replace('.',','))
                 );
-                $('#grandtotal').text(
+                $('#grandtotal').val(
                     (grandtotal >= 0 ? '' : '-') + formatRupiahIni(grandtotal.toFixed(2).toString().replace('.',','))
                 );
             }

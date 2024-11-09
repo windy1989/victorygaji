@@ -153,7 +153,7 @@
                     <tr>
                         <th></th>
                         <th></th>
-                        <th></th>
+                        <th>{{ $data->percent_tax.'% : '.$data->includeTax() }}</th>
                         <th align="center">
                             PPN
                         </th>

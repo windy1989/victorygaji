@@ -229,7 +229,7 @@
                     tax =  Math.round((total * (percentTax / 100)) * 100) / 100;
                 }
                 if(percentWtax > 0){
-                    wtax = Math.round(total * (percentWtax / 100)) / 100;
+                    wtax = Math.round((total * (percentWtax / 100)) * 100) / 100;
                 }
                 grandtotal = total + tax - wtax;
                 $('#tax').val(

@@ -125,15 +125,15 @@
                                     <input type="text" class="form-control" placeholder="Total" id="total" name="total" onkeyup="formatRupiahNoMinus(this);countInvoice();" value="0,00">
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <label class="form-label">PPN</label>
+                                    <label class="form-label">PPN (Non-Editable)</label>
                                     <input type="text" class="form-control" placeholder="Total" id="tax" name="tax" onkeyup="formatRupiahNoMinus(this);" value="0,00" readonly>
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <label class="form-label">PPh</label>
+                                    <label class="form-label">PPh (Non-Editable)</label>
                                     <input type="text" class="form-control" placeholder="Total" id="wtax" name="wtax" onkeyup="formatRupiahNoMinus(this);" value="0,00" readonly>
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <label class="form-label">Grandtotal</label>
+                                    <label class="form-label">Grandtotal (Non-Editable)</label>
                                     <input type="text" class="form-control" placeholder="Nominal" id="nominal" name="nominal" onkeyup="formatRupiahNoMinus(this);" value="0,00" readonly>
                                 </div>
                                 <div class="mb-3 col-md-6">
@@ -217,3 +217,29 @@
                 </div>
             </div>
         </div>
+
+        <script>
+            function countInvoice(){
+                let percentTax = parseFloat($('#percent_tax').val().replaceAll(".", "").replaceAll(",",".")), percentWtax = parseFloat($('#percent_wtax').val().replaceAll(".", "").replaceAll(",",".")), total = parseFloat($('#total').val().replaceAll(".", "").replaceAll(",",".")), tax = 0, wtax = 0, grandtotal = 0;
+                if(percentTax > 0){
+                    if($('#include_tax').val() == '1'){
+                        total = total / (1 + (percentTax / 100));
+                    }
+                    total = Math.round(total * 100) / 100;
+                    tax =  Math.round((total * (percentTax / 100))) / 100;
+                }
+                if(percentWtax > 0){
+                    wtax = Math.round(total * (percentWtax / 100)) / 100;
+                }
+                grandtotal = (total + tax - wtax).toFixed(2);
+                $('#tax').text(
+                    (tax >= 0 ? '' : '-') + formatRupiahIni(tax.toFixed(2).toString().replace('.',','))
+                );
+                $('#wtax').text(
+                    (wtax >= 0 ? '' : '-') + formatRupiahIni(wtax.toFixed(2).toString().replace('.',','))
+                );
+                $('#grandtotal').text(
+                    (grandtotal >= 0 ? '' : '-') + formatRupiahIni(grandtotal.toFixed(2).toString().replace('.',','))
+                );
+            }
+        </script>

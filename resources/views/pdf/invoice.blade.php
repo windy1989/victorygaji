@@ -153,9 +153,9 @@
                     <tr>
                         <th></th>
                         <th></th>
-                        <th>{{ round($data->percent_tax,2).'% : '.$data->includeTax() }}</th>
+                        <th>{{ $data->includeTax() }}</th>
                         <th align="left">
-                            PPN
+                            PPN ({{ round($data->percent_tax,2).'% : ' }})
                         </th>
                         <th align="right">
                             Rp {{ number_format($data->tax,0,',','.') }},-
@@ -164,9 +164,9 @@
                     <tr>
                         <th></th>
                         <th></th>
-                        <th>{{ round($data->percent_wtax,2).'%' }}</th>
+                        <th></th>
                         <th align="left">
-                            PPh
+                            PPh ({{ round($data->percent_wtax,2).'%' }})
                         </th>
                         <th align="right">
                             Rp {{ number_format($data->wtax,0,',','.') }},-

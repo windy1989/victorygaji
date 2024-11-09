@@ -182,7 +182,7 @@
                         <td align="center" width="40%">
                             CV. VICTORY KONSULTAN
                             <br><br><br><br><br><br><br>
-                            <u>.DEDDY CHRISTIANTO., S.T.</u>
+                            <u>DEDDY CHRISTIANTO., S.T.</u>
                             <br>Direktur
                         </td>
                     </tr>

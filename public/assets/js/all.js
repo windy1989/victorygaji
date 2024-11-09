@@ -1421,6 +1421,8 @@ function done(code){
                         if($('#project-datatable').length > 0){
                             loadDataTableProject();
                         }
+                    }else if(response.status == 500){
+                        errorMessage(response.message);
                     }
                 },
                 error: function() {

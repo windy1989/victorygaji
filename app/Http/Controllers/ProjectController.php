@@ -291,7 +291,7 @@ class ProjectController extends Controller
     }
 
     public function done(Request $request){
-        $data = Project::where('code',CustomHelper::decrypt($request->code))->where('status','2')->first();
+        $data = Project::where('code',CustomHelper::decrypt($request->id))->where('status','2')->first();
         if($data){
             
             if($data->offeringLetter()->exists()){

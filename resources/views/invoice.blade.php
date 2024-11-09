@@ -118,7 +118,7 @@
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Termasuk PPN / Tidak</label>
-                                    <select id="include_tax" name="include_tax" class="form-control wide" onchange="applyInclude();countInvoice();">
+                                    <select id="include_tax" name="include_tax" class="form-control wide" onchange="countInvoice();">
                                         <option value="0">Tidak</option>
                                         <option value="1">Ya</option>
                                     </select>
@@ -128,8 +128,12 @@
                                     <input type="text" class="form-control" placeholder="Persen PPN" id="percent_wtax" name="percent_wtax" onkeyup="formatRupiahNoMinus(this);countInvoice();" value="0">
                                 </div>
                                 <div class="mb-3 col-md-6">
+                                    <label class="form-label">Subtotal (Input Disini)</label>
+                                    <input type="text" class="form-control" placeholder="Subtotal" id="subtotal" name="subtotal" onkeyup="formatRupiahNoMinus(this);countInvoice();" value="0,00">
+                                </div>
+                                <div class="mb-3 col-md-6">
                                     <label class="form-label">Total</label>
-                                    <input type="text" class="form-control" placeholder="Total" id="total" name="total" onkeyup="formatRupiahNoMinus(this);countInvoice();" value="0,00">
+                                    <input type="text" class="form-control" placeholder="Total" id="total" name="total" onkeyup="formatRupiahNoMinus(this);" value="0,00" readonly>
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">PPN (Non-Editable)</label>
@@ -230,19 +234,13 @@
         </div>
 
         <script>
-            function applyInclude(){
-                if($('#include_tax').val() == '0'){
-                    $('#total').val($('#total_after_tax').val());
-                }
-            }
-
             function countInvoice(){
-                let percentTax = parseFloat($('#percent_tax').val().replaceAll(".", "").replaceAll(",",".")), percentWtax = parseFloat($('#percent_wtax').val().replaceAll(".", "").replaceAll(",",".")), total = parseFloat($('#total').val().replaceAll(".", "").replaceAll(",",".")), tax = 0, wtax = 0, grandtotal = 0, total_after_tax = 0;
+                let percentTax = parseFloat($('#percent_tax').val().replaceAll(".", "").replaceAll(",",".")), percentWtax = parseFloat($('#percent_wtax').val().replaceAll(".", "").replaceAll(",",".")), subtotal = parseFloat($('#subtotal').val().replaceAll(".", "").replaceAll(",",".")),total = 0, tax = 0, wtax = 0, grandtotal = 0, total_after_tax = 0;
                 if(percentTax > 0){
                     if($('#include_tax').val() == '1'){
-                        total = total / (1 + (percentTax / 100));
+                        subtotal = subtotal / (1 + (percentTax / 100));
                     }
-                    total = Math.round(total * 100) / 100;
+                    total = Math.round(subtotal * 100) / 100;
                     tax =  Math.round((total * (percentTax / 100)) * 100) / 100;
                 }
                 if(percentWtax > 0){
@@ -250,11 +248,9 @@
                 }
                 total_after_tax = total + tax;
                 grandtotal = total_after_tax - wtax;
-                if($('#include_tax').val() == '1'){
-                    $('#total').val(
-                        (total >= 0 ? '' : '-') + formatRupiahIni(total.toFixed(2).toString().replace('.',','))
-                    );
-                }
+                $('#total').val(
+                    (total >= 0 ? '' : '-') + formatRupiahIni(total.toFixed(2).toString().replace('.',','))
+                );
                 $('#tax').val(
                     (tax >= 0 ? '' : '-') + formatRupiahIni(tax.toFixed(2).toString().replace('.',','))
                 );

@@ -26,6 +26,13 @@ class Invoice extends Model
         'post_date',
         'pay_date',
         'document',
+        'percent_tax',
+        'include_tax',
+        'percent_wtax',
+        'total',
+        'tax',
+        'total_after_tax',
+        'wtax',
         'nominal',
         'termin_no',
         'note',
@@ -34,6 +41,16 @@ class Invoice extends Model
         'void_note',
         'void_date',
     ];
+
+    public function includeTax(){
+        $include_tax = match ($this->include_tax) {
+            '1' => 'Include',
+            '0' => 'Exclude',
+            default => 'Invalid',
+        };
+
+        return $include_tax;
+    }
 
     public function paymentNoText(){
         $text = '';

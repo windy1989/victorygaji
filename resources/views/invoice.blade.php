@@ -50,7 +50,14 @@
                                                 <th>Bank</th>
                                                 <th>Tgl.Post</th>
                                                 <th>Tgl.Bayar</th>
-                                                <th>Nominal</th>
+                                                <th>PPN(%)</th>
+                                                <th>Termasuk PPN</th>
+                                                <th>PPh(%)</th>
+                                                <th>Total</th>
+                                                <th>PPN(Rp)</th>
+                                                <th>Total Setelah PPN</th>
+                                                <th>PPh(Rp)</th>
+                                                <th>Nominal Bayar</th>
                                                 <th>Termin Ke</th>
                                                 <th>Keterangan/Catatan</th>
                                                 <th>Status</th>

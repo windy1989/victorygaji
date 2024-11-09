@@ -1393,6 +1393,49 @@ function recap(code){
     });
 }
 
+function done(code){
+    swal.fire({
+        title: "Yakin ingin menutup proyek?",
+        text: "Seluruh dokumen terhubung dengan proyek yang memiliki status PROSES akan menjadi SELESAI, dan MENUNGGU akan DIBATALKAN.",
+        showCancelButton: true,
+        type: 'warning',
+        cancelButtonColor: '#d33',
+        confirmButtonColor: "#DD6B55",
+    }).then((res) => {
+        if(res.value){
+            $.ajax({
+                url: window.location.href + '/done',
+                type: 'POST',
+                dataType: 'JSON',
+                data: { id : code },
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                beforeSend: function() {
+                    loadingOpen();
+                },
+                success: function(response) {
+                    loadingClose();
+                    if(response.status == 200) {
+                        successMessage(response.message);
+                        if($('#project-datatable').length > 0){
+                            loadDataTableProject();
+                        }
+                    }
+                },
+                error: function() {
+                    if(response.status == '403'){
+                        errorMessage('You have no access.');
+                    }else{
+                        errorConnection();
+                    }
+                    loadingClose();
+                }
+            });
+        }
+    });
+}
+
 function destroyFile(code){
     swal.fire({
         title: "Yakin ingin menghapus data?",

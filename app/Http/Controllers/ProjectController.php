@@ -290,6 +290,120 @@ class ProjectController extends Controller
         return response()->json($response);
     }
 
+    public function done(Request $request){
+        $data = Project::where('code',CustomHelper::decrypt($request->code))->where('status','2')->first();
+        if($data){
+            
+            if($data->offeringLetter()->exists()){
+                $data->offeringLetter()->where('status','1')->update([
+                    'status'    => '4',
+                ]);
+                $data->offeringLetter()->where('status','2')->update([
+                    'status'    => '3',
+                ]);
+            }
+
+            if($data->letterAgreement()->exists()){
+                $data->letterAgreement()->where('status','1')->update([
+                    'status'    => '4',
+                ]);
+                $data->letterAgreement()->where('status','2')->update([
+                    'status'    => '3',
+                ]);
+            }
+
+            if($data->invoice()->exists()){
+                $data->invoice()->where('status','1')->update([
+                    'status'    => '4',
+                ]);
+                $data->invoice()->where('status','2')->update([
+                    'status'    => '3',
+                ]);
+            }
+
+            if($data->surveyResult()->exists()){
+                $data->surveyResult()->where('status','1')->update([
+                    'status'    => '4',
+                ]);
+                $data->surveyResult()->where('status','2')->update([
+                    'status'    => '3',
+                ]);
+            }
+
+            if($data->surveyItem()->exists()){
+                $data->surveyItem()->where('status','1')->update([
+                    'status'    => '4',
+                ]);
+                $data->surveyItem()->where('status','2')->update([
+                    'status'    => '3',
+                ]);
+            }
+
+            if($data->surveyDocumentation()->exists()){
+                $data->surveyDocumentation()->where('status','1')->update([
+                    'status'    => '4',
+                ]);
+                $data->surveyDocumentation()->where('status','2')->update([
+                    'status'    => '3',
+                ]);
+            }
+
+            if($data->documentation()->exists()){
+                $data->documentation()->where('status','1')->update([
+                    'status'    => '4',
+                ]);
+                $data->documentation()->where('status','2')->update([
+                    'status'    => '3',
+                ]);
+            }
+
+            if($data->andalalin()->exists()){
+                $data->andalalin()->where('status','1')->update([
+                    'status'    => '4',
+                ]);
+                $data->andalalin()->where('status','2')->update([
+                    'status'    => '3',
+                ]);
+            }
+
+            if($data->hearing()->exists()){
+                $data->hearing()->where('status','1')->update([
+                    'status'    => '4',
+                ]);
+                $data->hearing()->where('status','2')->update([
+                    'status'    => '3',
+                ]);
+            }
+
+            if($data->revision()->exists()){
+                $data->revision()->where('status','1')->update([
+                    'status'    => '4',
+                ]);
+                $data->revision()->where('status','2')->update([
+                    'status'    => '3',
+                ]);
+            }
+
+            $data->update([
+                'status'    => '3'
+            ]);
+
+            CustomHelper::saveLog($data->getTable(),$data->id,'Penutupan data proyek '.$data->code,'Pengguna '.session('bo_nama').' telah menutup data proyek no '.$data->code);
+
+            $response = [
+                'status'    => 200,
+                'data'      => $data,
+            ];
+        }else{
+            $response = [
+                'status'  => 500,
+                'message' => 'Data tidak ditemukan atau diluar perubahan.'
+            ];
+        }
+
+        return response()->json($response);
+    }
+
     public function recap(Request $request){
         $data = Project::where('code',CustomHelper::decrypt($request->code))->first();
         if($data){
@@ -545,6 +659,44 @@ class ProjectController extends Controller
                         <td>'.$row->statusBadge().'</td>
                         <td>'.$row->note.'</td>
                         <td>'.$row->documentationDetail()->count().'</td>
+                    </tr>';
+                }
+            }else{
+                $html .= '<tr>
+                    <td class="text-center" colspan="7">Data tidak ditemukan.</td>
+                </tr>';
+            }
+
+            $html .= '</tbody></table>';
+
+            #Andalalin
+
+            $html .= '<table class="table table-responsive-md mt-2">
+                    <thead>
+                        <tr>
+                            <th colspan="7"><strong>Dokumen Andalalin</strong></th>
+                        </tr>
+                        <tr>
+                            <th><strong>#</strong></th>
+                            <th><strong>Dokumen</strong></th>
+                            <th><strong>Pengguna</strong></th>
+                            <th><strong>Tgl.Dokumen</strong></th>
+                            <th><strong>Status</strong></th>
+                            <th><strong>Catatan</strong></th>
+                            <th><strong>Jumlah File</strong></th>
+                        </tr>
+                    </thead><tbody>';
+
+            if($data->andalalin()->exists()){
+                foreach($data->andalalin as $key => $row){
+                    $html .= '<tr>
+                        <td class="text-center">'.($key+1).'</td>
+                        <td>'.$row->code.'</td>
+                        <td>'.$row->user->nama.'</td>
+                        <td>'.date('d/m/Y',strtotime($row->post_date)).'</td>
+                        <td>'.$row->statusBadge().'</td>
+                        <td>'.$row->note.'</td>
+                        <td>'.$row->andalalinDetail()->count().'</td>
                     </tr>';
                 }
             }else{

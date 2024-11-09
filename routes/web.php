@@ -92,6 +92,7 @@ Route::middleware('login')->group(function () {
         Route::post('show',[ProjectController::class, 'show']);
         Route::post('destroy',[ProjectController::class, 'destroy']);
         Route::post('recap',[ProjectController::class, 'recap']);
+        Route::post('done',[ProjectController::class, 'done']);
     });
 
     Route::prefix('surat_penawaran')->middleware('admin.auth:01,02,06,07,08,09')->group(function () {

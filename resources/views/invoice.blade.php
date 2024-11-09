@@ -243,7 +243,12 @@
                     wtax = Math.round((total * (percentWtax / 100)) * 100) / 100;
                 }
                 total_after_tax = total + tax;
-                grandtotal = total_after_tax + tax - wtax;
+                grandtotal = total_after_tax - wtax;
+                if($('#include_tax').val() == '1'){
+                    $('#total').val(
+                        (total >= 0 ? '' : '-') + formatRupiahIni(total.toFixed(2).toString().replace('.',','))
+                    );
+                }
                 $('#tax').val(
                     (tax >= 0 ? '' : '-') + formatRupiahIni(tax.toFixed(2).toString().replace('.',','))
                 );

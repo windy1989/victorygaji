@@ -226,7 +226,7 @@
                         total = total / (1 + (percentTax / 100));
                     }
                     total = Math.round(total * 100) / 100;
-                    tax =  Math.round((total * (percentTax / 100))) / 100;
+                    tax =  Math.round((total * (percentTax / 100)) * 100) / 100;
                 }
                 if(percentWtax > 0){
                     wtax = Math.round(total * (percentWtax / 100)) / 100;

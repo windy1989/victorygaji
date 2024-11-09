@@ -129,7 +129,7 @@ class ProjectController extends Controller
                     $val->statusBadge(),
                     '
                         <a href="javascript:void(0);" class="btn btn-secondary btn-sm content-icon" onclick="recap(`'.CustomHelper::encrypt($val->code).'`)"><i class="fa fa-info-circle"></i></a>
-                        <a href="javascript:void(0);" class="btn btn-success btn-sm content-icon" onclick="done(`'.CustomHelper::encrypt($val->code).'`)"><i class="fa fa-check-circle-o"></i></a>
+                        <a href="javascript:void(0);" class="btn btn-success btn-sm content-icon" onclick="done(`'.CustomHelper::encrypt($val->code).'`)"><i class="fa fa-check-circle"></i></a>
                         <a href="javascript:void(0);" class="btn btn-warning btn-sm content-icon" onclick="edit(`'.CustomHelper::encrypt($val->code).'`)"><i class="fa fa-edit"></i></a>
                         <a href="javascript:void(0);" class="btn btn-danger btn-sm content-icon" onclick="destroy(`'.CustomHelper::encrypt($val->code).'`)"><i class="fa fa-trash"></i></a>                        
 					'

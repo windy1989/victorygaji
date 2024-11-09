@@ -53,6 +53,7 @@
                                                 <th>PPN(%)</th>
                                                 <th>Termasuk PPN</th>
                                                 <th>PPh(%)</th>
+                                                <th>Subtotal</th>
                                                 <th>Total</th>
                                                 <th>PPN(Rp)</th>
                                                 <th>Total Setelah PPN</th>

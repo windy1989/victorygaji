@@ -29,6 +29,7 @@ class Invoice extends Model
         'percent_tax',
         'include_tax',
         'percent_wtax',
+        'subtotal',
         'total',
         'tax',
         'total_after_tax',

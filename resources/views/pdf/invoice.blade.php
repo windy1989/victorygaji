@@ -143,7 +143,7 @@
                         <th></th>
                         <th></th>
                         <th></th>
-                        <th align="center">
+                        <th>
                             SUBTOTAL
                         </th>
                         <th align="right">
@@ -153,8 +153,8 @@
                     <tr>
                         <th></th>
                         <th></th>
-                        <th>{{ $data->percent_tax.'% : '.$data->includeTax() }}</th>
-                        <th align="center">
+                        <th>{{ round($data->percent_tax,2).'% : '.$data->includeTax() }}</th>
+                        <th>
                             PPN
                         </th>
                         <th align="right">
@@ -164,8 +164,8 @@
                     <tr>
                         <th></th>
                         <th></th>
-                        <th></th>
-                        <th align="center">
+                        <th>{{ round($data->percent_wtax,2).'%' }}</th>
+                        <th>
                             PPh
                         </th>
                         <th align="right">
@@ -176,7 +176,7 @@
                         <th></th>
                         <th></th>
                         <th></th>
-                        <th align="center">
+                        <th>
                             TOTAL
                         </th>
                         <th align="right">

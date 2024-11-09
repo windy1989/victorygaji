@@ -231,7 +231,7 @@
 
         <script>
             function countInvoice(){
-                let percentTax = parseFloat($('#percent_tax').val().replaceAll(".", "").replaceAll(",",".")), percentWtax = parseFloat($('#percent_wtax').val().replaceAll(".", "").replaceAll(",",".")), total = parseFloat($('#total').val().replaceAll(".", "").replaceAll(",",".")), tax = 0, wtax = 0, grandtotal = 0;
+                let percentTax = parseFloat($('#percent_tax').val().replaceAll(".", "").replaceAll(",",".")), percentWtax = parseFloat($('#percent_wtax').val().replaceAll(".", "").replaceAll(",",".")), total = parseFloat($('#total').val().replaceAll(".", "").replaceAll(",",".")), tax = 0, wtax = 0, grandtotal = 0, total_after_tax = 0;
                 if(percentTax > 0){
                     if($('#include_tax').val() == '1'){
                         total = total / (1 + (percentTax / 100));
@@ -242,12 +242,13 @@
                 if(percentWtax > 0){
                     wtax = Math.round((total * (percentWtax / 100)) * 100) / 100;
                 }
-                grandtotal = total + tax - wtax;
+                total_after_tax = total + tax;
+                grandtotal = total_after_tax + tax - wtax;
                 $('#tax').val(
                     (tax >= 0 ? '' : '-') + formatRupiahIni(tax.toFixed(2).toString().replace('.',','))
                 );
                 $('#total_after_tax').val(
-                    (total >= 0 ? '' : '-') + formatRupiahIni(total.toFixed(2).toString().replace('.',','))
+                    (total_after_tax >= 0 ? '' : '-') + formatRupiahIni(total_after_tax.toFixed(2).toString().replace('.',','))
                 );
                 $('#wtax').val(
                     (wtax >= 0 ? '' : '-') + formatRupiahIni(wtax.toFixed(2).toString().replace('.',','))

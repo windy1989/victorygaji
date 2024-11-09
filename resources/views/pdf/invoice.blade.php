@@ -125,7 +125,7 @@
                             1.
                         </td>
                         <td>
-                            Pembayaran Pertama (DP) untuk Pekerjaan Dokumen Andalalin Pembangunan {{ $data->project->name }} di {{ $data->project->location }} dengan status Jalan ......................
+                            Pembayaran {{ $data->paymentNoText() }} untuk Pekerjaan Dokumen Andalalin Pembangunan {{ $data->project->name }} di {{ $data->project->location }} dengan status Jalan ......................
                         </td>
                         <td align="right">
                             Rp {{ number_format($data->project->cost,0,',','.') }},-

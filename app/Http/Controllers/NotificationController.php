@@ -98,13 +98,16 @@ class NotificationController extends Controller
         $countNew = 0;
         foreach($data as $row) {
             $dbtimestamp = strtotime($row->created_at);
+            $isNew = '';
             if (time() - $dbtimestamp <= (15 * 60)) {
                 $countNew++;
+                $isNew = '1';
             }
             $notif[] = [
                 'id'    => $row->id,
                 'note'  => $row->note,
                 'time'  => $row->getTimeAgo(),
+                'is_new'=> $isNew,
             ];
         }
         $data = [

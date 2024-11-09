@@ -106,8 +106,35 @@
                                     <input type="date" class="form-control" id="post_date" name="post_date" value="{{ date('Y-m-d') }}">
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <label class="form-label">Nominal</label>
-                                    <input type="text" class="form-control" placeholder="Nominal" id="nominal" name="nominal" onkeyup="formatRupiahNoMinus(this);" value="0,00">
+                                    <label class="form-label">PPN (%) / 0 untuk non-PPN</label>
+                                    <input type="text" class="form-control" placeholder="Persen PPN" id="percent_tax" name="percent_tax" onkeyup="formatRupiahNoMinus(this);countInvoice();" value="0">
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label class="form-label">Termasuk PPN / Tidak</label>
+                                    <select id="include_tax" name="include_tax" class="form-control wide" onchange="countInvoice();">
+                                        <option value="0">Tidak</option>
+                                        <option value="1">Ya</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label class="form-label">PPh (%) / 0 untuk non-PPh</label>
+                                    <input type="text" class="form-control" placeholder="Persen PPN" id="percent_wtax" name="percent_wtax" onkeyup="formatRupiahNoMinus(this);countInvoice();" value="0">
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label class="form-label">Total</label>
+                                    <input type="text" class="form-control" placeholder="Total" id="total" name="total" onkeyup="formatRupiahNoMinus(this);countInvoice();" value="0,00">
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label class="form-label">PPN</label>
+                                    <input type="text" class="form-control" placeholder="Total" id="tax" name="tax" onkeyup="formatRupiahNoMinus(this);" value="0,00" readonly>
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label class="form-label">PPh</label>
+                                    <input type="text" class="form-control" placeholder="Total" id="wtax" name="wtax" onkeyup="formatRupiahNoMinus(this);" value="0,00" readonly>
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label class="form-label">Grandtotal</label>
+                                    <input type="text" class="form-control" placeholder="Nominal" id="nominal" name="nominal" onkeyup="formatRupiahNoMinus(this);" value="0,00" readonly>
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Pembayaran Ke</label>

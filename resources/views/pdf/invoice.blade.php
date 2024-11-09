@@ -155,7 +155,7 @@
                         <th></th>
                         <th>{{ $data->includeTax() }}</th>
                         <th align="left">
-                            PPN ({{ round($data->percent_tax,2).'% : ' }})
+                            PPN {{ round($data->percent_tax,2).'%' }}
                         </th>
                         <th align="right">
                             Rp {{ number_format($data->tax,0,',','.') }},-

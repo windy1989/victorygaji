@@ -238,7 +238,7 @@
                 $('#wtax').val(
                     (wtax >= 0 ? '' : '-') + formatRupiahIni(wtax.toFixed(2).toString().replace('.',','))
                 );
-                $('#grandtotal').val(
+                $('#nominal').val(
                     (grandtotal >= 0 ? '' : '-') + formatRupiahIni(grandtotal.toFixed(2).toString().replace('.',','))
                 );
             }

@@ -136,6 +136,10 @@
                                     <input type="text" class="form-control" placeholder="Total" id="tax" name="tax" onkeyup="formatRupiahNoMinus(this);" value="0,00" readonly>
                                 </div>
                                 <div class="mb-3 col-md-6">
+                                    <label class="form-label">Total Stlh PPN (Non-Editable)</label>
+                                    <input type="text" class="form-control" placeholder="Total" id="total_after_tax" name="total_after_tax" onkeyup="formatRupiahNoMinus(this);" value="0,00" readonly>
+                                </div>
+                                <div class="mb-3 col-md-6">
                                     <label class="form-label">PPh (Non-Editable)</label>
                                     <input type="text" class="form-control" placeholder="Total" id="wtax" name="wtax" onkeyup="formatRupiahNoMinus(this);" value="0,00" readonly>
                                 </div>
@@ -241,6 +245,9 @@
                 grandtotal = total + tax - wtax;
                 $('#tax').val(
                     (tax >= 0 ? '' : '-') + formatRupiahIni(tax.toFixed(2).toString().replace('.',','))
+                );
+                $('#total_after_tax').val(
+                    (total >= 0 ? '' : '-') + formatRupiahIni(total.toFixed(2).toString().replace('.',','))
                 );
                 $('#wtax').val(
                     (wtax >= 0 ? '' : '-') + formatRupiahIni(wtax.toFixed(2).toString().replace('.',','))

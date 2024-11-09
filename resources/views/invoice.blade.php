@@ -118,7 +118,7 @@
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Termasuk PPN / Tidak</label>
-                                    <select id="include_tax" name="include_tax" class="form-control wide" onchange="countInvoice();">
+                                    <select id="include_tax" name="include_tax" class="form-control wide" onchange="applyInclude();countInvoice();">
                                         <option value="0">Tidak</option>
                                         <option value="1">Ya</option>
                                     </select>
@@ -230,6 +230,12 @@
         </div>
 
         <script>
+            function applyInclude(){
+                if($('#include_tax').val() == '0'){
+                    $('#total').val($('#total_after_tax').val());
+                }
+            }
+
             function countInvoice(){
                 let percentTax = parseFloat($('#percent_tax').val().replaceAll(".", "").replaceAll(",",".")), percentWtax = parseFloat($('#percent_wtax').val().replaceAll(".", "").replaceAll(",",".")), total = parseFloat($('#total').val().replaceAll(".", "").replaceAll(",",".")), tax = 0, wtax = 0, grandtotal = 0, total_after_tax = 0;
                 if(percentTax > 0){

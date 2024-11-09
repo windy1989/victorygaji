@@ -392,7 +392,7 @@ class ProjectController extends Controller
 
             $response = [
                 'status'    => 200,
-                'data'      => $data,
+                'message'   => 'Proyek berhasil ditutup.',
             ];
         }else{
             $response = [

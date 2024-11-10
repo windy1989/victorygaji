@@ -46,7 +46,7 @@
                                                 <th>No.Proyek</th>
                                                 <th>Tgl.Post</th>
                                                 <th>No.Pendaftaran Sidang</th>
-                                                <th>No.Surat Rekomendasi</th>
+                                                {{-- <th>No.Surat Rekomendasi</th> --}}
                                                 <th>Tgl.Mulai Sidang</th>
                                                 <th>Tgl.Selesai Sidang</th>
                                                 <th>Keterangan/Catatan</th>
@@ -95,13 +95,13 @@
                                     <input type="date" class="form-control" id="post_date" name="post_date" value="{{ date('Y-m-d') }}">
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <label class="form-label">No. Pendaftaran Sidang</label>
-                                    <input type="text" class="form-control" placeholder="No. Pendaftaran Sidang" id="no_hearing" name="no_hearing">
+                                    <label class="form-label">No. Undangan</label>
+                                    <input type="text" class="form-control" placeholder="No. Undangan" id="no_hearing" name="no_hearing">
                                 </div>
-                                <div class="mb-3 col-md-6">
+                                {{-- <div class="mb-3 col-md-6">
                                     <label class="form-label">No. Surat Rekomendasi</label>
                                     <input type="text" class="form-control" placeholder="No. Surat Rekomendasi" id="no_recomendation" name="no_recomendation">
-                                </div>
+                                </div> --}}
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Tgl.Mulai Sidang</label>
                                     <input type="date" class="form-control" id="start_date" name="start_date" value="{{ date('Y-m-d') }}">

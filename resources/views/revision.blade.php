@@ -45,6 +45,9 @@
                                                 <th>Pengguna</th>
                                                 <th>No.Proyek</th>
                                                 <th>Tgl.Post</th>
+                                                <th>No.Berita Acara</th>
+                                                <th>Tgl.Berita Acara</th>
+                                                <th>No.Surat Rekomendasi</th>
                                                 <th>Catatan Internal</th>
                                                 <th>Jumlah Lampiran</th>
                                                 <th>Status</th>
@@ -89,6 +92,18 @@
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Tgl.Post</label>
                                     <input type="date" class="form-control" id="post_date" name="post_date" value="{{ date('Y-m-d') }}">
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label class="form-label">No.Berita Acara</label>
+                                    <input type="text" class="form-control" placeholder="No.Berita Acara" id="no_news_program" name="no_news_program">
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label class="form-label">Tgl.Berita Acara</label>
+                                    <input type="date" class="form-control" id="date_news_program" name="date_news_program" value="{{ date('Y-m-d') }}">
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label class="form-label">No.Surat Rekomendasi</label>
+                                    <input type="text" class="form-control" placeholder="No.Surat Rekomendasi" id="no_recomendation" name="no_recomendation">
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Keterangan (Internal)</label>

@@ -31,6 +31,9 @@ class RevisionController extends Controller
             'user_id',
             'project_id',
 			'post_date',
+            'no_news_program',
+            'date_news_program',
+            'no_recomendation',
             'note',
             'status',
         ];
@@ -48,6 +51,8 @@ class RevisionController extends Controller
                     $query->where(function($query) use ($search, $request) {
                         $query->where('code', 'like', "%$search%")
                             ->orWhere('note', 'like', "%$search%")
+                            ->orWhere('no_news_program', 'like', "%$search%")
+                            ->orWhere('no_recomendation', 'like', "%$search%")
                             ->orWhereHas('project',function($query) use ($search){
                                 $query->whereHas('customer', function($query) use ($search){
                                     $query->where('code','like',"%$search%")
@@ -67,6 +72,8 @@ class RevisionController extends Controller
                     $query->where(function($query) use ($search, $request) {
                         $query->where('code', 'like', "%$search%")
                             ->orWhere('note', 'like', "%$search%")
+                            ->orWhere('no_news_program', 'like', "%$search%")
+                            ->orWhere('no_recomendation', 'like', "%$search%")
                             ->orWhereHas('project',function($query) use ($search){
                                 $query->whereHas('customer', function($query) use ($search){
                                     $query->where('code','like',"%$search%")
@@ -89,6 +96,9 @@ class RevisionController extends Controller
                     $val->user->nama,
                     $val->project->project_no.' - '.$val->project->customer->name,
                     date('d/m/Y',strtotime($val->post_date)),
+                    $val->no_news_program,
+                    date('d/m/Y',strtotime($val->date_news_program)),
+                    $val->no_recomendation,
                     $val->note,
                     $val->revisionDetail()->count(),
                     $val->statusBadge(),
@@ -151,6 +161,9 @@ class RevisionController extends Controller
                     $query->code            = $request->code;
                     $query->project_id      = $request->project_id;
                     $query->post_date       = $request->post_date;
+                    $query->no_news_program = $request->no_news_program;
+                    $query->date_news_program = $request->date_news_program;
+                    $query->no_recomendation = $request->no_recomendation;
                     $query->note            = $request->note;
                     $query->status          = '1';
                     $query->save();
@@ -161,6 +174,9 @@ class RevisionController extends Controller
                         'code'            => $request->code,
                         'project_id'      => $request->project_id,
                         'post_date'       => $request->post_date,
+                        'no_news_program' => $request->no_news_program,
+                        'date_news_program' => $request->date_news_program,
+                        'no_recomendation' => $request->no_recomendation,
                         'note'            => $request->note,
                         'status'          => '1',
                     ]);

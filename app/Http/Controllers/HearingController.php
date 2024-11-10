@@ -35,7 +35,7 @@ class HearingController extends Controller
             'project_id',
 			'post_date',
             'no_hearing',
-            'no_recomendation',
+            /* 'no_recomendation', */
             'start_date',
             'finish_date',
             'note',
@@ -55,7 +55,7 @@ class HearingController extends Controller
                     $query->where(function($query) use ($search, $request) {
                         $query->where('code', 'like', "%$search%")
                             ->orWhere('no_hearing', 'like', "%$search%")
-                            ->orWhere('no_recomendation', 'like', "%$search%")
+                            /* ->orWhere('no_recomendation', 'like', "%$search%") */
                             ->orWhere('note', 'like', "%$search%")
                             ->orWhereHas('project',function($query) use ($search){
                                 $query->whereHas('customer', function($query) use ($search){
@@ -76,7 +76,7 @@ class HearingController extends Controller
                     $query->where(function($query) use ($search, $request) {
                         $query->where('code', 'like', "%$search%")
                             ->orWhere('no_hearing', 'like', "%$search%")
-                            ->orWhere('no_recomendation', 'like', "%$search%")
+                            /* ->orWhere('no_recomendation', 'like', "%$search%") */
                             ->orWhere('note', 'like', "%$search%")
                             ->orWhereHas('project',function($query) use ($search){
                                 $query->whereHas('customer', function($query) use ($search){
@@ -101,7 +101,7 @@ class HearingController extends Controller
                     $val->project->project_no.' - '.$val->project->customer->name,
                     date('d/m/Y',strtotime($val->post_date)),
                     $val->no_hearing,
-                    $val->no_recomendation,
+                    /* $val->no_recomendation, */
                     date('d/m/Y',strtotime($val->start_date)),
                     date('d/m/Y',strtotime($val->finish_date)),
                     $val->note,
@@ -139,7 +139,7 @@ class HearingController extends Controller
                 'project_id'            => 'required',
                 'post_date'             => 'required',
                 'no_hearing'            => 'required',
-                'no_recomendation'      => 'required',
+                /* 'no_recomendation'      => 'required', */
                 'start_date'            => 'required',
                 'finish_date'           => 'required',
             ], [
@@ -148,7 +148,7 @@ class HearingController extends Controller
                 'project_id.required'       => 'Project tidak boleh kosong.',
                 'post_date.required'        => 'Tgl. post tidak boleh kosong.',
                 'no_hearing.required'       => 'No Pendaftaran Sidang tidak boleh kosong.',
-                'no_recomendation.required' => 'No Surat Rekomendasi tidak boleh kosong.',
+                /* 'no_recomendation.required' => 'No Surat Rekomendasi tidak boleh kosong.', */
                 'start_date.required'       => 'Tgl. Mulai Sidang tidak boleh kosong.',
                 'finish_date.required'      => 'Tgl. Selesai Sidang tidak boleh kosong.',
             ]);
@@ -190,7 +190,7 @@ class HearingController extends Controller
                     $query->project_id      = $request->project_id;
                     $query->post_date       = $request->post_date;
                     $query->no_hearing      = $request->no_hearing;
-                    $query->no_recomendation= $request->no_recomendation;
+                    /* $query->no_recomendation= $request->no_recomendation; */
                     $query->start_date      = $request->start_date;
                     $query->finish_date     = $request->finish_date;
                     $query->document        = $desiredPath ?? NULL;
@@ -213,7 +213,7 @@ class HearingController extends Controller
                         'project_id'        => $request->project_id,
                         'post_date'         => $request->post_date,
                         'no_hearing'        => $request->no_hearing,
-                        'no_recomendation'  => $request->no_recomendation,
+                        /* 'no_recomendation'  => $request->no_recomendation, */
                         'start_date'        => $request->start_date,
                         'finish_date'       => $request->finish_date,
                         'document'          => $desiredPath ?? NULL,

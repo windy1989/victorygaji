@@ -141,14 +141,14 @@ Dropzone.options.dropzoneUploadSmall = {
 
 Dropzone.options.dropzoneUploadDocument = {
     paramName: "file",
-    maxFilesize: 40,
+    maxFilesize: 50,
     maxFiles: 3,
     autoProcessQueue: true,
     autoQueue: true,
     parallelUploads: 1,
 	timeout: 0,
     addRemoveLinks : true,
-    acceptedFiles: ".doc,.docx",
+    acceptedFiles: ".doc,.docx,.pdf",
     init: function() {
         dropzoneMultiple = this;
         this.on("addedfiles", function(files) {
@@ -1269,6 +1269,21 @@ function edit(code){
                     `);
                     $('#post_date').val(response.data.post_date);
                     $('#no_hearing').val(response.data.no_hearing);
+                    $('#no_recomendation').val(response.data.no_recomendation);
+                    $('#start_date').val(response.data.start_date);
+                    $('#finish_date').val(response.data.finish_date);
+                    $('#note').val(response.data.note);
+                }
+
+                /* JIKA FORM HASIL SURVEI */
+                if($('#revision-datatable').length > 0){
+                    $('#code').val(response.data.code);
+                    $('#project_id').empty().append(`
+                        <option value="` + response.data.project_id + `">` + response.data.project_code + `</option>
+                    `);
+                    $('#post_date').val(response.data.post_date);
+                    $('#no_news_program').val(response.data.no_news_program);
+                    $('#date_news_program').val(response.data.date_news_program);
                     $('#no_recomendation').val(response.data.no_recomendation);
                     $('#start_date').val(response.data.start_date);
                     $('#finish_date').val(response.data.finish_date);
@@ -2991,6 +3006,9 @@ function loadDataTableRevision(){
             { name: 'user_id', className: '' },
             { name: 'project_id', className: '' },
             { name: 'post_date', className: '' },
+            { name: 'no_news_program', className: '' },
+            { name: 'date_news_program', className: '' },
+            { name: 'no_recomendation', className: '' },
             { name: 'note', className: '' },
             { name: 'attachment', searchable: false, orderable: false, className: 'text-center' },
             { name: 'status', searchable: false, orderable: false, className: 'text-center' },

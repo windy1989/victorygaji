@@ -167,6 +167,10 @@ class ApprovalController extends Controller
                     if($data->url == 'revisi'){
                         $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Revisi No. '.$data->code.', mohon persetujuannya dengan menekan link terlampir : ';
                     }
+
+                    if($data->url == 'drafter'){
+                        $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Drafter No. '.$data->code.', mohon persetujuannya dengan menekan link terlampir : ';
+                    }
                     
                     foreach($data2 as $row){
                         $row->update([

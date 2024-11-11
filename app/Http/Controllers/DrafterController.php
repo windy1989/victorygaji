@@ -171,7 +171,7 @@ class DrafterController extends Controller
                 }
                 
                 if($query) {
-                    CustomHelper::sendApproval($query->getTable(),$query->id,'drafter');
+                    /* CustomHelper::sendApproval($query->getTable(),$query->id,'drafter'); */
                     $response = [
                         'status'  => 200,
                         'message' => 'Data berhasil disimpan.'

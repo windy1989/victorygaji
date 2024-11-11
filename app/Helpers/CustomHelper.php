@@ -107,6 +107,12 @@ class CustomHelper {
 			$userlevel1 = User::where('status','1')->where('type','07')->get();
 			$userlevel2 = User::where('status','1')->where('type','08')->get();
 		}
+		if($url == 'drafter'){
+			$userlevel1 = User::where('status','1')->where('type','11')->get();
+        	$userlevel2 = User::where('status','1')->where('type','06')->get();
+			$userlevel3 = User::where('status','1')->where('type','07')->get();
+			$userlevel4 = User::where('status','1')->where('type','08')->get();
+		}
 
         $message = '';
         
@@ -138,6 +144,10 @@ class CustomHelper {
 
 		if($url == 'revisi'){
             $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Revisi No. '.$data->code.', mohon persetujuannya dengan menekan link terlampir : ';
+        }
+
+		if($url == 'drafter'){
+            $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Drafter No. '.$data->code.', mohon persetujuannya dengan menekan link terlampir : ';
         }
 
 		if($userlevel1){

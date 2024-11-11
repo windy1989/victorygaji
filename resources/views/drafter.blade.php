@@ -37,7 +37,7 @@
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table id="documentation-datatable" class="display nowrap" style="min-width: 100%">
+                                    <table id="drafter-datatable" class="display nowrap" style="min-width: 100%">
                                         <thead>
                                             <tr>
                                                 <th>#</th>

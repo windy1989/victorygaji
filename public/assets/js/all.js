@@ -1582,6 +1582,15 @@ function destroyFile(code){
                         if($('#andalalin-datatable').length > 0){
                             loadDataTableAndalalin();
                         }
+                        if($('#revision-datatable').length > 0){
+                            loadDataTableRevision();
+                        }
+                        if($('#drafter-datatable').length > 0){
+                            loadDataTableDrafter();
+                        }
+                        if($('#revision-drafter-datatable').length > 0){
+                            loadDataTableRevisionDrafter();
+                        }
                     }
                 },
                 error: function() {

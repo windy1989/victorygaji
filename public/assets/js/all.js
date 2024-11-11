@@ -3028,7 +3028,7 @@ function loadDataTableRevision(){
 
 /* HASIL REVISI */
 
-function savePassword(){
+function changePassword(){
     if($('#new_password').val() && $('#confirm_password').val()){
         if($('#new_password').val() == $('#confirm_password').val()){
             swal({

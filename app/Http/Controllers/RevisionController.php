@@ -17,7 +17,7 @@ class RevisionController extends Controller
     public function index()
     {
         $data = [
-            'title'         => 'Revisi',
+            'title'         => 'Revisi Dokumen',
             'content'       => 'revision',
         ];
 

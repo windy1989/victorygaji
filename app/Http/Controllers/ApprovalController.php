@@ -145,31 +145,35 @@ class ApprovalController extends Controller
                     }
             
                     if($data->url == 'surat_penawaran'){
-                        $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Surat Penawaran No. '.$data->code.', mohon persetujuannya dengan menekan link terlampir : ';
+                        $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Surat Penawaran No. '.$data->code.' telah dibuat, mohon persetujuannya dengan menekan link terlampir : ';
                     }
             
                     if($data->url == 'spk'){
-                        $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen SPK No. '.$data->code.', mohon persetujuannya dengan menekan link terlampir : ';
+                        $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen SPK No. '.$data->code.' telah dibuat, mohon persetujuannya dengan menekan link terlampir : ';
                     }
             
                     if($data->url == 'proyek'){
-                        $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Proyek No. '.$data->code.', mohon persetujuannya dengan menekan link terlampir : ';
+                        $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Proyek No. '.$data->code.' telah dibuat, mohon persetujuannya dengan menekan link terlampir : ';
                     }
             
                     if($data->url == 'kelengkapan_dokumen'){
-                        $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Kelengkapan Dokumen No. '.$data->code.', mohon persetujuannya dengan menekan link terlampir : ';
+                        $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Kelengkapan Dokumen No. '.$data->code.' telah dibuat, mohon persetujuannya dengan menekan link terlampir : ';
                     }
             
                     if($data->url == 'dokumen_andalalin'){
-                        $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Andalalin No. '.$data->code.', mohon persetujuannya dengan menekan link terlampir : ';
+                        $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Andalalin No. '.$data->code.' telah dibuat, mohon persetujuannya dengan menekan link terlampir : ';
                     }
             
                     if($data->url == 'revisi'){
-                        $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Revisi No. '.$data->code.', mohon persetujuannya dengan menekan link terlampir : ';
+                        $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Revisi No. '.$data->code.' telah dibuat, mohon persetujuannya dengan menekan link terlampir : ';
                     }
 
                     if($data->url == 'drafter'){
-                        $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Drafter No. '.$data->code.', mohon persetujuannya dengan menekan link terlampir : ';
+                        $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Drafter No. '.$data->code.' telah dibuat, mohon persetujuannya dengan menekan link terlampir : ';
+                    }
+
+                    if($data->url == 'revisi_drafter'){
+                        $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Revisi Drafter No. '.$data->code.' telah dibuat, mohon persetujuannya dengan menekan link terlampir : ';
                     }
                     
                     foreach($data2 as $row){

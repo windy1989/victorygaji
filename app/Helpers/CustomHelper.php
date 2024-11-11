@@ -107,7 +107,7 @@ class CustomHelper {
 			$userlevel1 = User::where('status','1')->where('type','07')->get();
 			$userlevel2 = User::where('status','1')->where('type','08')->get();
 		}
-		if($url == 'drafter'){
+		if($url == 'drafter' || $url == 'revisi_drafter'){
 			$userlevel1 = User::where('status','1')->where('type','11')->get();
         	$userlevel2 = User::where('status','1')->where('type','06')->get();
 			$userlevel3 = User::where('status','1')->where('type','07')->get();
@@ -123,31 +123,35 @@ class CustomHelper {
         }
 
 		if($url == 'surat_penawaran'){
-            $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Surat Penawaran No. '.$data->code.', mohon persetujuannya dengan menekan link terlampir : ';
+            $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Surat Penawaran No. '.$data->code.' telah dibuat, mohon persetujuannya dengan menekan link terlampir : ';
         }
 
 		if($url == 'spk'){
-            $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen SPK No. '.$data->code.', mohon persetujuannya dengan menekan link terlampir : ';
+            $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen SPK No. '.$data->code.' telah dibuat, mohon persetujuannya dengan menekan link terlampir : ';
         }
 
 		if($url == 'proyek'){
-            $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Proyek No. '.$data->code.', mohon persetujuannya dengan menekan link terlampir : ';
+            $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Proyek No. '.$data->code.' telah dibuat, mohon persetujuannya dengan menekan link terlampir : ';
         }
 
 		if($url == 'kelengkapan_dokumen'){
-            $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Kelengkapan Dokumen No. '.$data->code.', mohon persetujuannya dengan menekan link terlampir : ';
+            $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Kelengkapan Dokumen No. '.$data->code.' telah dibuat, mohon persetujuannya dengan menekan link terlampir : ';
         }
 
 		if($url == 'dokumen_andalalin'){
-            $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Andalalin No. '.$data->code.', mohon persetujuannya dengan menekan link terlampir : ';
+            $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Andalalin No. '.$data->code.' telah dibuat, mohon persetujuannya dengan menekan link terlampir : ';
         }
 
 		if($url == 'revisi'){
-            $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Revisi No. '.$data->code.', mohon persetujuannya dengan menekan link terlampir : ';
+            $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Revisi No. '.$data->code.' telah dibuat, mohon persetujuannya dengan menekan link terlampir : ';
         }
 
 		if($url == 'drafter'){
-            $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Drafter No. '.$data->code.', mohon persetujuannya dengan menekan link terlampir : ';
+            $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Drafter No. '.$data->code.' telah dibuat, mohon persetujuannya dengan menekan link terlampir : ';
+        }
+
+		if($url == 'revisi_drafter'){
+            $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Revisi Drafter No. '.$data->code.' telah dibuat, mohon persetujuannya dengan menekan link terlampir : ';
         }
 
 		if($userlevel1){

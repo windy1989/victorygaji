@@ -18,7 +18,7 @@ class ProfileController extends Controller
         return view('layouts.index', ['data' => $data]);
     }
 
-    public function updatePassword(Request $request,$code){
+    public function updatePassword(Request $request){
         $data = User::where('nik',session('bo_nik'))->first();
 
         if($data){

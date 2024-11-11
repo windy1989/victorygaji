@@ -3027,3 +3027,57 @@ function loadDataTableRevision(){
 }
 
 /* HASIL REVISI */
+
+function savePassword(){
+    if($('#new_password').val() && $('#confirm_password').val()){
+        if($('#new_password').val() == $('#confirm_password').val()){
+            swal({
+                title: "Apakah yakin ingin merubah password?",
+                text: "Anda bisa merubah kembali password di halaman ini.",
+                type: "warning",
+                showCancelButton: !0,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Ya, simpan!",
+                cancelButtonText: "Batal",
+                closeOnConfirm: !1,
+                closeOnCancel: !1,
+                focusCancel: true,
+            }).then(function (willDelete) {
+                setTimeout(function () {
+                    $('.swal2-confirm').focus();
+                }, 100);
+                if (willDelete.value) {
+                    $.ajax({
+                        url: window.location.href + '/update_password',
+                        type: 'POST',
+                        dataType: 'JSON',
+                        data: {
+                            new_password : $('#new_password').val(),
+                        },
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        beforeSend: function() {
+                            loadingOpen();
+                        },
+                        success: function(response) {
+                            loadingClose();
+                            if(response.status == 200) {
+                                successMessage(response.message);
+                            }else{
+                                errorMessage(response.message);
+                            }
+                        },
+                        error: function() {
+                            loadingClose();
+                        }
+                    });
+                }
+            });
+        }else{
+            errorMessage('Password baru dan konfirmasi tidak sama.');
+        }
+    }else{
+        errorMessage('Password baru harus diisi.');
+    }
+}

@@ -17,8 +17,8 @@
             <div class="col-xl-6">
                 <div class="card">
                     <div class="card-header d-block">
-                        <h4 class="card-title">Selamat Datang!</h4>
-                        <p class="m-0 subtitle">Aplikasi Manajemen Proyek V.24.01</p>
+                        <h4 class="card-title">Informasi Profil</h4>
+                        <p class="m-0 subtitle">Selalu rubah password demi kenyamanan anda.</p>
                     </div>
                     <div class="card-body">
                         <div class="row">

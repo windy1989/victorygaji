@@ -339,7 +339,7 @@ class RevisionDrafterController extends Controller
                 'error'  => $validation->errors()
             ];
         } else {
-            $query = Drafter::where('code',CustomHelper::decrypt($request->code))->first();
+            $query = RevisionDrafter::where('code',CustomHelper::decrypt($request->code))->first();
 
             if($query){
                 if($query->status == '1'){

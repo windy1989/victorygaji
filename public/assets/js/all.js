@@ -222,6 +222,83 @@ Dropzone.options.dropzoneUploadDocument = {
     },
 };
 
+Dropzone.options.dropzoneUploadDrafter = {
+    paramName: "file",
+    maxFilesize: 50,
+    maxFiles: 3,
+    autoProcessQueue: true,
+    autoQueue: true,
+    parallelUploads: 1,
+	timeout: 0,
+    addRemoveLinks : true,
+    acceptedFiles: ".doc,.docx,.pdf",
+    init: function() {
+        dropzoneMultiple = this;
+        this.on("addedfiles", function(files) {
+            $.ajax({
+                url: window.location.href + '/check',
+                type: 'POST',
+                dataType: 'JSON',
+                data: {
+                   name: files[0].name
+                },
+                headers: {
+                   'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                beforeSend: function() {
+
+                },
+                success: function(response) {
+                    if(response.status == '1'){
+                        dropzoneMultiple.processQueue();
+                    }else{
+                        errorMessage('Maaf nama file telah ada pada sistem. Silahkan rename file anda.');
+                    }
+                }
+           });
+        });
+        this.on("sending", function(file, xhr, formData){
+            formData.append('code', $('#tempUpload').val());
+        });
+        this.on("success", function(file, responseText) {
+            $('#validation_alert_upload').empty().hide();
+            if(responseText.status == '200'){
+                $('#list-files').append(`
+                    <div class="col-md-3" id="picture` + responseText.newimage.code + `">
+                        ` + responseText.newimage.file + `
+                        <p class="mt-3 text-center">
+                            <h6>` + responseText.newimage.name + `</h6>
+                            <button type="button" class="btn btn-rounded btn-primary" onclick="destroyFile('` + responseText.newimage.code + `');"><i class="fa fa-trash"></i></button>
+                        </p>
+                    </div>    
+                `);
+                successMessage(responseText.message);
+                if($('#drafter-datatable').length > 0){
+                    loadDataTableDrafter();
+                }
+                $('#no-file-error').remove();
+            }else if(responseText.status == '422'){
+                $('#validation_alert_upload').show();
+                $.each(responseText.error, function(i, val) {
+                    $.each(val, function(i, val) {
+                       $('#validation_alert_upload').append(`
+                            <div class="alert alert-info solid alert-rounded "> ` + val + `</div>
+                       `);
+                    });
+                });
+            }else{
+                errorMessage(responseText.message);
+            }
+        });
+        this.on("complete", function(file) {
+            dropzoneMultiple.removeFile(file);
+        });
+		this.on('error', function(file, response) {
+			errorMessage(response.match("<title>(.*?)</title>")[1]);
+		});
+    },
+};
+
 $(function() {
 
     $('#basicModal').on('hidden.bs.modal', function (e) {
@@ -357,6 +434,10 @@ $(function() {
 
     if($('#revision-datatable').length > 0){
         loadDataTableRevision();
+    }
+
+    if($('#drafter-datatable').length > 0){
+        loadDataTableDrafter();
     }
 
     $('#payroll-datatable tbody').on('click', '.payroll-email', function() {
@@ -1252,7 +1333,7 @@ function edit(code){
                 }
 
                 /* JIKA FORM HASIL SURVEI */
-                if($('#documentation-datatable').length > 0 || $('#andalalin-datatable').length > 0){
+                if($('#documentation-datatable').length > 0 || $('#andalalin-datatable').length > 0 || $('#drafter-datatable').length > 0){
                     $('#code').val(response.data.code);
                     $('#project_id').empty().append(`
                         <option value="` + response.data.project_id + `">` + response.data.project_code + `</option>
@@ -1746,6 +1827,10 @@ function save(){
 
                         if($('#revision-datatable').length > 0){
                             loadDataTableRevision();
+                        }
+
+                        if($('#drafter-datatable').length > 0){
+                            loadDataTableDrafter();
                         }
 
                         $('#modalCreate').modal('toggle');
@@ -3027,6 +3112,67 @@ function loadDataTableRevision(){
 }
 
 /* HASIL REVISI */
+
+/* DRAFTER */
+
+function loadDataTableDrafter(){
+    window.table = $('#drafter-datatable').DataTable({
+        "scrollCollapse": true,
+        "scrollY": '400px',
+		"scrollX": true,
+		"scroller": true,
+        "responsive": true,
+        "stateSave": true,
+        "serverSide": true,
+        "deferRender": true,
+        "destroy": true,
+        "fixedColumns": {
+            left: 2,
+            right: 1
+        },
+        "iDisplayInLength": 10,
+        "order": [[0, 'asc']],
+        ajax: {
+            url: window.location.href + '/datatable',
+            type: 'GET',
+            data: {
+                
+            },
+            beforeSend: function() {
+                /* loadingOpen(); */
+            },
+            complete: function() {
+                /* loadingClose(); */
+            },
+            error: function() {
+                /* loadingClose(); */
+                errorConnection();
+            }
+        },
+        columns: [
+            { name: 'id', searchable: false, className: 'text-center' },
+            { name: 'code', className: '' },
+            { name: 'user_id', className: '' },
+            { name: 'project_id', className: '' },
+            { name: 'post_date', className: '' },
+            { name: 'note', className: '' },
+            { name: 'attachment', searchable: false, orderable: false, className: 'text-center' },
+            { name: 'status', searchable: false, orderable: false, className: 'text-center' },
+            { name: 'action', searchable: false, orderable: false, className: 'text-center' },
+        ],
+        createdRow: function ( row, data, index ) {
+            $(row).addClass('selected')
+        },
+        language: {
+            paginate: {
+                next: '<i class="fa fa-angle-double-right" aria-hidden="true"></i>',
+                previous: '<i class="fa fa-angle-double-left" aria-hidden="true"></i>' 
+            }
+        }
+    });
+}
+
+/* DRAFTER */
 
 function changePassword(){
     if($('#new_password').val() && $('#confirm_password').val()){

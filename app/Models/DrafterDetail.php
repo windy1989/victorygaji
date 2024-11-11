@@ -9,23 +9,23 @@ use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Storage;
 
-class AndalalinDetail extends Model
+class DrafterDetail extends Model
 {
     use HasFactory, Notifiable, SoftDeletes;
 
-    protected $table = 'andalalin_details';
+    protected $table = 'drafter_details';
     protected $primaryKey = 'id';
     protected $dates = ['deleted_at'];
     protected $fillable = [
-        'andalalin_id',
+        'drafter_id',
         'code',
         'alias',
         'name',
         'file_location',
     ];
 
-    public function andalalin(){
-        return $this->belongsTo('App\Models\Andalalin','andalalin_id','id')->withTrashed();
+    public function drafter(){
+        return $this->belongsTo('App\Models\Drafter','drafter_id','id')->withTrashed();
     }
 
     public function attachment() 

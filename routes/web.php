@@ -174,6 +174,19 @@ Route::middleware('login')->group(function () {
         Route::post('destroy_file',[DocumentationController::class, 'destroyFile']);
     });
 
+    Route::prefix('drafter')->middleware('admin.auth:01,04,11,06,07,08')->group(function () {
+        Route::get('/',[DrafterController::class, 'index']);
+        Route::get('datatable',[DrafterController::class, 'datatable']);
+        Route::post('create',[DrafterController::class, 'create']);
+        Route::post('show',[DrafterController::class, 'show']);
+        Route::post('detail',[DrafterController::class, 'detail']);
+        Route::post('destroy',[DrafterController::class, 'destroy']);
+        Route::post('upload',[DrafterController::class, 'upload']);
+        Route::post('check',[DrafterController::class, 'check']);
+        Route::post('show_upload',[DrafterController::class, 'showUpload']);
+        Route::post('destroy_file',[DrafterController::class, 'destroyFile']);
+    });
+
     Route::prefix('dokumen_andalalin')->middleware('admin.auth:01,03,04,06,07,08,11,12')->group(function () {
         Route::get('/',[AndalalinController::class, 'index']);
         Route::get('datatable',[AndalalinController::class, 'datatable']);

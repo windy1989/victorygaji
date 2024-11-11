@@ -28,6 +28,7 @@ class AppServiceProvider extends ServiceProvider
             'documentations'                => 'App\Models\Documentation',
             'andalalins'                    => 'App\Models\Andalalin', 
             'revisions'                     => 'App\Models\Revision',
+            'drafters'                      => 'App\Models\Drafter',
         ]);
     }
 }

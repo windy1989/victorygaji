@@ -3064,7 +3064,9 @@ function changePassword(){
                             loadingClose();
                             if(response.status == 200) {
                                 successMessage(response.message);
-                                location.reload();
+                                setTimeout(function(){
+                                    location.reload();
+                                },2000);
                             }else{
                                 errorMessage(response.message);
                             }

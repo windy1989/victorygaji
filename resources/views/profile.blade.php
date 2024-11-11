@@ -14,7 +14,7 @@
         <!-- Row starts -->
         <div class="row">
             <!-- Column starts -->
-            <div class="col-xl-12">
+            <div class="col-xl-6">
                 <div class="card">
                     <div class="card-header d-block">
                         <h4 class="card-title">Selamat Datang!</h4>
@@ -24,13 +24,24 @@
                         <div class="row">
                             <div class="col-sm-6 m-b30">
                                 <label class="form-label">Nama</label>
-                                <input type="text" class="form-control" value="" name="nama" id="nama" disabled>
+                                <input type="text" class="form-control" value="{{ session('bo_nama') }}" name="nama" id="nama" disabled>
                             </div>
                             <div class="col-sm-6 m-b30">
                                 <label class="form-label">NIK</label>
-                                <input type="text" class="form-control" value="" name="nik" id="nik" disabled>
+                                <input type="text" class="form-control" value="{{ session('bo_nik') }}" name="nik" id="nik" disabled>
+                            </div>
+                            <div class="col-sm-6 m-b30">
+                                <label class="form-label">Password baru</label>
+                                <input type="password" class="form-control" name="new_password" id="new_password">
+                            </div>
+                            <div class="col-sm-6 m-b30">
+                                <label class="form-label">Konfirmasi Password</label>
+                                <input type="password" class="form-control" name="confirm_password" id="confirm_password">
                             </div>
                         </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-primary" onclick="changePassword();">UPDATE</button>
                     </div>
                 </div>
             </div>

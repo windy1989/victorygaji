@@ -188,7 +188,7 @@ Route::middleware('login')->group(function () {
         Route::post('destroy_file',[AndalalinController::class, 'destroyFile']);
     });
 
-    Route::prefix('revisi')->middleware('admin.auth:01')->group(function () {
+    Route::prefix('revisi')->middleware('admin.auth:01,06,07,08,12')->group(function () {
         Route::get('/',[RevisionController::class, 'index']);
         Route::get('datatable',[RevisionController::class, 'datatable']);
         Route::post('create',[RevisionController::class, 'create']);

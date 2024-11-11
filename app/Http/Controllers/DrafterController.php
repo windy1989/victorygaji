@@ -344,7 +344,7 @@ class DrafterController extends Controller
             if($query){
                 if($query->status == '1'){
                     $querydetail = DrafterDetail::create([
-                        'documentation_id'  => $query->id,
+                        'drafter_id'        => $query->id,
                         'code'	            => strtoupper(Str::random(15)),
                         'name'              => $request->file('file')->getClientOriginalName(),
                         'file_location'	    => $request->file('file') ? $request->file('file')->store('public/drafter') : NULL

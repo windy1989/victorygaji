@@ -384,6 +384,15 @@ class ProjectController extends Controller
                 ]);
             }
 
+            if($data->drafter()->exists()){
+                $data->drafter()->where('status','1')->update([
+                    'status'    => '4',
+                ]);
+                $data->drafter()->where('status','2')->update([
+                    'status'    => '3',
+                ]);
+            }
+
             $data->update([
                 'status'    => '3'
             ]);
@@ -659,6 +668,44 @@ class ProjectController extends Controller
                         <td>'.$row->statusBadge().'</td>
                         <td>'.$row->note.'</td>
                         <td>'.$row->documentationDetail()->count().'</td>
+                    </tr>';
+                }
+            }else{
+                $html .= '<tr>
+                    <td class="text-center" colspan="7">Data tidak ditemukan.</td>
+                </tr>';
+            }
+
+            $html .= '</tbody></table>';
+
+            #drafter
+
+            $html .= '<table class="table table-responsive-md mt-2">
+                    <thead>
+                        <tr>
+                            <th colspan="7"><strong>Drafter</strong></th>
+                        </tr>
+                        <tr>
+                            <th><strong>#</strong></th>
+                            <th><strong>Dokumen</strong></th>
+                            <th><strong>Pengguna</strong></th>
+                            <th><strong>Tgl.Dokumen</strong></th>
+                            <th><strong>Status</strong></th>
+                            <th><strong>Catatan</strong></th>
+                            <th><strong>Jumlah File</strong></th>
+                        </tr>
+                    </thead><tbody>';
+
+            if($data->drafter()->exists()){
+                foreach($data->drafter as $key => $row){
+                    $html .= '<tr>
+                        <td class="text-center">'.($key+1).'</td>
+                        <td>'.$row->code.'</td>
+                        <td>'.$row->user->nama.'</td>
+                        <td>'.date('d/m/Y',strtotime($row->post_date)).'</td>
+                        <td>'.$row->statusBadge().'</td>
+                        <td>'.$row->note.'</td>
+                        <td>'.$row->drafterDetail()->count().'</td>
                     </tr>';
                 }
             }else{

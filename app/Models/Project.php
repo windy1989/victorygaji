@@ -153,6 +153,10 @@ class Project extends Model
         return $this->hasMany('App\Models\Revision');
     }
 
+    public function drafter(): mixed{
+        return $this->hasMany('App\Models\Drafter');
+    }
+
     public function balancePayment(){
         $total = $this->cost;
         foreach($this->invoice()->whereNotNull('receipt_code')->get() as $payment){

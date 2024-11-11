@@ -8,6 +8,7 @@ use App\Http\Controllers\PayrollController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReportPaymentController;
 use App\Http\Controllers\RevisionController;
+use App\Http\Controllers\RevisionDrafterController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
@@ -186,6 +187,19 @@ Route::middleware('login')->group(function () {
         Route::post('check',[DrafterController::class, 'check']);
         Route::post('show_upload',[DrafterController::class, 'showUpload']);
         Route::post('destroy_file',[DrafterController::class, 'destroyFile']);
+    });
+
+    Route::prefix('revisi_drafter')->middleware('admin.auth:01,04,11,06,07,08')->group(function () {
+        Route::get('/',[RevisionDrafterController::class, 'index']);
+        Route::get('datatable',[RevisionDrafterController::class, 'datatable']);
+        Route::post('create',[RevisionDrafterController::class, 'create']);
+        Route::post('show',[RevisionDrafterController::class, 'show']);
+        Route::post('detail',[RevisionDrafterController::class, 'detail']);
+        Route::post('destroy',[RevisionDrafterController::class, 'destroy']);
+        Route::post('upload',[RevisionDrafterController::class, 'upload']);
+        Route::post('check',[RevisionDrafterController::class, 'check']);
+        Route::post('show_upload',[RevisionDrafterController::class, 'showUpload']);
+        Route::post('destroy_file',[RevisionDrafterController::class, 'destroyFile']);
     });
 
     Route::prefix('dokumen_andalalin')->middleware('admin.auth:01,03,04,06,07,08,11,12')->group(function () {

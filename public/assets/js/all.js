@@ -224,7 +224,7 @@ Dropzone.options.dropzoneUploadDocument = {
 
 Dropzone.options.dropzoneUploadDrafter = {
     paramName: "file",
-    maxFilesize: 50,
+    maxFilesize: 100,
     maxFiles: 3,
     autoProcessQueue: true,
     autoQueue: true,
@@ -275,6 +275,9 @@ Dropzone.options.dropzoneUploadDrafter = {
                 successMessage(responseText.message);
                 if($('#drafter-datatable').length > 0){
                     loadDataTableDrafter();
+                }
+                if($('#revision-drafter-datatable').length > 0){
+                    loadDataTableRevisionDrafter();
                 }
                 $('#no-file-error').remove();
             }else if(responseText.status == '422'){
@@ -438,6 +441,10 @@ $(function() {
 
     if($('#drafter-datatable').length > 0){
         loadDataTableDrafter();
+    }
+
+    if($('#revision-drafter-datatable').length > 0){
+        loadDataTableRevisionDrafter();
     }
 
     $('#payroll-datatable tbody').on('click', '.payroll-email', function() {
@@ -1683,29 +1690,72 @@ function destroy(code){
                             loadDataTableCustomer();
                         }
 
-                        /* JIKA FORM USER */
                         if($('#user-datatable').length > 0){
                             loadDataTableUser();
                         }
 
-                        /* JIKA FORM TIPE PROYEK */
-                        if($('#project-type-datatable').length > 0){
-                            loadDataTableProjectType();
-                        }
-
-                        /* JIKA FORM PERUNTUKAN */
                         if($('#purpose-datatable').length > 0){
                             loadDataTablePurpose();
                         }
 
-                        /* JIKA FORM BANK */
+                        if($('#project-type-datatable').length > 0){
+                            loadDataTableProjectType();
+                        }
+
+                        if($('#project-datatable').length > 0){
+                            loadDataTableProject();
+                        }
+
                         if($('#bank-datatable').length > 0){
                             loadDataTableBank();
                         }
 
-                        /* JIKA FORM INVOICE */
                         if($('#invoice-datatable').length > 0){
                             loadDataTableInvoice();
+                        }
+
+                        if($('#offering-letter-datatable').length > 0){
+                            loadDataTableOfferingLetter();
+                        }
+
+                        if($('#letter-agreement-datatable').length > 0){
+                            loadDataTableLetterAgreement();
+                        }
+
+                        if($('#survey-result-datatable').length > 0){
+                            loadDataTableSurveyResult();
+                        }
+
+                        if($('#survey-item-datatable').length > 0){
+                            loadDataTableSurveyResult();
+                        }
+
+                        if($('#survey-documentation-datatable').length > 0){
+                            loadDataTableSurveyDocumentation();
+                        }
+
+                        if($('#documentation-datatable').length > 0){
+                            loadDataTableDocumentation();
+                        }
+
+                        if($('#andalalin-datatable').length > 0){
+                            loadDataTableAndalalin();
+                        }
+
+                        if($('#hearing-datatable').length > 0){
+                            loadDataTableHearing();
+                        }
+
+                        if($('#revision-datatable').length > 0){
+                            loadDataTableRevision();
+                        }
+
+                        if($('#drafter-datatable').length > 0){
+                            loadDataTableDrafter();
+                        }
+
+                        if($('#revision-drafter-datatable').length > 0){
+                            loadDataTableRevisionDrafter();
                         }
                     }else{
                         errorMessage(response.message);
@@ -1831,6 +1881,10 @@ function save(){
 
                         if($('#drafter-datatable').length > 0){
                             loadDataTableDrafter();
+                        }
+
+                        if($('#revision-drafter-datatable').length > 0){
+                            loadDataTableRevisionDrafter();
                         }
 
                         $('#modalCreate').modal('toggle');
@@ -3173,6 +3227,67 @@ function loadDataTableDrafter(){
 }
 
 /* DRAFTER */
+
+/* REVISI DRAFTER */
+
+function loadDataTableRevisionDrafter(){
+    window.table = $('#revision-drafter-datatable').DataTable({
+        "scrollCollapse": true,
+        "scrollY": '400px',
+		"scrollX": true,
+		"scroller": true,
+        "responsive": true,
+        "stateSave": true,
+        "serverSide": true,
+        "deferRender": true,
+        "destroy": true,
+        "fixedColumns": {
+            left: 2,
+            right: 1
+        },
+        "iDisplayInLength": 10,
+        "order": [[0, 'asc']],
+        ajax: {
+            url: window.location.href + '/datatable',
+            type: 'GET',
+            data: {
+                
+            },
+            beforeSend: function() {
+                /* loadingOpen(); */
+            },
+            complete: function() {
+                /* loadingClose(); */
+            },
+            error: function() {
+                /* loadingClose(); */
+                errorConnection();
+            }
+        },
+        columns: [
+            { name: 'id', searchable: false, className: 'text-center' },
+            { name: 'code', className: '' },
+            { name: 'user_id', className: '' },
+            { name: 'project_id', className: '' },
+            { name: 'post_date', className: '' },
+            { name: 'note', className: '' },
+            { name: 'attachment', searchable: false, orderable: false, className: 'text-center' },
+            { name: 'status', searchable: false, orderable: false, className: 'text-center' },
+            { name: 'action', searchable: false, orderable: false, className: 'text-center' },
+        ],
+        createdRow: function ( row, data, index ) {
+            $(row).addClass('selected')
+        },
+        language: {
+            paginate: {
+                next: '<i class="fa fa-angle-double-right" aria-hidden="true"></i>',
+                previous: '<i class="fa fa-angle-double-left" aria-hidden="true"></i>' 
+            }
+        }
+    });
+}
+
+/* REVISI DRAFTER */
 
 function changePassword(){
     if($('#new_password').val() && $('#confirm_password').val()){

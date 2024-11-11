@@ -71,6 +71,11 @@ Route::middleware('login')->group(function () {
         Route::get('download/{code}',[DashboardController::class, 'download']);
     });
 
+    Route::prefix('profile')->group(function () {
+        Route::get('/', [ProfileController::class, 'index']);
+        Route::post('update_password',[ProfileController::class, 'updatePassword']);
+    });
+
     Route::prefix('persetujuan')->group(function () {
         Route::get('/', [ApprovalController::class, 'index']);
         Route::get('datatable',[ApprovalController::class, 'datatable']);

@@ -54,10 +54,10 @@
                             </li>
 							<li class="{{ Request::segment(2) == 'kelengkapan_dokumen' ? 'mm-active' : '' }}"><a href="{{ url('kelengkapan_dokumen') }}">Kelengkapan Dok.</a></li>
 							<li class="{{ Request::segment(2) == 'drafter' ? 'mm-active' : '' }}"><a href="{{ url('drafter') }}">Drafter</a></li>
-							<li class="{{ Request::segment(2) == 'revisi_drafter' ? 'mm-active' : '' }}"><a href="{{ url('revisi_drafter') }}">Revisi Drafter</a></li>
 							<li class="{{ Request::segment(2) == 'dokumen_andalalin' ? 'mm-active' : '' }}"><a href="{{ url('dokumen_andalalin') }}">Dok. Andalalin</a></li>
 							<li class="{{ Request::segment(2) == 'sidang' ? 'mm-active' : '' }}"><a href="{{ url('sidang') }}">Sidang</a></li>
 							<li class="{{ Request::segment(2) == 'revisi' ? 'mm-active' : '' }}"><a href="{{ url('revisi') }}">Revisi Dokumen</a></li>
+							<li class="{{ Request::segment(2) == 'revisi_drafter' ? 'mm-active' : '' }}"><a href="{{ url('revisi_drafter') }}">Revisi Drafter</a></li>
 							<li class="{{ in_array(Request::segment(2),['laporan_pembayaran']) ? 'mm-active' : '' }}"><a class="has-arrow" href="javascript:void()" aria-expanded="false">Laporan</a>
                                 <ul aria-expanded="false">
                                     <li class="{{ Request::segment(2) == 'laporan_pembayaran' ? 'mm-active' : '' }}"><a href="{{ url('laporan_pembayaran') }}">Pembayaran</a></li>

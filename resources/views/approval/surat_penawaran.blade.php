@@ -20,15 +20,11 @@
                                 <h4 class="card-title">Daftar {{ $title }}</h4>
                             </div>
                             <div class="card-body">
-                                @foreach ($data->lookable->andalalinDetail as $row)
-                                    <div class="profile-uoloaded-post border-bottom-1 pb-5">
-                                        <div>
-                                            <iframe src="{{ url($data->url.'/print/'.CustomHelper::encrypt($data->lookable->code)) }}" style="width:100%; height:500px;" frameborder="0"></iframe>
-                                        </div>
-                                        <h3 class="text-black">Nama File : {{ $row->name }}</h3>
+                                <div class="profile-uoloaded-post border-bottom-1 pb-5">
+                                    <div>
+                                        <iframe src="{{ url($data->url.'/print/'.CustomHelper::encrypt($data->lookable->code)) }}" style="width:100%; height:500px;" frameborder="0"></iframe>
                                     </div>
-                                @endforeach
-                                
+                                </div>
                             </div>
                         </div>
                     </div>

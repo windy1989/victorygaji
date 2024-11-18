@@ -1,3 +1,6 @@
+        @php
+            use App\Helpers\CustomHelper;
+        @endphp
         <!--**********************************
             Content body start
         ***********************************-->

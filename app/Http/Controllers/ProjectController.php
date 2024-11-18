@@ -449,7 +449,7 @@ class ProjectController extends Controller
             }
 
             #penawaran
-            $html = '<table class="table table-responsive-md">
+            $html .= '<table class="table table-responsive-md">
                     <thead>
                         <tr>
                             <th colspan="6"><strong>Surat Penawaran</strong></th>

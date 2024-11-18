@@ -188,7 +188,7 @@ class ApprovalController extends Controller
                     }
                 }else{
                     $data->lookable->update([
-                        'status'    => '3'
+                        'status'    => '2'
                     ]);
                 }
                 CustomHelper::saveLog($data->lookable_type,$data->lookable_id,'Data dokumen no '.$data->lookable->code.' telah disetujui.','Pengguna '.session('bo_nama').' telah menyetujui data dokumen no '.$data->lookable->code);

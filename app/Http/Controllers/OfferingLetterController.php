@@ -305,7 +305,7 @@ class OfferingLetterController extends Controller
             
 
             if($data->approval()->exists()){
-                $html = '<table class="table table-responsive-md">
+                $html .= '<table class="table table-responsive-md">
                         <thead>
                             <tr>
                                 <th><strong>#</strong></th>

@@ -164,4 +164,8 @@ class Project extends Model
         }
         return $total;
     }
+
+    public function approval(){
+        return $this->hasMany('App\Models\Approval', 'lookable_id', 'id')->where('lookable_type',$this->table);
+    }
 }

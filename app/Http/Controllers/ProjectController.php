@@ -420,6 +420,34 @@ class ProjectController extends Controller
 
             $html = '';
 
+            #approval
+            if($data->approval()->exists()){
+                $html .= '<table class="table table-responsive-md">
+                        <thead>
+                            <tr>
+                                <th><strong>#</strong></th>
+                                <th><strong>APPROVER</strong></th>
+                                <th><strong>LEVEL</strong></th>
+                                <th><strong>TGL.APPROVE</strong></th>
+                                <th><strong>STATUS</strong></th>
+                                <th><strong>Catatan</strong></th>
+                            </tr>
+                        </thead><tbody>';
+
+                foreach($data->approval()->orderBy('approve_level')->get() as $key => $row){
+                    $html .= '<tr>
+                        <td class="text-center">'.($key+1).'</td>
+                        <td>'.$row->toUser->nama.'</td>
+                        <td>'.$row->approve_level.'</td>
+                        <td>'.($row->approve_date ? date('d/m/Y H:i:s',strtotime($row->approve_date)) : '-').'</td>
+                        <td>'.$row->approveStatus().'</td>
+                        <td>'.$row->approve_note.'</td>
+                    </tr>';
+                }
+
+                $html .= '</tbody></table>';
+            }
+
             #penawaran
             $html = '<table class="table table-responsive-md">
                     <thead>

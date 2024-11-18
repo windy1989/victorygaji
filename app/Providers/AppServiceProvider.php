@@ -30,6 +30,9 @@ class AppServiceProvider extends ServiceProvider
             'revisions'                     => 'App\Models\Revision',
             'drafters'                      => 'App\Models\Drafter',
             'revision_drafters'             => 'App\Models\RevisionDrafter',
+            'projects'                      => 'App\Models\Project',
+            'offering_letters'              => 'App\Models\OfferingLetter',
+            'letter_agreements'             => 'App\Models\LetterAgreement',
         ]);
     }
 }

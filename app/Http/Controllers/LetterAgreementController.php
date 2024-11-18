@@ -311,7 +311,7 @@ class LetterAgreementController extends Controller
                 }
                 
                 if($query) {
-
+                    CustomHelper::sendApproval($query->getTable(),$query->id,'spk');
                     if($request->arr_termin){
                         foreach($request->arr_termin as $key => $row){
                             LetterAgreementPayment::create([

@@ -250,6 +250,7 @@ class ProjectController extends Controller
                 }
                 
                 if($query) {
+                    CustomHelper::sendApproval($query->getTable(),$query->id,'proyek');
                     $response = [
                         'status'  => 200,
                         'message' => 'Data berhasil disimpan.'

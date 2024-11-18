@@ -216,7 +216,7 @@ class OfferingLetterController extends Controller
                 }
                 
                 if($query) {
-
+                    CustomHelper::sendApproval($query->getTable(),$query->id,'surat_penawaran');
                     if($request->arr_termin){
                         foreach($request->arr_termin as $key => $row){
                             OfferingLetterPayment::create([

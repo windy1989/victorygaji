@@ -116,10 +116,11 @@
                                     <input type="text" class="form-control" placeholder="Keterangan" id="note" name="note">
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <label class="form-label">Include PNBP?</label>
+                                    <label class="form-label">Status PNBP?</label>
                                     <select id="is_pnbp" name="is_pnbp" class="form-control wide">
                                         <option value="1">Ya</option>
                                         <option value="2">Tidak</option>
+                                        <option value="3">Tidak ada PNBP</option>
                                     </select>
                                 </div>
                                 <div class="mb-3 col-md-6">

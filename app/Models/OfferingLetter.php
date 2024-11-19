@@ -60,6 +60,7 @@ class OfferingLetter extends Model
         $status = match ($this->is_pnbp) {
             '1' => 'include PNBP',
             '2' => 'exclude PNBP',
+            '3' => '',
             default => 'Invalid',
         };
 

@@ -400,7 +400,7 @@
                                 <ul style="list-style-type:disc">
                                     @foreach ($data->letterAgreementPayment as $row)
                                         <li>
-                                            Tahap {{ CustomHelper::tahap($row->termin) }} sebesar ; Rp {{ number_format($row->getNominal(),0,',','') }},- ( {{ CustomHelper::terbilang($row->getNominal()) }} ) dari {{ $row->type() }}
+                                            Tahap {{ CustomHelper::tahap($row->termin) }} sebesar ; Rp {{ number_format($row->getNominal(),0,',','') }}, {{ $row->includeTax() }},- ( {{ CustomHelper::terbilang($row->getNominal()) }} ) dari {{ $row->type() }}
                                         </li>
                                     @endforeach
                                 </ul>

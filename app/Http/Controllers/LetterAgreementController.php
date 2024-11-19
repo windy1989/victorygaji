@@ -384,13 +384,14 @@ class LetterAgreementController extends Controller
                 $html .= '<table class="table table-responsive-md">
                         <thead>
                             <tr>
-                                <th colspan="4" class="text-center"><strong>Detail Termin</strong></th>
+                                <th colspan="5" class="text-center"><strong>Detail Termin</strong></th>
                             </tr>
                             <tr>
                                 <th><strong>#</strong></th>
                                 <th><strong>Termin</strong></th>
                                 <th><strong>Prosentase</strong></th>
                                 <th><strong>Tipe</strong></th>
+                                <th><strong>Termasuk Pajak</strong></th>
                             </tr>
                         </thead><tbody>';
                 foreach($data->letterAgreementPayment as $key2 => $row){
@@ -399,6 +400,7 @@ class LetterAgreementController extends Controller
                         <td>'.$row->termin.'</td>
                         <td>'.number_format($row->percentage,2,',','.').'</td>
                         <td class="text-left">'.$row->type().'</td>
+                        <td class="text-center">'.$row->includeTax().'</td>
                     </tr>';
                 }
                 $html .= '</tbody></table>';

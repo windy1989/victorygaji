@@ -1223,6 +1223,14 @@ function edit(code){
                     `);
                     $('#post_date').val(response.data.post_date);
                     $('#nominal').val(response.data.nominal);
+                    $('#subtotal').val(response.data.subtotal);
+                    $('#percent_tax').val(response.data.percent_tax);
+                    $('#percent_wtax').val(response.data.percent_wtax);
+                    $('#include_tax').val(response.data.include_tax);
+                    $('#total').val(response.data.total);
+                    $('#tax').val(response.data.tax);
+                    $('#wtax').val(response.data.wtax);
+                    $('#total_after_tax').val(response.data.total_after_tax);
                     $('#termin_no').val(response.data.termin_no);
                     $('#note').val(response.data.note);
                     $('#nominal_project').text(response.data.nominal_project);

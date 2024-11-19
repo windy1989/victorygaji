@@ -195,6 +195,7 @@
                                                     <th><strong>Termin</strong></th>
                                                     <th><strong>Prosentase</strong></th>
                                                     <th><strong>Tipe</strong></th>
+                                                    <th><strong>Termasuk Pajak</strong></th>
                                                     <th><strong>Hapus</strong></th>
                                                 </tr>
                                             </thead>
@@ -202,7 +203,7 @@
                                             </tbody>
                                             <tfoot>
                                                 <tr>
-                                                    <td colspan="5" class="text-center">
+                                                    <td colspan="6" class="text-center">
                                                         <button type="button" class="btn btn-rounded btn-info" onclick="addTermin();"><span class="btn-icon-start text-info"><i class="fa fa-plus color-info"></i>
                                                         </span>Tambah</button>
                                                     </td>
@@ -256,6 +257,12 @@
                                 <option value="2">Nilai kontrak dibayarkan pada saat PIHAK KEDUA menyerahkan laporan Analisis Dampak Lalu Lintas yang kondisinya siap disidangkan ke instansi terkait dengan menyertakan Tanda Terima Berkas oleh Dinas terkait.</option>
                                 <option value="3">Nilai kontrak dibayarkan saat pekerjaan sudah selesai dan surat rekomendasi Analisis Dampak Lalu Lintas yang diterbitkan instansi terkait sudah terbit.</option>
                             </select>    
+                        </td>
+                        <td>
+                            <select name="arr_include_tax[]" class="form-control wide">
+                                <option value="0">Tidak</option>
+                                <option value="1">Ya</option>
+                            </select>
                         </td>
                         <td class="text-center">
                             <button type="button" class="btn btn-danger" onclick="deletePayment(this);">Hapus</button>

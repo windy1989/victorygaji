@@ -319,6 +319,7 @@ class LetterAgreementController extends Controller
                                 'termin'                => $row,
                                 'percentage'            => str_replace(',','.',str_replace('.','',$request->arr_percentage[$key])),
                                 'type'                  => $request->arr_type[$key],
+                                'include_tax'           => $request->arr_include_tax[$key] == '0' ? NULL : $request->arr_include_tax[$key],
                             ]);
                         }
                     }
@@ -351,9 +352,10 @@ class LetterAgreementController extends Controller
             $details = [];
             foreach($data->letterAgreementPayment as $row){
                 $details[] = [
-                    'termin'    => $row->termin,
-                    'percentage'=> number_format($row->percentage,2,',','.'),
-                    'type'      => $row->type,
+                    'termin'        => $row->termin,
+                    'percentage'    => number_format($row->percentage,2,',','.'),
+                    'type'          => $row->type,
+                    'include_tax'   => $row->include_tax ?? '0',
                 ];
             }
             $data['details'] = $details;

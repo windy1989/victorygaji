@@ -20,7 +20,17 @@ class LetterAgreementPayment extends Model
         'termin',
         'percentage',
         'type',
+        'include_tax',
     ];
+
+    public function includeTax(){
+        $include_tax = match ($this->include_tax) {
+            '1' => 'Include',
+            default => 'Exclude',
+        };
+
+        return $include_tax;
+    }
 
     public function getNominal(){
         $totalProject = $this->letterAgreement->project->cost;

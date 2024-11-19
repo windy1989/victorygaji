@@ -1309,12 +1309,19 @@ function edit(code){
                                             <option value="3">Nilai kontrak dibayarkan saat pekerjaan sudah selesai dan surat rekomendasi Analisis Dampak Lalu Lintas yang diterbitkan instansi terkait sudah terbit.</option>
                                         </select>
                                     </td>
+                                    <td>
+                                        <select name="arr_include_tax[]" id="arr_include_tax` + i + `" class="form-control wide">
+                                            <option value="0">Tidak</option>
+                                            <option value="1">Ya</option>
+                                        </select>
+                                    </td>
                                     <td class="text-center">
                                         <button type="button" class="btn btn-danger" onclick="deletePayment(this);">Hapus</button>
                                     </td>
                                 </tr>    
                             `);
                             $('#arr_type' + i).val(val.type);
+                            $('#arr_include_tax' + i).val(val.include_tax);
                         });
                     }
                 }

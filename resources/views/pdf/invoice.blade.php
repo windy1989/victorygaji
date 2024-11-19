@@ -195,13 +195,14 @@
                 Keterangan :
                 <p>
                     Adapun pembayaran mohon di transfer ke nomor rekening berikut :<br>
-                    @if (count($banks) > 0)
+                    {{-- @if (count($banks) > 0)
                         <ol>
                             @foreach ($banks as $rowbank)
                             <li>{!! $rowbank->bank.' Cab. '.$rowbank->branch.' No. Rekening <b>'.$rowbank->no.'</b> A.n. : <b>'.$rowbank->name.'</b>' !!}</li>
                             @endforeach
                         </ol>
-                    @endif
+                    @endif --}}
+                    {!! $data->bank->bank.' Cab. '.$data->bank->branch.' No. Rekening <b>'.$data->bank->no.'</b> A.n. : <b>'.$data->bank->name.'</b>' !!}
                 </p>
             </div>
             <br>

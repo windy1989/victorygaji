@@ -1938,6 +1938,7 @@ $(function() {
         $('#customer_id,#project_type_id,#purpose_id,#region_id,#project_id,#bank_id').empty();
         $('#nominal_project').text('0,00');
         $('#previewFile').html('');
+        $('#body-payment').empty();
     });
 
     $('#modalUpload').on('hidden.bs.modal', function (e) {

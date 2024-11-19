@@ -99,13 +99,13 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td align="center">
                         <i>PIHAK 1</i>
                     </td>
-                    <td>
+                    <td align="center">
                         <i>PIHAK 2</i>
                     </td>
-                    <td>
+                    <td align="center">
                         <i>Manager</i>
                     </td>
                 </tr>

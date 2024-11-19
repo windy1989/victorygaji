@@ -125,7 +125,7 @@
                             1.
                         </td>
                         <td>
-                            Pembayaran {{ $data->paymentNoText() }} untuk Pekerjaan Dokumen Andalalin Pembangunan {{ $data->project->name }} di {{ $data->project->location }} dengan status Jalan ......................
+                            Pembayaran {{ $data->paymentNoText() }} untuk Pekerjaan Dokumen Andalalin Pembangunan {{ $data->project->name }} di {{ $data->project->customer->address }}
                         </td>
                         <td align="right">
                             Rp {{ number_format($data->project->cost,0,',','.') }},-

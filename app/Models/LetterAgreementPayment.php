@@ -25,8 +25,8 @@ class LetterAgreementPayment extends Model
 
     public function includeTax(){
         $include_tax = match ($this->include_tax) {
-            '1' => 'Include',
-            default => 'Exclude',
+            '1' => 'Include Pajak',
+            default => 'Exclude Pajak',
         };
 
         return $include_tax;

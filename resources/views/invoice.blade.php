@@ -236,7 +236,7 @@
 
         <script>
             function countInvoice(){
-                let percentTax = parseFloat($('#percent_tax').val().replaceAll(".", "").replaceAll(",",".")), percentWtax = parseFloat($('#percent_wtax').val().replaceAll(".", "").replaceAll(",",".")), subtotal = parseFloat($('#subtotal').val().replaceAll(".", "").replaceAll(",",".")),total = 0, tax = 0, wtax = 0, grandtotal = 0, total_after_tax = 0;
+                let percentTax = parseFloat($('#percent_tax').val().replaceAll(".", "").replaceAll(",",".")), percentWtax = parseFloat($('#percent_wtax').val().replaceAll(".", "").replaceAll(",",".")), subtotal = parseFloat($('#subtotal').val().replaceAll(".", "").replaceAll(",",".")),total = subtotal, tax = 0, wtax = 0, grandtotal = 0, total_after_tax = 0;
                 if(percentTax > 0){
                     if($('#include_tax').val() == '1'){
                         subtotal = subtotal / (1 + (percentTax / 100));

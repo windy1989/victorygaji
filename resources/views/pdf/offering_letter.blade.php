@@ -91,7 +91,7 @@
                             </tr>
                         </table>
                     </td>
-                    <td width="40%" align="center">
+                    <td width="40%">
                         Sidoarjo, {{ CustomHelper::tgl_indo($data->post_date) }}
                         <br>
                         Kepada Yth,
@@ -99,7 +99,7 @@
                         {{ $data->to_name }}
                         <br>
                         <div align="left" style="margin-left:50px;">Di -</div>
-                        <b><u>tempat</u></b>
+                        <b align="center"><u>tempat</u></b>
                     </td>
                 </tr>
 			</table>

@@ -92,7 +92,7 @@
                         </table>
                     </td>
                     <td width="40%">
-                        <div align="center">Sidoarjo, {{ CustomHelper::tgl_indo($data->post_date) }}</div>
+                        <span align="center">Sidoarjo, {{ CustomHelper::tgl_indo($data->post_date) }}</span>
                         <br>
                         Kepada Yth,
                         <br>

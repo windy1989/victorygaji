@@ -99,7 +99,7 @@
                         {{ $data->to_name }}
                         <br>
                         <div align="left" style="margin-left:50px;">Di -</div>
-                        <b align="center"><u>tempat</u></b>
+                        <div align="center"><b><u>tempat</u></b></div>
                     </td>
                 </tr>
 			</table>

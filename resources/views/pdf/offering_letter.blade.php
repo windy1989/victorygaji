@@ -92,14 +92,14 @@
                         </table>
                     </td>
                     <td width="40%">
-                        <span align="center">Sidoarjo, {{ CustomHelper::tgl_indo($data->post_date) }}</span>
+                        <span style="margin-left:25px;">Sidoarjo, {{ CustomHelper::tgl_indo($data->post_date) }}</span>
                         <br>
                         Kepada Yth,
                         <br>
                         {{ $data->to_name }}
                         <br>
                         <div align="left" style="margin-left:50px;">Di -</div>
-                        <div align="center"><b><u>tempat</u></b></div>
+                        <div style="margin-left:75px;"><b><u>tempat</u></b></div>
                     </td>
                 </tr>
 			</table>

@@ -77,9 +77,9 @@
                         @if ($data->project->customer->logo)
                             <img src="{{ public_path('storage/'.$data->project->customer->pathLogoFromPublic()) }}" width="100px" height="auto" style="margin-left:65px;position:absolute;">
                         @else
-                            <div style="border:1px solid black;width:100px;height:75px;text-align:center;vertical-align:middle;padding-top:25px;">
+                            {{-- <div style="border:1px solid black;width:100px;height:75px;text-align:center;vertical-align:middle;padding-top:25px;">
                                 KOP PERUSAHAAN
-                            </div>
+                            </div> --}}
                         @endif
                     </td>
                 </tr>

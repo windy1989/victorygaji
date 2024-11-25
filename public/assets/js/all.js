@@ -2504,11 +2504,7 @@ function approve(code,type){
                     url: location.protocol + '//' + location.host + '/persetujuan/approve',
                     type: 'POST',
                     dataType: 'JSON',
-                    data: {
-                        code: code,
-                        note: $('#note').val(),
-                        type: type,
-                    },
+                    data: formData,
                     contentType: false,
                     processData: false,
                     headers: {

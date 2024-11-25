@@ -1,7 +1,9 @@
         <!--**********************************
             Content body start
         ***********************************-->
-        
+        @php
+            use App\Helpers\CustomHelper;
+        @endphp
 		<style>
 			.modal-body{
 				height: 75vh;

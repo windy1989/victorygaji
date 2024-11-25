@@ -64,7 +64,7 @@
                                 <div class="row">
                                     @if($data->approve_status == '1')
                                         <div class="col-md-12">
-                                            <label class="">Bukti Upload</label>
+                                            <label class="">Upload Gambar/Sketsa Revisi</label>
                                             <br>
                                             <input type="file" name="file" id="fileInput" accept="image/*" style="display: none;">
                                             <div  class="col m8 s12 " id="dropZone" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);" style="margin-top: 0.5em;height: 5em;">
@@ -72,7 +72,7 @@
                                                 <br>
                                             </div>
                                             <a class="waves-effect waves-light cyan btn-small" style="margin-top: 0.5em;margin-left:0.2em" id="clearButton" href="javascript:void(0);">
-                                            Clear
+                                            Clear Image
                                             </a>
                                         </div>
                                         <div class="col-md-12">

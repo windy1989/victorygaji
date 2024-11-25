@@ -2495,7 +2495,13 @@ function approve(code,type){
             focusCancel: true,
         }).then(function (willDelete) {
             if (willDelete.value) {
-                $.ajax({
+                let formData = new FormData();
+                formData.append('code',code);
+                formData.append('note',$('#note').val());
+                formData.append('type',type);
+                formData.append('fileInput',$('#fileInput')[0].files[0]);
+                console.log(formData);
+                /* $.ajax({
                     url: location.protocol + '//' + location.host + '/persetujuan/approve',
                     type: 'POST',
                     dataType: 'JSON',
@@ -2504,6 +2510,8 @@ function approve(code,type){
                         note: $('#note').val(),
                         type: type,
                     },
+                    contentType: false,
+                    processData: false,
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
@@ -2536,7 +2544,7 @@ function approve(code,type){
                             errorMessage(response.message);
                         }
                     }
-                });
+                }); */
             }
         });
     }else{

@@ -31,7 +31,7 @@ class Approval extends Model
     ];
 
     public function getFile(){
-        if(Storage::exists($this->document)) {
+        if($this->document && Storage::exists($this->document)) {
             $document = '<a href="'.asset(Storage::url($this->document)).'"><i class="fa fa-search" aria-hidden="true"></i></a>';
         } else {
             $document = '-';

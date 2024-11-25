@@ -2499,8 +2499,7 @@ function approve(code,type){
                 formData.append('code',code);
                 formData.append('note',$('#note').val());
                 formData.append('type',type);
-                formData.append('fileInput',$('#fileInput')[0].files[0]);
-                console.log($('#fileInput')[0].files[0]);
+                formData.append('fileInput',($('#fileInput').val() ? $('#fileInput')[0].files[0] : ''));
                 /* $.ajax({
                     url: location.protocol + '//' + location.host + '/persetujuan/approve',
                     type: 'POST',

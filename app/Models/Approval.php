@@ -26,7 +26,18 @@ class Approval extends Model
         'lookable_type',
         'lookable_id',
         'url',
+        'document',
     ];
+
+    public function getFile(){
+        if(Storage::exists($this->document)) {
+            $document = '<img src="'.asset(Storage::url($this->document)).'" style="max-height:100px;">';
+        } else {
+            $document = 'File tidak ditemukan';
+        }
+
+        return $document;
+    }
 
     public function approveStatus(){
         $approve_status = match ($this->approve_status) {

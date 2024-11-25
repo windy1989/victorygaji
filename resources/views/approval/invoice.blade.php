@@ -33,8 +33,13 @@
                             </div>
                             <div class="card-body">
                                 <div class="profile-uoloaded-post border-bottom-1 pb-5">
-                                    <img src="{{ $data->lookable->attachment() }}" alt="" class="img-fluid w-100 rounded">
-                                    <h3 class="text-black">Bukti Bayar Kwitansi No. {{ $data->lookable->receipt_code }}</h3>
+                                    <div>
+                                        <iframe src="{{ url($data->url.'/print/'.CustomHelper::encrypt($data->lookable->code)) }}" style="width:100%; height:500px;" frameborder="0"></iframe>
+                                    </div>
+                                    @if ($data->lookable->document)
+                                        <img src="{{ $data->lookable->attachment() }}" alt="" class="img-fluid w-100 rounded">
+                                        <h3 class="text-black">Bukti Bayar Kwitansi No. {{ $data->lookable->receipt_code }}</h3>
+                                    @endif
                                 </div>
                             </div>
                         </div>

@@ -104,8 +104,9 @@ class CustomHelper {
 			$userlevel4 = User::where('status','1')->where('type','08')->get();
 		}
 		if($url == 'invoice'){
-			$userlevel1 = User::where('status','1')->where('type','07')->get();
-			$userlevel2 = User::where('status','1')->where('type','08')->get();
+			$userlevel1 = User::where('status','1')->where('type','06')->get();
+			$userlevel2 = User::where('status','1')->where('type','07')->get();
+			$userlevel3 = User::where('status','1')->where('type','08')->get();
 		}
 		if($url == 'drafter' || $url == 'revisi_drafter'){
 			$userlevel1 = User::where('status','1')->where('type','11')->get();

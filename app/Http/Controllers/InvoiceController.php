@@ -240,6 +240,7 @@ class InvoiceController extends Controller
                 }
                 
                 if($query) {
+                    CustomHelper::sendApproval($query->getTable(),$query->id,'invoice');
                     $response = [
                         'status'  => 200,
                         'message' => 'Data berhasil disimpan.'

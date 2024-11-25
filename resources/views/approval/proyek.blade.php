@@ -88,7 +88,7 @@
                                         </div>
                                     @else
                                     <div class="col-md-12">
-                                        Dokumen ini telah <b>{{ $data->approveStatus() }}</b> oleh anda, pada tanggal <b>{{ date('d/m/Y H:i:s',strtotime($data->approve_date)) }}</b> dengan catatan : <b>{{ $data->approve_note }} dengan bukti / lampiran {!! $data->getFile() !!}</b>.
+                                        Dokumen ini telah <b>{{ $data->approveStatus() }}</b> oleh anda, pada tanggal <b>{{ date('d/m/Y H:i:s',strtotime($data->approve_date)) }}</b> dengan catatan : <b>{{ $data->approve_note }}</b> dengan bukti / lampiran {!! $data->getFile() !!}.
                                     </div>
                                     @endif
                                     @php

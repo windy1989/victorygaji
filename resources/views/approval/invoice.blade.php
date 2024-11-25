@@ -88,7 +88,7 @@
                                         </div>
                                     @else
                                     <div class="col-md-12">
-                                        Dokumen ini telah <b>{{ $data->approveStatus() }}</b> oleh anda, pada tanggal <b>{{ date('d/m/Y H:i:s',strtotime($data->approve_date)) }}</b> dengan catatan : <b>{{ $data->approve_note }}</b>.
+                                        Dokumen ini telah <b>{{ $data->approveStatus() }}</b> oleh anda, pada tanggal <b>{{ date('d/m/Y H:i:s',strtotime($data->approve_date)) }}</b> dengan catatan : <b>{{ $data->approve_note }}</b> dengan bukti / lampiran {!! $data->getFile() !!}.
                                     </div>
                                     @endif
                                     @php
@@ -99,7 +99,7 @@
                                             List approver lainnya : 
                                             <ol>
                                             @foreach ($anotherApprover as $row)
-                                                Dokumen ini telah <b>{{ $row->approveStatus() }}</b> oleh <b>{{ $row->toUser->nama }}</b>, pada tanggal <b>{{ date('d/m/Y H:i:s',strtotime($row->approve_date)) }}</b> dengan catatan : <b>{{ $row->approve_note }}</b>.
+                                                Dokumen ini telah <b>{{ $row->approveStatus() }}</b> oleh <b>{{ $row->toUser->nama }}</b>, pada tanggal <b>{{ date('d/m/Y H:i:s',strtotime($row->approve_date)) }}</b> dengan catatan : <b>{{ $row->approve_note }}</b> dengan bukti / lampiran {!! $row->getFile() !!}.
                                             @endforeach
                                             </ol>
                                         </div>

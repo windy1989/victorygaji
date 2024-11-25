@@ -129,11 +129,13 @@ class ApprovalController extends Controller
     public function approve(Request $request){
         $data = Approval::where('code',$request->code)->where('approve_status','1')->first();
         if($data){
+
             if($request->type == 'agree'){
                 $data->update([
                     'approve_status'    => '2',
                     'approve_date'      => now(),
                     'approve_note'      => $request->note,
+                    'document'          => $request->file('fileInput') ? $request->file('fileInput')->store('public/approval') : NULL,
                 ]);
                 $nextlevel = $data->approve_level + 1;
                 $data2 = Approval::where('lookable_type',$data->lookable_type)->where('lookable_id',$data->lookable_id)->whereNull('approve_status')->where('approve_level',$nextlevel)->get();
@@ -200,6 +202,7 @@ class ApprovalController extends Controller
                     'approve_status'    => '3',
                     'approve_date'      => now(),
                     'approve_note'      => $request->note,
+                    'document'          => $request->file('fileInput') ? $request->file('fileInput')->store('public/approval') : NULL,
                 ]);
                 CustomHelper::saveLog($data->lookable_type,$data->lookable_id,'Data dokumen no '.$data->lookable->code.' telah ditolak/revisi.','Pengguna '.session('bo_nama').' telah menolak/revisi data dokumen no '.$data->lookable->code);
             }

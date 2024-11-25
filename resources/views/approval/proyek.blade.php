@@ -116,129 +116,131 @@
             <!-- container ends -->
         </div>
         <script>
-            const dropZone = document.getElementById('dropZone');
-            const uploadLink = document.getElementById('uploadLink');
-            const fileInput = document.getElementById('fileInput');
-            const imagePreview = document.getElementById('imagePreview');
-            const clearButton = document.getElementById('clearButton');
-            const fileNameDiv = document.getElementById('fileName');
-            dropZone.addEventListener('click', () => {
-                fileInput.click();
-            });
+            if ($('#fileInput').length > 0) {
+                const dropZone = document.getElementById('dropZone');
+                const uploadLink = document.getElementById('uploadLink');
+                const fileInput = document.getElementById('fileInput');
+                const imagePreview = document.getElementById('imagePreview');
+                const clearButton = document.getElementById('clearButton');
+                const fileNameDiv = document.getElementById('fileName');
+                dropZone.addEventListener('click', () => {
+                    fileInput.click();
+                });
 
-            fileInput.addEventListener('change', (e) => {
-                handleFile(e.target.files[0]);
-            });
+                fileInput.addEventListener('change', (e) => {
+                    handleFile(e.target.files[0]);
+                });
 
-            function dragOverHandler(event) {
-                event.preventDefault();
-                dropZone.style.backgroundColor = '#f0f0f0';
-            }
-
-            function dropHandler(event) {
-                event.preventDefault();
-                dropZone.style.backgroundColor = '#fff';
-
-                handleFile(event.dataTransfer.files[0]);
-            }
-
-            function handleFile(file) {
-                if (file) {
-                const reader = new FileReader();
-                const fileType = file.type.split('/')[0];
-                const maxSize = 10 * 1024 * 1024;
-                if (file.size > maxSize) {
-                    alert('File size exceeds the maximum limit of 10 MB.');
-                    return;
+                function dragOverHandler(event) {
+                    event.preventDefault();
+                    dropZone.style.backgroundColor = '#f0f0f0';
                 }
 
-                reader.onload = () => {
+                function dropHandler(event) {
+                    event.preventDefault();
+                    dropZone.style.backgroundColor = '#fff';
 
-                    fileNameDiv.textContent = 'File uploaded: ' + file.name;
+                    handleFile(event.dataTransfer.files[0]);
+                }
+
+                function handleFile(file) {
+                    if (file) {
+                    const reader = new FileReader();
+                    const fileType = file.type.split('/')[0];
+                    const maxSize = 10 * 1024 * 1024;
+                    if (file.size > maxSize) {
+                        alert('File size exceeds the maximum limit of 10 MB.');
+                        return;
+                    }
+
+                    reader.onload = () => {
+
+                        fileNameDiv.textContent = 'File uploaded: ' + file.name;
+
+                        if (fileType === 'image') {
+
+                            imagePreview.src = reader.result;
+                            imagePreview.style.display = 'inline-block';
+                            clearButton.style.display = 'inline-block';
+                        } else {
+
+                            imagePreview.style.display = 'none';
+
+                        }
+                    };
+
+                    reader.readAsDataURL(file);
+                    const dataTransfer = new DataTransfer();
+                    dataTransfer.items.add(file);
+
+
+                    fileInput.files = dataTransfer.files;
+
+                    }
+                }
+
+                clearButton.addEventListener('click', () => {
+                    imagePreview.src = '';
+                    imagePreview.style.display = 'none';
+                    fileInput.value = '';
+                    fileNameDiv.textContent = '';
+                });
+
+                document.addEventListener('paste', (event) => {
+                    const items = event.clipboardData.items;
+                    if (items) {
+                        for (let i = 0; i < items.length; i++) {
+                            if (items[i].type.indexOf('image') !== -1) {
+                                const file = items[i].getAsFile();
+                                handleFile(file);
+                                break;
+                            }
+                        }
+                    }
+                });
+
+                function displayFile(fileLink) {
+                    const fileType = getFileType(fileLink);
+
+                    fileNameDiv.textContent = 'File uploaded: ' + getFileName(fileLink);
 
                     if (fileType === 'image') {
 
-                        imagePreview.src = reader.result;
+                        imagePreview.src = fileLink;
                         imagePreview.style.display = 'inline-block';
-                        clearButton.style.display = 'inline-block';
+
                     } else {
 
                         imagePreview.style.display = 'none';
 
-                    }
-                };
 
-                reader.readAsDataURL(file);
-                const dataTransfer = new DataTransfer();
-                dataTransfer.items.add(file);
+                        const fileExtension = getFileExtension(fileLink);
+                        if (fileExtension === 'pdf' || fileExtension === 'xlsx' || fileExtension === 'docx') {
 
-
-                fileInput.files = dataTransfer.files;
-
-                }
-            }
-
-            clearButton.addEventListener('click', () => {
-                imagePreview.src = '';
-                imagePreview.style.display = 'none';
-                fileInput.value = '';
-                fileNameDiv.textContent = '';
-            });
-
-            document.addEventListener('paste', (event) => {
-                const items = event.clipboardData.items;
-                if (items) {
-                    for (let i = 0; i < items.length; i++) {
-                        if (items[i].type.indexOf('image') !== -1) {
-                            const file = items[i].getAsFile();
-                            handleFile(file);
-                            break;
+                            const downloadLink = document.createElement('a');
+                            downloadLink.href = fileLink;
+                            downloadLink.download = getFileName(fileLink);
+                            downloadLink.textContent = 'Download ' + fileExtension.toUpperCase();
+                            fileNameDiv.appendChild(downloadLink);
                         }
                     }
                 }
-            });
 
-            function displayFile(fileLink) {
-                const fileType = getFileType(fileLink);
-
-                fileNameDiv.textContent = 'File uploaded: ' + getFileName(fileLink);
-
-                if (fileType === 'image') {
-
-                    imagePreview.src = fileLink;
-                    imagePreview.style.display = 'inline-block';
-
-                } else {
-
-                    imagePreview.style.display = 'none';
-
-
+                function getFileType(fileLink) {
                     const fileExtension = getFileExtension(fileLink);
-                    if (fileExtension === 'pdf' || fileExtension === 'xlsx' || fileExtension === 'docx') {
-
-                        const downloadLink = document.createElement('a');
-                        downloadLink.href = fileLink;
-                        downloadLink.download = getFileName(fileLink);
-                        downloadLink.textContent = 'Download ' + fileExtension.toUpperCase();
-                        fileNameDiv.appendChild(downloadLink);
+                    if (fileExtension === 'jpg' || fileExtension === 'jpeg' || fileExtension === 'png' || fileExtension === 'gif') {
+                        return 'image';
+                    } else {
+                        return 'other';
                     }
                 }
-            }
 
-            function getFileType(fileLink) {
-                const fileExtension = getFileExtension(fileLink);
-                if (fileExtension === 'jpg' || fileExtension === 'jpeg' || fileExtension === 'png' || fileExtension === 'gif') {
-                    return 'image';
-                } else {
-                    return 'other';
+                function getFileExtension(fileLink) {
+                    return fileLink.split('.').pop().toLowerCase();
                 }
-            }
 
-            function getFileExtension(fileLink) {
-                return fileLink.split('.').pop().toLowerCase();
-            }
-
-            function getFileName(fileLink) {
-                return fileLink.split('/').pop();
+                function getFileName(fileLink) {
+                    return fileLink.split('/').pop();
+                }
             }
         </script>

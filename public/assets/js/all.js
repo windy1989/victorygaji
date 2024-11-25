@@ -2500,7 +2500,7 @@ function approve(code,type){
                 formData.append('note',$('#note').val());
                 formData.append('type',type);
                 formData.append('fileInput',($('#fileInput').val() ? $('#fileInput')[0].files[0] : ''));
-                /* $.ajax({
+                $.ajax({
                     url: location.protocol + '//' + location.host + '/persetujuan/approve',
                     type: 'POST',
                     dataType: 'JSON',
@@ -2543,7 +2543,7 @@ function approve(code,type){
                             errorMessage(response.message);
                         }
                     }
-                }); */
+                });
             }
         });
     }else{

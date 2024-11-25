@@ -116,13 +116,13 @@
             <!-- container ends -->
         </div>
         <script>
-            if ($('#fileInput').length > 0) {
-                const dropZone = document.getElementById('dropZone');
-                const uploadLink = document.getElementById('uploadLink');
-                const fileInput = document.getElementById('fileInput');
-                const imagePreview = document.getElementById('imagePreview');
-                const clearButton = document.getElementById('clearButton');
-                const fileNameDiv = document.getElementById('fileName');
+            const dropZone = document.getElementById('dropZone');
+            const uploadLink = document.getElementById('uploadLink');
+            const fileInput = document.getElementById('fileInput');
+            const imagePreview = document.getElementById('imagePreview');
+            const clearButton = document.getElementById('clearButton');
+            const fileNameDiv = document.getElementById('fileName');
+            if (typeof(fileInput) != 'undefined' && fileInput != null){
                 dropZone.addEventListener('click', () => {
                     fileInput.click();
                 });

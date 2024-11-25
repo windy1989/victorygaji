@@ -215,7 +215,7 @@ class DrafterController extends Controller
             $html = '';
 
             if($data->approval()->exists()){
-                $html = '<table class="table table-responsive-md">
+                $html .= '<table class="table table-responsive-md">
                         <thead>
                             <tr>
                                 <th><strong>#</strong></th>
@@ -223,7 +223,8 @@ class DrafterController extends Controller
                                 <th><strong>LEVEL</strong></th>
                                 <th><strong>TGL.APPROVE</strong></th>
                                 <th><strong>STATUS</strong></th>
-                                <th><strong>Catatan</strong></th>
+                                <th><strong>CATATAN</strong></th>
+                                <th><strong>GAMBAR</strong></th>
                             </tr>
                         </thead><tbody>';
 
@@ -235,6 +236,7 @@ class DrafterController extends Controller
                         <td>'.($row->approve_date ? date('d/m/Y H:i:s',strtotime($row->approve_date)) : '-').'</td>
                         <td>'.$row->approveStatus().'</td>
                         <td>'.$row->approve_note.'</td>
+                        <td>'.$row->getFile().'</td>
                     </tr>';
                 }
 

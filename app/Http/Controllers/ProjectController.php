@@ -430,7 +430,7 @@ class ProjectController extends Controller
                                 <th><strong>LEVEL</strong></th>
                                 <th><strong>TGL.APPROVE</strong></th>
                                 <th><strong>STATUS</strong></th>
-                                <th><strong>Catatan</strong></th>
+                                <th><strong>CATATAN</strong></th>
                                 <th><strong>GAMBAR</strong></th>
                             </tr>
                         </thead><tbody>';

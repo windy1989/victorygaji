@@ -58,8 +58,9 @@
 							<li class="{{ Request::segment(2) == 'sidang' ? 'mm-active' : '' }}"><a href="{{ url('sidang') }}">Sidang</a></li>
 							<li class="{{ Request::segment(2) == 'revisi' ? 'mm-active' : '' }}"><a href="{{ url('revisi') }}">Revisi Dokumen</a></li>
 							<li class="{{ Request::segment(2) == 'revisi_drafter' ? 'mm-active' : '' }}"><a href="{{ url('revisi_drafter') }}">Revisi Drafter</a></li>
-							<li class="{{ in_array(Request::segment(2),['berita_acara']) ? 'mm-active' : '' }}"><a class="has-arrow" href="javascript:void()" aria-expanded="false">TM Teknis</a>
+							<li class="{{ in_array(Request::segment(2),['berita_acara','mitigasi']) ? 'mm-active' : '' }}"><a class="has-arrow" href="javascript:void()" aria-expanded="false">TM Teknis</a>
                                 <ul aria-expanded="false">
+									<li class="{{ Request::segment(2) == 'mitigasi' ? 'mm-active' : '' }}"><a href="{{ url('mitigasi') }}">Mitigasi</a></li>
                                     <li class="{{ Request::segment(2) == 'berita_acara' ? 'mm-active' : '' }}"><a href="{{ url('berita_acara') }}">Berita Acara</a></li>
                                 </ul>
                             </li>

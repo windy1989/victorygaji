@@ -31,7 +31,7 @@
                                 <h4 class="card-title">Daftar {{ $title }}</h4>
                             </div>
                             <div class="card-body">
-                                @foreach ($data->lookable->documentationDetail as $row)
+                                @foreach ($data->lookable->legalityDetail as $row)
                                     <div class="profile-uoloaded-post border-bottom-1 pb-5">
                                         <div>
                                             <iframe src="https://docs.google.com/gview?url={{ $row->attachment() }}&embedded=true" style="width:100%; height:500px;" frameborder="0"></iframe>

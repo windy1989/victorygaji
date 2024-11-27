@@ -33,6 +33,7 @@ class AppServiceProvider extends ServiceProvider
             'projects'                      => 'App\Models\Project',
             'offering_letters'              => 'App\Models\OfferingLetter',
             'letter_agreements'             => 'App\Models\LetterAgreement',
+            'legalities'                    => 'App\Models\Legality',
         ]);
     }
 }

@@ -103,6 +103,11 @@ class CustomHelper {
 			$userlevel3 = User::where('status','1')->where('type','07')->get();
 			$userlevel4 = User::where('status','1')->where('type','08')->get();
 		}
+		if($url == 'disposisi_legalitas'){
+			$userlevel1 = User::where('status','1')->where('type','12')->get();
+        	$userlevel2 = User::where('status','1')->where('type','06')->get();
+			$userlevel3 = User::where('status','1')->where('type','07')->get();
+		}
 		if($url == 'invoice'){
 			$userlevel1 = User::where('status','1')->where('type','06')->get();
 			$userlevel2 = User::where('status','1')->where('type','07')->get();
@@ -153,6 +158,10 @@ class CustomHelper {
 
 		if($url == 'revisi_drafter'){
             $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Revisi Drafter No. '.$data->code.' telah dibuat, mohon persetujuannya dengan menekan link terlampir : ';
+        }
+
+		if($url == 'disposisi_legalitas'){
+            $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Disposisi Legalitas Syarat Andalalin No. '.$data->code.' telah dibuat, mohon persetujuannya dengan menekan link terlampir : ';
         }
 
 		if($userlevel1){

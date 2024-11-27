@@ -3,6 +3,7 @@
 use App\Http\Controllers\ApprovalController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DrafterController;
+use App\Http\Controllers\LegalityController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\PayrollController;
 use App\Http\Controllers\ProfileController;
@@ -174,6 +175,20 @@ Route::middleware('login')->group(function () {
         Route::post('check',[DocumentationController::class, 'check']);
         Route::post('show_upload',[DocumentationController::class, 'showUpload']);
         Route::post('destroy_file',[DocumentationController::class, 'destroyFile']);
+    });
+
+    Route::prefix('disposisi_legalitas')->middleware('admin.auth:01,02,06,07,08,09')->group(function () {
+        Route::get('/',[LegalityController::class, 'index']);
+        Route::get('datatable',[LegalityController::class, 'datatable']);
+        Route::post('create',[LegalityController::class, 'create']);
+        Route::post('create_receipt',[LegalityController::class, 'createReceipt']);
+        Route::post('show',[LegalityController::class, 'show']);
+        Route::post('detail',[LegalityController::class, 'detail']);
+        Route::post('destroy',[LegalityController::class, 'destroy']);
+        Route::post('upload',[LegalityController::class, 'upload']);
+        Route::post('check',[LegalityController::class, 'check']);
+        Route::post('show_upload',[LegalityController::class, 'showUpload']);
+        Route::post('destroy_file',[LegalityController::class, 'destroyFile']);
     });
 
     Route::prefix('drafter')->middleware('admin.auth:01,04,11,06,07,08')->group(function () {

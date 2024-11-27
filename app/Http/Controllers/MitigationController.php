@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\Helpers\CustomHelper;
 use App\Http\Controllers\Controller;
 use App\Models\Invoice;
-use App\Models\Legality;
-use App\Models\LegalityDetail;
+use App\Models\Mitigation;
+use App\Models\MitigationDetail;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -16,13 +16,13 @@ use Illuminate\Support\Str;
 use Process;
 use Illuminate\Support\Facades\Storage;
 
-class LegalityController extends Controller
+class MitigationController extends Controller
 {
     public function index()
     {
         $data = [
-            'title'         => 'Disposisi Legalitas Syarat Andalalin',
-            'content'       => 'legality',
+            'title'         => 'Mitigasi TM',
+            'content'       => 'mitigation',
         ];
 
         return view('layouts.index', ['data' => $data]);
@@ -45,9 +45,9 @@ class LegalityController extends Controller
         $dir    = $request->input('order.0.dir');
         $search = $request->input('search.value');
 
-        $total_data = Legality::count();
+        $total_data = Mitigation::count();
         
-        $query_data = Legality::where(function($query) use ($search, $request) {
+        $query_data = Mitigation::where(function($query) use ($search, $request) {
                 if($search) {
                     $query->where(function($query) use ($search, $request) {
                         $query->where('code', 'like', "%$search%")
@@ -66,7 +66,7 @@ class LegalityController extends Controller
             ->orderBy($order, $dir)
             ->get();
 
-        $total_filtered = Legality::where(function($query) use ($search, $request) {
+        $total_filtered = Mitigation::where(function($query) use ($search, $request) {
                 if($search) {
                     $query->where(function($query) use ($search, $request) {
                         $query->where('code', 'like', "%$search%")
@@ -94,7 +94,7 @@ class LegalityController extends Controller
                     $val->project->project_no.' - '.$val->project->customer->name,
                     date('d/m/Y',strtotime($val->post_date)),
                     $val->note,
-                    $val->legalityDetail()->count(),
+                    $val->mitigationDetail()->count(),
                     $val->statusBadge(),
                     '
                         <a href="javascript:void(0);" class="btn btn-secondary btn-sm content-icon" onclick="detail(`'.CustomHelper::encrypt($val->code).'`)"><i class="fa fa-info-circle"></i></a>
@@ -125,7 +125,7 @@ class LegalityController extends Controller
         DB::beginTransaction();
         try {
             $validation = Validator::make($request->all(), [
-                'code'		            => $request->temp ? ['required', Rule::unique('legalities', 'code')->ignore(CustomHelper::decrypt($request->temp),'code')] : 'required|unique:legalities,code',
+                'code'		            => $request->temp ? ['required', Rule::unique('mitigations', 'code')->ignore(CustomHelper::decrypt($request->temp),'code')] : 'required|unique:mitigations,code',
                 'project_id'            => 'required',
                 'post_date'             => 'required',
             ], [
@@ -142,12 +142,12 @@ class LegalityController extends Controller
                 ];
             } else {
                 if($request->temp){
-                    $query = Legality::where('code',CustomHelper::decrypt($request->temp))->first();
+                    $query = Mitigation::where('code',CustomHelper::decrypt($request->temp))->first();
 
                     if($query->status == '3'){
                         return response()->json([
                             'status'    => 500,
-                            'message'   => 'Ups. Disposisi Legalitas Syarat Andalalin telah SELESAI, anda tidak bisa melakukan perubahan.'
+                            'message'   => 'Ups. Mitigasi TM telah SELESAI, anda tidak bisa melakukan perubahan.'
                         ]);
                     }
 
@@ -158,9 +158,9 @@ class LegalityController extends Controller
                     $query->note            = $request->note;
                     $query->status          = '1';
                     $query->save();
-                    CustomHelper::saveLog($query->getTable(),$query->id,'Update data disposisi legalitas '.$query->code,'Pengguna '.session('bo_nama').' telah mengubah data disposisi legalitas no '.$query->code);
+                    CustomHelper::saveLog($query->getTable(),$query->id,'Update data mitigasi TM '.$query->code,'Pengguna '.session('bo_nama').' telah mengubah data mitigasi TM no '.$query->code);
                 }else{
-                    $query = Legality::create([
+                    $query = Mitigation::create([
                         'user_id'         => session('bo_id'),
                         'code'            => $request->code,
                         'project_id'      => $request->project_id,
@@ -168,11 +168,11 @@ class LegalityController extends Controller
                         'note'            => $request->note,
                         'status'          => '1',
                     ]);
-                    CustomHelper::saveLog($query->getTable(),$query->id,'Tambah baru data disposisi legalitas '.$query->code,'Pengguna '.session('bo_nama').' telah manambahkan baru data disposisi legalitas no '.$query->code);
+                    CustomHelper::saveLog($query->getTable(),$query->id,'Tambah baru data mitigasi TM '.$query->code,'Pengguna '.session('bo_nama').' telah manambahkan baru data mitigasi TM no '.$query->code);
                 }
                 
                 if($query) {
-                    CustomHelper::sendApproval($query->getTable(),$query->id,'disposisi_legalitas');
+                    CustomHelper::sendApproval($query->getTable(),$query->id,'mitigasi');
                     $response = [
                         'status'  => 200,
                         'message' => 'Data berhasil disimpan.'
@@ -192,7 +192,7 @@ class LegalityController extends Controller
     }
 
     public function show(Request $request){
-        $data = Legality::where('code',CustomHelper::decrypt($request->code))->first();
+        $data = Mitigation::where('code',CustomHelper::decrypt($request->code))->first();
         if($data){
             $data['project_code'] = $data->project->code.' - '.$data->project->name.' - '.$data->project->customer->name;
             $response = [
@@ -210,7 +210,7 @@ class LegalityController extends Controller
     }
 
     public function detail(Request $request){
-        $data = Legality::where('code',CustomHelper::decrypt($request->code))->first();
+        $data = Mitigation::where('code',CustomHelper::decrypt($request->code))->first();
         if($data){
 
             $html = '';
@@ -260,10 +260,10 @@ class LegalityController extends Controller
     }
 
     public function destroy(Request $request){
-        $query = Legality::where('code',CustomHelper::decrypt($request->code))->first();
+        $query = Mitigation::where('code',CustomHelper::decrypt($request->code))->first();
         if($query){
             if($query->status == '1'){
-                CustomHelper::saveLog($query->getTable(),$query->id,'Disposisi Legalitas nomor '.$query->code.' telah dihapus.','Pengguna '.session('bo_nama').' telah menghapus data disposisi legalitas no '.$query->code);
+                CustomHelper::saveLog($query->getTable(),$query->id,'Mitigasi TM nomor '.$query->code.' telah dihapus.','Pengguna '.session('bo_nama').' telah menghapus data mitigasi TM no '.$query->code);
 
                 $query->approval()->delete();
                 $query->delete();
@@ -289,11 +289,11 @@ class LegalityController extends Controller
     }
 
     public function showUpload(Request $request){
-        $data = Legality::where('code',CustomHelper::decrypt($request->code))->first();
+        $data = Mitigation::where('code',CustomHelper::decrypt($request->code))->first();
         if($data){
             $images = [];
 
-            foreach($data->legalityDetail as $rowfile){
+            foreach($data->mitigationDetail as $rowfile){
                 $images[] = [
                     'file'      => $rowfile->getFile(),
                     'code'      => CustomHelper::encrypt($rowfile->code),
@@ -317,7 +317,7 @@ class LegalityController extends Controller
     }
 
     public function check(Request $request){		
-        $query = LegalityDetail::where('name',$request->name)->first();
+        $query = MitigationDetail::where('name',$request->name)->first();
         
         if($query){
             return response()->json([
@@ -342,22 +342,22 @@ class LegalityController extends Controller
                 'error'  => $validation->errors()
             ];
         } else {
-            $query = Legality::where('code',CustomHelper::decrypt($request->code))->first();
+            $query = Mitigation::where('code',CustomHelper::decrypt($request->code))->first();
 
             if($query){
                 if($query->status == '1'){
-                    $querydetail = LegalityDetail::create([
-                        'legality_id'       => $query->id,
+                    $querydetail = MitigationDetail::create([
+                        'mitigation_id'     => $query->id,
                         'code'	            => strtoupper(Str::random(15)),
                         'name'              => $request->file('file')->getClientOriginalName(),
-                        'file_location'	    => $request->file('file') ? $request->file('file')->store('public/legality') : NULL
+                        'file_location'	    => $request->file('file') ? $request->file('file')->store('public/mitigation') : NULL
                     ]);
                     $newimage = [
                         'file'      => $querydetail->getFile(),
                         'code'      => CustomHelper::encrypt($querydetail->code),
                         'name'      => $querydetail->name,
                     ];
-                    CustomHelper::saveLog($query->getTable(),$query->id,'Tambah baru data file disposisi legalitas '.$query->code,'Pengguna '.session('bo_nama').' telah manambahkan baru data file disposisi legalitas no '.$query->code);
+                    CustomHelper::saveLog($query->getTable(),$query->id,'Tambah baru data file mitigasi TM '.$query->code,'Pengguna '.session('bo_nama').' telah manambahkan baru data file mitigasi TM no '.$query->code);
                     $response = [
                         'status'		=> 200,
                         'message'		=> 'Data berhasil di upload.',
@@ -381,12 +381,12 @@ class LegalityController extends Controller
 	}
 
     public function destroyFile(Request $request){
-		$data = LegalityDetail::where('code',CustomHelper::decrypt($request->id))->first();
+		$data = MitigationDetail::where('code',CustomHelper::decrypt($request->id))->first();
 		
 		$data->deleteFile();
 		
 		if($data->delete()){
-            CustomHelper::saveLog($data->getTable(),$data->id,'Menghapus data file disposisi legalitas '.$data->code,'Pengguna '.session('bo_nama').' telah menghapus data file disposisi legalitas no '.$data->code);
+            CustomHelper::saveLog($data->getTable(),$data->id,'Menghapus data file mitigasi TM '.$data->code,'Pengguna '.session('bo_nama').' telah menghapus data file mitigasi TM no '.$data->code);
 			return response()->json([
 				'status'	=> 200,
 				'message'	=> 'File berhasil dihapus.' 

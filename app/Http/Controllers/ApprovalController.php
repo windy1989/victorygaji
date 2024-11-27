@@ -181,6 +181,10 @@ class ApprovalController extends Controller
                     if($data->url == 'disposisi_legalitas'){
                         $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Disposisi Legalitas Syarat Andalalin No. '.$data->code.' telah dibuat, mohon persetujuannya dengan menekan link terlampir : ';
                     }
+
+                    if($data->url == 'mitigasi'){
+                        $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Mitigasi TM No. '.$data->code.' telah dibuat, mohon persetujuannya dengan menekan link terlampir : ';
+                    }
                     
                     foreach($data2 as $row){
                         $row->update([

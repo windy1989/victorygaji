@@ -179,7 +179,7 @@ Route::middleware('login')->group(function () {
         Route::post('destroy_file',[DocumentationController::class, 'destroyFile']);
     });
 
-    Route::prefix('disposisi_legalitas')->middleware('admin.auth:01,02,06,07,08,09')->group(function () {
+    Route::prefix('disposisi_legalitas')->middleware('admin.auth:01,02,06,07,08,09,12')->group(function () {
         Route::get('/',[LegalityController::class, 'index']);
         Route::get('datatable',[LegalityController::class, 'datatable']);
         Route::post('create',[LegalityController::class, 'create']);
@@ -193,7 +193,7 @@ Route::middleware('login')->group(function () {
         Route::post('destroy_file',[LegalityController::class, 'destroyFile']);
     });
 
-    Route::prefix('mitigasi')->middleware('admin.auth:01,02,06,07,08,09')->group(function () {
+    Route::prefix('mitigasi')->middleware('admin.auth:01,02,06,07,08,09,12')->group(function () {
         Route::get('/',[MitigationController::class, 'index']);
         Route::get('datatable',[MitigationController::class, 'datatable']);
         Route::post('create',[MitigationController::class, 'create']);
@@ -207,7 +207,7 @@ Route::middleware('login')->group(function () {
         Route::post('destroy_file',[MitigationController::class, 'destroyFile']);
     });
 
-    Route::prefix('berita_acara')->middleware('admin.auth:01,02,06,07,08,09')->group(function () {
+    Route::prefix('berita_acara')->middleware('admin.auth:01,02,06,07,08,09,12')->group(function () {
         Route::get('/',[TmNewController::class, 'index']);
         Route::get('datatable',[TmNewController::class, 'datatable']);
         Route::post('create',[TmNewController::class, 'create']);

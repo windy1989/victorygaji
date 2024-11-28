@@ -11,6 +11,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReportPaymentController;
 use App\Http\Controllers\RevisionController;
 use App\Http\Controllers\RevisionDrafterController;
+use App\Http\Controllers\TmNewController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
@@ -204,6 +205,20 @@ Route::middleware('login')->group(function () {
         Route::post('check',[MitigationController::class, 'check']);
         Route::post('show_upload',[MitigationController::class, 'showUpload']);
         Route::post('destroy_file',[MitigationController::class, 'destroyFile']);
+    });
+
+    Route::prefix('berita_acara')->middleware('admin.auth:01,02,06,07,08,09')->group(function () {
+        Route::get('/',[TmNewController::class, 'index']);
+        Route::get('datatable',[TmNewController::class, 'datatable']);
+        Route::post('create',[TmNewController::class, 'create']);
+        Route::post('create_receipt',[TmNewController::class, 'createReceipt']);
+        Route::post('show',[TmNewController::class, 'show']);
+        Route::post('detail',[TmNewController::class, 'detail']);
+        Route::post('destroy',[TmNewController::class, 'destroy']);
+        Route::post('upload',[TmNewController::class, 'upload']);
+        Route::post('check',[TmNewController::class, 'check']);
+        Route::post('show_upload',[TmNewController::class, 'showUpload']);
+        Route::post('destroy_file',[TmNewController::class, 'destroyFile']);
     });
 
     Route::prefix('drafter')->middleware('admin.auth:01,04,11,06,07,08')->group(function () {

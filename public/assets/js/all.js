@@ -205,6 +205,9 @@ Dropzone.options.dropzoneUploadDocument = {
                 if($('#mitigation-datatable').length > 0){
                     loadDataTableMitigation();
                 }
+                if($('#tm-new-datatable').length > 0){
+                    loadDataTableTmNew();
+                }
                 $('#no-file-error').remove();
             }else if(responseText.status == '422'){
                 $('#validation_alert_upload').show();
@@ -459,6 +462,10 @@ $(function() {
 
     if($('#mitigation-datatable').length > 0){
         loadDataTableMitigation();
+    }
+
+    if($('#tm-new-datatable').length > 0){
+        loadDataTableTmNew();
     }
 
     $('#payroll-datatable tbody').on('click', '.payroll-email', function() {
@@ -1626,6 +1633,9 @@ function destroyFile(code){
                         if($('#mitigation-datatable').length > 0){
                             loadDataTableMitigation();
                         }
+                        if($('#tm-new-datatable').length > 0){
+                            loadDataTableTmNew();
+                        }
                     }
                 },
                 error: function() {
@@ -1809,6 +1819,10 @@ function destroy(code){
                         if($('#mitigation-datatable').length > 0){
                             loadDataTableMitigation();
                         }
+
+                        if($('#tm-new-datatable').length > 0){
+                            loadDataTableTmNew();
+                        }
                     }else{
                         errorMessage(response.message);
                     }
@@ -1945,6 +1959,10 @@ function save(){
 
                         if($('#mitigation-datatable').length > 0){
                             loadDataTableMitigation();
+                        }
+
+                        if($('#tm-new-datatable').length > 0){
+                            loadDataTableTmNew();
                         }
 
                         $('#modalCreate').modal('toggle');
@@ -3474,6 +3492,67 @@ function loadDataTableMitigation(){
 }
 
 /* HASIL MITIGASI TM */
+
+/* HASIL BERITA ACARA TM */
+
+function loadDataTableTmNew(){
+    window.table = $('#tm-new-datatable').DataTable({
+        "scrollCollapse": true,
+        "scrollY": '400px',
+		"scrollX": true,
+		"scroller": true,
+        "responsive": true,
+        "stateSave": true,
+        "serverSide": true,
+        "deferRender": true,
+        "destroy": true,
+        "fixedColumns": {
+            left: 2,
+            right: 1
+        },
+        "iDisplayInLength": 10,
+        "order": [[0, 'asc']],
+        ajax: {
+            url: window.location.href + '/datatable',
+            type: 'GET',
+            data: {
+                
+            },
+            beforeSend: function() {
+                /* loadingOpen(); */
+            },
+            complete: function() {
+                /* loadingClose(); */
+            },
+            error: function() {
+                /* loadingClose(); */
+                errorConnection();
+            }
+        },
+        columns: [
+            { name: 'id', searchable: false, className: 'text-center' },
+            { name: 'code', className: '' },
+            { name: 'user_id', className: '' },
+            { name: 'project_id', className: '' },
+            { name: 'post_date', className: '' },
+            { name: 'note', className: '' },
+            { name: 'attachment', searchable: false, orderable: false, className: 'text-center' },
+            { name: 'status', searchable: false, orderable: false, className: 'text-center' },
+            { name: 'action', searchable: false, orderable: false, className: 'text-center' },
+        ],
+        createdRow: function ( row, data, index ) {
+            $(row).addClass('selected')
+        },
+        language: {
+            paginate: {
+                next: '<i class="fa fa-angle-double-right" aria-hidden="true"></i>',
+                previous: '<i class="fa fa-angle-double-left" aria-hidden="true"></i>' 
+            }
+        }
+    });
+}
+
+/* HASIL BERITA ACARA TM */
 
 function changePassword(){
     if($('#new_password').val() && $('#confirm_password').val()){

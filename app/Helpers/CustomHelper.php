@@ -103,7 +103,7 @@ class CustomHelper {
 			$userlevel3 = User::where('status','1')->where('type','07')->get();
 			$userlevel4 = User::where('status','1')->where('type','08')->get();
 		}
-		if($url == 'disposisi_legalitas' || $url == 'mitigasi'){
+		if($url == 'disposisi_legalitas' || $url == 'mitigasi' || $url == 'berita_acara'){
 			$userlevel1 = User::where('status','1')->where('type','12')->get();
         	$userlevel2 = User::where('status','1')->where('type','06')->get();
 			$userlevel3 = User::where('status','1')->where('type','07')->get();
@@ -166,6 +166,10 @@ class CustomHelper {
 
 		if($url == 'mitigasi'){
             $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Mitigasi TM No. '.$data->code.' telah dibuat, mohon persetujuannya dengan menekan link terlampir : ';
+        }
+
+		if($url == 'berita_acara'){
+            $message = 'Dear Bapak/Ibu Pimpinan. Ijin menginformasikan bahwa dokumen Berita Acara TM No. '.$data->code.' telah dibuat, mohon persetujuannya dengan menekan link terlampir : ';
         }
 
 		if($userlevel1){

@@ -131,10 +131,10 @@
                             Rp {{ number_format($data->project->cost,0,',','.') }},-
                         </td>
                         <td align="center">
-                            {{ number_format(round(($data->nominal / $data->project->cost) * 100,2),0,',','.') }}%
+                            {{ number_format(round(($data->total / $data->project->cost) * 100,2),0,',','.') }}%
                         </td>
                         <td align="right">
-                            Rp {{ number_format($data->nominal,0,',','.') }},-
+                            Rp {{ number_format($data->total,0,',','.') }},-
                         </td>
                     </tr>
                 </tbody>

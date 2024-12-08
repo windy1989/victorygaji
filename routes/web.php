@@ -3,6 +3,7 @@
 use App\Http\Controllers\ApprovalController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DrafterController;
+use App\Http\Controllers\LeaveController;
 use App\Http\Controllers\LegalityController;
 use App\Http\Controllers\MitigationController;
 use App\Http\Controllers\NotificationController;
@@ -114,6 +115,15 @@ Route::middleware('login')->group(function () {
         Route::post('detail',[OfferingLetterController::class, 'detail']);
         Route::post('destroy',[OfferingLetterController::class, 'destroy']);
         Route::get('print/{id}',[OfferingLetterController::class, 'print']);
+    });
+
+    Route::prefix('cuti')->middleware('admin.auth:01,07,08')->group(function () {
+        Route::get('/',[LeaveController::class, 'index']);
+        Route::get('datatable',[LeaveController::class, 'datatable']);
+        Route::post('create',[LeaveController::class, 'create']);
+        Route::post('show',[LeaveController::class, 'show']);
+        Route::post('detail',[LeaveController::class, 'detail']);
+        Route::post('destroy',[LeaveController::class, 'destroy']);
     });
 
     Route::prefix('spk')->middleware('admin.auth:01,02,06,07,08,09')->group(function () {

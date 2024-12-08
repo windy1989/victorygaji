@@ -3110,7 +3110,7 @@ function loadDataTableHearing(){
             { name: 'project_id', className: '' },
             { name: 'post_date', className: '' },
             { name: 'no_hearing', className: '' },
-            { name: 'no_recomendation', className: '' },
+            /* { name: 'no_recomendation', className: '' }, */
             { name: 'start_date', className: '' },
             { name: 'finish_date', className: '' },
             { name: 'note', className: '' },

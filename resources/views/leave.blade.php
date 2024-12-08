@@ -150,7 +150,7 @@
                 $("#body-leave").append(`
                     <tr class="row_leave">
                         <td class="text-center">` + no + `</td>
-                        <td><input type="date" class="form-control" name="arr_date[]" value="` + {{ date('Y-m-d') }} + `"></td>
+                        <td><input type="date" class="form-control" name="arr_date[]" value="{{ date('Y-m-d') }}"></td>
                         <td class="text-center">
                             <button type="button" class="btn btn-danger" onclick="deleteLeave(this);">Hapus</button>
                         </td>

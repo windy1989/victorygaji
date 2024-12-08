@@ -72,13 +72,14 @@
                             </li>
 						</ul>
 					</li>
-					<li class="{{ in_array(Request::segment(2),['payroll']) ? 'mm-active' : '' }}">
+					<li class="{{ in_array(Request::segment(2),['payroll','cuti']) ? 'mm-active' : '' }}">
 						<a class="has-arrow " href="javascript:void()">
 							<i class="flaticon-381-news"></i>
 							<span class="nav-text">HRD</span>
 						</a>
 						<ul aria-expanded="false">
 							<li class="{{ Request::segment(2) == 'payroll' ? 'mm-active' : '' }}"><a href="{{ url('payroll') }}">Payroll</a></li>
+							<li class="{{ Request::segment(2) == 'cuti' ? 'mm-active' : '' }}"><a href="{{ url('cuti') }}">Cuti</a></li>
 						</ul>
 					</li>
 					<li class="{{ in_array(Request::segment(2),['customer','user']) ? 'mm-active' : '' }}">

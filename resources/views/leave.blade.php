@@ -152,13 +152,13 @@
                         <td class="text-center">` + no + `</td>
                         <td><input type="date" class="form-control" name="arr_date[]" value="` + {{ date('Y-m-d') }} + `"></td>
                         <td class="text-center">
-                            <button type="button" class="btn btn-danger" onclick="deletePayment(this);">Hapus</button>
+                            <button type="button" class="btn btn-danger" onclick="deleteLeave(this);">Hapus</button>
                         </td>
                     </tr>
                 `);
             }
 
-            function deletePayment(element){
+            function deleteLeave(element){
                 $(element).closest('tr').remove();
             }
         </script>

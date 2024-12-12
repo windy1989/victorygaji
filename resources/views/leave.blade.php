@@ -86,11 +86,15 @@
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Kode Dokumen</label>
                                     <input type="hidden" id="temp" name="temp">
-                                    <input type="text" class="form-control" placeholder="Kode Dokumen" id="code" name="code">
+                                    <input type="text" class="form-control" placeholder="Auto generated" id="code" name="code" readonly>
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <label class="form-label">Tgl.Post</label>
-                                    <input type="date" class="form-control" id="post_date" name="post_date" value="{{ date('Y-m-d') }}">
+                                    <label class="form-label">Karyawan</label>
+                                    <select id="employee_id" name="employee_id"></select>
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label class="form-label">Tgl.Pengajuan</label>
+                                    <input type="date" class="form-control" id="post_date" name="post_date" max="{{ date('Y-m-d') }}" value="{{ date('Y-m-d') }}">
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Keterangan Cuti</label>

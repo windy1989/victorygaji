@@ -128,12 +128,17 @@ class LeaveController extends Controller
             $validation = Validator::make($request->all(), [
                 'code'		            => $request->temp ? ['required', Rule::unique('hearings', 'code')->ignore(CustomHelper::decrypt($request->temp),'code')] : 'required|unique:hearings,code',
                 'project_id'            => 'required',
+                'account_id'            => 'required',
                 'post_date'             => 'required',
+                'arr_date'              => 'required|array',
             ], [
                 'code.required'             => 'Kode tidak boleh kosong.',
                 'code.unique'               => 'Kode telah dipakai.',
                 'project_id.required'       => 'Project tidak boleh kosong.',
+                'account_id.required'       => 'Karyawan tidak boleh kosong.',
                 'post_date.required'        => 'Tgl. post tidak boleh kosong.',
+                'arr_date.required'         => 'Tgl. pengajuan cuti tidak boleh kosong.',
+                'arr_date.array'            => 'Tgl. pengajuan cuti harus dalam array.',
             ]);
 
             if($validation->fails()) {
@@ -148,65 +153,44 @@ class LeaveController extends Controller
                     if($query->status == '3'){
                         return response()->json([
                             'status'    => 500,
-                            'message'   => 'Ups. Sidang telah SELESAI, anda tidak bisa melakukan perubahan.'
+                            'message'   => 'Ups. Cuti telah SELESAI, anda tidak bisa melakukan perubahan.'
                         ]);
-                    }
-
-                    $desiredPath = '';
-                    if($request->has('document')){
-                        if($query->document){
-                            if(Storage::exists($query->document)){
-                                Storage::delete($query->document);
-                            }
-                        }
-                        $imageName = Str::random(35).'.png';
-                        $path =storage_path('app/public/hearing/'.$imageName);
-                        $newFile = CustomHelper::compress($request->document,$path,50);
-                        $basePath = storage_path('app');
-                        $desiredPath = explode($basePath.'/', $newFile)[1];
-                    }else{
-                        $desiredPath = $query->document;
                     }
 
                     $query->user_id         = session('bo_id');
                     $query->code            = $request->code;
-                    $query->project_id      = $request->project_id;
+                    $query->employee_id     = $request->employee_id;
                     $query->post_date       = $request->post_date;
-                    $query->no_hearing      = $request->no_hearing;
-                    /* $query->no_recomendation= $request->no_recomendation; */
-                    $query->start_date      = $request->start_date;
-                    $query->finish_date     = $request->finish_date;
-                    $query->document        = $desiredPath ?? NULL;
                     $query->note            = $request->note;
                     $query->status          = '3';
                     $query->save();
-                    CustomHelper::saveLog($query->getTable(),$query->id,'Update data sidang '.$query->code,'Pengguna '.session('bo_nama').' telah mengubah data sidang no '.$query->code);
+
+                    $query->leaveDetail()->delete();
+                    
+                    CustomHelper::saveLog($query->getTable(),$query->id,'Update data cuti karyawan '.$query->code,'Pengguna '.session('bo_nama').' telah menambahkan cuti karyawan no '.$query->code);
                 }else{
-                    $desiredPath = '';
-                    if($request->has('document')){
-                        $imageName = Str::random(35).'.png';
-                        $path =storage_path('app/public/hearing/'.$imageName);
-                        $newFile = CustomHelper::compress($request->document,$path,50);
-                        $basePath = storage_path('app');
-                        $desiredPath = explode($basePath.'/', $newFile)[1];
-                    }
-                    $query = Hearing::create([
+                    $query = Leave::create([
                         'user_id'           => session('bo_id'),
                         'code'              => $request->code,
-                        'project_id'        => $request->project_id,
+                        'employee_id'       => $request->employee_id,
                         'post_date'         => $request->post_date,
-                        'no_hearing'        => $request->no_hearing,
-                        /* 'no_recomendation'  => $request->no_recomendation, */
-                        'start_date'        => $request->start_date,
-                        'finish_date'       => $request->finish_date,
-                        'document'          => $desiredPath ?? NULL,
                         'note'              => $request->note,
                         'status'            => '3',
                     ]);
-                    CustomHelper::saveLog($query->getTable(),$query->id,'Tambah baru data sidang '.$query->code,'Pengguna '.session('bo_nama').' telah manambahkan baru data sidang no '.$query->code);
+                    CustomHelper::saveLog($query->getTable(),$query->id,'Tambah baru data cuti karyawan '.$query->code,'Pengguna '.session('bo_nama').' telah manambahkan baru data sidang no '.$query->code);
                 }
                 
                 if($query) {
+
+                    if($request->arr_date){
+                        foreach($request->arr_date as $row){
+                            LeaveDetail::create([
+                                'leave_id'  => $query->id,
+                                'date'      => $row,
+                            ]);
+                        }
+                    }
+
                     $response = [
                         'status'  => 200,
                         'message' => 'Data berhasil disimpan.'

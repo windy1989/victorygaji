@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Helpers\CustomHelper;
 use App\Models\Project;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Bank;
@@ -14,6 +15,28 @@ use App\Models\Region;
 
 class Select2Controller extends Controller {
     
+    public function employee(Request $request)
+    {
+        $response = [];
+        $search   = $request->search;
+        $data = User::where(function($query)use($search){
+                $query->where('nama', 'like', "%$search%")
+                    ->orWhere('nik','like',"%$search%")
+                    ->orWhere('email','like',"%$search%");
+            })
+            ->where('status','1')
+            ->get();
+
+        foreach($data as $d) {
+            $response[] = [
+                'id'   			=> $d->id,
+                'text' 			=> $d->code.' - '.$d->name,
+            ];
+        }
+
+        return response()->json(['items' => $response]);
+    }
+
     public function customer(Request $request)
     {
         $response = [];

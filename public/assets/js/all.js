@@ -602,6 +602,7 @@ $(function() {
         document.querySelector('.select2-search__field').focus();
     });
     select2ServerSide('#customer_id','select2/customer');
+    select2ServerSide('#employee_id','select2/employee');
     select2ServerSide('#region_id','select2/region');
     select2ServerSide('#project_type_id','select2/project_type');
     select2ServerSide('#purpose_id','select2/purpose');

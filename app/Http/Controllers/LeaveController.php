@@ -126,13 +126,10 @@ class LeaveController extends Controller
         DB::beginTransaction();
         try {
             $validation = Validator::make($request->all(), [
-                'code'		            => $request->temp ? ['required', Rule::unique('hearings', 'code')->ignore(CustomHelper::decrypt($request->temp),'code')] : 'required|unique:hearings,code',
                 'account_id'            => 'required',
                 'post_date'             => 'required',
                 'arr_date'              => 'required|array',
             ], [
-                'code.required'             => 'Kode tidak boleh kosong.',
-                'code.unique'               => 'Kode telah dipakai.',
                 'account_id.required'       => 'Karyawan tidak boleh kosong.',
                 'post_date.required'        => 'Tgl. post tidak boleh kosong.',
                 'arr_date.required'         => 'Tgl. pengajuan cuti tidak boleh kosong.',

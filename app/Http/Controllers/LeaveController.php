@@ -171,7 +171,7 @@ class LeaveController extends Controller
                 }else{
                     $query = Leave::create([
                         'user_id'           => session('bo_id'),
-                        'code'              => $request->code,
+                        'code'              => strtoupper(Str::random(10)),
                         'employee_id'       => $request->employee_id,
                         'post_date'         => $request->post_date,
                         'note'              => $request->note,

@@ -2013,6 +2013,7 @@ $(function() {
         $('#nominal_project').text('0,00');
         $('#previewFile').html('');
         $('#body-payment').empty();
+        $('.row_leave').remove();
     });
 
     $('#modalUpload').on('hidden.bs.modal', function (e) {

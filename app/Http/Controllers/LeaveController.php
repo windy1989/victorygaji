@@ -276,25 +276,25 @@ class LeaveController extends Controller
     }
 
     public function destroy(Request $request){
-        $query = Hearing::where('code',CustomHelper::decrypt($request->code))->first();
+        $query = Leave::where('code',CustomHelper::decrypt($request->code))->first();
         if($query){
-            if($query->status == '1'){
-                CustomHelper::saveLog($query->getTable(),$query->id,'Sidang nomor '.$query->code.' telah dihapus.','Pengguna '.session('bo_nama').' telah menghapus data sidang no '.$query->code);
+            /* if($query->status == '1'){ */
+                CustomHelper::saveLog($query->getTable(),$query->id,'Cuti karyawan '.$query->code.' telah dihapus.','Pengguna '.session('bo_nama').' telah menghapus data cuti karyawan no. '.$query->code);
 
-                $query->deleteFile();
                 $query->approval()->delete();
+                $query->leaveDetail()->delete();
                 $query->delete();
 
                 $response = [
                     'status'    => 200,
                     'message'   => 'Data berhasil dihapus.',
                 ];
-            }else{
+            /* }else{
                 $response = [
                     'status'    => 500,
                     'message'   => 'Hanya dokumen MENUNGGU yang bisa dihapus.',
                 ];
-            }
+            } */
         }else{
             $response = [
                 'status'  => 500,

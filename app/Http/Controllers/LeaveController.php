@@ -97,7 +97,7 @@ class LeaveController extends Controller
                     date('d/m/Y',strtotime($val->post_date)),
                     $val->note,
                     $val->statusBadge(),
-                    $val->leaveDetail()->count().' - Tgl : '.$val->getDates(),
+                    $val->leaveDetail()->count().' - Tgl : '.$val->getDateDetail(),
                     '
                         <a href="javascript:void(0);" class="btn btn-secondary btn-sm content-icon" onclick="detail(`'.CustomHelper::encrypt($val->code).'`)"><i class="fa fa-info-circle"></i></a>
                         <a href="javascript:void(0);" class="btn btn-warning btn-sm content-icon" onclick="edit(`'.CustomHelper::encrypt($val->code).'`)"><i class="fa fa-edit"></i></a>
@@ -231,7 +231,7 @@ class LeaveController extends Controller
         $data = Leave::where('code',CustomHelper::decrypt($request->code))->first();
         if($data){
 
-            $html = '<h4>Tgl. Cuti diajukan : '.$data->getDates().'</h4>';
+            $html = '<h4>Tgl. Cuti diajukan : '.$data->getDateDetail().'</h4>';
 
             if($data->approval()->exists()){
                 $html = '<table class="table table-responsive-md">

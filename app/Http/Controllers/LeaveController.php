@@ -145,12 +145,12 @@ class LeaveController extends Controller
                 if($request->temp){
                     $query = Leave::where('code',CustomHelper::decrypt($request->temp))->first();
 
-                    if($query->status == '3'){
+                    /* if($query->status == '3'){
                         return response()->json([
                             'status'    => 500,
                             'message'   => 'Ups. Cuti telah SELESAI, anda tidak bisa melakukan perubahan.'
                         ]);
-                    }
+                    } */
 
                     $query->user_id         = session('bo_id');
                     $query->code            = $request->code;

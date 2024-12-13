@@ -97,7 +97,7 @@ class LeaveController extends Controller
                     date('d/m/Y',strtotime($val->post_date)),
                     $val->note,
                     $val->statusBadge(),
-                    $val->leaveDetail()->count(),
+                    $val->leaveDetail()->count().' - Tgl : '.$val->getDates(),
                     '
                         <a href="javascript:void(0);" class="btn btn-secondary btn-sm content-icon" onclick="detail(`'.CustomHelper::encrypt($val->code).'`)"><i class="fa fa-info-circle"></i></a>
                         <a href="javascript:void(0);" class="btn btn-warning btn-sm content-icon" onclick="edit(`'.CustomHelper::encrypt($val->code).'`)"><i class="fa fa-edit"></i></a>

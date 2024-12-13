@@ -1419,6 +1419,30 @@ function edit(code){
                     $('#note').val(response.data.note);
                 }
 
+                /* JIKA FORM HASIL SURVEI */
+                if($('#leave-datatable').length > 0){
+                    $('#code').val(response.data.code);
+                    $('#employee_id').empty().append(`
+                        <option value="` + response.data.employee_id + `">` + response.data.employee_name + `</option>
+                    `);
+                    $('#post_date').val(response.data.post_date);
+                    $('#note').val(response.data.note);
+                    if(response.data.details.length > 0){
+                        $('#body-leave').empty();
+                        $.each(response.data.details, function(i, val) {
+                            $("#body-leave").append(`
+                                <tr class="row_leave">
+                                    <td class="text-center">` + (i+1) + `</td>
+                                    <td><input type="date" class="form-control" name="arr_date[]" value="` + val + `"></td>
+                                    <td class="text-center">
+                                        <button type="button" class="btn btn-danger" onclick="deleteLeave(this);">Hapus</button>
+                                    </td>
+                                </tr>
+                            `);
+                        });
+                    }
+                }
+
                 $('#modalCreate').modal('toggle');
             }else{
                 errorMessage('Data tidak ditemukan.');

@@ -205,9 +205,14 @@ class LeaveController extends Controller
     }
 
     public function show(Request $request){
-        $data = Hearing::where('code',CustomHelper::decrypt($request->code))->first();
+        $data = Leave::where('code',CustomHelper::decrypt($request->code))->first();
         if($data){
-            $data['project_code'] = $data->project->code.' - '.$data->project->name.' - '.$data->project->customer->name;
+            $data['employee_name'] = $data->employe->nik.' - '.$data->employee->nama;
+            $detail = [];
+            foreach($data->leaveDetail as $row){
+                $detail[] = $row->date;
+            }
+            $data['details'] = $detail;
             $response = [
                 'status'    => 200,
                 'data'      => $data,

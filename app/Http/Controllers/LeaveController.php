@@ -172,7 +172,7 @@ class LeaveController extends Controller
                         'note'              => $request->note,
                         'status'            => '3',
                     ]);
-                    CustomHelper::saveLog($query->getTable(),$query->id,'Tambah baru data cuti karyawan '.$query->code,'Pengguna '.session('bo_nama').' telah manambahkan baru data sidang no '.$query->code);
+                    CustomHelper::saveLog($query->getTable(),$query->id,'Tambah baru data cuti karyawan '.$query->code,'Pengguna '.session('bo_nama').' telah manambahkan baru cuti karyawan no '.$query->code);
                 }
                 
                 if($query) {

@@ -228,10 +228,10 @@ class LeaveController extends Controller
     }
 
     public function detail(Request $request){
-        $data = Hearing::where('code',CustomHelper::decrypt($request->code))->first();
+        $data = Leave::where('code',CustomHelper::decrypt($request->code))->first();
         if($data){
 
-            $html = '';
+            $html = '<h4>Tgl. Cuti diajukan : '.$data->getDates().'</h4>';
 
             if($data->approval()->exists()){
                 $html = '<table class="table table-responsive-md">

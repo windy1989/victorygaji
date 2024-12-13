@@ -72,4 +72,12 @@ class Leave extends Model
     public function leaveDetail(): mixed{
         return $this->hasMany('App\Models\LeaveDetail');
     }
+
+    public function getDates(){
+        $arr = [];
+        foreach($this->leaveDetail as $row){
+            $arr[] = date('d/m/Y',strtotime($row->date));
+        }
+        return implode(', ',$arr);
+    }
 }

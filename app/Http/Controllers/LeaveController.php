@@ -207,7 +207,7 @@ class LeaveController extends Controller
     public function show(Request $request){
         $data = Leave::where('code',CustomHelper::decrypt($request->code))->first();
         if($data){
-            $data['employee_name'] = $data->employe->nik.' - '.$data->employee->nama;
+            $data['employee_name'] = $data->employee->nik.' - '.$data->employee->nama;
             $detail = [];
             foreach($data->leaveDetail as $row){
                 $detail[] = $row->date;

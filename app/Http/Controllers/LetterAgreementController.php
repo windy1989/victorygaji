@@ -275,6 +275,9 @@ class LetterAgreementController extends Controller
                     $query->note                = $request->note;
                     $query->status              = '3';
                     $query->save();
+                    
+                    $query->letterAgreementPayment()->delete();
+
                     CustomHelper::saveLog($query->getTable(),$query->id,'Update data surat spk '.$query->code,'Pengguna '.session('bo_nama').' telah mengubah data surat spk no '.$query->code);
                 }else{
                     $query = LetterAgreement::create([

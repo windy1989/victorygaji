@@ -307,7 +307,7 @@ Route::middleware('login')->group(function () {
         Route::get('print_receipt/{id}',[InvoiceController::class, 'printReceipt']);
     });
 
-    Route::prefix('payroll')->middleware('admin.auth:01')->group(function () {
+    Route::prefix('payroll')->middleware('admin.auth:01,07,08')->group(function () {
         Route::get('/',[PayrollController::class, 'index']);
         Route::get('datatable',[PayrollController::class, 'datatable']);
         Route::post('create',[PayrollController::class, 'create']);
